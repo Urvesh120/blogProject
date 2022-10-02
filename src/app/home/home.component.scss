@@ -1,0 +1,106 @@
+// First Image slider
+
+@keyframes slider1 {
+  0% {left: 0%;}
+  28% {left: 0%;}
+  33% {left: -100%;} 
+  62% {left: -100%;}
+  67% {left: -200%;} 
+  95% {left: -200%;}
+  100% {left: 0%;}  
+}
+
+div#slider1 
+{ 
+  overflow: hidden; 
+}
+
+div#slider1 figure img 
+{
+   width: 20%; 
+   float: left; 
+  //  padding: 0px 50px;
+}
+
+div#slider1 figure 
+{ 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 15s slider1 infinite; 
+}
+
+img{
+  padding: 15px;
+}
+
+// Second Image slider
+
+@keyframes slider2 {
+  0% {left: 0%;}
+  28% {left: 0%;}
+  33% {left: -100%;} 
+  62% {left: -100%;}
+  67% {left: -200%;} 
+  95% {left: -200%;}
+  100% {left: 0%;}  
+}
+
+div#slider2 
+{ 
+  overflow: hidden; 
+}
+
+div#slider2 figure img 
+{
+   width: 20%; 
+   float: left; 
+  //  padding: 0px 50px;
+}
+
+div#slider2 figure 
+{ 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 15s slider2 infinite; 
+}
+
+p{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.title{
+  text-align: center;
+  font-weight: bold;
+}
+
+.description{
+  padding: 0px 20px;
+}
+
+.descriptionBtn{
+  text-decoration: none;
+  font-size: 13px;
+  color: blue;
+  float: right;
+  cursor: pointer;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+  // margin-right: auto;
+  // width: 50%;
+}
+
+.section{
+  margin-bottom: 50px;
+}

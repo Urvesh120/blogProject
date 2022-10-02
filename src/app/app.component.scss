@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fce205;
+    padding: 10px;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0px 10px;
+    font-size: 20px;
+}
+
+ul li a:active, 
+ul li a:hover{
+    background-color: #ecd503;
+}
+
+#icon{
+    cursor: pointer;
+}
+
+#icon:hover{
+    background-color: #ecd503;
+}
+
+#icon svg{
+    color: #ffffff;
+    height: 28px;
+}
+
+#checkbox, #icon{
+    display: none;
+}
+
+@media screen and(max-width: 768px) {
+    ul{
+        position: absolute;
+        width: 50%;
+        height: calc(100vh - 42.82px);
+        background-color: #fce205;
+        // left: 0;
+        right: 0;
+        top: 0;
+        text-align: center;
+        margin-top: 42.82px;
+        display: none;
+        z-index: 10;
+    }
+
+    ul li{
+        display: block;
+        padding: 10px 20px;
+    }
+
+    ul li a{
+        display: block;
+    }
+
+    #icon{
+        display: block;
+    }
+
+    #checkbox:checked~ul{
+        display: block;
+    }
+}
+
+.content{
+    overflow-y: auto !important;
+}
+
+#loginIcon svg{
+    color: #ffffff;
+    height: 28px;
+}
