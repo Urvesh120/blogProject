@@ -8,8 +8,6 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f9c809;
-    padding: 10px;
 }
 
 ul{
@@ -20,34 +18,19 @@ ul li{
     display: inline-block;
 }
 
-ul li[class='loginBtn']{
-    display: none;
-}
-
 ul li a{
     text-decoration: none;
-    color: #ffffff;
-    padding: 0px 10px;
+    color: #d5ba62;
+    padding: 0px 10px 15px 10px;
     font-size: 20px;
-}
-
-ul li a:active, 
-ul li a:hover{
-    padding: 10px;
-    background-color: black;
-    color: #ffffff;
 }
 
 #icon{
     cursor: pointer;
 }
 
-#icon:hover{
-    background-color: #ecd503;
-}
-
 #icon svg{
-    color: #ffffff;
+    color: #000000;
     height: 28px;
 }
 
@@ -59,46 +42,28 @@ ul li a:hover{
     overflow-y: auto !important;
 }
 
-#loginIcon svg{
-    color: #ffffff;
-    height: 28px;
-}
-
-.loginBtn{
-    display: none;
-}
-
 @media screen and(max-width: 768px) {
     ul{
         position: absolute;
-        width: 50%;
-        height: calc(100vh - 42.82px);
-        background-color: #f9c809;
-        // left: 0;
+        width: 45%;
+        height: calc(100vh - 28px);
+        background-color: #F9DA76;
         right: 0;
         top: 0;
         text-align: center;
-        margin-top: 42.82px;
+        margin-top: 28px;
         display: none;
         z-index: 10;
     }
 
     ul li{
         display: block;
-        padding: 10px 20px;
         text-align: left;
-    }
-
-    ul li[class='loginIcon']{
-        display: none;
-    }
-
-    ul li[class='loginBtn']{
-        display: block;
     }
 
     ul li a{
         display: block;
+        color: #786834;
     }
 
     #icon{
@@ -108,4 +73,34 @@ ul li a:hover{
     #checkbox:checked~ul{
         display: block;
     }
+}
+
+/*-------------------------------------------------------------------------------*/
+.link {
+  display: inline-block;
+//   padding-bottom: 15px;
+  margin: 15px 10px;
+  position: relative;
+  text-decoration: none;
+  color: #0f0f0f;
+  font-weight: 500;
+  font-size: 24px;
+  
+  .bar {
+    width: 100%;
+    display: inline-block;
+    border-bottom: 5px solid #786834;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 300ms;
+  }
+  
+  &:hover {
+    .bar {
+      opacity: 1;
+      bottom: 5px;
+    }
+  }
 }
