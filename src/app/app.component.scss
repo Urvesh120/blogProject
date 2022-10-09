@@ -8,7 +8,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fce205;
+    background-color: #f9c809;
     padding: 10px;
 }
 
@@ -20,6 +20,10 @@ ul li{
     display: inline-block;
 }
 
+ul li[class='loginBtn']{
+    display: none;
+}
+
 ul li a{
     text-decoration: none;
     color: #ffffff;
@@ -29,7 +33,9 @@ ul li a{
 
 ul li a:active, 
 ul li a:hover{
-    background-color: #ecd503;
+    padding: 10px;
+    background-color: black;
+    color: #ffffff;
 }
 
 #icon{
@@ -49,12 +55,25 @@ ul li a:hover{
     display: none;
 }
 
+.content{
+    overflow-y: auto !important;
+}
+
+#loginIcon svg{
+    color: #ffffff;
+    height: 28px;
+}
+
+.loginBtn{
+    display: none;
+}
+
 @media screen and(max-width: 768px) {
     ul{
         position: absolute;
         width: 50%;
         height: calc(100vh - 42.82px);
-        background-color: #fce205;
+        background-color: #f9c809;
         // left: 0;
         right: 0;
         top: 0;
@@ -67,6 +86,15 @@ ul li a:hover{
     ul li{
         display: block;
         padding: 10px 20px;
+        text-align: left;
+    }
+
+    ul li[class='loginIcon']{
+        display: none;
+    }
+
+    ul li[class='loginBtn']{
+        display: block;
     }
 
     ul li a{
@@ -80,13 +108,4 @@ ul li a:hover{
     #checkbox:checked~ul{
         display: block;
     }
-}
-
-.content{
-    overflow-y: auto !important;
-}
-
-#loginIcon svg{
-    color: #ffffff;
-    height: 28px;
 }
