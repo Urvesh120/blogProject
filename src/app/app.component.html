@@ -1,42 +1,17 @@
-<div class="navbarDiv">
-  <nav>
-    <div class="logo"></div>
-    <input type="checkbox" id="checkbox">
-    <label for="checkbox" id="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-    </label>
-    <ul>
-      <li>
-        <a [routerLink]="['/home']" class="link">
-          <div class="title">Home</div>
-          <div class="bar"></div>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/about-us']" class="link">
-          <div class="title">About</div>
-          <div class="bar"></div>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/home']" class="link">
-          <div class="title">Charity</div>
-          <div class="bar"></div>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/home']" class="link">
-          <div class="title">Login</div>
-          <div class="bar"></div>
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div class="navbarHeader">
+  <header class="header">
+  <a class="logo"></a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a id="home" [routerLink]="['/home']">હોમ</a></li>
+    <li><a id="about" [routerLink]="['/about-us']">અબાઉટ</a></li>
+    <li><a id="charity" [routerLink]="['/home']">ચેરિટી</a></li>
+    <li><a id="login" [routerLink]="['/home']">લોગીન</a></li>
+  </ul>
+  </header>
 </div>
-<hr>
 
-<div class="container-fluid content">
+<div class="content">
   <router-outlet></router-outlet>
 </div>

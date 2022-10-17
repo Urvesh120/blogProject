@@ -1,106 +1,150 @@
-*{
+@font-face {
+	font-family: 'Anek Gujarati';
+	src: url('../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
+}
+
+  /* header */
+  
+  .navbarHeader{
+    height: 60px;
+  }
+  .header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .content{
+    top: 60px;
+  }
+  
+  .header ul {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-ul{
     list-style: none;
-}
-
-ul li{
-    display: inline-block;
-}
-
-ul li a{
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
     text-decoration: none;
-    color: #d5ba62;
-    padding: 0px 10px 15px 10px;
-    font-size: 20px;
-}
+    font-family: 'Anek Gujarati';
+    font-size: 25px;
+    font-weight: 500;
+  }
 
-#icon{
+  .header li a{
+    color: #FF6200;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: rgba(255, 98, 0, 0.11);
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
     cursor: pointer;
-}
-
-#icon svg{
-    color: #000000;
-    height: 28px;
-}
-
-#checkbox, #icon{
-    display: none;
-}
-
-.content{
-    overflow-y: auto !important;
-}
-
-@media screen and(max-width: 768px) {
-    ul{
-        position: absolute;
-        width: 45%;
-        height: calc(100vh - 28px);
-        background-color: #F9DA76;
-        right: 0;
-        top: 0;
-        text-align: center;
-        margin-top: 28px;
-        display: none;
-        z-index: 10;
-    }
-
-    ul li{
-        display: block;
-        text-align: left;
-    }
-
-    ul li a{
-        display: block;
-        color: #786834;
-    }
-
-    #icon{
-        display: block;
-    }
-
-    #checkbox:checked~ul{
-        display: block;
-    }
-}
-
-/*-------------------------------------------------------------------------------*/
-.link {
-  display: inline-block;
-//   padding-bottom: 15px;
-  margin: 15px 10px;
-  position: relative;
-  text-decoration: none;
-  color: #0f0f0f;
-  font-weight: 500;
-  font-size: 24px;
-  
-  .bar {
-    width: 100%;
     display: inline-block;
-    border-bottom: 5px solid #786834;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    transition: all 300ms;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
   }
   
-  &:hover {
-    .bar {
-      opacity: 1;
-      bottom: 5px;
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2.5px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 20px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
     }
   }
-}
+  
