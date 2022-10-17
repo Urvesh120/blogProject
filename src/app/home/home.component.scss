@@ -25,19 +25,19 @@
 }
 
 h3{
-  margin : 50px;
+  margin : 30px;
   font-family: 'Anek Gujarati';
   font-size: 20px;
   text-align: justify;
   line-height: 35px;
 }
 h1{
-  font-size: 160px;
+  font-size: 110px;
   text-align: center;
   font-family: 'Anek Gujarati';
 }
 
-.abc {	
+.mainDiv {	
   background: linear-gradient(to bottom, #FDB777, #FD7F2C, #fec051, #FDA766, #FD9346 );
   // background-size: 100%;
   padding: 5%;
@@ -50,4 +50,38 @@ h1{
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
+}
+
+@media (max-width: 768px){
+  h1{
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Anek Gujarati';
+    opacity: 1;
+  }
+
+  h3{
+    margin : 5px;
+    font-family: 'Anek Gujarati';
+    font-size: 20px;
+    text-align: justify;
+    line-height: 35px;
+  }
+
+  .parallax{
+    background: url('../../assets/images/imageSlider1-1.jpeg') no-repeat center ;
+    background-position: center;
+    background-size: contain;
+    color: rgb(255, 255, 255);
+    opacity: 0.75;
+    text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+  }
+
+  .parallax-1{
+    background: url('../../assets/images/imageSlider2-1.jpeg') no-repeat center ;
+    background-size: contain;
+    color: rgb(255, 255, 255);
+    opacity: 0.75;
+    text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+  }
 }
