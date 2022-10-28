@@ -8,20 +8,22 @@
     background: url('../../assets/images/imageSlider1-1.jpeg') repeat fixed 100%;
     background-size: cover;
     color: rgb(255, 255, 255);
-  opacity: 0.75;
-  text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+    text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
 }
 
 .parallax-1{
   background: url('../../assets/images/imageSlider2-1.jpeg') repeat fixed 100%;
   background-size: cover;
   color: rgb(255, 255, 255);
-  opacity: 0.75;
   text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
 }
 .parallax-inner{
   padding-top: 20%;
   padding-bottom: 20%;
+}
+
+.inner-div{
+  margin: 30%;
 }
 
 h3{
@@ -32,40 +34,43 @@ h3{
   line-height: 35px;
 }
 h1{
-  font-size: 110px;
+  padding: 20px;
+  margin: 0;
+  font-size: 70px;
   text-align: center;
   font-family: 'Anek Gujarati';
 }
 
 .mainDiv {	
-  background: linear-gradient(to bottom, #FDB777, #FD7F2C, #fec051, #FDA766, #FD9346 );
+  // background: linear-gradient(to bottom, #FDB777, #FD7F2C, #fec051, #FDA766, #FD9346 );
   // background-size: 100%;
   padding: 5%;
   height: 100%;
   background-repeat: no-repeat;
 }
 
-#container {
-  background-color: #FFF;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
-}
+// #container {
+//   background-color: #FFF;
+//   padding: 10px;
+//   border-radius: 20px;
+//   // box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
+// }
 
 @media (max-width: 768px){
   h1{
-    font-size: 35px;
+    font-size: 27px;
+    padding: 10px;
+    margin: 0;
     text-align: center;
     font-family: 'Anek Gujarati';
-    opacity: 1;
   }
 
   h3{
-    margin : 5px;
+    margin : 15px;
     font-family: 'Anek Gujarati';
     font-size: 20px;
     text-align: justify;
-    line-height: 35px;
+    line-height: 30px;
   }
 
   .parallax{
@@ -73,7 +78,6 @@ h1{
     background-position: center;
     background-size: contain;
     color: rgb(255, 255, 255);
-    opacity: 0.75;
     text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
   }
 
@@ -81,7 +85,6 @@ h1{
     background: url('../../assets/images/imageSlider2-1.jpeg') no-repeat center ;
     background-size: contain;
     color: rgb(255, 255, 255);
-    opacity: 0.75;
     text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
   }
 }
