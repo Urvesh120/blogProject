@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { HomeComponent } from './home/home.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 const routes: Routes = [
-  {path : '', redirectTo : 'home', pathMatch : 'full'},
-  {path : 'home', component : HomeComponent},
-  {path : 'about-us', component : AboutUsComponent},
+  {path : '', loadChildren: () => import('./landingpage/landingpage.module').then(m => m.LandingpageModule)},
   {path : 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
-  {path : '**',  redirectTo : 'home', pathMatch : 'full'}
+  {path : '**',  loadChildren: () => import('./landingpage/landingpage.module').then(m => m.LandingpageModule)}
 ];
 
 @NgModule({
