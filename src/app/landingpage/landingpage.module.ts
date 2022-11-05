@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { TrustsComponent } from './trusts/trusts.component';
 
+import { ModuleModule } from '../shared/modules/modules.module';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { TrustsComponent } from './trusts/trusts.component';
   imports: [
     CommonModule,
     LandingpageRoutingModule,
-    RouterModule
+    RouterModule,
+    ModuleModule
   ]
 })
 export class LandingpageModule { }
