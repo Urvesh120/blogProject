@@ -1,18 +1,18 @@
 
 @font-face {
     font-family: 'Anek Gujarati';
-    src: url('../../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
+    src: url('../../../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
   }
     
   .parallax{
-      background: url('../../assets/images/imageSlider1-1.jpeg') repeat fixed 100%;
+      background: url('../../../assets/images/imageSlider1-1.jpeg') repeat fixed 100%;
       background-size: cover;
       color: rgb(255, 255, 255);
       text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
   }
   
   .parallax-1{
-    background: url('../../assets/images/imageSlider2-1.jpeg') repeat fixed 100%;
+    background: url('../../../assets/images/imageSlider2-1.jpeg') repeat fixed 100%;
     background-size: cover;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
@@ -74,7 +74,7 @@
     }
   
     .parallax{
-      background: url('../../assets/images/imageSlider1-1.jpeg') no-repeat center ;
+      background: url('../../../assets/images/imageSlider1-1.jpeg') no-repeat center ;
       background-position: center;
       background-size: contain;
       color: rgb(255, 255, 255);
@@ -82,7 +82,7 @@
     }
   
     .parallax-1{
-      background: url('../../assets/images/imageSlider2-1.jpeg') no-repeat center ;
+      background: url('../../../assets/images/imageSlider2-1.jpeg') no-repeat center ;
       background-size: contain;
       color: rgb(255, 255, 255);
       text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;

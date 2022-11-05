@@ -3,15 +3,23 @@
     <a class="logo"></a>
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
+    <ul class="menu1">
       <li><a id="home" [routerLink]="['/home']">હોમ</a></li>
-      <li><a id="trust" [routerLink]="['/trusts']">ટ્રસ્ટ</a></li>
+      <li><a id="home" [routerLink]="['/trusts']">ટ્રસ્ટ</a></li>
+      <!-- <li><select>
+        <option selected class="default">ટ્રસ્ટ</option>
+        <option disabled class="default">ટ્રસ્ટ</option>
+        <option>શ્રી નંદીકેશ્વર મહાદેવ ટ્રસ્ટ</option>
+        <option>શ્રી નંદીકેશ્વર ચેરીટેબલ ટ્રસ્ટ</option>
+        <option>શ્રી નોંદેરા પ્રગતિ ટ્રસ્ટ</option>
+      </select></li> -->
       <li><a id="profile" [routerLink]="['/home']">પ્રોફાઈલ</a></li>
       <li><a id="about" [routerLink]="['/about-us']">અબાઉટ</a></li>
       <li><a id="login" [routerLink]="['/auth']">લોગીન</a></li>
     </ul>
     </header>
   </div>
+
   
   <div class="content">
     <router-outlet></router-outlet>

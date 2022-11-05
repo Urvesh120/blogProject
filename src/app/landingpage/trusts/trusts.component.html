@@ -1,1 +1,51 @@
-<p>trusts works!</p>
+<div class="about-trust">
+  <h1>Trust Name</h1>
+  <h1>History</h1>
+</div>
+
+
+<div class="row sliderMain">
+  <div class="col col-1"><button class="btn" (click)="changePage(-1)"><i class="fa fa-arrow-left"></i></button></div>
+  <div class="col col-10">
+    <div class="content">
+
+      <div *ngIf="currentPage == 1" class="one">
+        <div class="row">
+          <div class="col-3 img">
+            <img class="img_1" src="https://c4.wallpaperflare.com/wallpaper/978/131/617/kiz-kulesi-turkey-istanbul-maiden-s-tower-wallpaper-preview.jpg">
+          </div>
+          <div class="col-9 about">
+            <h1>Name 1</h1>
+            <h3>Designation 1</h3>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="currentPage == 2" class="two">
+        <div class="row">
+          <div class="col-3 img">
+            <img class="img_1" src="https://c4.wallpaperflare.com/wallpaper/978/131/617/kiz-kulesi-turkey-istanbul-maiden-s-tower-wallpaper-preview.jpg">
+          </div>
+          <div class="col-9 about">
+            <h1>Name 2</h1>
+            <h3>Designation 2</h3>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="currentPage == 3" class="three">
+        <div class="row">
+          <div class="col-3 img">
+            <img class="img_1" src="https://c4.wallpaperflare.com/wallpaper/978/131/617/kiz-kulesi-turkey-istanbul-maiden-s-tower-wallpaper-preview.jpg">
+          </div>
+          <div class="col-9 about">
+            <h1>Name 3</h1>
+            <h3>Designation 3</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col col-1"><button class="btn" (click)="changePage(1)"><i class="fa fa-arrow-right"></i></button></div>
+</div>
