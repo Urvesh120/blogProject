@@ -6,6 +6,7 @@
   
   .navbarHeader{
     height: 60px;
+    background-color: white;
   }
 
   select{
@@ -34,7 +35,18 @@
   }
 
   .content{
+    background-image: url(../../assets/images/photo-1614851099175-e5b30eb6f696.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     top: 60px;
+    padding: 3%;
+  }
+
+  .pages{
+    background-color: white;
+    border-radius: 20px;
+    padding: 3%;
   }
   
   .header ul {
