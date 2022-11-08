@@ -1,11 +1,16 @@
 .loginFormDiv{
     width: 30%;
-    margin: 10% auto;
+    margin: auto;
+    padding-top: 12%;
     text-align: center;
 }
 
 .formItem{
     margin-bottom: 5%;
+}
+
+input{
+    width: 100%;
 }
 
 button[type='submit']{
@@ -16,7 +21,8 @@ button[type='submit']{
     background-color: blue;
 }
 
-button[type='submit']:hover{
-    color: black;
-    background-color: red;
+.button{
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
 }

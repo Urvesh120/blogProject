@@ -1,15 +1,32 @@
-.loginFormDiv{
-    width: 30%;
-    margin: 10% auto;
-    text-align: center;
+.loginPage{
+  background-image: url('../../../assets/images/58064\ [Converted]-1.png');
 }
 
-.formItem{
-    margin-bottom: 5%;
+mat-card-title{
+    font-family: 'Anek Gujarati';
+    color: #FF6200;
 }
 
-button[type='submit']{
-    width: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+mat-icon{
+    color: #FF6200;
+}
+
+mat-form-field{
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+mat-card-title{
+  font-size: 200%;
+  margin-left: 39%;
+}
+.example-card {
+  width: 400px;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
+}
+
+.loginbtn{
+  background-color : red;
+  color : #ffffff;
 }

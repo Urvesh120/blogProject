@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,13 +9,25 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor( private router : Router) { }
+  loginFormGroup: any;
+  email: any;
+  passWord: any;
+  isTokenInput = false;
+
+  constructor(private fb: FormBuilder, public router: Router) { }
 
   ngOnInit(): void {
+      this.loginFormGroup = this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required]],
+        token: ['']
+      })
   }
 
   redirectToLogin(){
     this.router.navigate(['auth/login']);
   }
+
+  login() {  }
 
 }
