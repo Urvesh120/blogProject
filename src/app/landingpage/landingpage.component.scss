@@ -35,7 +35,7 @@
   }
 
   .content{
-    background-image: url(../../assets/images/photo-1614851099175-e5b30eb6f696.jpg);
+    background-image: url('../../assets/images/page-background.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -46,6 +46,7 @@
   .pages{
     background-color: white;
     border-radius: 20px;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.5);
     padding: 3%;
   }
   
