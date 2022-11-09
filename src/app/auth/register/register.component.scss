@@ -1,5 +1,9 @@
 .loginPage{
-  background-image: url('../../../assets/images/58064\ [Converted]-1.png');
+  // background-image: url('../../../assets/images/page-background.png');
+  background-color: #FF6200;
+  padding: 10% 33.5%;
+  width: 100%;
+  height: 100%;
 }
 
 mat-card-title{
@@ -13,7 +17,7 @@ mat-icon{
 
 mat-form-field{
   width: 100%;
-  margin-bottom: 2%;
+  margin: 2%;
 }
 
 mat-card-title{
@@ -22,7 +26,9 @@ mat-card-title{
 }
 .example-card {
   width: 400px;
+  // padding: 8%;
   background-color: white;
+  border-radius: 20px;
   box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
 }
 
