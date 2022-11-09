@@ -28,6 +28,7 @@
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.2.2",
     "jquery": "^3.6.1",
+    "ngx-perfect-scrollbar": "^7.1.0",
     "popper.js": "^1.16.1",
     "propper": "^1.0.4",
     "rxjs": "~7.5.0",

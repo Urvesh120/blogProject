@@ -1,91 +1,145 @@
 
-@font-face {
-    font-family: 'Anek Gujarati';
-    src: url('../../../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
-  }
+// @font-face {
+//     font-family: 'Anek Gujarati';
+//     src: url('../../../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
+//   }
     
-  .parallax{
-      background: url('../../../assets/images/imageSlider1-1.jpeg') repeat fixed 100%;
-      background-size: cover;
-      color: rgb(255, 255, 255);
-      text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
-  }
+//   .parallax{
+//       background: url('../../../assets/images/imageSlider1-1.jpeg') repeat fixed 100%;
+//       background-size: cover;
+//       color: rgb(255, 255, 255);
+//       text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+//   }
   
-  .parallax-1{
-    background: url('../../../assets/images/imageSlider2-1.jpeg') repeat fixed 100%;
-    background-size: cover;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
-  }
-  .parallax-inner{
-    padding-top: 20%;
-    padding-bottom: 20%;
-  }
+//   .parallax-1{
+//     background: url('../../../assets/images/imageSlider2-1.jpeg') repeat fixed 100%;
+//     background-size: cover;
+//     color: rgb(255, 255, 255);
+//     text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+//   }
+//   .parallax-inner{
+//     padding-top: 20%;
+//     padding-bottom: 20%;
+//   }
   
-  .inner-div{
-    margin: 30%;
-  }
+//   .inner-div{
+//     margin: 30%;
+//   }
   
-  h3{
-    margin : 30px;
-    font-family: 'Anek Gujarati';
-    font-size: 20px;
-    text-align: justify;
-    line-height: 35px;
-  }
-  h1{
-    padding: 20px;
-    margin: 0;
-    font-size: 70px;
-    text-align: center;
-    font-family: 'Anek Gujarati';
-  }
+//   h3{
+//     margin : 30px;
+//     font-family: 'Anek Gujarati';
+//     font-size: 20px;
+//     text-align: justify;
+//     line-height: 35px;
+//   }
+//   h1{
+//     padding: 20px;
+//     margin: 0;
+//     font-size: 70px;
+//     text-align: center;
+//     font-family: 'Anek Gujarati';
+//   }
   
-  .mainDiv {	
-    // background: linear-gradient(to bottom, #FDB777, #FD7F2C, #fec051, #FDA766, #FD9346 );
-    // background-size: 100%;
-    // padding: 5%;
-    height: 100%;
-    background-repeat: no-repeat;
-  }
+//   .mainDiv {	
+//     // background: linear-gradient(to bottom, #FDB777, #FD7F2C, #fec051, #FDA766, #FD9346 );
+//     // background-size: 100%;
+//     // padding: 5%;
+//     height: 100%;
+//     background-repeat: no-repeat;
+//   }
   
-  // #container {
-  //   background-color: #FFF;
-  //   padding: 10px;
-  //   border-radius: 20px;
-  //   // box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
-  // }
+//   // #container {
+//   //   background-color: #FFF;
+//   //   padding: 10px;
+//   //   border-radius: 20px;
+//   //   // box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
+//   // }
   
-  @media (max-width: 768px){
-    h1{
-      font-size: 27px;
-      padding: 10px;
-      margin: 0;
-      text-align: center;
-      font-family: 'Anek Gujarati';
+//   @media (max-width: 768px){
+//     h1{
+//       font-size: 27px;
+//       padding: 10px;
+//       margin: 0;
+//       text-align: center;
+//       font-family: 'Anek Gujarati';
+//     }
+  
+//     h3{
+//       margin : 15px;
+//       font-family: 'Anek Gujarati';
+//       font-size: 20px;
+//       text-align: justify;
+//       line-height: 30px;
+//     }
+  
+//     .parallax{
+//       background: url('../../../assets/images/imageSlider1-1.jpeg') no-repeat center ;
+//       background-position: center;
+//       background-size: contain;
+//       color: rgb(255, 255, 255);
+//       text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+//     }
+  
+//     .parallax-1{
+//       background: url('../../../assets/images/imageSlider2-1.jpeg') no-repeat center ;
+//       background-size: contain;
+//       color: rgb(255, 255, 255);
+//       text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+//     }
+//   }
+  
+
+.page-wrapper {
+    height: 100vh;
+  
+    .page-content {
+      display: inline-block;
+      width: 100%;
+      padding-top: 20px;
+      transition: padding-left .3s ease;
+  
+      @media screen and (min-width: 768px) {
+        padding-left: 300px;
+      }
+  
+      .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 998;
+        background: #000;
+        opacity: .5;
+        display: none;
+  
+        &.show {
+  
+          @media screen and (max-width: 768px) {
+            display: block;
+          }
+        }
+      }
     }
   
-    h3{
-      margin : 15px;
-      font-family: 'Anek Gujarati';
-      font-size: 20px;
-      text-align: justify;
-      line-height: 30px;
+    .sidebar {
+      left: 0px;
     }
   
-    .parallax{
-      background: url('../../../assets/images/imageSlider1-1.jpeg') no-repeat center ;
-      background-position: center;
-      background-size: contain;
-      color: rgb(255, 255, 255);
-      text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+    &.toggled {
+  
+      .page-content {
+        padding-left: 0;
+      }
     }
   
-    .parallax-1{
-      background: url('../../../assets/images/imageSlider2-1.jpeg') no-repeat center ;
-      background-size: contain;
-      color: rgb(255, 255, 255);
-      text-shadow: 2px 2px 10px #000000, -2px -2px 10px #000000;
+    .attribution{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 5px;
+      margin: 5px;
+      letter-spacing: 1px;
     }
   }
-  

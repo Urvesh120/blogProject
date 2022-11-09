@@ -1,4 +1,4 @@
-<div class="mainDiv">
+<!-- <div class="mainDiv">
     <div id="container">
       <section class="1">
         <section class="parallax">
@@ -54,4 +54,25 @@
         </h3>
       </section>
     </div>
-  </div>
+  </div> -->
+
+  <div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
+    <main class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <h2> <img src="assets/img/angular.png" alt="angular logo" width="70px"> Angular Sidebar Template</h2>
+                    <hr>
+                    <p>This is a responsive sidebar template with dropdown menu built with angular 7 and bootstrap 4.</p>
+                    <hr>
+                    <a href="#" class="btn btn-outline-secondary mr-1 mb-1" (click)="toggleSidebar()">Toggle Sidebar</a>
+                    <a href="#" class="btn btn-secondary" (click)="toggleBackgroundImage()">Toggle Background Image</a>
+                </div>
+            </div>
+            <div class="attribution text-center badge badge-warning">
+                Created by <strong>Azouaoui Mohamed</strong>
+              </div>
+        </div>
+        <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
+    </main>
+</div>
