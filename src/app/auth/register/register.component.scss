@@ -1,38 +1,26 @@
-.loginPage{
-  // background-image: url('../../../assets/images/page-background.png');
-  background-color: #FF6200;
-  padding: 10% 33.5%;
-  width: 100%;
-  height: 100%;
-}
-
-mat-card-title{
-    font-family: 'Anek Gujarati';
-    color: #FF6200;
-}
-
-mat-icon{
-    color: #FF6200;
-}
-
 mat-form-field{
   width: 100%;
-  margin: 2%;
+  margin-bottom: 2%;
 }
 
 mat-card-title{
   font-size: 200%;
-  margin-left: 39%;
+  margin-left: 36%;
 }
 .example-card {
-  width: 400px;
-  // padding: 8%;
-  background-color: white;
-  border-radius: 20px;
+  max-width: 400px;
+  margin-top: 4%;
   box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
 }
 
-.loginbtn{
-  background-color : red;
-  color : #ffffff;
+.registerbtn{
+background-color : #664983;
+color : #ffffff;
+font-family: Bahnschrift;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

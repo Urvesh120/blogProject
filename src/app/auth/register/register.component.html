@@ -1,53 +1,82 @@
-<div class="loginPage">
-    <mat-card class="example-card">
-      <mat-card-title>Login</mat-card-title>
-      <div>
-        <!-- <mat-divider></mat-divider> -->
-        <!-- <br /><br /> -->
-        <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
-          <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input formControlName="email" matInput placeholder="Enter Email " />
-            <mat-icon matSuffix>email</mat-icon>
-            <mat-error *ngIf="loginFormGroup.get('email').errors">
-              Email is required!
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input type="password" formControlName="password" matInput placeholder="Enter Password" />
-            <mat-error *ngIf="loginFormGroup.get('password').errors">
-              Password is required!
-            </mat-error>
-            <mat-icon matSuffix>lock</mat-icon>
-          </mat-form-field>
-          <mat-form-field appearance="outline" *ngIf="isTokenInput">
-            <mat-label>Token</mat-label>
-            <input type="text" formControlName="token" matInput placeholder="Token" />
-            <mat-icon matSuffix>token</mat-icon>
-          </mat-form-field>
-          <mat-card-actions>
-            <button class="loginbtn" mat-raised-button style="width: 95%; margin-left: 9px; padding: 5px"
-              [disabled]="loginFormGroup.invalid">
-              Login
-            </button>
-          </mat-card-actions>
-          <!-- <div>
-            <mat-card-content align="end" style="margin-bottom: 20px">
-              <a style="color: blue; font-weight: 500" [routerLink]="['/forgot-password']" href="#">Forgot Password?</a>
-            </mat-card-content>
-          </div> -->
-          <mat-divider></mat-divider>
-          <div style="display: flex; justify-content: center">
-            <mat-card-content style="margin-top: 30px">
-              <a style="color: blue; font-weight: 500" (click)="redirectToLogin()"><span
-                  style="color: grey">
-                  Need
-                  an Account? </span> SIGN UP
-              </a>
-            </mat-card-content>
-          </div>
-        </form>
-      </div>
-    </mat-card>
-  </div>
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-title style="font-family: Bahnschrift;color:#664983;">Register
+    </mat-card-title>
+    <div>
+      <mat-divider></mat-divider>
+      <br /><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>First name</mat-label>
+        <input type="text" formControlName="firstname" matInput placeholder="firstname" />
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="RegistrationFormGroup.get('firstname').errors">
+          First name is required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input type="text" formControlName="lastname" matInput placeholder="lastname" />
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="RegistrationFormGroup.get('lastname').errors">
+          Last name is required!
+        </mat-error>
+      </mat-form-field>
+
+      <form [formGroup]="RegistrationFormGroup" (ngSubmit)="register()">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Enter Email " />
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="RegistrationFormGroup.get('email').errors">
+            Email is required!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" formControlName="password" matInput placeholder="Enter Password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" (change)="onPasswordValidation()" />
+          <mat-error *ngIf="password.errors?.['required']">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="password.errors?.['pattern']">
+            Password must contain at least one number,one uppercase and lowercase letter, at least 8 or more
+            characters.<br>
+          </mat-error>
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input type="password" formControlName="confirmpassword" matInput placeholder="Enter Confirm Password"
+            (change)="onPasswordChange()" />
+          <mat-error *ngIf="confirmpassword.errors?.['required']">
+            Confirm Password is required!
+          </mat-error>
+          <mat-error *ngIf="confirmpassword.errors?.['mismatch']">
+            Confirm Password must be matched!
+          </mat-error>
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button class="registerbtn" mat-raised-button style="width: 95%; margin-left: 9px; padding: 5px"
+            [disabled]="RegistrationFormGroup.invalid">
+            Register
+          </button>
+        </mat-card-actions>
+        <mat-divider></mat-divider>
+        <div style="display: flex; justify-content: center">
+          <mat-card-content style="margin-top: 30px">
+            <a style="color: blue; font-weight: 500" [routerLink]="['/auth/login']" href="#"><span style="color: grey">
+                Already
+                an Account? </span> LOGIN
+            </a>
+          </mat-card-content>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

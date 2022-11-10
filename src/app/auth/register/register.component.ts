@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-register',
@@ -9,25 +10,61 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  loginFormGroup: any;
+  RegistrationFormGroup: any;
   email: any;
   passWord: any;
-  isTokenInput = false;
+  confirmPassword: any;
+  Token: any;
 
-  constructor(private fb: FormBuilder, public router: Router) { }
+  constructor(private fb: FormBuilder, public router: Router, private http : HttpService) { }
 
   ngOnInit(): void {
-      this.loginFormGroup = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
-        token: ['']
-      })
+    this.RegistrationFormGroup = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      firstname: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
+    });
+  }
+
+  onPasswordValidation() {
+    if (this.password.value.match(/\b(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}\b/)) {
+      this.RegistrationFormGroup.get('confirmpassword').enable();
+    }
+    else {
+      this.RegistrationFormGroup.get('confirmpassword').disable();
+    }
+  }
+  onPasswordChange() {
+    if (this.confirmpassword.value == this.password.value) {
+      this.confirmpassword.setErrors(null);
+    } else {
+      this.confirmpassword.setErrors({ mismatch: true });
+    }
+  }
+
+  get password() {
+    return this.RegistrationFormGroup.get('password');
+  }
+  get confirmpassword() {
+    return this.RegistrationFormGroup.get('confirmpassword');
   }
 
   redirectToLogin(){
     this.router.navigate(['auth/login']);
   }
 
-  login() {  }
+  register(){
+    let data = {
+      "email": this.RegistrationFormGroup.value.email,
+      "firstname": this.RegistrationFormGroup.value.firstname,
+      "lastname": this.RegistrationFormGroup.value.lastname,
+      "password": this.RegistrationFormGroup.value.password,
+    }
+    this.http.register(data).subscribe((res : any) =>{
+      console.log(res);
+    });
+  }
 
 }
