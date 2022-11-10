@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
-import { SidebarService } from '../services/sidebar.service';
 
 @Component({
   selector: 'app-landingpage',
@@ -19,7 +18,7 @@ export class LandingpageComponent implements OnInit {
 
   selected = 'Trusts';
 
-  constructor( private router : Router, private sidebarservice : SidebarService) { 
+  constructor( private router : Router) { 
   }
 
   ngOnInit(): void {}
