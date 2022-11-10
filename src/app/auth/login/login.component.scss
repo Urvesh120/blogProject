@@ -1,28 +1,26 @@
-.loginFormDiv{
-    width: 30%;
-    margin: auto;
-    padding-top: 12%;
-    text-align: center;
-}
-
-.formItem{
-    margin-bottom: 5%;
-}
-
-input{
+mat-form-field{
     width: 100%;
-}
+    margin-bottom: 2%;
+  }
 
-button[type='submit']{
-    width: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    color: white;
-    background-color: blue;
-}
-
-.button{
-    text-decoration: none;
-    color: blue;
-    cursor: pointer;
-}
+  mat-card-title{
+    font-size: 200%;
+    margin-left: 39%;
+  }
+  .example-card {
+    max-width: 400px;
+    margin-top: 150px;
+    box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
+  }
+  
+  .loginbtn{
+  background-color : #664983;
+  color : #ffffff;
+  font-family: Bahnschrift;
+  }
+  
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

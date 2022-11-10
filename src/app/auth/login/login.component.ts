@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private router : Router) { }
+  loginFormGroup: any;
+  email: any;
+  passWord: any;
+
+  constructor( private router : Router, private fb: FormBuilder, private http: HttpService) { }
 
   ngOnInit(): void {
+    this.loginFormGroup = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    })
   }
 
   redirectToRegister(){
     this.router.navigate(['auth/register']);
+  }
+
+  login(){
+    this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
+      console.log(res);
+    });
   }
 }
