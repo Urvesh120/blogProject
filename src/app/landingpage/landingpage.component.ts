@@ -17,46 +17,14 @@ import { SidebarService } from '../services/sidebar.service';
 })
 export class LandingpageComponent implements OnInit {
 
-  menus : any =  [];
+  selected = 'Trusts';
 
   constructor( private router : Router, private sidebarservice : SidebarService) { 
   }
 
-  ngOnInit(): void {
-    this.menus = this.sidebarservice.getMenuList();
-  }
+  ngOnInit(): void {}
 
   routeToLogin(){
     this.router.navigate(['/auth/login']);
   }
-
-  getSideBarState() {
-    return this.sidebarservice.getSidebarState();
-  }
-
-  toggle(currentMenu : any) {
-    if (currentMenu.type === 'dropdown') {
-      this.menus.forEach((element : any) => {
-        if (element === currentMenu) {
-          currentMenu.active = !currentMenu.active;
-        } else {
-          element.active = false;
-        }
-      });
-    }
-  }
-
-  getState(currentMenu : any) {
-
-    if (currentMenu.active) {
-      return 'down';
-    } else {
-      return 'up';
-    }
-  }
-
-  hasBackgroundImage() {
-    return this.sidebarservice.hasBackgroundImage;
-  }
-
 }
