@@ -9,4 +9,12 @@ export class HttpService {
     constructor( private http: HttpClient,private httpWithoutInterceptor:HttpClient, private httpbackend:HttpBackend ){
         this.httpWithoutInterceptor= new HttpClient(httpbackend);
     }
+
+    login(loginCredential : any){
+      return this.http.post(environment.apiUrl+'/user/login', loginCredential);
+    }
+
+    register(registerCredential : any){
+      return this.http.post(environment.apiUrl+'/user/login', registerCredential);
+    }
 }
