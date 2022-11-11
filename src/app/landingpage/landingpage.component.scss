@@ -1,28 +1,37 @@
+$gray-color-shade : #dedcdc;
+$white-color-shade : whitesmoke;
+$dark-gray-color-shade : #5b5b5b;
+
 mat-toolbar {
-  background: #e6c6a7;
-  color: white;
+  background: $dark-gray-color-shade;
+  color: $gray-color-shade;
+  height: 45px;
 }
 
 mat-sidenav {
-  width: 300px;
+  width: 250px;
   border-right: none;
-  background: #e6c6a7;
-  color: white;
+  background: $dark-gray-color-shade;
+  color: $gray-color-shade;
   text-align: center;
 }
 mat-expansion-panel{
   border: 0;
   box-shadow: none !important;
-  background: #e6c6a7;
-  color: white;
+  background: $dark-gray-color-shade;
+  color: $gray-color-shade;
 }
 
 mat-panel-title{
-  color: white;
+  color: $gray-color-shade;
 }
 
 .content {
   overflow: auto;
+  margin: 2%;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 3%;
 }
 
 mat-sidenav-container {
