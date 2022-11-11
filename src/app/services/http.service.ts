@@ -12,10 +12,22 @@ export class HttpService {
     }
 
     login(loginCredential : any){
-      return this.http.post(this.preRoute+'/user/login', loginCredential);
+      return this.httpWithoutInterceptor.post(this.preRoute+'/user/login', loginCredential);
     }
 
     register(registerCredential : any){
-      return this.http.post(this.preRoute+'/user/login', registerCredential);
+      return this.httpWithoutInterceptor.post(this.preRoute+'/user/login', registerCredential);
+    }
+
+    userlist(){
+      return this.http.get(this.preRoute+'/user/member-list');
+    }
+
+    pendungUserList(){
+      return this.http.get(this.preRoute+'/admin/pending-member-list');
+    }
+
+    requestAction(id : any, action : any){
+      this.http.put(this.preRoute+'/admin/request-action/'+id+'/'+action, "");
     }
 }

@@ -29,7 +29,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
-      console.log(res);
+      if(!!res){
+        localStorage.setItem('userEmailId',this.loginFormGroup.value.email);
+        localStorage.setItem('token', res.Token.token);
+        this.router.navigate(['/home']);
+      }
     });
   }
 }
