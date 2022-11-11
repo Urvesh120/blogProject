@@ -1,0 +1,19 @@
+table{
+    margin: 1% auto;
+    width: 98%;
+}
+
+td, th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.approve{
+    color: white;
+    background-color: green;
+}
+
+.reject{
+    color: white;
+    background-color: red;
+}
