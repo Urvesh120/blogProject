@@ -10,6 +10,16 @@ mat-sidenav {
   color: white;
   text-align: center;
 }
+mat-expansion-panel{
+  border: 0;
+  box-shadow: none !important;
+  background: #e6c6a7;
+  color: white;
+}
+
+mat-panel-title{
+  color: white;
+}
 
 .content {
   overflow: auto;

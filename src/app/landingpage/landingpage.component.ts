@@ -17,11 +17,18 @@ import { Router } from '@angular/router';
 export class LandingpageComponent implements OnInit {
 
   selected = 'Trusts';
+  isAdmin = false;
+  username : any;
 
   constructor( private router : Router) { 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(localStorage.getItem('userEmailId') == "admin@email.com"){
+      this.isAdmin = true;
+    }
+    this.username = "User Name";
+  }
 
   routeToLogin(){
     this.router.navigate(['/auth/login']);

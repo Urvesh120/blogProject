@@ -8,8 +8,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
     <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-    <h4 class="name">John Smith</h4>
-    <p class="designation">Software Engineer</p>
+    <h4 class="name">{{username}}</h4>
 
     <mat-divider></mat-divider>
 
@@ -18,16 +17,33 @@
       <span>Home</span>
     </button>
 
-    <button mat-button class="menu-button">
-      <mat-icon>info</mat-icon>
-      <mat-form-field>
-        <mat-select [(value)]="selected" placeholder="Mode">
-            <mat-option value="trustOne">Trust 1</mat-option>
-            <mat-option value="trustTwo">Trust 2</mat-option>
-            <mat-option value="trustThree">Trust 3</mat-option>
-        </mat-select>
-    </mat-form-field>
+    <button *ngIf="isAdmin" mat-button class="menu-button" [routerLink]="['/user-list']">
+      <mat-icon>list</mat-icon>
+      <span>User list</span>
     </button>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Trusts
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+        <button mat-button class="menu-button" [routerLink]="['/home']">
+          <mat-icon>home</mat-icon>
+          <span>Trust 1</span>
+        </button>
+
+        <button mat-button class="menu-button" [routerLink]="['/home']">
+          <mat-icon>home</mat-icon>
+          <span>Trust 2</span>
+        </button>
+  
+        <button mat-button class="menu-button" [routerLink]="['/home']">
+          <mat-icon>home</mat-icon>
+          <span>Trust 3</span>
+        </button>
+    </mat-expansion-panel>
 
     <button mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon>person</mat-icon>
@@ -35,11 +51,11 @@
     </button>
 
     <button mat-button class="menu-button" [routerLink]="['/home']">
-      <mat-icon>help</mat-icon>
-      <span>Help</span>
+      <mat-icon>info</mat-icon>
+      <span>About</span>
     </button>
 
-    <button mat-button class="menu-button" [routerLink]="['/auth/ogin']">
+    <button mat-button class="menu-button" [routerLink]="['/auth/login']">
       <mat-icon>power_settings_new</mat-icon>
       <span>Login</span>
     </button>
