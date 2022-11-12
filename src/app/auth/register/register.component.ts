@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -13,10 +14,13 @@ export class RegisterComponent implements OnInit {
   RegistrationFormGroup: any;
   email: any;
   passWord: any;
+  firstname : any;
+  lastname : any;
   confirmPassword: any;
-  Token: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private fb: FormBuilder, public router: Router, private http : HttpService) { }
+  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.RegistrationFormGroup = this.fb.group({
@@ -56,14 +60,24 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    debugger
     let data = {
       "email": this.RegistrationFormGroup.value.email,
-      "firstname": this.RegistrationFormGroup.value.firstname,
-      "lastname": this.RegistrationFormGroup.value.lastname,
+      "firstName": this.RegistrationFormGroup.value.firstname,
+      "lastName": this.RegistrationFormGroup.value.lastname,
       "password": this.RegistrationFormGroup.value.password,
     }
+    console.groupCollapsed(data);
     this.http.register(data).subscribe((res : any) =>{
-      console.log(res);
+      if(res.message = "User registration requested successfully."){
+        localStorage.removeItem('userEmailId');
+        this._snackBar.open("Register Request sent Successfully", "close",{
+          duration : 5 * 1000,
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+        this.router.navigate(['/home']);
+      }
     });
   }
 
