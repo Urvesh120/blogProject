@@ -17,15 +17,23 @@ import { Router } from '@angular/router';
 export class LandingpageComponent implements OnInit {
 
   selected = 'Trusts';
+  emailId : any;
   isAdmin = false;
+  isUser = false;
   username : any;
 
   constructor( private router : Router) { 
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('userEmailId') == "admin@email.com"){
-      this.isAdmin = true;
+    this.emailId = localStorage.getItem('userEmailId'); 
+    if(!!this.emailId){
+      if(this.emailId == "admin@email.com"){
+        this.isAdmin = true;
+      }
+      else{
+        this.isUser = true;
+      }
     }
     this.username = "User Name";
   }

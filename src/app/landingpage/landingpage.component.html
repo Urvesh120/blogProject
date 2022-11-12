@@ -19,13 +19,19 @@
 
     <button *ngIf="isAdmin" mat-button class="menu-button" [routerLink]="['/user-list']">
       <mat-icon>list</mat-icon>
+      <span>Pending User list</span>
+    </button>
+
+    <button *ngIf="isUser" mat-button class="menu-button" [routerLink]="['/user-list']">
+      <mat-icon>list</mat-icon>
       <span>User list</span>
     </button>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <mat-icon>home</mat-icon>Trusts
+          <mat-icon>home</mat-icon>
+          <span>Trusts</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
