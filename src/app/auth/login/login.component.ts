@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
       if(!!res){
         localStorage.setItem('userEmailId',this.loginFormGroup.value.email);
-        localStorage.setItem('token', res.Token.token);
+        localStorage.setItem('token', res.jwtToken);
+        localStorage.setItem('UserName', res.displayName);
         this.router.navigate(['/home']);
       }
     });
