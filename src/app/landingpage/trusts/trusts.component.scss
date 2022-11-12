@@ -69,6 +69,15 @@ h3{
   grid-template-columns: repeat(3, 1fr);
 }
 
+.column{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.qr-img img{
+  width: 100%;
+}
+
 @media only screen and (max-width: 45em){
   .content{
     justify-items: center;

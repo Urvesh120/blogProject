@@ -2,6 +2,14 @@ $gray-color-shade : #dedcdc;
 $white-color-shade : whitesmoke;
 $dark-gray-color-shade : #5b5b5b;
 
+.mat-expansion-panel-header:not([aria-disabled=true]) {
+  padding: 17px;
+}
+
+.expansion-title{
+  padding: 0;
+}
+
 mat-toolbar {
   background: $dark-gray-color-shade;
   color: $gray-color-shade;
