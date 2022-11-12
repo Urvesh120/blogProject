@@ -16,7 +16,7 @@ export class HttpService {
     }
 
     register(registerCredential : any){
-      return this.httpWithoutInterceptor.post(this.preRoute+'/user/login', registerCredential);
+      return this.httpWithoutInterceptor.post(this.preRoute+'/user/register', registerCredential);
     }
 
     userlist(){
@@ -27,7 +27,8 @@ export class HttpService {
       return this.http.get(this.preRoute+'/admin/pending-member-list');
     }
 
-    requestAction(id : any, action : any){
-      this.http.put(this.preRoute+'/admin/request-action/'+id+'/'+action, "");
+    requestAction(data : any){
+      debugger
+      this.http.put(this.preRoute+'/admin/request-action', data);
     }
 }
