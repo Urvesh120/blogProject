@@ -1,6 +1,5 @@
-// $gray-color-shade : #dedcdc;
-$gray-color-shade : #f5f0e1;
-$dark-gray-color-shade : #ff5640;
+$gray-color-shade : #eeeeee;
+$orange-gray-color-shade : #f19f4d;
 
 .mat-expansion-panel-header:not([aria-disabled=true]){
   padding: 0;
@@ -21,7 +20,7 @@ $dark-gray-color-shade : #ff5640;
 }
 
 mat-toolbar {
-  background: $dark-gray-color-shade;
+  background: $orange-gray-color-shade;
   color: $gray-color-shade;
   height: 45px;
 }
@@ -30,18 +29,18 @@ mat-sidenav {
   width: 250px;
   border-right: none;
   background: $gray-color-shade;
-  color: $dark-gray-color-shade;
+  color: $orange-gray-color-shade;
   text-align: center;
 }
 mat-expansion-panel{
   border: 0;
   box-shadow: none !important;
   background: $gray-color-shade;
-  color: $dark-gray-color-shade;
+  color: $orange-gray-color-shade;
 }
 
 mat-panel-title{
-  color: $dark-gray-color-shade;
+  color: $orange-gray-color-shade;
 }
 
 .content {

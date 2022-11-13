@@ -29,7 +29,6 @@ export class UserlistComponent implements OnInit {
   displayedColumns: string[] = ['First Name', 'Last Name', 'Email', 'Action'];
 
   action(element : any, status : any){
-    debugger
     let data = {
       "id": element.id,
       "action": status,
