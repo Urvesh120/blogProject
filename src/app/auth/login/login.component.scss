@@ -1,26 +1,82 @@
-mat-form-field{
-    width: 100%;
-    margin-bottom: 2%;
+// mat-form-field{
+//     width: 100%;
+//     margin-bottom: 2%;
+// }
+
+//   mat-card-title{
+//     font-size: 200%;
+//     margin-left: 39%;
+//   }
+//   .example-card {
+//     max-width: 400px;
+//     margin-top: 150px;
+//     box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
+//   }
+  
+//   .loginbtn{
+//   background-color : #664983;
+//   color : #ffffff;
+//   font-family: Bahnschrift;
+//   }
+  
+//   .container{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+
+.loginFormDiv{
+  max-width: 400px;
+  margin: 150px auto;
+  padding: 35px;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
+  border-radius: 15px;
 }
 
-  mat-card-title{
-    font-size: 200%;
-    margin-left: 39%;
+.buttonsDiv{
+  border-bottom: 2px solid orange;
+  margin-bottom: 10px;
+}
+
+.loginForm{
+  margin-top: 20px;
+}
+
+.inputDiv{
+  margin-bottom: 20px;
+}
+
+.loginButtonOnBar{
+  color: white;
+  background-color: orange;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.loginButton{
+  width: 100%;
+  color: white;
+  background-color: orange;
+}
+
+.homeButtonDiv{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.homeButton{
+  color: orange;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+  .loginFormDiv{
+    max-width: 340px;
   }
-  .example-card {
-    max-width: 400px;
-    margin-top: 150px;
-    box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
+
+  .loginButtonOnBar{
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
   }
-  
-  .loginbtn{
-  background-color : #664983;
-  color : #ffffff;
-  font-family: Bahnschrift;
-  }
-  
-  .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+}

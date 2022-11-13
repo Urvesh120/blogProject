@@ -11,8 +11,6 @@ import { HttpService } from '../../services/http.service';
 export class LoginComponent implements OnInit {
 
   loginFormGroup: any;
-  email: any;
-  passWord: any;
 
   constructor( private router : Router, private fb: FormBuilder, private http: HttpService) { }
 
@@ -36,5 +34,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       }
     });
+  }
+
+  get email(){
+    return this.loginFormGroup.get('email');
+  }
+
+  get password(){
+    return this.loginFormGroup.get('password');
   }
 }
