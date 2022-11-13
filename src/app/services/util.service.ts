@@ -7,11 +7,22 @@ import { HttpClient } from '@angular/common/http';
 export class UtilService {
 
     token : any;
+    userLogedIn : any;
 
     constructor(private util: HttpClient) { }
 
     public getToken(){
         this.token = localStorage.getItem('token');
         return this.token;
+    }
+
+    public isLogedIn(){
+        this.userLogedIn = localStorage.getItem('userEmailId');
+        if(!!this.userLogedIn){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

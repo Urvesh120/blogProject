@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router } from '@angular/router';
+import { UtilService } from '../services/util.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  isAuthenticated : any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor( private authService : AuthService, private router : Router){}
+  constructor( private router : Router, private util : UtilService, private _snackBar: MatSnackBar){}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-      this.isAuthenticated = this.authService.isAuthenticated();
-      if (this.isAuthenticated) {
+  canActivate(): boolean {
+      if (this.util.isLogedIn()) {
           return true;
       }
-      else{
-        this.router.navigate(['/login']);
-        return false;
-      }
+      this._snackBar.open("You can not see list without login", "close",{
+        duration : 5 * 1000,
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
+      this.router.navigate(['/home']);
+      return false;
   }
-  
 }

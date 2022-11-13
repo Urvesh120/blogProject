@@ -21,8 +21,6 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
         Authorization : BearerToken
       }
     });
-    console.log("Bearer token => ",BearerToken);
-    console.log("new request",newReaquest.headers);
     return next.handle(newReaquest);
   }
 }
