@@ -28,7 +28,6 @@ export class HttpService {
     }
 
     requestAction(data : any){
-      debugger
-      this.http.put(this.preRoute+'/admin/request-action', data);
+      return this.http.put(this.preRoute+'/admin/request-action', data);
     }
 }
