@@ -18,6 +18,7 @@ export class LandingpageComponent implements OnInit {
 
   selected = 'Trusts';
   emailId : any;
+  isLogedIn = false;
   isAdmin = false;
   isUser = false;
   username : any;
@@ -26,8 +27,10 @@ export class LandingpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.emailId = localStorage.getItem('userEmailId'); 
-    if(!!this.emailId){
+    if(!!localStorage.getItem('userEmailId')){
+      this.isLogedIn = true;
+      this.emailId = localStorage.getItem('userEmailId'); 
+      this.username = localStorage.getItem('UserName');
       if(this.emailId == "admin@email.com"){
         this.isAdmin = true;
       }
@@ -35,10 +38,16 @@ export class LandingpageComponent implements OnInit {
         this.isUser = true;
       }
     }
-    this.username = "User Name";
   }
 
   routeToLogin(){
     this.router.navigate(['/auth/login']);
+  }
+
+  logout(){
+    localStorage.removeItem('userEmailId');
+    localStorage.removeItem('token');
+    localStorage.removeItem('UserName');
+    window.location.reload()
   }
 }

@@ -7,11 +7,17 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+    <div *ngIf="isLogedIn" class="user-prifile">
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
     <h4 class="name">{{username}}</h4>
+    </div>
 
-    <mat-divider></mat-divider>
-
+    <div *ngIf="!isLogedIn" class="user-prifile loginButton">
+      <button mat-button [routerLink]="['/auth/login']">Login</button>
+    </div>  
+  
+  <mat-divider></mat-divider>
     <button mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon>home</mat-icon>
       <span>Home</span>
@@ -27,29 +33,31 @@
       <span>User list</span>
     </button>
 
-    <mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <mat-icon>home</mat-icon>
-          <span>Trusts</span>
+          <button mat-button class="menu-button">
+            <mat-icon>view_carousel</mat-icon>
+            <span>Trusts</span>
+          </button>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
         <button mat-button class="menu-button" [routerLink]="['/trusts']">
-          <mat-icon>home</mat-icon>
+          <mat-icon>subdirectory_arrow_right</mat-icon>
           <span>Trust 1</span>
         </button>
 
         <button mat-button class="menu-button" [routerLink]="['/trusts']">
-          <mat-icon>home</mat-icon>
+          <mat-icon>subdirectory_arrow_right</mat-icon>
           <span>Trust 2</span>
         </button>
   
         <button mat-button class="menu-button" [routerLink]="['/trusts']">
-          <mat-icon>home</mat-icon>
+          <mat-icon>subdirectory_arrow_right</mat-icon>
           <span>Trust 3</span>
         </button>
-    </mat-expansion-panel>
+    </mat-expansion-panel>    
 
     <button mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon>person</mat-icon>
@@ -61,10 +69,11 @@
       <span>About</span>
     </button>
 
-    <button mat-button class="menu-button" [routerLink]="['/auth/login']">
+    <button *ngIf="isLogedIn" (click)="logout()"  mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon>power_settings_new</mat-icon>
-      <span>Login</span>
+      <span>Logout</span>
     </button>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content mat-elevation-z8">
