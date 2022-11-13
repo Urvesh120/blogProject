@@ -12,11 +12,6 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 export class RegisterComponent implements OnInit {
 
   RegistrationFormGroup: any;
-  email: any;
-  passWord: any;
-  firstname : any;
-  lastname : any;
-  confirmPassword: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
@@ -32,7 +27,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onPasswordValidation() {
+  onPasswordValidation(){
     if (this.password.value.match(/\b(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}\b/)) {
       this.RegistrationFormGroup.get('confirmpassword').enable();
     }
@@ -40,6 +35,7 @@ export class RegisterComponent implements OnInit {
       this.RegistrationFormGroup.get('confirmpassword').disable();
     }
   }
+
   onPasswordChange() {
     if (this.confirmpassword.value == this.password.value) {
       this.confirmpassword.setErrors(null);
@@ -48,9 +44,22 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  get firstname() {
+    return this.RegistrationFormGroup.get('firstname');
+  }
+
+  get lastname() {
+    return this.RegistrationFormGroup.get('lastname');
+  }
+
+  get email() {
+    return this.RegistrationFormGroup.get('email');
+  }
+
   get password() {
     return this.RegistrationFormGroup.get('password');
   }
+
   get confirmpassword() {
     return this.RegistrationFormGroup.get('confirmpassword');
   }
@@ -60,7 +69,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    debugger
     let data = {
       "email": this.RegistrationFormGroup.value.email,
       "firstName": this.RegistrationFormGroup.value.firstname,
