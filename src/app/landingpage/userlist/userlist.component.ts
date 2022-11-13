@@ -10,13 +10,20 @@ export class UserlistComponent implements OnInit {
 
   pendingUserList : any;
 
+  data = [{
+    "email": 'sdfsdc',
+    "firstName": 'asasc',
+    "lastName": 'scasc',
+    "password": 'ascasc',
+  }];
+
   constructor(private http : HttpService) { }
 
   ngOnInit(): void {
-    this.http.pendungUserList().subscribe((res : any) => {
-      this.pendingUserList = res.PendingRequests;
-      console.log(res);
-    });
+    this.pendingUserList = this.data;
+    // this.http.pendungUserList().subscribe((res : any) => {
+    //   this.pendingUserList = res.PendingRequests;
+    // });
   }
 
   displayedColumns: string[] = ['First Name', 'Last Name', 'Email', 'Action'];
@@ -27,8 +34,9 @@ export class UserlistComponent implements OnInit {
       "id": element.id,
       "action": status,
     }
-    this,this.http.requestAction(data);
-    console.log(element);
+    this,this.http.requestAction(data).subscribe((res : any) =>{
+      console.log(res);
+    });
   }
 
 }
