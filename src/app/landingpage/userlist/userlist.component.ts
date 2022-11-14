@@ -17,9 +17,16 @@ export class UserlistComponent implements OnInit {
     "password": 'ascasc',
   }];
 
+  emailId: any;
+  isAdmin = false;
+
   constructor(private http : HttpService) { }
 
   ngOnInit(): void {
+      this.emailId = localStorage.getItem('userEmailId'); 
+      if(this.emailId == "admin@email.com"){
+        this.isAdmin = true;
+      }
     this.pendingUserList = this.data;
     // this.http.pendungUserList().subscribe((res : any) => {
     //   this.pendingUserList = res.PendingRequests;

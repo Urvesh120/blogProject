@@ -1,5 +1,6 @@
-$gray-color-shade : #eeeeee;
-$orange-gray-color-shade : #f19f4d;
+$gray-color-shade : #cdd7d6;
+$orange-gray-color-shade : #f87060;
+$font-color : #102542;
 
 .mat-expansion-panel-header:not([aria-disabled=true]){
   padding: 0;
@@ -29,18 +30,18 @@ mat-sidenav {
   width: 250px;
   border-right: none;
   background: $gray-color-shade;
-  color: $orange-gray-color-shade;
+  color:$font-color;
   text-align: center;
 }
 mat-expansion-panel{
   border: 0;
   box-shadow: none !important;
   background: $gray-color-shade;
-  color: $orange-gray-color-shade;
+  color: $font-color;
 }
 
 mat-panel-title{
-  color: $orange-gray-color-shade;
+  color: $font-color;
 }
 
 .content {

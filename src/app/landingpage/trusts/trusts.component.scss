@@ -74,8 +74,18 @@ h3{
   vertical-align: middle;
 }
 
+.qr-img{
+  padding: 5%;
+}
+
 .qr-img img{
   width: 100%;
+}
+
+.test-field{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 45em){

@@ -27,7 +27,7 @@ export class LandingpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(!!localStorage.getItem('userEmailId')){
+    if(localStorage.getItem('userEmailId')){
       this.isLogedIn = true;
       this.emailId = localStorage.getItem('userEmailId'); 
       this.username = localStorage.getItem('UserName');
