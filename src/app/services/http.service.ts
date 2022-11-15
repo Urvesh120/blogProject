@@ -23,7 +23,7 @@ export class HttpService {
       return this.http.get(this.preRoute+'/user/member-list');
     }
 
-    pendungUserList(){
+    pendingUserList(){
       return this.http.get(this.preRoute+'/admin/pending-member-list');
     }
 

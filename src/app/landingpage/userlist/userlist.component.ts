@@ -9,28 +9,30 @@ import { HttpService } from '../../services/http.service';
 export class UserlistComponent implements OnInit {
 
   pendingUserList : any;
-
-  data = [{
-    "email": 'sdfsdc',
-    "firstName": 'asasc',
-    "lastName": 'scasc',
-    "password": 'ascasc',
-  }];
-
-  emailId: any;
+  emailId : any;
+  isLogedIn = false;
   isAdmin = false;
+  isUser = false;
 
   constructor(private http : HttpService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('userEmailId')){
+      this.isLogedIn = true;
       this.emailId = localStorage.getItem('userEmailId'); 
       if(this.emailId == "admin@email.com"){
         this.isAdmin = true;
+        this.http.pendingUserList().subscribe((res : any) => {
+          this.pendingUserList = res.PendingRequests;
+        });
       }
-    this.pendingUserList = this.data;
-    // this.http.pendungUserList().subscribe((res : any) => {
-    //   this.pendingUserList = res.PendingRequests;
-    // });
+      else{
+        this.isUser = true;
+        this.http.userlist().subscribe((res : any) => {
+          this.pendingUserList = res.PendingRequests;
+        });
+      }
+    }
   }
 
   displayedColumns: string[] = ['First Name', 'Last Name', 'Email', 'Action'];
