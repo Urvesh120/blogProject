@@ -1,3 +1,7 @@
+.about-trust{
+  margin-top: 20px;
+}
+
 h1,h3{
   font-family: 'Anek Gujarati';
 }
@@ -69,23 +73,28 @@ h3{
   grid-template-columns: repeat(3, 1fr);
 }
 
-.column{
+.QRDiv{
+  display: grid;
+  margin-top: 50px;
+  padding: 20px;
+  justify-items: center;
+  border-radius: 20px;
+  background-color: rgb(225, 225, 225);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.text-field{
+  display: flex;
+  align-items: center;
   text-align: center;
-  vertical-align: middle;
 }
 
 .qr-img{
-  padding: 5%;
+  text-align: center;
 }
 
 .qr-img img{
   width: 100%;
-}
-
-.test-field{
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media only screen and (max-width: 45em){
@@ -98,5 +107,25 @@ h3{
   .card {
     margin: 3% 0%;
     width: 320px;
+  }
+
+  .QRDiv{
+    margin-top: 20px;
+    justify-items: center;
+    border-radius: 20px;
+    background-color: rgb(225, 225, 225);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .text-field{
+    text-align: center;
+  }
+
+  .qr-img{
+    text-align: center;
+  }
+
+  .qr-img img{
+    width: 220%;
   }
 }
