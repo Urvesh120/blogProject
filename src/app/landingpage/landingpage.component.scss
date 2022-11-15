@@ -22,7 +22,7 @@ $font-color : #102542;
 
 mat-toolbar {
   background: $orange-gray-color-shade;
-  color: $gray-color-shade;
+  color: whitesmoke;
   height: 45px;
 }
 
@@ -48,11 +48,13 @@ mat-panel-title{
   overflow: auto;
   margin: 2%;
   border-radius: 20px;
+  background-color: white;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   padding: 3%;
 }
 
 mat-sidenav-container {
+  background-color: $gray-color-shade;
   height: calc(100vh - 65px);
 }
 
@@ -62,7 +64,6 @@ mat-sidenav-container {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-
   mat-icon {
     margin-right: 8px;
   }
