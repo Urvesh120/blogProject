@@ -1,6 +1,6 @@
 $gray-color-shade : #cdd7d6;
 $orange-gray-color-shade : #f87060;
-$font-color : #102542;
+$gray-font-color : #909090;
 
 .mat-expansion-panel-header:not([aria-disabled=true]){
   padding: 0;
@@ -29,33 +29,39 @@ mat-toolbar {
 mat-sidenav {
   width: 250px;
   border-right: none;
-  background: $gray-color-shade;
-  color:$font-color;
+  // background: $gray-color-shade;
+  background: white;
+  color:$gray-font-color;
   text-align: center;
 }
 mat-expansion-panel{
   border: 0;
   box-shadow: none !important;
-  background: $gray-color-shade;
-  color: $font-color;
+  // background: $gray-color-shade;
+  background: white;
+  color: $gray-font-color;
 }
 
 mat-panel-title{
-  color: $font-color;
+  color: $gray-font-color;
 }
 
 .content {
   overflow: auto;
   margin: 2%;
-  border-radius: 20px;
+  // border-radius: 20px;
   background-color: white;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   padding: 3%;
 }
 
 mat-sidenav-container {
-  background-color: $gray-color-shade;
+  background-color: white;
   height: calc(100vh - 65px);
+}
+
+.mat-elevation-z8{
+  box-shadow: none !important;
 }
 
 .menu-button {
