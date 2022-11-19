@@ -4,27 +4,6 @@ $border-color:  #f0f0f0;
     font-family: 'Anek Gujarati';
     src: url('../../../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
   }
-
-  @mixin double-border-left($border_color: $border-color) {
-    position: relative;
-    border-left: 5px solid $border_color;
-    // border-radius: 10px;
-    &:before {
-      content: '';
-      display: block;
-      background-color: $border_color;
-      // width: 2px;
-      height: calc(100% - 0.626rem);
-      position: absolute;
-      top: 0.313rem;
-      left: 0.5rem;
-    }
-  }
-
-  h3 {
-    padding-left: 50px;
-    @include double-border-left(rgba(#FDA766,0.8));
-  }
     
   .parallax{
       background: url('../../../assets/images/imageSlider1-1.jpeg') repeat fixed 100%;
@@ -57,7 +36,8 @@ $border-color:  #f0f0f0;
   }
   h1{
     padding: 20px;
-    margin: 0;
+    color: #FDA766;
+    margin: 50px 0px 30px 0px;
     font-size: 70px;
     text-align: center;
     font-family: 'Anek Gujarati';
@@ -70,13 +50,6 @@ $border-color:  #f0f0f0;
     height: 100%;
     background-repeat: no-repeat;
   }
-  
-  // #container {
-  //   background-color: #FFF;
-  //   padding: 10px;
-  //   border-radius: 20px;
-  //   // box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
-  // }
   
   @media (max-width: 768px){
     h1{
