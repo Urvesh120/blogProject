@@ -25,4 +25,8 @@ export class UtilService {
             return false;
         }
     }
+
+    public previouslyLogedIn(){
+        return localStorage.getItem('logout');
+    }
 }

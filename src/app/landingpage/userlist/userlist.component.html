@@ -1,4 +1,11 @@
-<table mat-table [dataSource]="pendingUserList" class="mat-elevation-z8">
+<!-- <div *ngIf="showEmptyDataMessage" class="no-data-div">
+  <h3 *ngIf="isAdmin">There is no pending users</h3>
+  <h3 *ngIf="isUser">There is no users</h3>
+</div> -->
+
+<!-- <div *ngIf="!showEmptyDataMessage" class="user-list-table"> -->
+<div class="user-list-table">
+  <table mat-table [dataSource]="pendingUserList" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -22,7 +29,7 @@
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container *ngIf="isAdmin" matColumnDef="Action">
+    <ng-container matColumnDef="Action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element">
             <!-- <button mat-button class="menu-button approve" (click)="action(element, true)">Approve</button>
@@ -47,5 +54,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
-  
+</div>  
