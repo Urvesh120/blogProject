@@ -12,7 +12,8 @@ h1,h3{
   font-size: 35px;
 }
 
-#history, #truties{
+#history, #truties, #donation{
+  margin-top: 50px;
   color: #FF6200;
   font-size: 25px;
 }
@@ -75,8 +76,9 @@ h3{
 
 .QRDiv{
   display: grid;
-  margin-top: 50px;
+  // margin-top: 50px;
   padding: 20px;
+  align-items: center;
   justify-items: center;
   border-radius: 20px;
   background-color: rgb(225, 225, 225);
@@ -84,12 +86,18 @@ h3{
 }
 
 .text-field{
+  width: 70%;
   display: flex;
   align-items: center;
   text-align: center;
 }
 
+.text-field h1{
+  font-size: 25px;
+}
+
 .qr-img{
+  width: 30%;
   text-align: center;
 }
 
