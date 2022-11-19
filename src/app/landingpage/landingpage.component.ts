@@ -22,6 +22,7 @@ export class LandingpageComponent implements OnInit {
   isAdmin = false;
   isUser = false;
   username : any;
+  logedout = false;
 
   constructor( private router : Router) { 
   }
@@ -45,9 +46,11 @@ export class LandingpageComponent implements OnInit {
   }
 
   logout(){
+    this.logedout = true;
     localStorage.removeItem('userEmailId');
     localStorage.removeItem('token');
     localStorage.removeItem('UserName');
+    localStorage.setItem('logout',JSON.stringify(this.logedout));
     window.location.reload()
   }
 }
