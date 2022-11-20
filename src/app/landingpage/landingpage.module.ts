@@ -10,6 +10,7 @@ import { ModuleModule } from '../shared/modules/modules.module';
 
 import { PerfectScrollbarModule, PerfectScrollbarConfigInterface, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { UserlistComponent } from './userlist/userlist.component';
+import { ProfileComponent } from './userlist/profile/profile.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -21,7 +22,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LandingpageComponent,
     HomeComponent,
     TrustsComponent,
-    UserlistComponent
+    UserlistComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

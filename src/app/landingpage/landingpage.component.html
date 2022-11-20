@@ -18,17 +18,17 @@
     </div>  
   
   <mat-divider></mat-divider>
-    <button mat-button class="menu-button" [routerLink]="['/home']">
+    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/home']">
       <mat-icon style="color: #f87060;">home</mat-icon>
       <span>Home</span>
     </button>
 
-    <button *ngIf="isAdmin" mat-button class="menu-button" [routerLink]="['/user-list']">
+    <button *ngIf="isAdmin" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
       <mat-icon style="color: #f87060;">list</mat-icon>
       <span>Pending User list</span>
     </button>
 
-    <button *ngIf="isUser" mat-button class="menu-button" [routerLink]="['/user-list']">
+    <button *ngIf="isUser" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
       <mat-icon style="color: #f87060;">list</mat-icon>
       <span>User list</span>
     </button>
@@ -43,23 +43,23 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-        <button mat-button class="menu-button" [routerLink]="['/trusts']">
+        <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 1</span>
         </button>
 
-        <button mat-button class="menu-button" [routerLink]="['/trusts']">
+        <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 2</span>
         </button>
   
-        <button mat-button class="menu-button" [routerLink]="['/trusts']">
+        <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 3</span>
         </button>
     </mat-expansion-panel>    
 
-    <button mat-button class="menu-button" [routerLink]="['/home']">
+    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/home']">
       <mat-icon style="color: #f87060;">person</mat-icon>
       <span>Profile</span>
     </button>
@@ -69,7 +69,7 @@
       <span>About</span>
     </button>
 
-    <button *ngIf="isLogedIn" (click)="logout()"  mat-button class="menu-button" [routerLink]="['/home']">
+    <button *ngIf="isLogedIn" (click)="logout()" (click)="sidenav.close()"  mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon style="color: #ed2939;">power_settings_new</mat-icon>
       <span>Logout</span>
     </button>
