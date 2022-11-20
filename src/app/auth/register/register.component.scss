@@ -3,8 +3,7 @@ $orange-gray-color-shade : #f87060;
 
 .registerFormDiv{
   max-width: 700px;
-  margin: auto;
-  // margin: 100px auto;
+  margin: 30px auto;
   padding: 35px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
@@ -14,8 +13,12 @@ $orange-gray-color-shade : #f87060;
 .titles{
   padding-left: 20px;
   border-radius: 5px;
-  color: #f87060;
+  color: #d8685c;
   background-color: rgba(248, 112, 96, 0.1);
+}
+
+.titles h3{
+  font-size: 20px;
 }
 
 .name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
@@ -63,7 +66,6 @@ $orange-gray-color-shade : #f87060;
 @media screen and (max-width: 480px) {
   .registerFormDiv{
     max-width: 340px;
-    margin: 150px auto;
   }
 
   .registerButtonOnBar{
@@ -74,5 +76,37 @@ $orange-gray-color-shade : #f87060;
   .name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.profile-div{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
+}
+
+.profile-img-div, .upload-profile-img-div{
+  margin-bottom: 10px;
+}
+
+.profile-img-div img{
+  width: 100px;
+  height: 100px;
+  outline: #cdd7d6 solid 3px;
+  border-radius: 50%;
+}
+
+.file-upload-button {
+  // background-color: #f87060;
+  border: 1px solid #f87060;
+
+  &::after {
+    content: 'Upload Profile';
+    color: #f87060;
+  }
+
+  input[type="file"] {
+      opacity: 0;
+      position: absolute;
   }
 }

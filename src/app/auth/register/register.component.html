@@ -14,6 +14,18 @@
         <h3>Personal Information</h3>
       </div>
 
+      <div class="inputDiv profile-div">
+        <div class="profile-img-div">
+          <img *ngIf="imageBase64" [src]="imageBase64" class="image">
+          <img *ngIf="!imageBase64" [src]="blankImage" class="image">
+        </div>
+        <div class="upload-profile-img-div">
+          <button mat-button class="file-upload-button">
+            <input type="file" accept="image/png, image/jpg, image/jpeg" (change)="onSelectFile($event)"/>
+          </button>
+        </div>
+      </div>
+     
       <!-- First Name & Last Name -->
       <div class="name-div">
         <div class="inputDiv firstNameInputDiv">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormArrayName, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
@@ -11,6 +11,9 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 })
 export class RegisterComponent implements OnInit {
 
+  imageBase64: any;
+  profile : any;
+  blankImage = 'assets/images/blank-profile.jpg';
   RegistrationFormGroup: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -34,6 +37,16 @@ export class RegisterComponent implements OnInit {
       occupationBusiness: ['', [Validators.required]],
       description: [''],
     });
+  }
+
+  onSelectFile(event : any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); 
+      reader.onload = (event: any) => {
+        this.imageBase64 = event.target.result;
+      }
+    }
   }
 
   onPasswordValidation(){
@@ -103,12 +116,20 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    
+    if(this.imageBase64)
+      this.profile = this.imageBase64;
+    else
+      this.profile = "";
+
     let address = 
       this.RegistrationFormGroup.value.addressLine1 + "," +
       this.RegistrationFormGroup.value.addressLineLandmark + "," +
       this.RegistrationFormGroup.value.addressLineCity + "-" +
       this.RegistrationFormGroup.value.addressLinePincode + ".";
+    
     let data = {
+      "profile": this.profile,
       "firstName": this.RegistrationFormGroup.value.firstname,
       "lastName": this.RegistrationFormGroup.value.lastname,
       "email": this.RegistrationFormGroup.value.email,
@@ -120,17 +141,17 @@ export class RegisterComponent implements OnInit {
       "description": this.RegistrationFormGroup.value.description,
     }
     console.groupCollapsed(data);
-    // this.http.register(data).subscribe((res : any) =>{
-    //   if(res.message = "User registration requested successfully."){
-    //     localStorage.removeItem('userEmailId');
-    //     this._snackBar.open("Register Request sent Successfully", "close",{
-    //       duration : 5 * 1000,
-    //       horizontalPosition: this.horizontalPosition,
-    //       verticalPosition: this.verticalPosition,
-    //     });
-    //     this.router.navigate(['/home']);
-    //   }
-    // });
+    this.http.register(data).subscribe((res : any) =>{
+      if(res.message = "User registration requested successfully."){
+        localStorage.removeItem('userEmailId');
+        this._snackBar.open("Register Request sent Successfully", "close",{
+          duration : 5 * 1000,
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+        this.router.navigate(['/home']);
+      }
+    });
   }
 
 }
