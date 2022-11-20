@@ -2,12 +2,26 @@ $gray-color-shade : #cdd7d6;
 $orange-gray-color-shade : #f87060;
 
 .registerFormDiv{
-  max-width: 400px;
-  margin: 100px auto;
+  max-width: 700px;
+  margin: auto;
+  // margin: 100px auto;
   padding: 35px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
   border-radius: 15px;
+}
+
+.titles{
+  padding-left: 20px;
+  border-radius: 5px;
+  color: #f87060;
+  background-color: rgba(248, 112, 96, 0.1);
+}
+
+.name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .buttonsDiv{
@@ -55,5 +69,10 @@ $orange-gray-color-shade : #f87060;
   .registerButtonOnBar{
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
+  }
+
+  .name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
