@@ -1,59 +1,52 @@
-<!-- <div *ngIf="showEmptyDataMessage" class="no-data-div">
-  <h3 *ngIf="isAdmin">There is no pending users</h3>
-  <h3 *ngIf="isUser">There is no users</h3>
-</div> -->
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab label="Registered User">
+    <ng-template [ngTemplateOutlet]="userList"></ng-template>
+  </mat-tab>
+  <mat-tab *ngIf="isAdmin" label="Pending User">
+    <ng-template [ngTemplateOutlet]="userList"></ng-template>
+  </mat-tab>
+</mat-tab-group>
 
-<!-- <div *ngIf="!showEmptyDataMessage" class="user-list-table"> -->
-<div class="user-list-table">
-  <table mat-table [dataSource]="pendingUserList" class="mat-elevation-z8">
+<ng-template #userList >
+  <div class="user-list-table">
+    <table mat-table [dataSource]="pendingUserList" class="mat-elevation-z8">
+    
+      <!-- First name Column -->
+      <ng-container matColumnDef="First Name">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+    
+      <!-- Last name Column -->
+      <ng-container matColumnDef="Last Name">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+    
+      <!-- Email Column -->
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
   
-    <!-- First name Column -->
-    <ng-container matColumnDef="First Name">
-      <th mat-header-cell *matHeaderCellDef> First Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-    </ng-container>
-  
-    <!-- Last name Column -->
-    <ng-container matColumnDef="Last Name">
-      <th mat-header-cell *matHeaderCellDef> Last Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-    </ng-container>
-  
-    <!-- Email Column -->
-    <ng-container matColumnDef="Email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-    </ng-container>
-
-    <!-- View profile Column -->
-    <ng-container matColumnDef="Action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element">
-
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon style="color: #0f52ba;">more_horiz</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <!-- <button mat-menu-item (click)="action(element, true)">
-                <mat-icon style="color: #228b22;">done_all</mat-icon>
-                <span>Approve</span>
+      <!-- View profile Column -->
+      <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon style="color: #0f52ba;">more_horiz</mat-icon>
               </button>
-              <button mat-menu-item (click)="action(element, false)">
-                <mat-icon style="color: #fe2712;">delete_outline</mat-icon>
-                <span>Reject</span>
-              </button> -->
-
-              <button mat-menu-item (click)="openDialog(element)">
-                <mat-icon style="color: #0f52ba;">person</mat-icon>
-                <span>View Profile</span>
-              </button>
-
-            </mat-menu>
-
-        </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</div>  
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="openDialog(element)">
+                  <mat-icon style="color: #0f52ba;">person</mat-icon>
+                  <span>View Profile</span>
+                </button>
+              </mat-menu>
+          </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>  
+</ng-template>

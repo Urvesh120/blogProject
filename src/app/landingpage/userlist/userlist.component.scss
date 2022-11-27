@@ -1,3 +1,7 @@
+.user-list-table{
+    margin-top: 20px;
+}
+
 table{
     width: 100%;
 }
@@ -7,16 +11,15 @@ td, th {
     vertical-align: middle !important;
 }
 
-.approve{
-    color: white;
-    background-color: green;
-}
-
-.reject{
-    color: white;
-    background-color: red;
+th.mat-header-cell{
+    font-size: 17px;
+    font-weight: 500;
 }
 
 h3{
     text-align: center;
+}
+
+::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    max-width: 200px !important;
 }
