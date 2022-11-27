@@ -23,12 +23,7 @@
       <span>Home</span>
     </button>
 
-    <button *ngIf="isAdmin" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
-      <mat-icon style="color: #f87060;">list</mat-icon>
-      <span>Pending User list</span>
-    </button>
-
-    <button *ngIf="isUser" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
+    <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
       <mat-icon style="color: #f87060;">list</mat-icon>
       <span>User list</span>
     </button>
@@ -59,7 +54,7 @@
         </button>
     </mat-expansion-panel>    
 
-    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/home']">
+    <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-profile']">
       <mat-icon style="color: #f87060;">person</mat-icon>
       <span>Profile</span>
     </button>

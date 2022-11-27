@@ -5,6 +5,7 @@ import { LandingpageComponent } from './landingpage.component';
 import { TrustsComponent } from './trusts/trusts.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { AuthGuard } from '../services/auth.guard';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -12,7 +13,10 @@ const routes: Routes = [
     {path : '', component : HomeComponent},
     {path : 'home', component : HomeComponent},
     {path : 'trusts', component : TrustsComponent},
-    {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
+    {path : 'user-list', component : UserlistComponent},
+    {path : 'user-profile', component : UserprofileComponent},
+    // {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
+    // {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
   ]}
 ];
 
