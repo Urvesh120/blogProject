@@ -1,0 +1,26 @@
+.first-last-name-div, .email-contact-div{
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.content-div{
+    margin-bottom: 20px;
+}
+
+h3{
+    padding: 0;
+    margin: 0px 0px 10px 0px;
+    font-size: 20px;
+}
+
+.heading{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 480px) {
+    .first-last-name-div, .email-contact-div{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

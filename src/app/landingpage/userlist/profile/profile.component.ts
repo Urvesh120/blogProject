@@ -8,11 +8,14 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class ProfileComponent implements OnInit {
 
+  data : any;
+
   constructor(private dialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public profileData: any) { }
 
   ngOnInit(): void {
-    console.log(this.profileData);
+    this.data = this.profileData.profileData;
+    console.log(this.profileData.profileData);
   }
 
 }
