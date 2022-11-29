@@ -2,6 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
+import { MatTableDataSource } from '@angular/material/table';
+
+export interface pendingUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+export interface registeredUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
 @Component({
   selector: 'app-userlist',
@@ -10,8 +25,9 @@ import { ProfileComponent } from './profile/profile.component';
 })
 export class UserlistComponent implements OnInit {
 
-  pendingUserList : any;
-  registeredUserList : any;
+  pendingUserList : pendingUser[] = [];
+  registeredUserList : registeredUser[] = [];
+  registeredUserDataSource !: MatTableDataSource<registeredUser>;
   emailId : any;
   isLogedIn = false;
   isAdmin = false;
@@ -33,8 +49,14 @@ export class UserlistComponent implements OnInit {
       this.isUser = true;
       this.http.userlist().subscribe((res : any) => {
         this.registeredUserList = res.list;
+        this.registeredUserDataSource = new MatTableDataSource<registeredUser>(this.registeredUserList);
       });
     }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.registeredUserDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openDialog(profileData : any, isRegistered : any){  
