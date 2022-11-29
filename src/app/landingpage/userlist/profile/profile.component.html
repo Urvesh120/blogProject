@@ -2,21 +2,32 @@
     <div class="first-last-name-div">
         <div class="content-div">
             <h3 class="heading">First Name</h3>
-            <h3>{{data.firstName}}</h3>
+            <h3>{{profileData.firstName}}</h3>
         </div>
         <div class="content-div">
             <h3 class="heading">Last Name</h3>
-            <h3>{{data.lastName}}</h3>
+            <h3>{{profileData.lastName}}</h3>
         </div>
     </div>
     <div class="email-contact-div">
         <div class="content-div">
             <h3 class="heading">Email</h3>
-            <h3>{{data.email}}</h3>
+            <h3>{{profileData.email}}</h3>
         </div>
-        <!-- <div>
-            <h3>First Name</h3>
-            <h3>First Name</h3>
-        </div> -->
+    </div>
+
+    <div *ngIf="isAdmin && !isRegistered" class="button-div">
+        <div class="approve-button">
+            <button mat-dialog-close style="background-color: #fe2712; color: white;" mat-raised-button class="action-button" (click)="action(true)">
+                <mat-icon class="button-icon">done_all</mat-icon>
+                <span>Approve</span>
+            </button>
+        </div>
+        <div class="reject-button">
+            <button mat-dialog-close style="background-color: #1cac78; color: white;" mat-raised-button class="action-button" (click)="action(false)">
+                <mat-icon class="button-icon">delete_outline</mat-icon>
+                <span>Reject</span>
+            </button>
+        </div>
     </div>
 </div>

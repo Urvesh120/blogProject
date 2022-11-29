@@ -19,8 +19,25 @@ h3{
     font-weight: 500;
 }
 
+.button-div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.action-button{
+    width: 120px;
+}
+
+.button-icon{
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 480px) {
     .first-last-name-div, .email-contact-div{
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .action-button{
+        width: 105px;
     }
 }
