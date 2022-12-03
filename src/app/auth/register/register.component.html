@@ -14,6 +14,7 @@
         <h3>Personal Information</h3>
       </div>
 
+      <!-- Prifile Picture  -->
       <div class="inputDiv profile-div">
         <div class="profile-img-div">
           <img *ngIf="imageBase64" [src]="imageBase64" class="image">
@@ -29,13 +30,13 @@
       <!-- First Name & Last Name -->
       <div class="name-div">
         <div class="inputDiv firstNameInputDiv">
-          <input type="text" formControlName="firstname" class="form-control" placeholder="first name">
+          <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
           <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
             First name is required!
           </span>
         </div>
         <div class="inputDiv lastNameInputDiv">
-          <input type="text" formControlName="lastname" class="form-control" placeholder="last name">
+          <input type="text" formControlName="lastname" class="form-control" placeholder="Last name">
           <span style="color: red;" *ngIf="lastname && lastname.invalid && lastname.touched">
             Last name is required!
           </span>
@@ -45,13 +46,13 @@
       <!-- Contact & Email -->
       <div class="email-contact-div">
         <div class="inputDiv contactInputDiv">
-          <input type="tel" formControlName="contact" class="form-control" placeholder="contact">
+          <input type="tel" formControlName="contact" class="form-control" placeholder="Contact">
           <span style="color: red;" *ngIf="contact && contact.invalid && contact.touched">
             Please enater valid contact number!
           </span>
         </div>
         <div class="inputDiv emailInputDiv">
-          <input type="email" formControlName="email" class="form-control" placeholder="email">
+          <input type="email" formControlName="email" class="form-control" placeholder="Email">
           <span style="color: red;" *ngIf="email && email.invalid && email.touched">
             Email is required!
           </span>
@@ -61,7 +62,7 @@
       <!-- Password & Confirm Password -->
       <div class="password-div">
         <div class="inputDiv passwordInputDiv">
-          <input type="password" formControlName="password" class="form-control" placeholder="password"
+          <input type="password" formControlName="password" class="form-control" placeholder="Password"
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" (change)="onPasswordValidation()">
           <span style="color: red;"*ngIf="password && password.touched && password.errors?.['required']">
             Password is required!
@@ -72,7 +73,7 @@
           </span>
         </div>
         <div class="inputDiv passwordInputDiv">
-          <input type="password" formControlName="confirmpassword" class="form-control" placeholder="confirm password"
+          <input type="password" formControlName="confirmpassword" class="form-control" placeholder="Confirm password"
           (change)="onPasswordChange()">
           <span style="color: red;"*ngIf="confirmpassword && confirmpassword.invalid && password.errors?.['required']">
             Please enter confirm password!
@@ -85,10 +86,15 @@
        
       <!-- Blood Group -->
       <div class="inputDiv blood-group-div">
-        <input type="email" formControlName="bloodgroup" class="form-control" placeholder="blood group">
-        <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
-          Bloodgroup is required!
-        </span>
+        <div class="select">
+          <select name="format" id="format" formControlName="bloodgroup">
+            <option disabled value="" selected>Select Bloodgroup</option>
+            <option value="{{item}}" *ngFor="let item of bloodGrouptList" >{{ item }}</option>
+         </select>
+        </div>
+          <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+            Bloodgroup is required!
+          </span>
       </div>
       
       <div class="titles">
@@ -99,24 +105,24 @@
       <div class="address-div">
         <div class="address-lines">
           <div class="inputDiv address-line-1">
-            <input type="email" formControlName="addressLine1" class="form-control" placeholder="address line 1">
+            <input type="text" formControlName="addressLine1" class="form-control" placeholder="Address line 1">
             <span style="color: red;" *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">
               Address is required!
             </span>
           </div>
           <div class="inputDiv address-line-landmark">
-            <input type="email" formControlName="addressLineLandmark" class="form-control" placeholder="nearest landmark (optional)">
+            <input type="text" formControlName="addressLineLandmark" class="form-control" placeholder="Nearest landmark (optional)">
           </div>
         </div>
         <div class="city-pincode">
           <div class="inputDiv address-line-city">
-            <input type="email" formControlName="addressLineCity" class="form-control" placeholder="city">
+            <input type="text" formControlName="addressLineCity" class="form-control" placeholder="City">
             <span style="color: red;" *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">
               Please enter your city!
             </span>
           </div>
           <div class="inputDiv address-line-pincode">
-            <input type="email" formControlName="addressLinePincode" class="form-control" placeholder="pincode">
+            <input type="number" formControlName="addressLinePincode" class="form-control" placeholder="Pincode">
             <span style="color: red;" *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">
               Please enter your Pincode of your city!
             </span>
@@ -131,13 +137,13 @@
       <!-- Occupation / Business -->
       <div class="occupation-Business-div">
         <div class="inputDiv occupation-business-name">
-          <input type="email" formControlName="occupationBusiness" class="form-control" placeholder="occupation/business">
+          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Occupation/Business">
           <span style="color: red;" *ngIf="occupationBusiness && occupationBusiness.invalid && occupationBusiness.touched">
             Please enter your occupation or business!
           </span>
         </div>
         <div class="inputDiv occupation-business-description">
-          <textarea formControlName="description" class="form-control" placeholder="description"></textarea>
+          <textarea formControlName="description" class="form-control" placeholder="Description (optional)"></textarea>
         </div>
       </div>       
 

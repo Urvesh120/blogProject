@@ -3,6 +3,7 @@ $orange-gray-color-shade : #f87060;
 
 .registerFormDiv{
   max-width: 700px;
+  // max-width: 400px;
   margin: 30px auto;
   padding: 35px;
   background-color: white;
@@ -24,6 +25,7 @@ $orange-gray-color-shade : #f87060;
 .name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
   display: grid;
   column-gap: 10px;
+  // grid-template-columns: repeat(1, 1fr);
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -109,4 +111,43 @@ $orange-gray-color-shade : #f87060;
       opacity: 0;
       position: absolute;
   }
+}
+
+
+
+select {
+  appearance:none;
+  outline:0;
+  box-shadow:none;
+  border:0!important;
+  background: rgb(245, 245, 245);
+  flex: 1;
+  padding: 0 .5em;
+  color:#808080;
+  cursor:pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
+  position: relative;
+  display: flex;
+  line-height: 3;
+  background: rgb(245, 245, 245);
+  overflow: hidden;
+  border-radius: .25em;
+}
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  color: #808080;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
+}
+.select:hover::after {
+  color: #23b499;
 }

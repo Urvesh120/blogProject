@@ -11,13 +11,21 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 })
 export class RegisterComponent implements OnInit {
 
-  imageBase64: any;
-  profile : any;
+  imageBase64: string = "";
+  imageType : string = "";
   blankImage = 'assets/images/blank-profile.jpg';
   RegistrationFormGroup: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  bloodGrouptList : any = ['A+', 'A-', 'B+', 'B_', 'O+','O-', 'AB+', 'AB-'];
+  bloodGrouptList : any = [
+    'A+ (A positive)', 
+    'A- (A negative)', 
+    'B+ (B positive)', 
+    'B- (B negative)', 
+    'O+ (O positive)', 
+    'O- (O negative)', 
+    'AB+ (AB positive)', 
+    'AB- (AB negative)'];
 
   constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar) { }
 
@@ -40,7 +48,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSelectFile(event : any) {
-    if (event.target.files && event.target.files[0]) {
+    if (event.target.files && event.target.files[0]) {      
+      this.imageType = event.target.files[0].type;
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); 
       reader.onload = (event: any) => {
@@ -116,11 +125,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    
-    if(this.imageBase64)
-      this.profile = this.imageBase64;
-    else
-      this.profile = "";
 
     let address = 
       this.RegistrationFormGroup.value.addressLine1 + "," +
@@ -129,18 +133,19 @@ export class RegisterComponent implements OnInit {
       this.RegistrationFormGroup.value.addressLinePincode + ".";
     
     let data = {
-      "profile": this.profile,
+      "picture": this.imageBase64,
+      "pictureType": this.imageType,
       "firstName": this.RegistrationFormGroup.value.firstname,
       "lastName": this.RegistrationFormGroup.value.lastname,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": address,
       "contact": this.RegistrationFormGroup.value.contact,
-      "bloodgroup": this.RegistrationFormGroup.value.bloodgroup,
-      "occupationBusiness": this.RegistrationFormGroup.value.occupationBusiness,
+      "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
+      "occupation": this.RegistrationFormGroup.value.occupationBusiness,
       "description": this.RegistrationFormGroup.value.description,
     }
-    console.groupCollapsed(data);
+    console.log(data);
     this.http.register(data).subscribe((res : any) =>{
       if(res.message = "User registration requested successfully."){
         localStorage.removeItem('userEmailId');
@@ -149,7 +154,7 @@ export class RegisterComponent implements OnInit {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
       }
     });
   }
