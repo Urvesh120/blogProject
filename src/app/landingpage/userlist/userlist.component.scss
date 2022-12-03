@@ -6,6 +6,20 @@ table{
     width: 100%;
 }
 
+.mat-cell {
+    padding: 0px 20px;
+}
+
+// .mat-column-First_Name,
+// .mat-column-Last_Name,
+// .mat-column-Email,
+// .mat-column-Contact,
+// .mat-column-Bloodgroup,
+// .mat-column-Occupation,
+// .mat-column-Address{
+//     width: 600px;
+// }
+
 td, th {
     text-align: center !important;
     vertical-align: middle !important;
@@ -22,4 +36,15 @@ h3{
 
 ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
     max-width: 200px !important;
+}
+
+@media only screen and (max-width: 45em){
+    th.mat-header-cell{
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    .mat-cell {
+        font-size: 13px;
+    }
 }
