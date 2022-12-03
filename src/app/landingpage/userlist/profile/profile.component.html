@@ -1,30 +1,64 @@
-<div class="profile-div">
-    <div class="first-last-name-div">
-        <div class="content-div">
+<div class="user-profile-div">
+
+    <!-- Prifile Picture  -->
+    <div class="image-div">
+        <div class="profile-img-div">
+            <img [src]="profilePic" class="image">
+        </div>
+    </div>
+     
+    <!-- First Name & Last Name -->
+    <div class="name-div">
+        <div class="textDiv firstNameInputDiv">
             <h3 class="heading">First Name</h3>
             <h3>{{profileData.firstName}}</h3>
         </div>
-        <div class="content-div">
+        <div class="textDiv lastNameInputDiv">
             <h3 class="heading">Last Name</h3>
             <h3>{{profileData.lastName}}</h3>
         </div>
     </div>
+
+    <!-- Contact & Email -->
     <div class="email-contact-div">
-        <div class="content-div">
+        <div class="textDiv contactInputDiv">
+            <h3 class="heading">Contact</h3>
+            <h3>{{profileData.contact}}</h3>
+        </div>
+        <div class="textDiv emailInputDiv">
             <h3 class="heading">Email</h3>
             <h3>{{profileData.email}}</h3>
         </div>
     </div>
+    
+    <!-- Blood Group -->
+    <div class="textDiv blood-group-div">
+        <h3 class="heading">Blood Group</h3>
+        <h3>{{profileData.bloodGroup}}</h3>
+    </div>
 
+    <!-- Address -->
+    <div class="textDiv address-div">
+        <h3 class="heading">Address</h3>
+        <h3>{{profileData.address}}</h3>
+    </div>
+    
+    <!-- Occupation / Business -->
+    <div class="textDiv occupation-business-name">
+        <h3 class="heading">Occupatio or Business</h3>
+        <h3>{{profileData.occupation}}</h3>
+    </div>
+
+    <!-- Action Buttons -->
     <div *ngIf="isAdmin && !isRegistered" class="button-div">
         <div class="approve-button">
-            <button mat-dialog-close style="background-color: #fe2712; color: white;" mat-raised-button class="action-button" (click)="action(true)">
+            <button mat-dialog-close style="background-color: #1cac78; color: white;" mat-raised-button class="action-button" (click)="action(true)">
                 <mat-icon class="button-icon">done_all</mat-icon>
                 <span>Approve</span>
             </button>
         </div>
         <div class="reject-button">
-            <button mat-dialog-close style="background-color: #1cac78; color: white;" mat-raised-button class="action-button" (click)="action(false)">
+            <button mat-dialog-close style="background-color: #fe2712; color: white;" mat-raised-button class="action-button" (click)="action(false)">
                 <mat-icon class="button-icon">delete_outline</mat-icon>
                 <span>Reject</span>
             </button>

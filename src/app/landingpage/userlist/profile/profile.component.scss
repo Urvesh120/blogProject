@@ -1,4 +1,34 @@
-.first-last-name-div, .email-contact-div{
+$orange-gray-color-shade : #f87060;
+
+.user-profile-div{
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.image-div{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.profile-img-div img{
+    width: 100px;
+    height: 100px;
+    outline: #cdd7d6 solid 3px;
+    border-radius: 50%;
+}
+
+.textDiv{
+    margin-bottom: 20px;
+}
+
+.name-div, 
+.email-contact-div, 
+.password-div, 
+.address-lines, 
+.city-pincode{
     display: grid;
     column-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
@@ -10,13 +40,16 @@
 
 h3{
     padding: 0;
+    margin: 0;
     margin: 0px 0px 10px 0px;
     font-size: 20px;
 }
 
 .heading{
+    margin: 0;
     font-size: 20px;
     font-weight: 500;
+    color: $orange-gray-color-shade;
 }
 
 .button-div{
@@ -33,7 +66,14 @@ h3{
 }
 
 @media screen and (max-width: 480px) {
-    .first-last-name-div, .email-contact-div{
+
+    .name-div, 
+    .email-contact-div, 
+    .password-div, 
+    .address-lines, 
+    .city-pincode{
+        display: grid;
+        column-gap: 10px;
         grid-template-columns: repeat(1, 1fr);
     }
 
