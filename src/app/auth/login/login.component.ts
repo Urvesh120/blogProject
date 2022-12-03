@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginFormGroup: any;
   logout = false;
+  userId: any;
 
   constructor( private router : Router, private fb: FormBuilder, private http: HttpService) { }
 
@@ -28,12 +29,17 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
-      if(!!res){
+      if(res.status){
         localStorage.setItem('userEmailId',this.loginFormGroup.value.email);
         localStorage.setItem('logout',JSON.stringify(this.logout));
         localStorage.setItem('token', res.jwtToken);
         localStorage.setItem('UserName', res.displayName);
-        this.router.navigate(['/home']);
+        localStorage.setItem('UserId', res.userId);
+        this.router.navigate(['']);
+        this.userId = localStorage.getItem('UserId');
+        this.http.getUserProfileById(this.userId).subscribe((res : any) => {
+          localStorage.setItem('profilePic',res.picture);
+        })
       }
     });
   }

@@ -23,6 +23,7 @@ export class LandingpageComponent implements OnInit {
   isUser = false;
   username : any;
   logedout = false;
+  image : any;
 
   constructor( private router : Router) { 
   }
@@ -30,6 +31,7 @@ export class LandingpageComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('userEmailId')){
       this.isLogedIn = true;
+      this.image = localStorage.getItem('profilePic');
       this.emailId = localStorage.getItem('userEmailId'); 
       this.username = localStorage.getItem('UserName');
       if(this.emailId == "admin@email.com"){
@@ -50,7 +52,11 @@ export class LandingpageComponent implements OnInit {
     localStorage.removeItem('userEmailId');
     localStorage.removeItem('token');
     localStorage.removeItem('UserName');
-    localStorage.setItem('logout',JSON.stringify(this.logedout));
-    window.location.reload()
+    localStorage.removeItem('UserId');
+    this.router.navigate(['']);
+    setTimeout(
+      function() {
+        window.location.reload();
+      }, 1000);
   }
 }

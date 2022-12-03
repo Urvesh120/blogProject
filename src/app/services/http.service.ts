@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpBackend, HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
 
-  // preRoute = "http://ec2-54-242-17-125.compute-1.amazonaws.com:8090";
   preRoute = "http://15.206.187.45:8090";
-
     constructor( private http: HttpClient,private httpWithoutInterceptor:HttpClient, private httpbackend:HttpBackend ){
         this.httpWithoutInterceptor= new HttpClient(httpbackend);
     }
@@ -30,5 +28,11 @@ export class HttpService {
 
     requestAction(data : any){
       return this.http.put(this.preRoute+'/admin/request-action', data);
+    }
+
+    getUserProfileById(id : any){
+       let queryParams = new HttpParams();
+      queryParams = queryParams.append("id", id)
+      return this.http.post(this.preRoute+'/user/profile',"", {params:queryParams});
     }
 }

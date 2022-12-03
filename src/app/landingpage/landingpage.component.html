@@ -9,7 +9,7 @@
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
     <div *ngIf="isLogedIn" class="user-prifile">
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" [src]="image" />
     <h4 class="name">{{username}}</h4>
     </div>
 
