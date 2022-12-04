@@ -1,0 +1,35 @@
+<div class="user-profile-div">
+    
+    <div class="info">
+        <div *ngIf="isImage" class="profile-div">
+            <img [src]="userData.picture" alt="user profile">
+        </div>
+        <div class="firstname-div">
+            <h1 class="name">{{userData.firstName}} {{userData.lastName}}</h1>
+        </div>
+    </div>
+    
+    <div class="email-contact">
+        <div class="email-div">
+            <h3><strong>Email :</strong> {{userData.email}}</h3>
+        </div>
+        <div class="contact-div">
+            <h3><strong>Contact :</strong> {{userData.contact}}</h3>
+        </div>
+    </div>
+
+    <div class="bloodgroup-div">
+        <h3><strong>Blood Gouop :</strong> {{userData.bloodGroup}}</h3>
+    </div>
+    <div class="address-div">
+        <h3><strong>Address</strong></h3>
+        <h3>{{userData.address}}</h3>
+    </div>
+    <div class="occupation-div">
+        <h3><strong>Occupation or Business : </strong> {{userData.occupation}}</h3>
+    </div>
+    <div *ngIf="isDescription" class="description-div">
+        <h3>Description about occupation or business</h3>
+        <h3>{{userData.description}}</h3>
+    </div>
+</div>
