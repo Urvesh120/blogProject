@@ -53,6 +53,7 @@ export class LandingpageComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('UserName');
     localStorage.removeItem('UserId');
+    localStorage.removeItem('profilePic');
     this.router.navigate(['']);
     setTimeout(
       function() {

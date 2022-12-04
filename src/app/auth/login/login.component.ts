@@ -11,7 +11,6 @@ import { HttpService } from '../../services/http.service';
 export class LoginComponent implements OnInit {
 
   loginFormGroup: any;
-  logout = false;
   userId: any;
 
   constructor( private router : Router, private fb: FormBuilder, private http: HttpService) { }
