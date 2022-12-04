@@ -29,7 +29,6 @@ export class UserlistComponent implements OnInit {
   registeredUserList : userData[] = [];
   registeredUserDataSource : any;
   pendingUserDataSource : any;
-  dataSource : any;
   emailId : any;
   isLogedIn = false;
   isAdmin = false;
@@ -63,8 +62,8 @@ export class UserlistComponent implements OnInit {
             data.bloodGroup.toLowerCase().includes(filter) || 
             data.occupation.toLowerCase().includes(filter) || 
             data.address.toString().includes(filter)};
-        });
-      }
+          });
+        }
       this.isUser = true;
       this.http.userlist().subscribe((res : any) => {
         this.registeredUserList = res;
