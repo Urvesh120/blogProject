@@ -145,7 +145,6 @@ export class RegisterComponent implements OnInit {
       "occupation": this.RegistrationFormGroup.value.occupationBusiness,
       "description": this.RegistrationFormGroup.value.description,
     }
-    console.log(data);
     this.http.register(data).subscribe((res : any) =>{
       if(res.message = "User registration requested successfully."){
         localStorage.removeItem('userEmailId');
