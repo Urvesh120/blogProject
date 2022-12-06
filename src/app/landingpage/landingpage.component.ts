@@ -58,6 +58,6 @@ export class LandingpageComponent implements OnInit {
     setTimeout(
       function() {
         window.location.reload();
-      }, 1000);
+      }, 500);
   }
 }

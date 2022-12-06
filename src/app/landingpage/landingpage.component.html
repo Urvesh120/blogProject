@@ -28,6 +28,7 @@
       <span>User list</span>
     </button>
 
+    <mat-accordion #accordion="matAccordion" [multi]="true">
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -38,21 +39,22 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-        <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
+        <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 1</span>
         </button>
 
-        <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
+        <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 2</span>
         </button>
   
-        <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
+        <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 3</span>
         </button>
-    </mat-expansion-panel>    
+    </mat-expansion-panel>   
+  </mat-accordion> 
 
     <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-profile']">
       <mat-icon style="color: #f87060;">person</mat-icon>
