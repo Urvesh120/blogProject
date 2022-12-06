@@ -3,6 +3,14 @@
 	src: url('../assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
 }
 
+mat-progress-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
   /* header */
   
   .navbarHeader{
