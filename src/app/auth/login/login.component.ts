@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { LoaderService } from '../../services/loader.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   loginFormGroup: any;
   userId: any;
 
-  constructor( private router : Router, private fb: FormBuilder, private http: HttpService, private loader : LoaderService) { }
+  constructor( private router : Router, 
+    private fb: FormBuilder, 
+    private http: HttpService, 
+    private loader : LoaderService
+    ) { }
 
   ngOnInit(): void {
     this.loginFormGroup = this.fb.group({
@@ -36,9 +41,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('UserName', res.displayName);
         localStorage.setItem('UserId', res.userId);
         this.userId = localStorage.getItem('UserId');
-        this.http.getUserProfileById(this.userId).subscribe((res : any) => {
-          localStorage.setItem('profilePic',res.picture);
-        })
+        // this.http.getUserProfileById(this.userId).subscribe((res : any) => {
+        //   let image = this.sanitizer.bypassSecurityTrustUrl(res.picture);
+        //   localStorage.setItem('profilePic', JSON.stringify(image));
+        // })
         setTimeout(
           () => {
             this.router.navigate(['']);

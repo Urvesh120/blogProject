@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
+import { HttpService } from '../services/http.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landingpage',
@@ -17,6 +19,7 @@ import { Router } from '@angular/router';
 export class LandingpageComponent implements OnInit {
 
   selected = 'Trusts';
+  userId : any;
   emailId : any;
   isLogedIn = false;
   isAdmin = false;
@@ -25,13 +28,19 @@ export class LandingpageComponent implements OnInit {
   logedout = false;
   image : any;
 
-  constructor( private router : Router) { 
+  constructor( private router : Router, 
+    private http : HttpService,
+    private sanitizer: DomSanitizer) { 
   }
 
   ngOnInit(): void {
     if(localStorage.getItem('userEmailId')){
+      this.userId = localStorage.getItem('UserId'); 
+      this.http.getUserProfileById(this.userId).subscribe((res : any) => {
+        this.image = this.sanitizer.bypassSecurityTrustUrl(res.picture);
+      });
       this.isLogedIn = true;
-      this.image = localStorage.getItem('profilePic');
+      // this.image = localStorage.getItem('profilePic');
       this.emailId = localStorage.getItem('userEmailId'); 
       this.username = localStorage.getItem('UserName');
       if(this.emailId == "admin@email.com"){
