@@ -37,7 +37,7 @@ input[type=number] {
   display: grid;
   column-gap: 10px;
   // grid-template-columns: repeat(1, 1fr);
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .buttonsDiv{
@@ -131,10 +131,10 @@ select {
   outline:0;
   box-shadow:none;
   border:0!important;
-  background: rgb(217, 217, 217);
+  background: #e9ecef;
   flex: 1;
   padding: 0 .5em;
-  color:#808080;
+  color:#5b6166;
   cursor:pointer;
 }
 select::-ms-expand {
@@ -154,11 +154,11 @@ select::-ms-expand {
   top: 0;
   right: 0;
   padding: 0 1em;
-  color: #808080;
+  color: #5b6166;
   cursor:pointer;
   pointer-events:none;
   transition:.25s all ease;
 }
 .select:hover::after {
-  color: #23b499;
+  color: #5c5c5c;
 }

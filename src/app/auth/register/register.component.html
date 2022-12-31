@@ -28,9 +28,39 @@
       </div>
      
       <!-- First Name & Last Name -->
+      <h3 style="color: #f87060;">Your Name</h3>
       <div class="name-div">
         <div class="inputDiv firstNameInputDiv">
           <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
+        </div>
+        <div class="inputDiv firstNameInputDiv">
+          <input type="text" formControlName="firstname" class="form-control" placeholder="Middle name">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
+        </div>
+        <div class="inputDiv lastNameInputDiv">
+          <input type="text" formControlName="lastname" class="form-control" placeholder="Last name">
+          <span style="color: red;" *ngIf="lastname && lastname.invalid && lastname.touched">
+            Last name is required!
+          </span>
+        </div>
+      </div>
+
+      <!-- First Name & Last Name -->
+      <h3 style="color: #f87060;">Your Father Name</h3>
+      <div class="name-div">
+        <div class="inputDiv firstNameInputDiv">
+          <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
+        </div>
+        <div class="inputDiv firstNameInputDiv">
+          <input type="text" formControlName="firstname" class="form-control" placeholder="Middle name">
           <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
             First name is required!
           </span>
@@ -47,12 +77,23 @@
       <div class="email-contact-div">
         <div class="inputDiv contactInputDiv">
           <input type="tel" formControlName="contact" minlength="10" maxlength="10" class="form-control" placeholder="Contact">
+          <!-- <ngx-intl-tel-input [cssClass]="''" [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+				[searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+				[selectFirstCountry]="false" [maxLength]="15"
+				[phoneValidation]="true" [separateDialCode]="true" name="phone" formControlName="phone"> -->
+			</ngx-intl-tel-input>
           <span style="color: red;" *ngIf="contact && contact.invalid && contact.touched">
             Please enater valid contact number!
           </span>
         </div>
         <div class="inputDiv emailInputDiv">
           <input type="email" formControlName="email" class="form-control" placeholder="Email">
+          <span style="color: red;" *ngIf="email && email.invalid && email.touched">
+            Email is required!
+          </span>
+        </div>
+        <div class="inputDiv emailInputDiv">
+          <input type="email" formControlName="email" class="form-control" placeholder="Gotra">
           <span style="color: red;" *ngIf="email && email.invalid && email.touched">
             Email is required!
           </span>
@@ -83,6 +124,16 @@
           </span>
         </div>
       </div>
+
+      <!-- Educational -->
+      <div class="educational-div">
+        <div class="inputDiv passwordInputDiv">
+          <input type="email" formControlName="email" class="form-control" placeholder="Educational Qualification">
+        </div>
+        <div class="inputDiv passwordInputDiv">
+          <input type="email" formControlName="email" class="form-control" placeholder="Achievements (if any)">
+        </div>
+      </div>
        
       <!-- Blood Group -->
       <div class="inputDiv blood-group-div">
@@ -94,6 +145,30 @@
         </div>
           <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
             Bloodgroup is required!
+          </span>
+      </div>
+
+      <div class="inputDiv blood-group-div">
+        <div class="select">
+          <select name="format" id="format" formControlName="bloodgroup">
+            <option disabled value="" selected>Select Gender</option>
+            <option value="{{item}}" *ngFor="let item of genderList" >{{ item }}</option>
+         </select>
+        </div>
+          <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+            Gender is required!
+          </span>
+      </div>
+
+      <div class="inputDiv blood-group-div">
+        <div class="select">
+          <select name="format" id="format" formControlName="bloodgroup">
+            <option disabled value="" selected>Select Marital status</option>
+            <option value="{{item}}" *ngFor="let item of maritalStatus" >{{ item }}</option>
+         </select>
+        </div>
+          <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+            Marital status is required!
           </span>
       </div>
       
@@ -136,14 +211,25 @@
       
       <!-- Occupation / Business -->
       <div class="occupation-Business-div">
-        <div class="inputDiv occupation-business-name">
-          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Occupation/Business">
-          <span style="color: red;" *ngIf="occupationBusiness && occupationBusiness.invalid && occupationBusiness.touched">
-            Please enter your occupation or business!
-          </span>
+        <div class="inputDiv blood-group-div">
+          <div class="select">
+            <select name="format" id="format" formControlName="bloodgroup">
+              <option disabled value="" selected>Select Bloodgroup</option>
+              <option value="{{item}}" *ngFor="let item of occupationList" >{{ item }}</option>
+           </select>
+          </div>
+            <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+              This is required!
+            </span>
         </div>
-        <div class="inputDiv occupation-business-description">
-          <textarea formControlName="description" class="form-control" placeholder="Description (optional)"></textarea>
+
+        <div>
+          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Company name">
+          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Designation">
+        </div>
+        <div>
+          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Business name">
+          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Business type">
         </div>
       </div>       
 

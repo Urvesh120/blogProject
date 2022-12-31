@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ModuleModule } from '../shared/modules/modules.module';
+// import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ModuleModule } from '../shared/modules/modules.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ModuleModule
+    ModuleModule,
+    // NgxIntlTelInputModule
   ]
 })
 export class AuthModule { }

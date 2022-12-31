@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+// import { SearchCountryField, CountryISO } from "ngx-intl-tel-input";
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,10 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  // SearchCountryField = SearchCountryField;
+  // CountryISO = CountryISO;
+  // preferredCountries: CountryISO[] = [CountryISO.India];
 
   imageBase64: string = "";
   imageType : string = "";
@@ -26,6 +31,21 @@ export class RegisterComponent implements OnInit {
     'O- (O negative)', 
     'AB+ (AB positive)', 
     'AB- (AB negative)'];
+  genderList : any = [
+    'Male',
+    'Female',
+  ]
+  maritalStatus : any = [
+    'Single',
+    'Married',
+    'Divorced',
+    'Widowed',
+    'Separated',
+  ]
+  occupationList : any = [
+    'Job',
+    'Bussiness'
+  ]
 
   constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar) { }
 
