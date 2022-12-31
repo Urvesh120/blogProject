@@ -6,12 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SafePipe } from './services/safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SafePipe,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HttpService } from 'src/app/services/http.service';
-import { SafePipe } from 'src/app/services/safe.pipe';
+// import { SafePipe } from 'src/app/services/safe.pipe';
 
 @Component({
   selector: 'app-userprofile',
@@ -13,15 +14,15 @@ export class UserprofileComponent implements OnInit {
   isImage = false;
   isDescription = false;
   abc : any;
+  image : any;
 
-  constructor(private http : HttpService, private safe : SafePipe) { }
+  constructor(private http : HttpService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.http.getUserProfileById(localStorage.getItem('UserId')).subscribe((res : any) => {
-      // console.log(res);
-      this.abc = this.safe.transform(this.userData.picture, "url");
       this.userData = res;
       if(!!this.userData.picture){
+        this.image = this.sanitizer.bypassSecurityTrustUrl(this.userData.picture);
         this.isImage = true;
       }
       if(!!this.userData.description){

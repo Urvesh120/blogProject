@@ -1,6 +1,17 @@
 $gray-color-shade : #cdd7d6;
 $orange-gray-color-shade : #f87060;
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .registerFormDiv{
   max-width: 700px;
   // max-width: 400px;
@@ -120,7 +131,7 @@ select {
   outline:0;
   box-shadow:none;
   border:0!important;
-  background: rgb(245, 245, 245);
+  background: rgb(217, 217, 217);
   flex: 1;
   padding: 0 .5em;
   color:#808080;

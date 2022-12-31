@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.loader.show();
+    // this.loader.show();
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
       if(res.status){
         localStorage.setItem('userEmailId',this.loginFormGroup.value.email);
