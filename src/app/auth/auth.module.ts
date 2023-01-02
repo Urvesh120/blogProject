@@ -5,7 +5,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ModuleModule } from '../shared/modules/modules.module';
-// import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ModuleModule } from '../shared/modules/modules.module';
     CommonModule,
     AuthRoutingModule,
     ModuleModule,
-    // NgxIntlTelInputModule
+    NgxIntlTelInputModule,
+    BsDropdownModule.forRoot()
   ]
 })
 export class AuthModule { }

@@ -38,7 +38,7 @@
         </div>
         <div class="inputDiv firstNameInputDiv">
           <input type="text" formControlName="firstname" class="form-control" placeholder="Middle name">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+          <span style="color: red;" *ngIf="middlename && middlename.invalid && middlename.touched">
             First name is required!
           </span>
         </div>
@@ -55,19 +55,19 @@
       <div class="name-div">
         <div class="inputDiv firstNameInputDiv">
           <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+          <span style="color: red;" *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">
             First name is required!
           </span>
         </div>
         <div class="inputDiv firstNameInputDiv">
           <input type="text" formControlName="firstname" class="form-control" placeholder="Middle name">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+          <span style="color: red;" *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">
             First name is required!
           </span>
         </div>
         <div class="inputDiv lastNameInputDiv">
           <input type="text" formControlName="lastname" class="form-control" placeholder="Last name">
-          <span style="color: red;" *ngIf="lastname && lastname.invalid && lastname.touched">
+          <span style="color: red;" *ngIf="flastname && flastname.invalid && flastname.touched">
             Last name is required!
           </span>
         </div>
@@ -76,12 +76,10 @@
       <!-- Contact & Email -->
       <div class="email-contact-div">
         <div class="inputDiv contactInputDiv">
-          <input type="tel" formControlName="contact" minlength="10" maxlength="10" class="form-control" placeholder="Contact">
-          <!-- <ngx-intl-tel-input [cssClass]="''" [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
-				[searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-				[selectFirstCountry]="false" [maxLength]="15"
-				[phoneValidation]="true" [separateDialCode]="true" name="phone" formControlName="phone"> -->
-			</ngx-intl-tel-input>
+          <!-- <input type="tel" formControlName="contact" minlength="10" maxlength="10" class="form-control" placeholder="Contact"> -->
+          <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]" [enableAutoCountrySelect]="false"
+            [enablePlaceholder]="true" [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.India" [maxLength]="10" [phoneValidation]="true" name="phone" formControlName="contact"></ngx-intl-tel-input>
           <span style="color: red;" *ngIf="contact && contact.invalid && contact.touched">
             Please enater valid contact number!
           </span>
@@ -92,10 +90,10 @@
             Email is required!
           </span>
         </div>
-        <div class="inputDiv emailInputDiv">
-          <input type="email" formControlName="email" class="form-control" placeholder="Gotra">
-          <span style="color: red;" *ngIf="email && email.invalid && email.touched">
-            Email is required!
+        <div class="inputDiv gotraInputDiv">
+          <input type="email" formControlName="gotra" class="form-control" placeholder="Gotra">
+          <span style="color: red;" *ngIf="gotra && gotra.invalid && gotra.touched">
+            Gotra is required!
           </span>
         </div>
       </div>
@@ -129,9 +127,15 @@
       <div class="educational-div">
         <div class="inputDiv passwordInputDiv">
           <input type="email" formControlName="email" class="form-control" placeholder="Educational Qualification">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
         </div>
         <div class="inputDiv passwordInputDiv">
           <input type="email" formControlName="email" class="form-control" placeholder="Achievements (if any)">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
         </div>
       </div>
        
@@ -225,11 +229,23 @@
 
         <div>
           <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Company name">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
           <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Designation">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
         </div>
         <div>
           <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Business name">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
           <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Business type">
+          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+            First name is required!
+          </span>
         </div>
       </div>       
 

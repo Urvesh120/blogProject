@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-// import { SearchCountryField, CountryISO } from "ngx-intl-tel-input";
-
+import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,9 +11,12 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 })
 export class RegisterComponent implements OnInit {
 
-  // SearchCountryField = SearchCountryField;
-  // CountryISO = CountryISO;
-  // preferredCountries: CountryISO[] = [CountryISO.India];
+  separateDialCode = false;
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+  preferredCountries: CountryISO[] = [
+    CountryISO.India,
+  ];
 
   imageBase64: string = "";
   imageType : string = "";
@@ -52,18 +54,28 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.RegistrationFormGroup = this.fb.group({
       firstname: ['', Validators.required],
+      middlename: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
+      ffirstname: ['', [Validators.required]],
+      fmiddlename: ['', [Validators.required]],
+      flastname: ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ['', [Validators.required, Validators.email]],
+      gotra: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
+      educationa: [''],
+      achivement: ['', [Validators.required]],
       bloodgroup: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      maritalstatus: ['', [Validators.required]],
       addressLine1: ['', [Validators.required]],
       addressLineLandmark: [''],
       addressLineCity: ['', [Validators.required]],
       addressLinePincode: ['', [Validators.required]],
-      occupationBusiness: ['', [Validators.required]],
-      description: [''],
+      jobBusinessType: ['', [Validators.required]],
+      jobBusinessName: ['', [Validators.required]],
+      description: ['', [Validators.required]],
     });
   }
 
@@ -98,9 +110,25 @@ export class RegisterComponent implements OnInit {
   get firstname() {
     return this.RegistrationFormGroup.get('firstname');
   }
+  
+  get middlename() {
+    return this.RegistrationFormGroup.get('middlename');
+  }
 
   get lastname() {
     return this.RegistrationFormGroup.get('lastname');
+  }
+  
+  get ffirstname() {
+    return this.RegistrationFormGroup.get('ffirstname');
+  }
+  
+  get fmiddlename() {
+    return this.RegistrationFormGroup.get('fmiddlename');
+  }
+
+  get flastname() {
+    return this.RegistrationFormGroup.get('flastname');
   }
 
   get contact() {
@@ -109,6 +137,10 @@ export class RegisterComponent implements OnInit {
 
   get email() {
     return this.RegistrationFormGroup.get('email');
+  }
+  
+  get gotra() {
+    return this.RegistrationFormGroup.get('gotra');
   }
 
   get password() {
@@ -121,6 +153,14 @@ export class RegisterComponent implements OnInit {
 
   get bloodgroup() {
     return this.RegistrationFormGroup.get('bloodgroup');
+  }
+  
+  get gender() {
+    return this.RegistrationFormGroup.get('gender');
+  }
+  
+  get maritalstatus() {
+    return this.RegistrationFormGroup.get('maritalstatus');
   }
 
   get addressLine1() {
@@ -135,8 +175,16 @@ export class RegisterComponent implements OnInit {
     return this.RegistrationFormGroup.get('addressLinePincode');
   }
 
-  get occupationBusiness() {
-    return this.RegistrationFormGroup.get('occupationBusiness');
+  get jobBusinessType() {
+    return this.RegistrationFormGroup.get('jobBusinessType');
+  }
+  
+  get jobBusinessName() {
+    return this.RegistrationFormGroup.get('jobBusinessName');
+  }
+  
+  get description() {
+    return this.RegistrationFormGroup.get('description');
   }
 
 
@@ -156,26 +204,35 @@ export class RegisterComponent implements OnInit {
       "picture": this.imageBase64,
       "pictureType": this.imageType,
       "firstName": this.RegistrationFormGroup.value.firstname,
+      "middlename": this.RegistrationFormGroup.value.middlename,
       "lastName": this.RegistrationFormGroup.value.lastname,
+      "ffirstName": this.RegistrationFormGroup.value.ffirstname,
+      "fmiddlename": this.RegistrationFormGroup.value.fmiddlename,
+      "flastName": this.RegistrationFormGroup.value.flastname,
+      "contact": this.RegistrationFormGroup.value.contact.internationalNumber,
+      "countryCode": this.RegistrationFormGroup.value.contact.countryCode,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": address,
-      "contact": this.RegistrationFormGroup.value.contact,
       "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
-      "occupation": this.RegistrationFormGroup.value.occupationBusiness,
-      "description": this.RegistrationFormGroup.value.description,
+      "gender": this.RegistrationFormGroup.value.gender,
+      "maritalstatus": this.RegistrationFormGroup.value.maritalStatus,
+      "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
+      "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
+      "occupationDescription": this.RegistrationFormGroup.value.description,
     }
-    this.http.register(data).subscribe((res : any) =>{
-      if(res.message = "User registration requested successfully."){
-        localStorage.removeItem('userEmailId');
-        this._snackBar.open("Register Request sent Successfully", "close",{
-          duration : 5 * 1000,
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
-        this.router.navigate(['']);
-      }
-    });
+    // this.http.register(data).subscribe((res : any) =>{
+    //   if(res.message = "User registration requested successfully."){
+    //     localStorage.removeItem('userEmailId');
+    //     this._snackBar.open("Register Request sent Successfully", "close",{
+    //       duration : 5 * 1000,
+    //       horizontalPosition: this.horizontalPosition,
+    //       verticalPosition: this.verticalPosition,
+    //     });
+    //     this.router.navigate(['']);
+    //   }
+    // });
+    console.log(this.RegistrationFormGroup.value);
   }
 
 }
