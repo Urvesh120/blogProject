@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
 
   imageBase64: string = "";
   imageType : string = "";
+  isJob : boolean = true;
+  isOccupationSelected : boolean = false;
   blankImage = 'assets/images/blank-profile.jpg';
   RegistrationFormGroup: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
@@ -60,15 +62,16 @@ export class RegisterComponent implements OnInit {
       fmiddlename: ['', [Validators.required]],
       flastname: ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      email: ['', [Validators.required, Validators.email]],
-      gotra: ['', [Validators.required]],
+      // email: ['', [Validators.required, Validators.email]],
+      email: [''],
       password: ['', [Validators.required]],
       confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
-      educationa: [''],
-      achivement: ['', [Validators.required]],
       bloodgroup: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       maritalstatus: ['', [Validators.required]],
+      gotra: ['', [Validators.required]],
+      educational: ['', [Validators.required]],
+      achivement: [''],
       addressLine1: ['', [Validators.required]],
       addressLineLandmark: [''],
       addressLineCity: ['', [Validators.required]],
@@ -87,6 +90,17 @@ export class RegisterComponent implements OnInit {
       reader.onload = (event: any) => {
         this.imageBase64 = event.target.result;
       }
+    }
+  }
+
+  abc(event : any){
+    if(event.target.value == this.occupationList[0]){
+      this.isOccupationSelected = true;
+      this.isJob = true;
+    }
+    if(event.target.value == this.occupationList[1]){
+      this.isOccupationSelected = true;
+      this.isJob = false;
     }
   }
 
@@ -135,22 +149,18 @@ export class RegisterComponent implements OnInit {
     return this.RegistrationFormGroup.get('contact');
   }
 
-  get email() {
-    return this.RegistrationFormGroup.get('email');
-  }
+  // get email() {
+  //   return this.RegistrationFormGroup.get('email');
+  // }
   
-  get gotra() {
-    return this.RegistrationFormGroup.get('gotra');
-  }
-
   get password() {
     return this.RegistrationFormGroup.get('password');
   }
-
+  
   get confirmpassword() {
     return this.RegistrationFormGroup.get('confirmpassword');
   }
-
+  
   get bloodgroup() {
     return this.RegistrationFormGroup.get('bloodgroup');
   }
@@ -161,6 +171,14 @@ export class RegisterComponent implements OnInit {
   
   get maritalstatus() {
     return this.RegistrationFormGroup.get('maritalstatus');
+  }
+  
+  get gotra() {
+    return this.RegistrationFormGroup.get('gotra');
+  }
+
+  get educational() {
+    return this.RegistrationFormGroup.get('educational');
   }
 
   get addressLine1() {
@@ -199,18 +217,23 @@ export class RegisterComponent implements OnInit {
       this.RegistrationFormGroup.value.addressLineLandmark + "," +
       this.RegistrationFormGroup.value.addressLineCity + "-" +
       this.RegistrationFormGroup.value.addressLinePincode + ".";
+
+    let name = 
+      this.RegistrationFormGroup.value.lastname + " " +
+      this.RegistrationFormGroup.value.firstname + " " +
+      this.RegistrationFormGroup.value.middlename;
+    
+    let fatherName = 
+      this.RegistrationFormGroup.value.flastname + " " +
+      this.RegistrationFormGroup.value.ffirstname + " " +
+      this.RegistrationFormGroup.value.fmiddlename;
     
     let data = {
       "picture": this.imageBase64,
       "pictureType": this.imageType,
-      "firstName": this.RegistrationFormGroup.value.firstname,
-      "middlename": this.RegistrationFormGroup.value.middlename,
-      "lastName": this.RegistrationFormGroup.value.lastname,
-      "ffirstName": this.RegistrationFormGroup.value.ffirstname,
-      "fmiddlename": this.RegistrationFormGroup.value.fmiddlename,
-      "flastName": this.RegistrationFormGroup.value.flastname,
+      "name" : name,
+      "fatherName" : fatherName,
       "contact": this.RegistrationFormGroup.value.contact.internationalNumber,
-      "countryCode": this.RegistrationFormGroup.value.contact.countryCode,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": address,

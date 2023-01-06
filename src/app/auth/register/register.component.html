@@ -28,7 +28,10 @@
       </div>
      
       <!-- First Name & Last Name -->
-      <h3 style="color: #f87060;">Your Name</h3>
+      <div class="titles">
+        <h3>Your name</h3>
+      </div>
+
       <div class="name-div">
         <div class="inputDiv firstNameInputDiv">
           <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
@@ -37,7 +40,7 @@
           </span>
         </div>
         <div class="inputDiv firstNameInputDiv">
-          <input type="text" formControlName="firstname" class="form-control" placeholder="Middle name">
+          <input type="text" formControlName="middlename" class="form-control" placeholder="Middle name">
           <span style="color: red;" *ngIf="middlename && middlename.invalid && middlename.touched">
             First name is required!
           </span>
@@ -51,22 +54,25 @@
       </div>
 
       <!-- First Name & Last Name -->
-      <h3 style="color: #f87060;">Your Father Name</h3>
+      <div class="titles">
+        <h3>Father's name</h3>
+      </div>
+
       <div class="name-div">
         <div class="inputDiv firstNameInputDiv">
-          <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
+          <input type="text" formControlName="ffirstname" class="form-control" placeholder="First name">
           <span style="color: red;" *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">
             First name is required!
           </span>
         </div>
         <div class="inputDiv firstNameInputDiv">
-          <input type="text" formControlName="firstname" class="form-control" placeholder="Middle name">
+          <input type="text" formControlName="fmiddlename" class="form-control" placeholder="Middle name">
           <span style="color: red;" *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">
             First name is required!
           </span>
         </div>
         <div class="inputDiv lastNameInputDiv">
-          <input type="text" formControlName="lastname" class="form-control" placeholder="Last name">
+          <input type="text" formControlName="flastname" class="form-control" placeholder="Last name">
           <span style="color: red;" *ngIf="flastname && flastname.invalid && flastname.touched">
             Last name is required!
           </span>
@@ -74,6 +80,10 @@
       </div>
 
       <!-- Contact & Email -->
+      <div class="titles">
+        <h3>Contact information</h3>
+      </div>
+
       <div class="email-contact-div">
         <div class="inputDiv contactInputDiv">
           <!-- <input type="tel" formControlName="contact" minlength="10" maxlength="10" class="form-control" placeholder="Contact"> -->
@@ -86,15 +96,9 @@
         </div>
         <div class="inputDiv emailInputDiv">
           <input type="email" formControlName="email" class="form-control" placeholder="Email">
-          <span style="color: red;" *ngIf="email && email.invalid && email.touched">
+          <!-- <span style="color: red;" *ngIf="email && email.invalid && email.touched">
             Email is required!
-          </span>
-        </div>
-        <div class="inputDiv gotraInputDiv">
-          <input type="email" formControlName="gotra" class="form-control" placeholder="Gotra">
-          <span style="color: red;" *ngIf="gotra && gotra.invalid && gotra.touched">
-            Gotra is required!
-          </span>
+          </span> -->
         </div>
       </div>
 
@@ -123,59 +127,73 @@
         </div>
       </div>
 
-      <!-- Educational -->
-      <div class="educational-div">
-        <div class="inputDiv passwordInputDiv">
-          <input type="email" formControlName="email" class="form-control" placeholder="Educational Qualification">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
-            First name is required!
-          </span>
-        </div>
-        <div class="inputDiv passwordInputDiv">
-          <input type="email" formControlName="email" class="form-control" placeholder="Achievements (if any)">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
-            First name is required!
-          </span>
-        </div>
-      </div>
-       
-      <!-- Blood Group -->
-      <div class="inputDiv blood-group-div">
-        <div class="select">
-          <select name="format" id="format" formControlName="bloodgroup">
-            <option disabled value="" selected>Select Bloodgroup</option>
-            <option value="{{item}}" *ngFor="let item of bloodGrouptList" >{{ item }}</option>
-         </select>
-        </div>
-          <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
-            Bloodgroup is required!
-          </span>
+      <!-- Extra information -->
+      <div class="titles">
+        <h3>Other information</h3>
       </div>
 
-      <div class="inputDiv blood-group-div">
-        <div class="select">
-          <select name="format" id="format" formControlName="bloodgroup">
-            <option disabled value="" selected>Select Gender</option>
-            <option value="{{item}}" *ngFor="let item of genderList" >{{ item }}</option>
-         </select>
+      <div>
+        <!-- Blood Group -->
+        <div class="inputDiv blood-group-div">
+          <div class="select">
+            <select name="format" id="format" formControlName="bloodgroup">
+              <option disabled value="" selected>Select Bloodgroup</option>
+              <option value="{{item}}" *ngFor="let item of bloodGrouptList" >{{ item }}</option>
+          </select>
+          </div>
+            <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+              Bloodgroup is required!
+            </span>
         </div>
-          <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
-            Gender is required!
+
+        <!-- Gender -->
+        <div class="inputDiv blood-group-div">
+          <div class="select">
+            <select name="format" id="format" formControlName="gender">
+              <option disabled value="" selected>Select Gender</option>
+              <option value="{{item}}" *ngFor="let item of genderList" >{{ item }}</option>
+          </select>
+          </div>
+            <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+              Gender is required!
+            </span>
+        </div>
+
+        <!-- Blood Group -->
+        <div class="inputDiv blood-group-div">
+          <div class="select">
+            <select name="format" id="format" formControlName="maritalstatus">
+              <option disabled value="" selected>Select Marital status</option>
+              <option value="{{item}}" *ngFor="let item of maritalStatus" >{{ item }}</option>
+          </select>
+          </div>
+            <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
+              Marital status is required!
+            </span>
+        </div>
+
+        <!-- Gotra -->
+        <div class="inputDiv gotraInputDiv">
+          <input type="email" formControlName="gotra" class="form-control" placeholder="Gotra">
+          <span style="color: red;" *ngIf="gotra && gotra.invalid && gotra.touched">
+            Gotra is required!
           </span>
+        </div>
+
+        <!-- Educational information-->
+        <div class="educational-div">
+          <div class="inputDiv passwordInputDiv">
+            <input type="email" formControlName="educational" class="form-control" placeholder="Educational Qualification">
+            <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+              First name is required!
+            </span>
+          </div>
+          <div class="inputDiv passwordInputDiv">
+            <input type="email" formControlName="achivement" class="form-control" placeholder="Achievements (if any)">
+          </div>
+        </div>
       </div>
 
-      <div class="inputDiv blood-group-div">
-        <div class="select">
-          <select name="format" id="format" formControlName="bloodgroup">
-            <option disabled value="" selected>Select Marital status</option>
-            <option value="{{item}}" *ngFor="let item of maritalStatus" >{{ item }}</option>
-         </select>
-        </div>
-          <span style="color: red;" *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">
-            Marital status is required!
-          </span>
-      </div>
-      
       <div class="titles">
         <h3>Address</h3>
       </div>
@@ -210,15 +228,15 @@
       </div>
 
       <div class="titles">
-        <h3>Occupation or Business</h3>
+        <h3>Job or Business</h3>
       </div>
       
       <!-- Occupation / Business -->
       <div class="occupation-Business-div">
         <div class="inputDiv blood-group-div">
           <div class="select">
-            <select name="format" id="format" formControlName="bloodgroup">
-              <option disabled value="" selected>Select Bloodgroup</option>
+            <select name="format" id="format" formControlName="jobBusinessType" (change)="abc($event)">
+              <option disabled value="" selected>Select job or business</option>
               <option value="{{item}}" *ngFor="let item of occupationList" >{{ item }}</option>
            </select>
           </div>
@@ -227,25 +245,33 @@
             </span>
         </div>
 
-        <div>
-          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Company name">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
-            First name is required!
-          </span>
-          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Designation">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
-            First name is required!
-          </span>
+        <div *ngIf="isJob && isOccupationSelected">
+          <div class="inputDiv address-line-pincode">
+            <input type="text" formControlName="jobBusinessName" class="form-control" placeholder="Company name">
+            <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+              First name is required!
+            </span>
+          </div>
+          <div class="inputDiv address-line-pincode">
+            <input type="text" formControlName="description" class="form-control" placeholder="Designation">
+            <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+              First name is required!
+            </span>
+          </div>
         </div>
-        <div>
-          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Business name">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
-            First name is required!
-          </span>
-          <input type="text" formControlName="occupationBusiness" class="form-control" placeholder="Business type">
-          <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
-            First name is required!
-          </span>
+        <div *ngIf="!isJob && isOccupationSelected">
+          <div class="inputDiv address-line-pincode">
+            <input type="text" formControlName="jobBusinessName" class="form-control" placeholder="Business name">
+            <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+              First name is required!
+            </span>
+          </div>
+          <div class="inputDiv address-line-pincode">
+            <input type="text" formControlName="description" class="form-control" placeholder="Business type">
+            <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">
+              First name is required!
+            </span>
+          </div>
         </div>
       </div>       
 
