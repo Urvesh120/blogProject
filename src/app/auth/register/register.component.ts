@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
       flastname: ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       // email: ['', [Validators.required, Validators.email]],
-      email: [''],
+      email: ['', [Validators.email]],
       password: ['', [Validators.required]],
       confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
       bloodgroup: ['', [Validators.required]],
@@ -239,7 +239,7 @@ export class RegisterComponent implements OnInit {
       "address": address,
       "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
       "gender": this.RegistrationFormGroup.value.gender,
-      "maritalstatus": this.RegistrationFormGroup.value.maritalStatus,
+      "maritalstatus": this.RegistrationFormGroup.value.maritalstatus,
       "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
@@ -255,7 +255,8 @@ export class RegisterComponent implements OnInit {
     //     this.router.navigate(['']);
     //   }
     // });
-    console.log(this.RegistrationFormGroup.value);
+    // console.log(this.RegistrationFormGroup.value);
+    console.log(data);
   }
 
 }
