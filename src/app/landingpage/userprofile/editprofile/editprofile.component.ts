@@ -21,6 +21,33 @@ export class EditprofileComponent implements OnInit {
   isJob : boolean = true;
   isOccupationSelected : boolean = false;
 
+  // RegistrationFormGroup  = this.fb.group({
+  //   firstname: ['', Validators.required],
+  //   middlename: ['', [Validators.required]],
+  //   lastname: ['', [Validators.required]],
+  //   ffirstname: ['', [Validators.required]],
+  //   fmiddlename: ['', [Validators.required]],
+  //   flastname: ['', [Validators.required]],
+  //   contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+  //   // email: ['', [Validators.required, Validators.email]],
+  //   email: ['', [Validators.email]],
+  //   password: ['', [Validators.required]],
+  //   confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
+  //   bloodgroup: ['', [Validators.required]],
+  //   gender: ['', [Validators.required]],
+  //   maritalstatus: ['', [Validators.required]],
+  //   gotra: ['', [Validators.required]],
+  //   educational: ['', [Validators.required]],
+  //   achivement: [''],
+  //   addressLine1: ['', [Validators.required]],
+  //   addressLineLandmark: [''],
+  //   addressLineCity: ['', [Validators.required]],
+  //   addressLinePincode: ['', [Validators.required]],
+  //   jobBusinessType: ['', [Validators.required]],
+  //   jobBusinessName: ['', [Validators.required]],
+  //   description: ['', [Validators.required]],
+  // });
+
   bloodGrouptList : any = [
     'A+ (A positive)', 
     'A- (A negative)', 
@@ -107,6 +134,7 @@ export class EditprofileComponent implements OnInit {
       jobBusinessName: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
+    this.RegistrationFormGroup.get('firstname').setValue('abc');
   }
 
   abc(event : any){

@@ -16,6 +16,7 @@ const routes: Routes = [
     // {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
     {path : 'user-profile', component : UserprofileComponent},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
+    //{path : '**', component : HomeComponent}
   ]}
 ];
 
