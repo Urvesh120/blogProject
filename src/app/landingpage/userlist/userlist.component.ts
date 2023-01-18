@@ -89,9 +89,6 @@ export class UserlistComponent implements OnInit {
         });
       }      
     }
-    if(this.emailId == "admin@email.com"){
-      this.isAdmin = true;
-    }
   }
 
   registerListFilter(event: Event) {
