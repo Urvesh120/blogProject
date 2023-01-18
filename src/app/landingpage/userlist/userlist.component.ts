@@ -51,7 +51,7 @@ export class UserlistComponent implements OnInit {
       if(this.emailId == "admin@email.com"){
         this.isAdmin = true;
         this.http.pendingUserList().subscribe((res : any) => {
-          this.pendingUserList = res;
+          this.pendingUserList = res.payload;
           this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
           this.pendingUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
             return data.firstName.toLowerCase().includes(filter) || 
@@ -65,7 +65,7 @@ export class UserlistComponent implements OnInit {
         }
       this.isUser = true;
       this.http.userlist().subscribe((res : any) => {
-        this.registeredUserList = res;
+        this.registeredUserList = res.payload;
         this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
         this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
           return data.firstName.toLowerCase().includes(filter) || 

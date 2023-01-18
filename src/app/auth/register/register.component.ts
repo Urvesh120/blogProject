@@ -133,6 +133,9 @@ export class RegisterComponent implements OnInit {
       this.isJob = false;
     }
   }
+  dialCode(event : any){
+    console.log(event);
+  }
 
   onPasswordValidation(){
     if (this.password.value.match(/\b(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}\b/)) {
@@ -273,35 +276,47 @@ export class RegisterComponent implements OnInit {
     let data = {
       "picture": this.imageBase64,
       "pictureType": this.imageType,
-      "firstname" : this.RegistrationFormGroup.value.firstname,
-      "middlename" : this.RegistrationFormGroup.value.middlename,
-      "lastname" : this.RegistrationFormGroup.value.lastname,
-      "fatherName" : fatherName,
+      "firstName" : this.RegistrationFormGroup.value.firstname,
+      "middleName" : this.RegistrationFormGroup.value.middlename,
+      "lastName" : this.RegistrationFormGroup.value.lastname,
+      "fathersName" : fatherName,
       "contact": this.RegistrationFormGroup.value.contact,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": address,
-      "dateofbirth" : this.RegistrationFormGroup.value.dateofbirth,
+      "countryCode" : "",
+      "country": this.RegistrationFormGroup.value.country,
+      "dateOfBirth" : this.RegistrationFormGroup.value.dateofbirth,
+      "qualification" : this.RegistrationFormGroup.value.educational,
+      "achievement" : this.RegistrationFormGroup.value.achievement,
       "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
       "gender": this.RegistrationFormGroup.value.gender,
-      "maritalstatus": this.RegistrationFormGroup.value.maritalstatus,
+      "gotra": this.RegistrationFormGroup.value.gotra,
+      "maritalStatus": this.RegistrationFormGroup.value.maritalstatus,
       "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
-    // this.http.register(data).subscribe((res : any) =>{
-    //   if(res.message = "User registration requested successfully."){
-    //     localStorage.removeItem('userEmailId');
-    //     this._snackBar.open("Register Request sent Successfully", "close",{
-    //       duration : 5 * 1000,
-    //       horizontalPosition: this.horizontalPosition,
-    //       verticalPosition: this.verticalPosition,
-    //     });
-    //     this.router.navigate(['']);
-    //   }
-    // });
-    // console.log(this.RegistrationFormGroup.value);
-    console.log(data);
+    this.http.register(data).subscribe((res : any) =>{
+      if(res.status == 1){
+        localStorage.removeItem('userEmailId');
+        this._snackBar.open(res.message, "X",{
+          duration : 5 * 1000,
+          panelClass : ['success'],
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+        this.router.navigate(['']);
+      }
+      else{
+        this._snackBar.open(res.message, "X",{
+          duration : 5 * 1000,
+          panelClass : ['error'],
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+      }
+    });
   }
 
 }

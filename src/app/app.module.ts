@@ -18,7 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { LoaderService } from '../../services/loader.service';
@@ -11,18 +12,23 @@ import { LoaderService } from '../../services/loader.service';
 })
 export class LoginComponent implements OnInit {
 
+  //snack bar position
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   loginFormGroup: any;
   userId: any;
 
   constructor( private router : Router, 
     private fb: FormBuilder, 
     private http: HttpService, 
-    private loader : LoaderService
+    private loader : LoaderService,
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
     this.loginFormGroup = this.fb.group({
-      email: ['', [Validators.required]],
+      emailOrContact: ['', [Validators.required]],
       password: ['', [Validators.required]],
     })
   }
@@ -33,11 +39,17 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
-      if(res.status){
-        localStorage.setItem('userEmailId',this.loginFormGroup.value.email);
-        localStorage.setItem('token', res.jwtToken);
-        localStorage.setItem('UserName', res.displayName);
-        localStorage.setItem('UserId', res.userId);
+      if(res.status == 1){
+        this._snackBar.open(res.message, "X",{
+          duration : 5 * 1000,
+          panelClass : ['success'],
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+        localStorage.setItem('userEmailId',this.loginFormGroup.value.emailOrContact);
+        localStorage.setItem('token', res.payload.jwtToken);
+        localStorage.setItem('UserName', res.payload.displayName);
+        localStorage.setItem('UserId', res.payload.userId);
         this.userId = localStorage.getItem('UserId')
         setTimeout(
           () => {
@@ -46,13 +58,19 @@ export class LoginComponent implements OnInit {
           }, 1000);
       }
       else{
+        this._snackBar.open(res.message, "X",{
+          duration : 5 * 1000,
+          panelClass : ['error'],
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
         this.loader.hide();
       }
     });
   }
 
-  get email(){
-    return this.loginFormGroup.get('email');
+  get emailOrContact(){
+    return this.loginFormGroup.get('emailOrContact');
   }
 
   get password(){

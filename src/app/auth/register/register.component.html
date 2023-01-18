@@ -87,7 +87,7 @@
       <div class="email-contact-div">
         <div class="row inputDiv contactInputDiv">
           <div class="col-2 select dialCodeSelect">
-            <select name="format" id="format" formControlName="dialcode">
+            <select name="format" id="format" formControlName="dialcode" (change)="dialCode($event)">
               <option disabled value="" selected>Dial code</option>
               <option value="{{item}}" *ngFor="let item of countryList" >{{ item.dialCode }}</option>
             </select>

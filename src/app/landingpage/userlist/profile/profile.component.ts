@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpService } from '../../../services/http.service';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-profile',
@@ -9,6 +11,10 @@ import { HttpService } from '../../../services/http.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+
+  //snackbar position 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   profileData : any;
   isAdmin : any;
@@ -18,8 +24,11 @@ export class ProfileComponent implements OnInit {
   profilePic : any;
 
   constructor(private dialogRef: MatDialogRef<ProfileComponent>,
-    @Inject(MAT_DIALOG_DATA) public userData: any, private http : HttpService,
-    private sanitizer: DomSanitizer) { }
+    @Inject(MAT_DIALOG_DATA) public userData: any, 
+    private http : HttpService,
+    private sanitizer: DomSanitizer,
+    private _snackBar: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
     this.profileData = this.userData.data.profileData;
@@ -39,7 +48,24 @@ export class ProfileComponent implements OnInit {
       "id": this.id,
       "action": status,
     }
-    this.http.requestAction(data).subscribe((res : any) =>{});
+    this.http.requestAction(data).subscribe((res : any) =>{
+      if(res.status == 1){
+        this._snackBar.open(res.message, "X",{
+          duration : 5 * 1000,
+          panelClass : ['success'],
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+      }
+      else{
+        this._snackBar.open(res.message, "X",{
+          duration : 5 * 1000,
+          panelClass : ['error'],
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+      }
+    });
   }
 
 }

@@ -10,8 +10,8 @@
   <div class="loginForm">
     <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
       <div class="inputDiv emailInputDiv">
-        <input type="text" formControlName="email" class="form-control" placeholder="email / phone number">
-        <span style="color: red;" *ngIf="email && email.invalid && email.touched">
+        <input type="text" formControlName="emailOrContact" class="form-control" placeholder="email / phone number">
+        <span style="color: red;" *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">
           Email or phone number is required for login.
         </span>
       </div>
