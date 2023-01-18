@@ -32,15 +32,7 @@ export class UserlistComponent implements OnInit {
   isLogedIn = false;
   isAdmin = false;
   isUser = false;
-  columns = [
-    'First_Name', 
-    'Last_Name', 
-    'Email', 
-    'Contact', 
-    'Bloodgroup', 
-    'Occupation', 
-    'Address',  
-    'Action'];
+  columns : any = [];
 
   constructor(private http : HttpService, private dialog: MatDialog) { }
 
@@ -50,6 +42,10 @@ export class UserlistComponent implements OnInit {
       this.emailId = localStorage.getItem('userEmailId'); 
       if(this.emailId == "admin@email.com"){
         this.isAdmin = true;
+      }
+      if(this.isAdmin){
+        //pending user
+        this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Bloodgroup', 'Occupation', 'Address', 'Action'];
         this.http.pendingUserList().subscribe((res : any) => {
           this.pendingUserList = res.payload;
           this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
@@ -62,20 +58,39 @@ export class UserlistComponent implements OnInit {
             data.occupation.toLowerCase().includes(filter) || 
             data.address.toString().includes(filter)};
           });
-        }
-      this.isUser = true;
-      this.http.userlist().subscribe((res : any) => {
-        this.registeredUserList = res.payload;
-        this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
-        this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
-          return data.firstName.toLowerCase().includes(filter) || 
-          data.lastName.toLowerCase().includes(filter) || 
-          data.email.toLowerCase().includes(filter) || 
-          data.contact.toLowerCase().includes(filter) || 
-          data.bloodGroup.toLowerCase().includes(filter) || 
-          data.occupation.toLowerCase().includes(filter) || 
-          data.address.toString().includes(filter)};
-      });
+
+          //register user
+          this.http.adminUserlist().subscribe((res : any) => {
+            this.registeredUserList = res.payload;
+            this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+            this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
+              return data.firstName.toLowerCase().includes(filter) || 
+              data.lastName.toLowerCase().includes(filter) || 
+              data.email.toLowerCase().includes(filter) || 
+              data.contact.toLowerCase().includes(filter) || 
+              data.bloodGroup.toLowerCase().includes(filter) || 
+              data.occupation.toLowerCase().includes(filter) || 
+              data.address.toString().includes(filter)};
+          });
+      }
+      else{
+        this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
+        this.http.userlist().subscribe((res : any) => {
+          this.registeredUserList = res.payload;
+          this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+          this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
+            return data.firstName.toLowerCase().includes(filter) || 
+            data.lastName.toLowerCase().includes(filter) || 
+            data.email.toLowerCase().includes(filter) || 
+            data.contact.toLowerCase().includes(filter) || 
+            data.bloodGroup.toLowerCase().includes(filter) || 
+            data.occupation.toLowerCase().includes(filter) || 
+            data.address.toString().includes(filter)};
+        });
+      }      
+    }
+    if(this.emailId == "admin@email.com"){
+      this.isAdmin = true;
     }
   }
 

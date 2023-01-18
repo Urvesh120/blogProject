@@ -18,6 +18,10 @@ export class HttpService {
       return this.httpWithoutInterceptor.post(this.preRoute+'/user/register', registerCredential);
     }
 
+    adminUserlist(){
+      return this.http.get(this.preRoute+'/admin/member-list');
+    }
+    
     userlist(){
       return this.http.get(this.preRoute+'/user/member-list');
     }
