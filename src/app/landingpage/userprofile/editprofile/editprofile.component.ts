@@ -1,31 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { HttpService } from '../../services/http.service';
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
-})
-export class RegisterComponent implements OnInit {
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { HttpService } from '../../../services/http.service';
+import { ProfileComponent } from '../../userlist/profile/profile.component';
 
-  separateDialCode = false;
-  SearchCountryField = SearchCountryField;
-  CountryISO = CountryISO;
-  preferredCountries: CountryISO[] = [
-    CountryISO.India,
-  ];
+
+@Component({
+  selector: 'app-editprofile',
+  templateUrl: './editprofile.component.html',
+  styleUrls: ['./editprofile.component.scss']
+})
+export class EditprofileComponent implements OnInit {
 
   imageBase64: string = "";
   imageType : string = "";
+  blankImage = 'assets/images/blank-profile.jpg';
+
+  RegistrationFormGroup: any;
   isJob : boolean = true;
   isOccupationSelected : boolean = false;
-  blankImage = 'assets/images/blank-profile.jpg';
-  RegistrationFormGroup: any;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   bloodGrouptList : any = [
     'A+ (A positive)', 
     'A- (A negative)', 
@@ -54,33 +49,38 @@ export class RegisterComponent implements OnInit {
   countryList : any = [
     {
       countryCode : "CA",
-      dialCode : "+ 1",
+      dialCode : "+1",
       countryName : "Canada",
       currencyCode : "CAD"
     },
     {
       countryCode : "IN",
-      dialCode : "+ 91",
+      dialCode : "+91",
       countryName : "India",
       currencyCode : "INR"
     },
     {
       countryCode : "GB",
-      dialCode : "+ 44",
+      dialCode : "+44",
       countryName : "United Kingdom",
       currencyCode : "GBP"
     },
     {
       countryCode : "US",
-      dialCode : "+ 1",
+      dialCode : "+1",
       countryName : "United States",
       currencyCode : "USD"
     }   
   ]
 
-  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, 
+    public router: Router, 
+    private http : HttpService,
+    private dialogRef: MatDialogRef<ProfileComponent>,
+    @Inject(MAT_DIALOG_DATA) public userData: any) { }
 
   ngOnInit(): void {
+    console.log("abc",this.userData);
     this.RegistrationFormGroup = this.fb.group({
       firstname: ['', Validators.required],
       middlename: ['', [Validators.required]],
@@ -88,14 +88,11 @@ export class RegisterComponent implements OnInit {
       ffirstname: ['', [Validators.required]],
       fmiddlename: ['', [Validators.required]],
       flastname: ['', [Validators.required]],
-      dialcode : ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      country : ['', [Validators.required]],
       // email: ['', [Validators.required, Validators.email]],
       email: ['', [Validators.email]],
       password: ['', [Validators.required]],
       confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
-      dateofbirth : ['', [Validators.required]],
       bloodgroup: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       maritalstatus: ['', [Validators.required]],
@@ -112,17 +109,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSelectFile(event : any) {
-    if (event.target.files && event.target.files[0]) {      
-      this.imageType = event.target.files[0].type;
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]); 
-      reader.onload = (event: any) => {
-        this.imageBase64 = event.target.result;
-      }
-    }
-  }
-
   abc(event : any){
     if(event.target.value == this.occupationList[0]){
       this.isOccupationSelected = true;
@@ -131,6 +117,17 @@ export class RegisterComponent implements OnInit {
     if(event.target.value == this.occupationList[1]){
       this.isOccupationSelected = true;
       this.isJob = false;
+    }
+  }
+
+  onSelectFile(event : any) {
+    if (event.target.files && event.target.files[0]) {      
+      this.imageType = event.target.files[0].type;
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); 
+      reader.onload = (event: any) => {
+        this.imageBase64 = event.target.result;
+      }
     }
   }
 
@@ -178,14 +175,6 @@ export class RegisterComponent implements OnInit {
   get contact() {
     return this.RegistrationFormGroup.get('contact');
   }
-  
-  get country() {
-    return this.RegistrationFormGroup.get('country');
-  }
-
-  get dialcode(){
-    return this.RegistrationFormGroup.get('dialcode');
-  }
 
   // get email() {
   //   return this.RegistrationFormGroup.get('email');
@@ -197,10 +186,6 @@ export class RegisterComponent implements OnInit {
   
   get confirmpassword() {
     return this.RegistrationFormGroup.get('confirmpassword');
-  }
-
-  get dateofbirth(){
-    return this.RegistrationFormGroup.get('dateofbirth');
   }
   
   get bloodgroup() {
@@ -247,61 +232,13 @@ export class RegisterComponent implements OnInit {
     return this.RegistrationFormGroup.get('description');
   }
 
-
-  redirectToLogin(){
-    this.router.navigate(['auth/login']);
-  }
-
-  register(){
-
-    let address = 
-      this.RegistrationFormGroup.value.addressLine1 + "," +
-      this.RegistrationFormGroup.value.addressLineLandmark + "," +
-      this.RegistrationFormGroup.value.addressLineCity + "-" +
-      this.RegistrationFormGroup.value.addressLinePincode + ".";
-
-    // let name = 
-    //   this.RegistrationFormGroup.value.lastname + " " +
-    //   this.RegistrationFormGroup.value.firstname + " " +
-    //   this.RegistrationFormGroup.value.middlename;
-    
-    let fatherName = 
-      this.RegistrationFormGroup.value.flastname + " " +
-      this.RegistrationFormGroup.value.ffirstname + " " +
-      this.RegistrationFormGroup.value.fmiddlename;
-    
-    let data = {
-      "picture": this.imageBase64,
-      "pictureType": this.imageType,
-      "firstname" : this.RegistrationFormGroup.value.firstname,
-      "middlename" : this.RegistrationFormGroup.value.middlename,
-      "lastname" : this.RegistrationFormGroup.value.lastname,
-      "fatherName" : fatherName,
-      "contact": this.RegistrationFormGroup.value.contact,
-      "email": this.RegistrationFormGroup.value.email,
-      "password": this.RegistrationFormGroup.value.password,
-      "address": address,
-      "dateofbirth" : this.RegistrationFormGroup.value.dateofbirth,
-      "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
-      "gender": this.RegistrationFormGroup.value.gender,
-      "maritalstatus": this.RegistrationFormGroup.value.maritalstatus,
-      "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
-      "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
-      "occupationDescription": this.RegistrationFormGroup.value.description,
-    }
-    // this.http.register(data).subscribe((res : any) =>{
-    //   if(res.message = "User registration requested successfully."){
-    //     localStorage.removeItem('userEmailId');
-    //     this._snackBar.open("Register Request sent Successfully", "close",{
-    //       duration : 5 * 1000,
-    //       horizontalPosition: this.horizontalPosition,
-    //       verticalPosition: this.verticalPosition,
-    //     });
-    //     this.router.navigate(['']);
-    //   }
-    // });
-    // console.log(this.RegistrationFormGroup.value);
-    console.log(data);
+  edit(){
+    this.http.register(this.RegistrationFormGroup.value).subscribe((res : any) =>{
+      if(res.message = "User registration requested successfully."){
+        localStorage.removeItem('userEmailId');
+        this.router.navigate(['']);
+      }
+    });
   }
 
 }

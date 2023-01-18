@@ -3,7 +3,6 @@ import { HttpService } from '../../services/http.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatTabChangeEvent } from '@angular/material/tabs';
 
 export interface userData {
   id: any;

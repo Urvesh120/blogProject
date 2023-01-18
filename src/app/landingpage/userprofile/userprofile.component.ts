@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpService } from 'src/app/services/http.service';
-// import { SafePipe } from 'src/app/services/safe.pipe';
+import { MatDialog } from '@angular/material/dialog';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @Component({
   selector: 'app-userprofile',
@@ -16,7 +17,7 @@ export class UserprofileComponent implements OnInit {
   abc : any;
   image : any;
 
-  constructor(private http : HttpService, private sanitizer: DomSanitizer) { }
+  constructor(private http : HttpService, private sanitizer: DomSanitizer, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.http.getUserProfileById(localStorage.getItem('UserId')).subscribe((res : any) => {
@@ -28,6 +29,17 @@ export class UserprofileComponent implements OnInit {
       if(!!this.userData.description){
         this.isDescription = true;
       }
+    });
+  }
+
+  openDialog(){  
+    const dialogRef = this.dialog.open(EditprofileComponent, {
+      width: '500px',
+      data: {data : this.userData},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
     });
   }
 

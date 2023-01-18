@@ -53,6 +53,16 @@
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>Trust 3</span>
         </button>
+
+        <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
+          <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
+          <span>Mandal 1</span>
+        </button>
+
+        <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
+          <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
+          <span>Mandal 2</span>
+        </button>
     </mat-expansion-panel>   
   </mat-accordion> 
 

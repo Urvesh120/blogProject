@@ -82,25 +82,28 @@
       <!-- Contact & Email -->
       <div class="titles">
         <h3>Contact information</h3>
-      </div>
+      </div>      
 
       <div class="email-contact-div">
-        <div class="inputDiv contactInputDiv">
-          <!-- <input type="tel" formControlName="contact" minlength="10" maxlength="10" class="form-control" placeholder="Contact"> -->
-          <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]" [enableAutoCountrySelect]="false"
+        <div class="row inputDiv contactInputDiv">
+          <div class="col-2 select dialCodeSelect">
+            <select name="format" id="format" formControlName="dialcode">
+              <option disabled value="" selected>select</option>
+              <option value="{{item}}" *ngFor="let item of countryList" >{{ item.dialCode }}</option>
+            </select>
+          </div>
+          <div class="col-10 phoneNumber">
+            <input type="tel" formControlName="contact" minlength="10" maxlength="10" class="form-control" placeholder="Phone number">
+          </div>
+          <!-- <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]" [enableAutoCountrySelect]="false"
             [enablePlaceholder]="true" [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
-            [selectedCountryISO]="CountryISO.India" [maxLength]="10" [phoneValidation]="true" name="phone" formControlName="contact"></ngx-intl-tel-input>
-          <span style="color: red;" *ngIf="contact && contact.invalid && contact.touched">
+            [selectedCountryISO]="CountryISO.India" [maxLength]="10" [phoneValidation]="true" name="phone" formControlName="contact"></ngx-intl-tel-input> -->
+            <span style="color: red;" *ngIf="dialcode && dialcode.invalid && dialcode.touched">
+              Please select your dial code according to your country.
+            </span>
+            <span style="color: red;" *ngIf="contact && contact.invalid && contact.touched">
             Please enater valid contact number!
           </span>
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
-          </div>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
         </div>
         <div class="inputDiv emailInputDiv">
           <input type="email" formControlName="email" class="form-control" placeholder="Email">
@@ -138,6 +141,13 @@
       <!-- Extra information -->
       <div class="titles">
         <h3>Other information</h3>
+      </div>
+
+      <div class="inputDiv dob-div">
+        <input type="text" onfocus="(this.type='date')" formControlName="dateofbirth" class="form-control" placeholder="Date of birth">
+        <span style="color: red;" *ngIf="flastname && flastname.invalid && flastname.touched">
+          Please select your date of birth.
+        </span>
       </div>
 
       <div>
@@ -232,6 +242,17 @@
               Please enter valid Pincode.
             </span>
           </div>
+        </div>
+        <div class="inputDiv country-div">
+          <div class="select">
+            <select name="format" id="format" formControlName="country">
+              <option disabled value="" selected>Select Country</option>
+              <option value="{{item}}" *ngFor="let item of countryList" >{{ item.countryName }}</option>
+            </select>
+          </div>
+            <span style="color: red;" *ngIf="country && country.invalid && country.touched">
+              Please select your country.
+            </span>
         </div>
       </div>
 

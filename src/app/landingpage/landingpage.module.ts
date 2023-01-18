@@ -12,6 +12,7 @@ import { PerfectScrollbarModule, PerfectScrollbarConfigInterface, PERFECT_SCROLL
 import { UserlistComponent } from './userlist/userlist.component';
 import { ProfileComponent } from './userlist/profile/profile.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { EditprofileComponent } from './userprofile/editprofile/editprofile.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -25,7 +26,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TrustsComponent,
     UserlistComponent,
     ProfileComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    EditprofileComponent
   ],
   imports: [
     CommonModule,

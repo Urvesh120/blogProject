@@ -32,7 +32,7 @@
     </div>
     
     <!-- Blood Group -->
-    <div class="textDiv blood-group-div">
+    <div class="textDiv blood-group-div" *ngIf="isAdmin">
         <h3 class="heading">Blood Group</h3>
         <h3>{{profileData.bloodGroup}}</h3>
     </div>

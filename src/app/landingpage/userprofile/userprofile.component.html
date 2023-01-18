@@ -1,5 +1,10 @@
+<div class="edit-button">
+    <button mat-button style="background-color: #f49f44; color: #fcfcfc;" (click)="openDialog()">
+        <mat-icon style="margin-right: 10px;">edit</mat-icon>
+        <span style="font-size: 20px;">Edit</span>
+      </button>
+</div>
 <div class="user-profile-div">
-    
     <div class="info">
         <div *ngIf="isImage" class="profile-div">
             <img [src]="image" alt="user profile">
