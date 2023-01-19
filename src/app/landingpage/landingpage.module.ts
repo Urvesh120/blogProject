@@ -13,6 +13,7 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { ProfileComponent } from './userlist/profile/profile.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { EditprofileComponent } from './userprofile/editprofile/editprofile.component';
+import { PaymentComponent } from './trusts/payment/payment.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -27,7 +28,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UserlistComponent,
     ProfileComponent,
     UserprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

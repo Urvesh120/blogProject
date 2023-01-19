@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentComponent } from './payment/payment.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-trusts',
@@ -9,7 +11,7 @@ export class TrustsComponent implements OnInit {
 
   currentPage = 1;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -24,4 +26,10 @@ export class TrustsComponent implements OnInit {
     this.currentPage += index;
   }
 
+  openDialog(){  
+    const dialogRef = this.dialog.open(PaymentComponent, {
+      width: '500px',
+      height : '350px'
+    });
+  }
 }
