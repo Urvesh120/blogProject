@@ -13,8 +13,8 @@ const routes: Routes = [
     {path : '', component : HomeComponent},
     {path : 'home', component : HomeComponent},
     {path : 'trusts', component : TrustsComponent},
-    // {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
-    {path : 'user-profile', component : UserprofileComponent},
+    {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
+    //{path : 'user-profile', component : UserprofileComponent},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
     //{path : '**', component : HomeComponent}
   ]}

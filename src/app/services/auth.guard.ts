@@ -17,8 +17,9 @@ export class AuthGuard implements CanActivate {
       if (this.util.isLogedIn()) {
           return true;
       }
-      this._snackBar.open("You can not see list without login", "close",{
+      this._snackBar.open("You can not see list without login", "",{
         duration : 5 * 1000,
+        panelClass : ['error'],
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });

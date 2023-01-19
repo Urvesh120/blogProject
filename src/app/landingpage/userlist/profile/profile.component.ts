@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
     }
     this.http.requestAction(data).subscribe((res : any) =>{
       if(res.status == 1){
-        this._snackBar.open(res.message, "X",{
+        this._snackBar.open(res.message, "",{
           duration : 5 * 1000,
           panelClass : ['success'],
           horizontalPosition: this.horizontalPosition,
@@ -58,7 +58,7 @@ export class ProfileComponent implements OnInit {
         });
       }
       else{
-        this._snackBar.open(res.message, "X",{
+        this._snackBar.open(res.message, "",{
           duration : 5 * 1000,
           panelClass : ['error'],
           horizontalPosition: this.horizontalPosition,

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
       if(res.status == 1){
-        this._snackBar.open(res.message, "X",{
+        this._snackBar.open(res.message, "",{
           duration : 5 * 1000,
           panelClass : ['success'],
           horizontalPosition: this.horizontalPosition,
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           }, 1000);
       }
       else{
-        this._snackBar.open(res.message, "X",{
+        this._snackBar.open(res.message, "",{
           duration : 5 * 1000,
           panelClass : ['error'],
           horizontalPosition: this.horizontalPosition,
