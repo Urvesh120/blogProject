@@ -11,6 +11,8 @@ import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 })
 export class RegisterComponent implements OnInit {
 
+  registerImage = 'assets/illustators/Register.svg';
+
   separateDialCode = false;
   SearchCountryField = SearchCountryField;
   CountryISO = CountryISO;

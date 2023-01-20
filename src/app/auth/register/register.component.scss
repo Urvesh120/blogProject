@@ -12,21 +12,131 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/*Starting of input style*/
+  
+.brise-input {
+  width: 100%;
+  position: relative;
+  margin: 5px;
+  overflow: hidden;
+  padding-top: 15px;
+}
+.brise-input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #efbdb7;
+  box-sizing: border-box;
+  font-size: 16px;
+  position: relative;
+  z-index: 5;
+  background: none;
+}
+.brise-input input:focus ~ label, input:valid ~ label  {
+  top: 0px;
+  transform: scale(0.94) translateX(-2px);
+  color: $orange-gray-color-shade;
+}
+.brise-input .line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: $orange-gray-color-shade;
+  left: -999px;
+  transition: .25s;
+  opacity: 0;
+  z-index: 6;
+}
+.brise-input input:focus ~ .line {
+  left: 0;
+  opacity: 1;
+}
+.brise-input label {
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  transition: ease-out .15s;
+  color: #999;
+}
+
+.loginButton{
+  width: 100%;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: 500;
+  color: $orange-gray-color-shade;
+  border-color: $orange-gray-color-shade;
+  border-radius: 10px;
+}
+
+.homeButtonDiv, .registerButtonDiv{
+    
+  a{
+    color: $orange-gray-color-shade;
+    text-decoration: none;
+  }
+
+  text-align: center;
+  margin-top: 30px;
+}
+
+.title-div h1{
+  font-size: xx-large;
+  font-weight: 500;
+  color: $orange-gray-color-shade;
+  text-align: center;
+}
+
+/*End of input style*/
+
+@media screen and (max-width: 600px){}
+@media screen and (min-width: 768px){}
+@media screen and (min-width: 992px){}
+@media screen and (min-width: 1200px){
+  .main-div{
+    width: 1000px;
+    height: 600px;
+    margin: 0 15%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 1000px;
+  }
+  
+  .svg-div{
+    margin: 100px 130px 0px 0px;
+    width: 50%;
+  }
+  .svg-div img{
+    width: 100%;
+  }
+  
+  .form-div{
+    padding-top: 0px;
+    width: 100%;
+    overflow-y: auto;
+  }
+}
+
 .registerFormDiv{
-  max-width: 1000px;
+  //max-width: 1000px;
   // max-width: 400px;
-  margin: 30px auto;
-  padding: 35px;
-  background-color: white;
-  box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
-  border-radius: 15px;
+  //margin: 30px auto;
+  //padding: 35px;
+  //background-color: white;
+  //box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
+  //border-radius: 15px;
 }
 
 .titles{
   padding-left: 20px;
   border-radius: 5px;
-  color: #d8685c;
-  background-color: rgba(248, 112, 96, 0.1);
+  color: $orange-gray-color-shade;
+  //background-color: rgba(248, 112, 96, 0.1);
 }
 
 .titles h3{
@@ -49,9 +159,9 @@ input[type=number] {
   margin-top: 20px;
 }
 
-.inputDiv{
-  margin-bottom: 20px;
-}
+// .inputDiv{
+//   margin-bottom: 20px;
+// }
 
 .registerButtonOnBar{
   color: white;
@@ -129,7 +239,8 @@ select {
   outline:0;
   box-shadow:none;
   border:0!important;
-  background: #e9ecef;
+  background: white;
+  border-bottom: 1px solid #efbdb7;
   flex: 1;
   padding: 0 .5em;
   color:#5b6166;
@@ -141,7 +252,8 @@ select::-ms-expand {
 .select {
   position: relative;
   display: flex;
-  line-height: 3;
+  // line-height: 3;
+  border-bottom: 1px solid #efbdb7;
   background: rgb(245, 245, 245);
   overflow: hidden;
   border-radius: .25em;
