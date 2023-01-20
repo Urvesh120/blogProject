@@ -12,6 +12,9 @@ import { LoaderService } from '../../services/loader.service';
 })
 export class LoginComponent implements OnInit {
 
+  loginImage = 'assets/illustators/Login.svg';
+  registerImage = 'assets/illustators/Register.svg';
+
   //snack bar position
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';

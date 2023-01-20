@@ -1,59 +1,184 @@
 $gray-color-shade : #cdd7d6;
 $orange-gray-color-shade : #f87060;
 
-.loginFormDiv{
-  max-width: 400px;
-  margin: 150px auto;
-  padding: 35px;
-  background-color: white;
-  box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
-  border-radius: 15px;
+/*Starting of input style*/
+  
+.brise-input {
+  width: 100%;
+  position: relative;
+  margin: 5px;
+  overflow: hidden;
+  padding-top: 15px;
 }
-
-.buttonsDiv{
-  border-bottom: 2px solid $orange-gray-color-shade;
-  margin-bottom: 10px;
+.brise-input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #efbdb7;
+  box-sizing: border-box;
+  font-size: 16px;
+  position: relative;
+  z-index: 5;
+  background: none;
 }
-
-.loginForm{
-  margin-top: 20px;
+.brise-input input:focus ~ label, input:valid ~ label  {
+  top: 0px;
+  transform: scale(0.94) translateX(-2px);
+  color: $orange-gray-color-shade;
 }
-
-.inputDiv{
-  margin-bottom: 20px;
+.brise-input .line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: $orange-gray-color-shade;
+  left: -999px;
+  transition: .25s;
+  opacity: 0;
+  z-index: 6;
 }
-
-.loginButtonOnBar{
-  color: white;
-  background-color: $orange-gray-color-shade;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+.brise-input input:focus ~ .line {
+  left: 0;
+  opacity: 1;
+}
+.brise-input label {
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  transition: ease-out .15s;
+  color: #999;
 }
 
 .loginButton{
   width: 100%;
-  color: white;
-  background-color: $orange-gray-color-shade;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: 500;
+  color: $orange-gray-color-shade;
+  border-color: $orange-gray-color-shade;
+  border-radius: 10px;
 }
 
-.homeButtonDiv{
-  margin-top: 20px;
+.homeButtonDiv, .registerButtonDiv{
+    
+  a{
+    color: $orange-gray-color-shade;
+    text-decoration: none;
+  }
+
+  text-align: center;
+  margin-top: 30px;
+}
+
+.title-div h1{
+  font-size: xx-large;
+  font-weight: 500;
+  color: $orange-gray-color-shade;
   text-align: center;
 }
 
-.homeButton{
-  color: $orange-gray-color-shade;
-  text-decoration: none;
-}
+/*End of input style*/
 
-@media screen and (max-width: 480px) {
-  .loginFormDiv{
-    max-width: 340px;
-    margin: 245px auto;
+@media screen and (max-width: 600px){
+  .main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1000px;
   }
 
-  .loginButtonOnBar{
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
+  .svg-div{
+    width: 60%;
+  }
+
+  .svg-div img{
+    width: 100%;
+  }
+
+  .form-div{
+    text-align: -webkit-center;
+    width: 80%;
+  }
+
+  .loginFormDiv{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .svg-div{
+    width: 44%;
+  }
+
+  .svg-div img{
+    width: 100%;
+  }
+
+  .form-div{
+    text-align: -webkit-center;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .main-div{
+    width: 1000px;
+    height: 600px;
+    margin: 0 15%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 1000px;
+  }
+  
+  .svg-div{
+    width: 50%;
+  }
+  .svg-div img{
+    width: 100%;
+  }
+  
+  .form-div{
+    padding-top: 50px;
+    width: 50%;
+  }
+  
+  .loginFormDiv{
+    margin: 10%;
+    background-color: white;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .main-div{
+    width: 1000px;
+    height: 600px;
+    margin: 0 15%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 1000px;
+  }
+  
+  .svg-div{
+    width: 50%;
+  }
+  .svg-div img{
+    width: 100%;
+  }
+  
+  .form-div{
+    padding-top: 50px;
+    width: 50%;
+  }
+  
+  .loginFormDiv{
+    margin: 10%;
+    background-color: white;
   }
 }

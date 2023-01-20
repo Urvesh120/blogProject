@@ -1,32 +1,55 @@
-<div class="loginFormDiv">
-  <div class="row buttonsDiv">
-    <div class="d-flex col justify-content-center loginButtonOnBar">
-      <button mat-button>Login</button>
-    </div>
-    <div class="d-flex col justify-content-center">
-      <button mat-button [routerLink]="['/auth/register']">Register</button>
-    </div>
+<div class="main-div">
+  <div class="svg-div">
+    <img [src]="loginImage" alt="">
   </div>
-  <div class="loginForm">
-    <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
-      <div class="inputDiv emailInputDiv">
-        <input type="text" formControlName="emailOrContact" class="form-control" placeholder="email / phone number">
-        <span style="color: red;" *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">
-          Email or phone number is required for login.
-        </span>
+  <div class="form-div">
+    <div class="loginFormDiv">
+      <!-- <div class="row buttonsDiv">
+        <div class="d-flex col justify-content-center loginButtonOnBar">
+          <button mat-button>Login</button>
+        </div>
+        <div class="d-flex col justify-content-center">
+          <button mat-button [routerLink]="['/auth/register']">Register</button>
+        </div>
+      </div> -->
+      <div class="title-div">
+        <h1>Login</h1>
       </div>
-      <div class="inputDiv passwordInputDiv">
-        <input type="password" formControlName="password" class="form-control" placeholder="password">
-        <span style="color: red;"*ngIf="password && password.invalid && password.touched">
-          Please enter valid password.
-        </span>
+      <div class="loginForm">
+        <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+          <div class="inputDiv emailInputDiv">
+            <div class="brise-input">
+              <input type="text" formControlName="emailOrContact" name="text" required>
+              <label>Email or Phone number</label>
+              <span class="line"></span>
+            </div>
+            <!-- <input type="text" formControlName="emailOrContact" placeholder="email / phone number"> -->
+            <span style="color: red;" *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">
+              Email or phone number is required for login.
+            </span>
+          </div>
+          <div class="inputDiv passwordInputDiv">
+            <div class="brise-input">
+              <input type="password" formControlName="password" name="text" required>
+              <label>Password</label>
+              <span class="line"></span>
+            </div>
+            <!-- <input type="password" formControlName="password" class="form-control" placeholder="password"> -->
+            <span style="color: red;"*ngIf="password && password.invalid && password.touched">
+              Please enter valid password.
+            </span>
+          </div>
+          <div class="submitButtonDiv">
+            <button class="btn loginButton" [disabled]="loginFormGroup.invalid">Login</button>
+          </div>
+        </form>
+        <div class="homeButtonDiv">
+          <a class="homeButton" [routerLink]="['/home']">Back to home</a>
+        </div>
+        <div class="registerButtonDiv">
+          <a class="registerButton" [routerLink]="['/auth/register']">Create new Account</a>
+        </div>
       </div>
-      <div class="submitButtonDiv">
-        <button class="btn loginButton" [disabled]="loginFormGroup.invalid">Login</button>
-      </div>
-    </form>
-    <div class="homeButtonDiv">
-      <a class="homeButton" [routerLink]="['/home']">Back to home</a>
     </div>
   </div>
 </div>
