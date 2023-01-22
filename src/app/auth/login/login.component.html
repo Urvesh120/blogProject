@@ -4,50 +4,36 @@
   </div>
   <div class="form-div">
     <div class="loginFormDiv">
-      <!-- <div class="row buttonsDiv">
-        <div class="d-flex col justify-content-center loginButtonOnBar">
-          <button mat-button>Login</button>
-        </div>
-        <div class="d-flex col justify-content-center">
-          <button mat-button [routerLink]="['/auth/register']">Register</button>
-        </div>
-      </div> -->
       <div class="title-div">
         <h1>Login</h1>
       </div>
       <div class="loginForm">
         <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
           <div class="inputDiv emailInputDiv">
-            <div class="brise-input">
-              <input type="text" formControlName="emailOrContact" name="text" required>
-              <label>Email or Phone number</label>
-              <span class="line"></span>
-            </div>
-            <!-- <input type="text" formControlName="emailOrContact" placeholder="email / phone number"> -->
-            <span style="color: red;" *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">
-              Email or phone number is required for login.
-            </span>
+            <mat-form-field appearance="outline">
+              <mat-label>Email or Phone number</mat-label>
+              <input type="text" formControlName="emailOrContact" matInput />
+              <mat-error *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">Email or phone number is required for login.</mat-error>
+            </mat-form-field>
           </div>
           <div class="inputDiv passwordInputDiv">
-            <div class="brise-input">
-              <input type="password" formControlName="password" name="text" required>
-              <label>Password</label>
-              <span class="line"></span>
-            </div>
-            <!-- <input type="password" formControlName="password" class="form-control" placeholder="password"> -->
-            <span style="color: red;"*ngIf="password && password.invalid && password.touched">
-              Please enter valid password.
-            </span>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="text" formControlName="password" matInput />
+              <mat-error *ngIf="password && password.invalid && password.touched">Please enter valid password.</mat-error>
+            </mat-form-field>
           </div>
           <div class="submitButtonDiv">
             <button class="btn loginButton" [disabled]="loginFormGroup.invalid">Login</button>
           </div>
         </form>
-        <div class="homeButtonDiv">
-          <a class="homeButton" [routerLink]="['/home']">Back to home</a>
-        </div>
-        <div class="registerButtonDiv">
-          <a class="registerButton" [routerLink]="['/auth/register']">Create new Account</a>
+        <div class="navigation">
+          <div class="navigation-div home-navigation-div">
+            <a class="homeButton" [routerLink]="['/home']">Back to home page</a>
+          </div>
+          <div class="navigation-div login-navigation-div">
+            <a [routerLink]="['/auth/register']">Create an account</a>
+          </div>
         </div>
       </div>
     </div>

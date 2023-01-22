@@ -1,79 +1,13 @@
 $gray-color-shade : #cdd7d6;
 $orange-gray-color-shade : #f87060;
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+mat-form-field{
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-/*Starting of input style*/
-  
-.brise-input {
-  width: 100%;
-  position: relative;
-  margin: 5px;
-  overflow: hidden;
-  padding-top: 15px;
-}
-.brise-input input {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #efbdb7;
-  box-sizing: border-box;
-  font-size: 16px;
-  position: relative;
-  z-index: 5;
-  background: none;
-}
-.brise-input input:focus ~ label, input:valid ~ label  {
-  top: 0px;
-  transform: scale(0.94) translateX(-2px);
-  color: $orange-gray-color-shade;
-}
-.brise-input .line {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: $orange-gray-color-shade;
-  left: -999px;
-  transition: .25s;
-  opacity: 0;
-  z-index: 6;
-}
-.brise-input input:focus ~ .line {
-  left: 0;
-  opacity: 1;
-}
-.brise-input label {
-  position: absolute;
-  left: 10px;
-  top: 45%;
-  transition: ease-out .15s;
-  color: #999;
-}
-
-.loginButton{
-  width: 100%;
-  margin-top: 20px;
-  font-size: larger;
-  font-weight: 500;
-  color: $orange-gray-color-shade;
-  border-color: $orange-gray-color-shade;
-  border-radius: 10px;
-}
 
 .homeButtonDiv, .registerButtonDiv{
-    
   a{
     color: $orange-gray-color-shade;
     text-decoration: none;
@@ -90,137 +24,8 @@ input[type=number] {
   text-align: center;
 }
 
-/*End of input style*/
-
-@media screen and (max-width: 600px){}
-@media screen and (min-width: 768px){}
-@media screen and (min-width: 992px){}
-@media screen and (min-width: 1200px){
-  .main-div{
-    width: 1000px;
-    height: 600px;
-    margin: 0 15%;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 1000px;
-  }
-  
-  .svg-div{
-    margin: 100px 130px 0px 0px;
-    width: 50%;
-  }
-  .svg-div img{
-    width: 100%;
-  }
-  
-  .form-div{
-    padding-top: 0px;
-    width: 100%;
-    overflow-y: auto;
-  }
-}
-
-.registerFormDiv{
-  //max-width: 1000px;
-  // max-width: 400px;
-  //margin: 30px auto;
-  //padding: 35px;
-  //background-color: white;
-  //box-shadow: 1px 1px 10px rgba(161, 161, 161, 0.9);
-  //border-radius: 15px;
-}
-
-.titles{
-  padding-left: 20px;
-  border-radius: 5px;
-  color: $orange-gray-color-shade;
-  //background-color: rgba(248, 112, 96, 0.1);
-}
-
-.titles h3{
-  font-size: 20px;
-}
-
-.name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
-  display: grid;
-  column-gap: 10px;
-  // grid-template-columns: repeat(1, 1fr);
-  grid-template-columns: repeat(1, 1fr);
-}
-
-.buttonsDiv{
-  border-bottom: 2px solid $orange-gray-color-shade;
-  margin-bottom: 10px;
-}
-
-.registerForm{
-  margin-top: 20px;
-}
-
-// .inputDiv{
-//   margin-bottom: 20px;
-// }
-
-.registerButtonOnBar{
-  color: white;
-  background-color: $orange-gray-color-shade;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-}
-
-.registerButton{
-  width: 100%;
-  color: white;
-  background-color: $orange-gray-color-shade;
-}
-
-.homeButtonDiv{
-  margin-top: 20px;
-  text-align: center;
-}
-
-.homeButton{
-  color: $orange-gray-color-shade;
-  text-decoration: none;
-}
-
-@media screen and (max-width: 480px) {
-  .registerFormDiv{
-    max-width: 340px;
-  }
-
-  .registerButtonOnBar{
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
-  }
-
-  .name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.profile-div{
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-items: center;
-}
-
-.profile-img-div, .upload-profile-img-div{
-  margin-bottom: 10px;
-}
-
-.profile-img-div img{
-  width: 100px;
-  height: 100px;
-  outline: #cdd7d6 solid 3px;
-  border-radius: 50%;
-}
-
+/*Profile pic upload button css*/
 .file-upload-button {
-  // background-color: #f87060;
   border: 1px solid #f87060;
 
   &::after {
@@ -234,80 +39,210 @@ input[type=number] {
   }
 }
 
-select {
-  appearance:none;
-  outline:0;
-  box-shadow:none;
-  border:0!important;
-  background: white;
-  border-bottom: 1px solid #efbdb7;
-  flex: 1;
-  padding: 0 .5em;
-  color:#5b6166;
-  cursor:pointer;
-}
-select::-ms-expand {
-  display: none;
-}
-.select {
-  position: relative;
-  display: flex;
-  // line-height: 3;
-  border-bottom: 1px solid #efbdb7;
-  background: rgb(245, 245, 245);
-  overflow: hidden;
-  border-radius: .25em;
-}
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  color: #5b6166;
-  cursor:pointer;
-  pointer-events:none;
-  transition:.25s all ease;
-}
-.select:hover::after {
-  color: #5c5c5c;
+.profile-img-div img{
+  width: 100px;
+  height: 100px;
+  outline: #cdd7d6 solid 3px;
+  border-radius: 50%;
 }
 
-:host ::ng-deep .custom{
-  display: block;
+/*start common css*/
+
+.registerButton{
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 0.375rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: white;
+  background-color: $orange-gray-color-shade;
+}
+
+.titles{
+  padding-left: 20px;
+  border-radius: 5px;
+  color: $orange-gray-color-shade;
+}
+
+.titles h3{
+  font-size: 20px;
+}
+
+.name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+input[type="date"]{
+  background-color: #e9ecef;
+  color: #5b6166;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator{
+  background-color: #e9ecef;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 .dialCodeSelect, .phoneNumber{
   padding: 0 !important;
 }
 
-.contactInputDiv{
-  padding: 0px 12px;
+.profile-img-div, .upload-profile-img-div{
+  margin-bottom: 10px;
 }
 
-input[type="date"]{
-    background-color: #e9ecef;
-    color: #5b6166;
-    border: none;
-    outline: none;
-    border-radius: 5px;
+.navigation{
+  display: flex;
+  justify-content: space-around;
 }
-::-webkit-calendar-picker-indicator{
-    background-color: #e9ecef;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 3px;
+
+.navigation-div{
+  text-align: center;
+  a{
+    color: #f87060;
+    text-decoration: none;
+  }
+}
+/*end common css*/
+
+/*Start scroll bar css*/
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: white;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #f87060;
+  border-radius: 20px;
+}
+/*End scroll bar css*/
+
+@media screen and (max-width: 600px){
+
+  .navigation{
+    flex-direction: column-reverse;
+  }
+
+  .navigation-div{
+    margin: 10px 0px;
+  }
+
+  .main-div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .svg-div{
+    background-color: #f87060;
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;    
+    width: 100%;
+  }
+  .svg-div img{
+    width: 40%;
+    margin: 20px 0px;
+  }
+  
+  .form-div{
+    padding: 25px;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px){
+
+  .navigation{
+    flex-direction: row-reverse;
+  }
+
+  .navigation-div{
+    margin: 25px 0px;
+  }
+
+  .main-div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .svg-div{
+    background-color: #f87060;
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;    
+    width: 100%;
+  }
+  .svg-div img{
+    width: 40%;
+    margin: 20px 0px;
+  }
+  
+  .form-div{
+    padding: 50px;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .main-div{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    justify-content: flex-start;
+    overflow: hidden !important;
+  }
+
+  .svg-div{
+    background-color: #f87060;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 10px;    
+    width: 25%;
+  }
+  .svg-div img{
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .form-div{
+    padding: 50px;
+    height: 100vh;
+    width: 75%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (min-width: 993px){
+  .main-div{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    justify-content: flex-start;
+    overflow: hidden !important;
+  }
+  
+  .svg-div{
+    background-color: #f87060;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 20px;    
+    width: 25%;
+  }
+  .svg-div img{
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .form-div{
+    padding: 50px 100px;
+    height: 100vh;
+    width: 75%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }

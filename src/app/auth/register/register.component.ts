@@ -12,6 +12,9 @@ import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 export class RegisterComponent implements OnInit {
 
   registerImage = 'assets/illustators/Register.svg';
+  selectedValue : any;
+  reload = false;
+
 
   separateDialCode = false;
   SearchCountryField = SearchCountryField;
@@ -42,11 +45,8 @@ export class RegisterComponent implements OnInit {
     'Female',
   ]
   maritalStatus : any = [
-    'Single',
     'Married',
-    'Divorced',
-    'Widowed',
-    'Separated',
+    'Unarried',
   ]
   occupationList : any = [
     'Job',
@@ -126,11 +126,11 @@ export class RegisterComponent implements OnInit {
   }
 
   abc(event : any){
-    if(event.target.value == this.occupationList[0]){
+    if(event == this.occupationList[0]){
       this.isOccupationSelected = true;
       this.isJob = true;
     }
-    if(event.target.value == this.occupationList[1]){
+    if(event == this.occupationList[1]){
       this.isOccupationSelected = true;
       this.isJob = false;
     }

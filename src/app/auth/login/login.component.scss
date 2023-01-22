@@ -1,63 +1,19 @@
 $gray-color-shade : #cdd7d6;
 $orange-gray-color-shade : #f87060;
 
-/*Starting of input style*/
-  
-.brise-input {
+mat-form-field{
   width: 100%;
-  position: relative;
-  margin: 5px;
-  overflow: hidden;
-  padding-top: 15px;
+  margin-bottom: 10px;
 }
-.brise-input input {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #efbdb7;
-  box-sizing: border-box;
-  font-size: 16px;
-  position: relative;
-  z-index: 5;
-  background: none;
-}
-.brise-input input:focus ~ label, input:valid ~ label  {
-  top: 0px;
-  transform: scale(0.94) translateX(-2px);
-  color: $orange-gray-color-shade;
-}
-.brise-input .line {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: $orange-gray-color-shade;
-  left: -999px;
-  transition: .25s;
-  opacity: 0;
-  z-index: 6;
-}
-.brise-input input:focus ~ .line {
-  left: 0;
-  opacity: 1;
-}
-.brise-input label {
-  position: absolute;
-  left: 10px;
-  top: 45%;
-  transition: ease-out .15s;
-  color: #999;
-}
+
 
 .loginButton{
   width: 100%;
   margin-top: 20px;
   font-size: larger;
   font-weight: 500;
-  color: $orange-gray-color-shade;
-  border-color: $orange-gray-color-shade;
+  color: white ;
+  background-color: $orange-gray-color-shade;
   border-radius: 10px;
 }
 
@@ -78,10 +34,31 @@ $orange-gray-color-shade : #f87060;
   color: $orange-gray-color-shade;
   text-align: center;
 }
-
 /*End of input style*/
 
-@media screen and (max-width: 600px){
+.navigation{
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation-div{
+  text-align: center;
+  a{
+    color: #f87060;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  .navigation{
+    flex-direction: column-reverse;
+  }
+
+  .navigation-div{
+    margin: 10px 0px;
+  }
+
   .main-div{
     display: flex;
     flex-direction: column;
@@ -109,7 +86,17 @@ $orange-gray-color-shade : #f87060;
 }
 
 @media screen and (min-width: 768px){
+
+  .navigation{
+    flex-direction: row-reverse;
+  }
+
+  .navigation-div{
+    margin: 25px 0px;
+  }
+
   .svg-div{
+    text-align: center;
     width: 44%;
   }
 
@@ -118,6 +105,7 @@ $orange-gray-color-shade : #f87060;
   }
 
   .form-div{
+    padding: 0px 50px;
     text-align: -webkit-center;
     width: 100%;
   }
