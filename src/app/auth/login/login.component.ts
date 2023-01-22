@@ -4,6 +4,8 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { LoaderService } from '../../services/loader.service';
+import { UtilService } from '../../services/util.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder, 
     private http: HttpService, 
     private loader : LoaderService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private util : UtilService
     ) { }
 
   ngOnInit(): void {
@@ -42,22 +45,25 @@ export class LoginComponent implements OnInit {
   login(){
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
       if(res.status == 1){
-        this._snackBar.open(res.message, "",{
-          duration : 5 * 1000,
-          panelClass : ['success'],
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        Swal.fire({
+          title: res.message,
+          imageUrl: 'assets/illustators/Register.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
+        // this._snackBar.open(res.message, "",{
+        //   duration : 5 * 1000,
+        //   panelClass : ['success'],
+        //   horizontalPosition: this.horizontalPosition,
+        //   verticalPosition: this.verticalPosition,
+        // });
         localStorage.setItem('userEmailId',this.loginFormGroup.value.emailOrContact);
         localStorage.setItem('token', res.payload.jwtToken);
         localStorage.setItem('UserName', res.payload.displayName);
         localStorage.setItem('UserId', res.payload.userId);
-        this.userId = localStorage.getItem('UserId')
-        setTimeout(
-          () => {
-            this.router.navigate(['']);
-            this.loader.hide();
-          }, 1000);
+        this.userId = localStorage.getItem('UserId');
+        this.router.navigate(['']);
       }
       else{
         this._snackBar.open(res.message, "",{

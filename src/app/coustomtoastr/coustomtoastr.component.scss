@@ -1,0 +1,38 @@
+.whole-box{
+    background-color: white;
+    border-radius: 20px;
+    width: 40%;
+    margin: 40px auto;
+}
+
+.box-div{
+    padding: 30px;
+}
+
+.closebutton-div{
+    float: right;
+}
+
+button::after{
+    content: '\2716';
+    font-size: 25px;
+    color: #5d5d5d;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-div{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+
+.message-div{
+    width: 100%;
+    text-align: center;
+}

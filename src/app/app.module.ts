@@ -7,10 +7,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CoustomtoastrComponent } from './coustomtoastr/coustomtoastr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CoustomtoastrComponent,
   ],
   imports: [
     BrowserModule,

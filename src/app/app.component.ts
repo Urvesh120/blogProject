@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from './services/loader.service';
+import { UtilService } from './services/util.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,15 @@ import { LoaderService } from './services/loader.service';
 export class AppComponent implements OnInit {
 
   loading$ = this.loader.loading$;
+  showMessage !: boolean;
+  
+  constructor(public loader: LoaderService, private util : UtilService){
+  }
 
-  ngOnInit(){}
-  constructor(public loader: LoaderService){}
+  ngOnInit(){
+  }
+  getShowMessage(){
+    return this.util.getShowMessage()
+  }
+
 }

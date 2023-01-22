@@ -23,11 +23,6 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
         Authorization : BearerToken
       }
     });
-    return next.handle(newReaquest).pipe(
-      finalize(() => {
-        this.loader.hide();
-      }
-      )
-    );
+    return next.handle(newReaquest);
   }
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; 
+import { messages } from '../shared/enum';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -8,6 +10,9 @@ export class UtilService {
 
     token : any;
     userLogedIn : any;
+    message = new Subject<string>();
+    messageType = new Subject<messages>();
+    displayMessage !: boolean ;
 
     constructor(private util: HttpClient) { }
 
@@ -24,5 +29,27 @@ export class UtilService {
         else{
             return false;
         }
+    }
+
+    public setMessage(message : any, type : messages){
+        debugger
+        this.message.next(message);
+        this.messageType.next(type);
+    }
+
+    public getMessage() : Observable<string>{
+        return this.message.asObservable();
+    }
+    
+    public getMessageType() : Observable<messages>{
+        return this.messageType.asObservable();
+    }
+
+    public setShowMessage( display : boolean){
+        this.displayMessage = display;
+    }
+
+    public getShowMessage(){
+        return this.displayMessage;
     }
 }
