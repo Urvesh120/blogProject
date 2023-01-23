@@ -8,7 +8,7 @@
       <h1>Register</h1>
     </div>
     <div>
-      <form [formGroup]="RegistrationFormGroup">
+      <form [formGroup]="RegistrationFormGroup" (ngSubmit)="register()">
         <!-- NAME -->
         <div>
           <mat-form-field appearance="outline">
@@ -208,7 +208,7 @@
 
           <!-- Register Button -->
           <div class="submitButtonDiv">
-            <button class="btn registerButton" [disabled]="RegistrationFormGroup.invalid">Register</button>
+            <button class="btn registerButton">Register</button>
           </div>
         </div>
       </form>

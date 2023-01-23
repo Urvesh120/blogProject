@@ -1,13 +1,73 @@
+<div class="main-div">
+    <div class="profile-div">
+        <img [src]="profileData.picture" alt="Prifile Picture">
+    </div>
+
+    <div class="other-info">
+        <div class="user-name">
+            <div class="first-name">
+                <h3>First Name</h3>
+                <h2>{{profileData.firstName}}</h2>
+            </div>
+            <div class="middle-name">
+                <h3>Middle Name</h3>
+                <h2>{{profileData.firstName}}</h2>
+            </div>
+            <div class="last-name">
+                <h3>Last Name</h3>
+                <h2>{{profileData.lastName}}</h2>
+            </div>
+        </div>
+
+        <div class="father-name">
+            <h3>Father Name</h3>
+            <h2>{{profileData.lastName}}</h2>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact">
+                <h3>Phone number</h3>
+                <h2>{{profileData.contact}}</h2>
+            </div>
+            <div class="email">
+                <h3>Email</h3>
+                <h2>{{profileData.email}}</h2>
+            </div>
+        </div>
+
+        <div class="address">
+            <h3>Address</h3>
+            <h2>{{profileData.address}}</h2>
+        </div>
+        <div class="occupation">
+            <h3>{{profileData.occupationType}}</h3>
+            <h2>{{profileData.occupationName}}</h2>
+        </div>
+    </div>
+
+    <div class="action-button">
+        <div class="approvr-btn">
+            <button class="btn btn-success" (click)="action(true)">Approve</button>
+        </div>
+        <div class="reject-btn">
+            <button class="btn btn-outline-danger" (click)="action(false)">Reject</button>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div class="close-button">
+    <button class="btn" mat-dialog-close>Abc</button>
+</div>
+
 <div class="user-profile-div">
 
-    <!-- Prifile Picture  -->
     <div class="image-div">
         <div class="profile-img-div">
             <img [src]="profilePic" class="image">
         </div>
     </div>
      
-    <!-- First Name & Last Name -->
     <div class="name-div">
         <div class="textDiv firstNameInputDiv">
             <h3 class="heading">First Name</h3>
@@ -19,7 +79,6 @@
         </div>
     </div>
 
-    <!-- Contact & Email -->
     <div class="email-contact-div">
         <div class="textDiv contactInputDiv">
             <h3 class="heading">Contact</h3>
@@ -31,37 +90,33 @@
         </div>
     </div>
     
-    <!-- Blood Group -->
     <div class="textDiv blood-group-div" *ngIf="isAdmin">
         <h3 class="heading">Blood Group</h3>
         <h3>{{profileData.bloodGroup}}</h3>
     </div>
 
-    <!-- Address -->
     <div class="textDiv address-div">
         <h3 class="heading">Address</h3>
         <h3>{{profileData.address}}</h3>
     </div>
     
-    <!-- Occupation / Business -->
     <div class="textDiv occupation-business-name">
-        <h3 class="heading">Occupatio or Business</h3>
+        <h3 class="heading">Occupation or Business</h3>
         <h3>{{profileData.occupationName}}</h3>
     </div>
 
-    <!-- Action Buttons -->
     <div *ngIf="isAdmin && !isRegistered" class="button-div">
         <div class="approve-button">
-            <button mat-dialog-close style="background-color: #1cac78; color: white;" mat-raised-button class="action-button" (click)="action(true)">
+            <button style="background-color: #1cac78; color: white;" mat-raised-button class="action-button" (click)="action(true)">
                 <mat-icon class="button-icon">done_all</mat-icon>
                 <span>Approve</span>
             </button>
         </div>
         <div class="reject-button">
-            <button mat-dialog-close style="background-color: #fe2712; color: white;" mat-raised-button class="action-button" (click)="action(false)">
+            <button style="background-color: #fe2712; color: white;" mat-raised-button class="action-button" (click)="action(false)">
                 <mat-icon class="button-icon">delete_outline</mat-icon>
                 <span>Reject</span>
             </button>
         </div>
     </div>
-</div>
+</div> -->

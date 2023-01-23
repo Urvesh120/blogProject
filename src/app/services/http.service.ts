@@ -35,7 +35,7 @@ export class HttpService {
     }
 
     getUserProfileById(id : any){
-       let queryParams = new HttpParams();
+      let queryParams = new HttpParams();
       queryParams = queryParams.append("id", id)
       return this.http.post(this.preRoute+'/user/profile',"", {params:queryParams});
     }

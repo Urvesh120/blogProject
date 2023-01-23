@@ -300,6 +300,7 @@ export class RegisterComponent implements OnInit {
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
     this.http.register(data).subscribe((res : any) =>{
+
       if(res.status == 1){
         localStorage.removeItem('userEmailId');
         this._snackBar.open(res.message, "",{

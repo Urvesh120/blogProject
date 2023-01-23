@@ -45,48 +45,21 @@ export class UserlistComponent implements OnInit {
       }
       if(this.isAdmin){
         //pending user
-        // this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Bloodgroup', 'Occupation', 'Address', 'Action'];
         this.http.pendingUserList().subscribe((res : any) => {
           this.pendingUserList = res.payload;
           this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
-          // this.pendingUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
-          //   return data.firstName.toLowerCase().includes(filter) || 
-          //   data.lastName.toLowerCase().includes(filter) || 
-          //   data.email.toLowerCase().includes(filter) || 
-          //   data.contact.toLowerCase().includes(filter) || 
-          //   data.bloodGroup.toLowerCase().includes(filter) || 
-          //   data.occupation.toLowerCase().includes(filter) || 
-          //   data.address.toString().includes(filter)};
           });
 
           //register user
           this.http.adminUserlist().subscribe((res : any) => {
             this.registeredUserList = res.payload;
             this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
-            // this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
-            //   return data.firstName.toLowerCase().includes(filter) || 
-            //   // data.middlename.toLowerCase().includes(filter) || 
-            //   data.lastName.toLowerCase().includes(filter) || 
-            //   // data.fatherName.toLowerCase().includes(filter) || 
-            //   data.email.toLowerCase().includes(filter) || 
-            //   data.contact.toLowerCase().includes(filter) || 
-            //   data.occupation.toLowerCase().includes(filter) || 
-            //   data.address.toString().includes(filter)};
           });
       }
       else{
-        // this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
         this.http.userlist().subscribe((res : any) => {
           this.registeredUserList = res.payload;
           this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
-          this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
-            return data.firstName.toLowerCase().includes(filter) || 
-            data.lastName.toLowerCase().includes(filter) || 
-            data.email.toLowerCase().includes(filter) || 
-            data.contact.toLowerCase().includes(filter) || 
-            data.bloodGroup.toLowerCase().includes(filter) || 
-            data.occupation.toLowerCase().includes(filter) || 
-            data.address.toString().includes(filter)};
         });
       }      
     }
@@ -112,15 +85,16 @@ export class UserlistComponent implements OnInit {
     this.pendingUserDataSource.filter = filter.trim().toLowerCase();
   }
 
-  openDialog(profileData : any, isRegistered : any){  
+  openDialog(profileData : any, isRegistered : any){ 
     let data = {
-      "profileData" : profileData,
-      "isAddmin" : true,
+      "id" : profileData,
+      "isAdmin" : true,
       "isRegistered" : isRegistered
     }
     const dialogRef = this.dialog.open(ProfileComponent, {
-      width: '500px',
+      // width: '500px',
       data: {data},
+      disableClose : true
     });
 
     dialogRef.afterClosed().subscribe(result => {
