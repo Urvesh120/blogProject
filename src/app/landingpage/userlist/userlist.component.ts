@@ -102,9 +102,14 @@ export class UserlistComponent implements OnInit {
     this.pendingUserDataSource.filter = filter.trim().toLowerCase();
   }
 
-  filter(event : Event){
+  registerFilter(event : Event){
     const filter = (event.target as HTMLInputElement).id;
     this.registeredUserDataSource.filter = filter.trim().toLowerCase();
+  }
+  
+  pendingFilter(event : Event){
+    const filter = (event.target as HTMLInputElement).id;
+    this.pendingUserDataSource.filter = filter.trim().toLowerCase();
   }
 
   openDialog(profileData : any, isRegistered : any){  

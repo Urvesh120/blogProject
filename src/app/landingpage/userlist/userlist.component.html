@@ -21,13 +21,13 @@
           <div class="radio-button-div">
             <div class="jov-div">
               <label>
-                <input type="checkbox" name="radio" id="job" (change)="filter($event)" #input />
+                <input type="checkbox" name="radio" id="job" (change)="registerFilter($event)" #input />
                 <span>Job</span>
               </label>
             </div>
             <div class="jov-div">
               <label>
-                <input type="checkbox" name="radio" id="business" (change)="filter($event)" #input/>
+                <input type="checkbox" name="radio" id="business" (change)="registerFilter($event)" #input/>
                 <span>Bussiness</span>
               </label>
             </div>
@@ -116,11 +116,32 @@
 
 <ng-template #pendingUser >
   <div class="user-list-table">
-
-    <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="pendingListFilter($event)" placeholder="Ex. ium" #input>
-    </mat-form-field>
+    <div class="filter-div">
+      <div class="search-div">
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="pendingListFilter($event)" placeholder="search" #input>
+        </mat-form-field>
+      </div>
+      <div class="other-filters">
+        <form>
+          <div class="radio-button-div">
+            <div class="jov-div">
+              <label>
+                <input type="checkbox" name="radio" id="job" (change)="pendingFilter($event)" #input />
+                <span>Job</span>
+              </label>
+            </div>
+            <div class="jov-div">
+              <label>
+                <input type="checkbox" name="radio" id="business" (change)="pendingFilter($event)" #input/>
+                <span>Bussiness</span>
+              </label>
+            </div>
+          </div>
+        </form>    
+      </div>
+  </div>
     <table mat-table [dataSource]="pendingUserDataSource" class="mat-elevation-z8">
     
       <!-- First name Column -->
