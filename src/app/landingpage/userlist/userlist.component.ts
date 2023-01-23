@@ -32,7 +32,7 @@ export class UserlistComponent implements OnInit {
   isLogedIn = false;
   isAdmin = false;
   isUser = false;
-  columns : any = [];
+  columns : any = ['First_Name', 'Middle_Name', 'Last_Name', 'Father_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
 
   constructor(private http : HttpService, private dialog: MatDialog) { }
 
@@ -45,36 +45,37 @@ export class UserlistComponent implements OnInit {
       }
       if(this.isAdmin){
         //pending user
-        this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Bloodgroup', 'Occupation', 'Address', 'Action'];
+        // this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Bloodgroup', 'Occupation', 'Address', 'Action'];
         this.http.pendingUserList().subscribe((res : any) => {
           this.pendingUserList = res.payload;
           this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
-          this.pendingUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
-            return data.firstName.toLowerCase().includes(filter) || 
-            data.lastName.toLowerCase().includes(filter) || 
-            data.email.toLowerCase().includes(filter) || 
-            data.contact.toLowerCase().includes(filter) || 
-            data.bloodGroup.toLowerCase().includes(filter) || 
-            data.occupation.toLowerCase().includes(filter) || 
-            data.address.toString().includes(filter)};
+          // this.pendingUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
+          //   return data.firstName.toLowerCase().includes(filter) || 
+          //   data.lastName.toLowerCase().includes(filter) || 
+          //   data.email.toLowerCase().includes(filter) || 
+          //   data.contact.toLowerCase().includes(filter) || 
+          //   data.bloodGroup.toLowerCase().includes(filter) || 
+          //   data.occupation.toLowerCase().includes(filter) || 
+          //   data.address.toString().includes(filter)};
           });
 
           //register user
           this.http.adminUserlist().subscribe((res : any) => {
             this.registeredUserList = res.payload;
             this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
-            this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
-              return data.firstName.toLowerCase().includes(filter) || 
-              data.lastName.toLowerCase().includes(filter) || 
-              data.email.toLowerCase().includes(filter) || 
-              data.contact.toLowerCase().includes(filter) || 
-              data.bloodGroup.toLowerCase().includes(filter) || 
-              data.occupation.toLowerCase().includes(filter) || 
-              data.address.toString().includes(filter)};
+            // this.registeredUserDataSource.filterPredicate = function(data : userData, filter : any): boolean {
+            //   return data.firstName.toLowerCase().includes(filter) || 
+            //   // data.middlename.toLowerCase().includes(filter) || 
+            //   data.lastName.toLowerCase().includes(filter) || 
+            //   // data.fatherName.toLowerCase().includes(filter) || 
+            //   data.email.toLowerCase().includes(filter) || 
+            //   data.contact.toLowerCase().includes(filter) || 
+            //   data.occupation.toLowerCase().includes(filter) || 
+            //   data.address.toString().includes(filter)};
           });
       }
       else{
-        this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
+        // this.columns = ['First_Name', 'Last_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
         this.http.userlist().subscribe((res : any) => {
           this.registeredUserList = res.payload;
           this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
@@ -99,6 +100,11 @@ export class UserlistComponent implements OnInit {
   pendingListFilter(event: Event) {
     const filter = (event.target as HTMLInputElement).value;
     this.pendingUserDataSource.filter = filter.trim().toLowerCase();
+  }
+
+  filter(event : Event){
+    const filter = (event.target as HTMLInputElement).id;
+    this.registeredUserDataSource.filter = filter.trim().toLowerCase();
   }
 
   openDialog(profileData : any, isRegistered : any){  
