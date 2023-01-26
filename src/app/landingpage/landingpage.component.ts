@@ -3,6 +3,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Router } from '@angular/router';
 import { HttpService } from '../services/http.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-landingpage',
@@ -31,19 +33,32 @@ export class LandingpageComponent implements OnInit {
 
   constructor( private router : Router, 
     private http : HttpService,
-    private sanitizer: DomSanitizer) { 
+    private sanitizer: DomSanitizer,
+    private loader : LoaderService) { 
   }
 
   ngOnInit(): void {
     if(localStorage.getItem('userEmailId')){
       this.userId = localStorage.getItem('UserId'); 
       this.http.getUserProfileById(this.userId).subscribe((res : any) => {
-        let picture = res.payload.picture.split(",");
-        if(!!picture[1]){
-          this.image = this.sanitizer.bypassSecurityTrustUrl(res.payload.picture);
+        if(res.status == 1){
+          let picture = res.payload.picture.split(",");
+          if(!!picture[1]){
+            this.image = this.sanitizer.bypassSecurityTrustUrl(res.payload.picture);
+          }
+          else{
+            this.image = this.blankImage;
+          }
         }
         else{
-          this.image = this.blankImage;
+          Swal.fire({
+            title: res.message,
+            imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Something Went Wrong',
+          })
+          this.loader.hide();
         }
       });
       this.isLogedIn = true;

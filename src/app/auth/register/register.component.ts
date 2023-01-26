@@ -6,6 +6,7 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-register',
@@ -85,7 +86,7 @@ export class RegisterComponent<D> implements OnInit {
     }   
   ]
 
-  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar,) { }
+  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private loader: LoaderService) { }
 
   ngOnInit(): void {
     this.RegistrationFormGroup = this.fb.group({
@@ -329,17 +330,19 @@ export class RegisterComponent<D> implements OnInit {
           imageUrl: 'assets/illustators/RegisterRequestSuccess.svg',
           imageWidth: 400,
           imageHeight: 200,
-          imageAlt: 'Custom image',
+          imageAlt: 'Register Request Success',
         })
         this.router.navigate(['']);
       }
       else{
-        this._snackBar.open(res.message, "",{
-          duration : 5 * 1000,
-          panelClass : ['error'],
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        Swal.fire({
+          title: res.message,
+          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Something Went Wrong',
+        })
+        this.loader.hide();
       }
     });
   }

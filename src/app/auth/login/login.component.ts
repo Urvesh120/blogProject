@@ -60,11 +60,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
       }
       else{
-        Swal.fire(
-          res.message,
-          '',
-          'error'
-        )
+        Swal.fire({
+          title: res.message,
+          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Something Went Wrong',
+        })
         this.loader.hide();
       }
     });

@@ -4,6 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpService } from '../../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { LoaderService } from 'src/app/services/loader.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public userData: any, 
     private http : HttpService,
     private sanitizer: DomSanitizer,
-    private _snackBar: MatSnackBar
+    private loader : LoaderService
     ) { }
 
   ngOnInit(): void {
@@ -76,11 +77,14 @@ export class ProfileComponent implements OnInit {
               this.dialogRef.close();
             }
             else{
-              Swal.fire(
-                res.message,
-                '',
-                'error'
-              )
+              Swal.fire({
+                title: res.message,
+                imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Something Went Wrong',
+              })
+              this.loader.hide();
             }
           });
         }
@@ -98,11 +102,14 @@ export class ProfileComponent implements OnInit {
           this.dialogRef.close();
         }
         else{
-          Swal.fire(
-            res.message,
-            '',
-            'error'
-          )
+          Swal.fire({
+            title: res.message,
+            imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Something Went Wrong',
+          })
+          this.loader.hide();
         }
       });
     }
