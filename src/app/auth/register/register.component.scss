@@ -6,6 +6,24 @@ mat-form-field{
   margin-bottom: 10px;
 }
 
+.group {
+  position: relative;
+}
+
+.profile-div
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  top: 0;
+  right: 0px;
+  top: 2px;
+  cursor: pointer;
+}
+
 
 .homeButtonDiv, .registerButtonDiv{
   a{

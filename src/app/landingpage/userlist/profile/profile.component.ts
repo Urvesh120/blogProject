@@ -41,6 +41,9 @@ export class ProfileComponent implements OnInit {
     if(base64[1] == "" || base64[1] == null){
       this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.blankImage);
     }
+    else{
+      this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.profileData.picture);
+    }
   }
 
   action(status : any){
@@ -70,6 +73,7 @@ export class ProfileComponent implements OnInit {
                 '',
                 'success'
               )
+              this.dialogRef.close();
             }
             else{
               Swal.fire(
@@ -91,6 +95,7 @@ export class ProfileComponent implements OnInit {
             '',
             'success'
           )
+          this.dialogRef.close();
         }
         else{
           Swal.fire(

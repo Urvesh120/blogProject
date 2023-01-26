@@ -8,16 +8,19 @@ import { ModuleModule } from '../shared/modules/modules.module';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ModuleModule,
     NgxIntlTelInputModule,
+    NgbModule,
     BsDropdownModule.forRoot()
   ]
 })

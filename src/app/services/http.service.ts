@@ -15,6 +15,7 @@ export class HttpService {
     }
 
     register(registerCredential : any){
+      debugger
       return this.httpWithoutInterceptor.post(this.preRoute+'/user/register', registerCredential);
     }
 

@@ -4,16 +4,21 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent<D> implements OnInit {
 
   registerImage = 'assets/illustators/Register.svg';
   selectedValue : any;
   reload = false;
+
+  model!: NgbDateStruct;
 
 
   separateDialCode = false;
@@ -80,7 +85,7 @@ export class RegisterComponent implements OnInit {
     }   
   ]
 
-  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar,) { }
 
   ngOnInit(): void {
     this.RegistrationFormGroup = this.fb.group({
@@ -227,6 +232,10 @@ export class RegisterComponent implements OnInit {
   get educational() {
     return this.RegistrationFormGroup.get('educational');
   }
+  
+  get achivement() {
+    return this.RegistrationFormGroup.get('achivement');
+  }
 
   get addressLine1() {
     return this.RegistrationFormGroup.get('addressLine1');
@@ -258,7 +267,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-
+    debugger
     let address = 
       this.RegistrationFormGroup.value.addressLine1 + "," +
       this.RegistrationFormGroup.value.addressLineLandmark + "," +
@@ -274,6 +283,18 @@ export class RegisterComponent implements OnInit {
       this.RegistrationFormGroup.value.flastname + " " +
       this.RegistrationFormGroup.value.ffirstname + " " +
       this.RegistrationFormGroup.value.fmiddlename;
+
+    let DOBObject = this.RegistrationFormGroup.value.dateofbirth;
+    let day = DOBObject.day
+    if(day < 10){
+      day = "0" + day;
+    }
+    let month = DOBObject.month
+    if(month < 10){
+      month = "0" + month;
+    }
+    let year = DOBObject.year
+    let dateOfBirth = year + "-" + month + "-" + day 
     
     let data = {
       "picture": this.imageBase64,
@@ -286,11 +307,11 @@ export class RegisterComponent implements OnInit {
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": address,
-      "countryCode" : "",
+      "countryCode" : this.RegistrationFormGroup.value.dialcode,
       "country": this.RegistrationFormGroup.value.country,
-      "dateOfBirth" : this.RegistrationFormGroup.value.dateofbirth,
+      "dateOfBirth" : dateOfBirth,
       "qualification" : this.RegistrationFormGroup.value.educational,
-      "achievement" : this.RegistrationFormGroup.value.achievement,
+      "achievement" : this.RegistrationFormGroup.value.achivement,
       "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
       "gender": this.RegistrationFormGroup.value.gender,
       "gotra": this.RegistrationFormGroup.value.gotra,
@@ -299,16 +320,17 @@ export class RegisterComponent implements OnInit {
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
+    console.log(data);
     this.http.register(data).subscribe((res : any) =>{
-
       if(res.status == 1){
         localStorage.removeItem('userEmailId');
-        this._snackBar.open(res.message, "",{
-          duration : 5 * 1000,
-          panelClass : ['success'],
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        Swal.fire({
+          title: res.message,
+          imageUrl: 'assets/illustators/RegisterRequestSuccess.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
         this.router.navigate(['']);
       }
       else{
@@ -321,5 +343,4 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
-
 }

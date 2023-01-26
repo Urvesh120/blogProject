@@ -8,6 +8,19 @@
       <h1>Register</h1>
     </div>
     <div>
+
+      <div class="inputDiv profile-div">
+        <div class="profile-img-div">
+          <img *ngIf="imageBase64" [src]="imageBase64" class="image">
+          <img *ngIf="!imageBase64" [src]="blankImage" class="image">
+        </div>
+        <div class="upload-profile-img-div">
+          <button mat-button class="file-upload-button">
+            <input type="file" accept="image/png, image/jpg, image/jpeg" (change)="onSelectFile($event)"/>
+          </button>
+        </div>
+      </div>
+      
       <form [formGroup]="RegistrationFormGroup" (ngSubmit)="register()">
         <!-- NAME -->
         <div>
@@ -55,8 +68,8 @@
         <div>
           <mat-form-field appearance="outline">
             <mat-label>Dial code</mat-label>
-            <mat-select [(ngModel)]="selectedValue">
-              <mat-option value="{{item}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
+            <mat-select formControlName="dialcode">
+              <mat-option value="{{item.countryCode}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -90,6 +103,13 @@
 
         <!-- Other information -->
         <div>
+          <mat-form-field appearance="outline" class="group">
+            <mat-label>Date of Birth</mat-label>
+              <input type="text" formControlName="dateofbirth" ngbDatepicker #d="ngbDatepicker" matInput />
+              <button class="btn" style="position: absolute;" (click)="d.toggle()" type="button"><mat-icon>date_range</mat-icon></button>
+            <mat-error *ngIf="gotra && gotra.invalid && gotra.touched">Please enter your gotra.</mat-error>
+          </mat-form-field>            
+
           <mat-form-field appearance="outline" >
             <mat-label>Select Bloodgroup</mat-label>
             <mat-select formControlName="bloodgroup">
@@ -162,7 +182,7 @@
           <mat-form-field appearance="outline" >
             <mat-label>Select Country</mat-label>
             <mat-select formControlName="country">
-                <mat-option value="{{item}}" *ngFor="let item of countryList">{{ item.countryName }}</mat-option>
+                <mat-option value="{{item.countryName}}" *ngFor="let item of countryList">{{ item.countryName }}</mat-option>
             </mat-select>
             <mat-error *ngIf="country && country.invalid && country.touched">Please select your country.</mat-error>
           </mat-form-field>

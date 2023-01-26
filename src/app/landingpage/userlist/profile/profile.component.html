@@ -76,7 +76,7 @@
             <td class="head-column">Father name</td>
             <td>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</td>
           </tr>
-          <tr>
+          <tr *ngIf="isAdmin">
             <td class="head-column">Blood group</td>
             <td>{{profileData.bloodGroup}}</td>
           </tr>
