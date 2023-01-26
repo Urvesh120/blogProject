@@ -47,17 +47,11 @@ export class LoginComponent implements OnInit {
       if(res.status == 1){
         Swal.fire({
           title: res.message,
-          imageUrl: 'assets/illustators/Register.svg',
+          imageUrl: 'assets/illustators/LoginSuccess.svg',
           imageWidth: 400,
           imageHeight: 200,
           imageAlt: 'Custom image',
         })
-        // this._snackBar.open(res.message, "",{
-        //   duration : 5 * 1000,
-        //   panelClass : ['success'],
-        //   horizontalPosition: this.horizontalPosition,
-        //   verticalPosition: this.verticalPosition,
-        // });
         localStorage.setItem('userEmailId',this.loginFormGroup.value.emailOrContact);
         localStorage.setItem('token', res.payload.jwtToken);
         localStorage.setItem('UserName', res.payload.displayName);
@@ -66,12 +60,11 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
       }
       else{
-        this._snackBar.open(res.message, "",{
-          duration : 5 * 1000,
-          panelClass : ['error'],
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        Swal.fire(
+          res.message,
+          '',
+          'error'
+        )
         this.loader.hide();
       }
     });

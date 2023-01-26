@@ -1,59 +1,114 @@
+<div class="close-button">
+    <button class="btn" (click)="closeDialog()"><mat-icon>clear</mat-icon></button>
+</div>
+
 <div class="main-div">
     <div class="profile-div">
         <img [src]="profileData.picture" alt="Prifile Picture">
+    </div>   
+
+    <!-- <div class="details-div">
+        <div class="field name-div">
+            <div class="title-div">
+                <h2>Name</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</h3>
+            </div>
+        </div>
+        <div class="field father-name-div">
+            <div class="title-div">
+                <h2>Father name</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</h3>
+            </div>
+        </div>
+        <div class="field bloodGroop-div" *ngIf="isAdmin">
+            <div class="title-div">
+                <h2>Bloodgroop</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.bloodGroup}}</h3>
+            </div>
+        </div>
+        <div class="field contact-div">
+            <div class="title-div">
+                <h2>Contact number</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.contact}}</h3>
+            </div>
+        </div>
+        <div class="field contact-div">
+            <div class="title-div">
+                <h2>Email</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.email}}</h3>
+            </div>
+        </div>
+        <div class="field address">
+            <div class="title-div">
+                <h2>Address</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.address}}</h3>
+            </div>
+        </div>
+        <div class="field occupation">
+            <div class="title-div">
+                <h2>{{profileData.occupationType}}</h2>
+            </div>
+            <div class="description-div">
+                <h3>{{profileData.occupationName}}</h3>
+            </div>
+        </div>
+    </div> -->
+
+    <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td class="head-column">Name</td>
+            <td>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</td>
+          </tr>
+          <tr>
+            <td class="head-column">Father name</td>
+            <td>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</td>
+          </tr>
+          <tr>
+            <td class="head-column">Blood group</td>
+            <td>{{profileData.bloodGroup}}</td>
+          </tr>
+          <tr>
+            <td class="head-column">Contact number</td>
+            <td>{{profileData.contact}}</td>
+          </tr>
+          <tr>
+            <td class="head-column">Email</td>
+            <td>{{profileData.email}}</td>
+          </tr>
+          <tr>
+            <td class="head-column">Address</td>
+            <td>{{profileData.address}}</td>
+          </tr>
+          <tr>
+            <td class="head-column">{{profileData.occupationType}}</td>
+            <td>{{profileData.occupationName}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+<div class="action-button" *ngIf="!isRegistered">
+    <div class="approvr-btn">
+        <button class="btn btn-success" (click)="action(true)">Approve</button>
     </div>
-
-    <div class="other-info">
-        <div class="user-name">
-            <div class="first-name">
-                <h3>First Name</h3>
-                <h2>{{profileData.firstName}}</h2>
-            </div>
-            <div class="middle-name">
-                <h3>Middle Name</h3>
-                <h2>{{profileData.firstName}}</h2>
-            </div>
-            <div class="last-name">
-                <h3>Last Name</h3>
-                <h2>{{profileData.lastName}}</h2>
-            </div>
-        </div>
-
-        <div class="father-name">
-            <h3>Father Name</h3>
-            <h2>{{profileData.lastName}}</h2>
-        </div>
-
-        <div class="contact-info">
-            <div class="contact">
-                <h3>Phone number</h3>
-                <h2>{{profileData.contact}}</h2>
-            </div>
-            <div class="email">
-                <h3>Email</h3>
-                <h2>{{profileData.email}}</h2>
-            </div>
-        </div>
-
-        <div class="address">
-            <h3>Address</h3>
-            <h2>{{profileData.address}}</h2>
-        </div>
-        <div class="occupation">
-            <h3>{{profileData.occupationType}}</h3>
-            <h2>{{profileData.occupationName}}</h2>
-        </div>
-    </div>
-
-    <div class="action-button">
-        <div class="approvr-btn">
-            <button class="btn btn-success" (click)="action(true)">Approve</button>
-        </div>
-        <div class="reject-btn">
-            <button class="btn btn-outline-danger" (click)="action(false)">Reject</button>
-        </div>
+    <div class="reject-btn">
+        <button class="btn btn-outline-danger" (click)="action(false)">Reject</button>
     </div>
 </div>
+
 
 <!-- 
 <div class="close-button">

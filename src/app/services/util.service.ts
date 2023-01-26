@@ -32,7 +32,6 @@ export class UtilService {
     }
 
     public setMessage(message : any, type : messages){
-        debugger
         this.message.next(message);
         this.messageType.next(type);
     }

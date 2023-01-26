@@ -21,10 +21,11 @@ export class UserprofileComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.getUserProfileById(localStorage.getItem('UserId')).subscribe((res : any) => {
-      this.userData = res;
-      if(!!this.userData.picture){
-        this.image = this.sanitizer.bypassSecurityTrustUrl(this.userData.picture);
+      this.userData = res.payload;
+      let profile = this.userData.picture.split(",");
+      if(!!profile[1]){
         this.isImage = true;
+        this.image = this.sanitizer.bypassSecurityTrustUrl(this.userData.picture);
       }
       if(!!this.userData.description){
         this.isDescription = true;

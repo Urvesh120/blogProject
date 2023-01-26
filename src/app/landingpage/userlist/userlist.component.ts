@@ -87,8 +87,8 @@ export class UserlistComponent implements OnInit {
 
   openDialog(profileData : any, isRegistered : any){ 
     let data = {
-      "id" : profileData,
-      "isAdmin" : true,
+      "profileData" : profileData,
+      "isAdmin" : this.isAdmin,
       "isRegistered" : isRegistered
     }
     const dialogRef = this.dialog.open(ProfileComponent, {

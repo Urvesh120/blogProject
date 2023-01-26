@@ -15,9 +15,6 @@ export class CoustomtoastrComponent implements OnInit {
   constructor(private loader : LoaderService, private util : UtilService) { }
 
   ngOnInit(): void {
-    debugger
-    console.log(this.message);
-    console.log(this.type);
   }
 
   clossDiv(){

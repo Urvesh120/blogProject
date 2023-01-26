@@ -1,27 +1,27 @@
 .main-div{
-    width: 1000px;
-}
-
-.user-name{
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 50px;
-    margin-top: 20px;
+    height: auto;
+    width: 700px;
+    overflow-x: hidden;
 }
 
 .profile-div{
     width: 100px;
     height: 100px;
-
+    margin: auto;
+    margin-bottom: 30px;
+    
     img{
         width: 100%;
+        border-radius: 50%;
     }
 }
 
-.contact-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+td{
+    font-size: medium;
+}
+
+.head-column{
+    font-weight: 500;
 }
 
 .action-button{
@@ -29,9 +29,13 @@
     justify-content: space-evenly;
 }
 
-.btn{
-    width: 400px;
-    border-radius: 5px;
+.close-button button{
+    float: right;
+}
+
+.field{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .swal-button {
@@ -41,90 +45,4 @@
     font-size: 12px;
     border: 1px solid #3e549a;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-  }
-
-
-// $orange-gray-color-shade : #f87060;
-
-// .user-profile-div{
-//     width: 700px;
-//     max-height: 90vh;
-//     overflow: auto;
-// }
-
-// .image-div{
-//     display: grid;
-//     grid-template-columns: repeat(1, 1fr);
-//     justify-items: center;
-//     margin-bottom: 20px;
-//     margin-top: 5px;
-// }
-
-// .profile-img-div img{
-//     width: 100px;
-//     height: 100px;
-//     outline: #cdd7d6 solid 3px;
-//     border-radius: 50%;
-// }
-
-// .textDiv{
-//     margin-bottom: 20px;
-// }
-
-// .name-div, 
-// .email-contact-div, 
-// .password-div, 
-// .address-lines, 
-// .city-pincode{
-//     display: grid;
-//     column-gap: 10px;
-//     grid-template-columns: repeat(2, 1fr);
-// }
-
-// .content-div{
-//     margin-bottom: 20px;
-// }
-
-// h3{
-//     padding: 0;
-//     margin: 0;
-//     margin: 0px 0px 10px 0px;
-//     font-size: 20px;
-// }
-
-// .heading{
-//     margin: 0;
-//     font-size: 20px;
-//     font-weight: 500;
-//     color: $orange-gray-color-shade;
-// }
-
-// .button-div{
-//     display: flex;
-//     justify-content: space-around;
-// }
-
-// .action-button{
-//     width: 120px;
-// }
-
-// .button-icon{
-//     margin-right: 5px;
-// }
-
-// @media screen and (max-width: 480px) {
-
-//     .name-div, 
-//     .email-contact-div, 
-//     .password-div, 
-//     .address-lines, 
-//     .city-pincode{
-//         display: grid;
-//         column-gap: 10px;
-//         grid-template-columns: repeat(1, 1fr);
-//     }
-
-//     .action-button{
-//         width: 105px;
-//     }
-// }
+}

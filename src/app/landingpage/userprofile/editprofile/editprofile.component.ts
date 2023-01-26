@@ -16,23 +16,27 @@ export class EditprofileComponent implements OnInit {
   imageBase64: string = "";
   imageType : string = "";
   blankImage = 'assets/images/blank-profile.jpg';
+  selectedValue : any;
 
   RegistrationFormGroup: any;
   isJob : boolean = true;
   isOccupationSelected : boolean = false;
 
-  // RegistrationFormGroup  = this.fb.group({
+  // this.RegistrationFormGroup = this.fb.group({
   //   firstname: ['', Validators.required],
   //   middlename: ['', [Validators.required]],
   //   lastname: ['', [Validators.required]],
   //   ffirstname: ['', [Validators.required]],
   //   fmiddlename: ['', [Validators.required]],
   //   flastname: ['', [Validators.required]],
+  //   dialcode : ['', [Validators.required]],
   //   contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+  //   country : ['', [Validators.required]],
   //   // email: ['', [Validators.required, Validators.email]],
   //   email: ['', [Validators.email]],
   //   password: ['', [Validators.required]],
   //   confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
+  //   dateofbirth : ['', [Validators.required]],
   //   bloodgroup: ['', [Validators.required]],
   //   gender: ['', [Validators.required]],
   //   maritalstatus: ['', [Validators.required]],
@@ -107,34 +111,34 @@ export class EditprofileComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public userData: any) { }
 
   ngOnInit(): void {
-    console.log("abc",this.userData);
+    let data = this.userData.data;
+    if(!!data.address){
+      var address = data.address.split(",");
+      if(!!address[2]){
+        var pincode = address[2].split("-");
+      }
+    }
+    
     this.RegistrationFormGroup = this.fb.group({
-      firstname: ['', Validators.required],
-      middlename: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      ffirstname: ['', [Validators.required]],
-      fmiddlename: ['', [Validators.required]],
-      flastname: ['', [Validators.required]],
-      contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      // email: ['', [Validators.required, Validators.email]],
-      email: ['', [Validators.email]],
-      password: ['', [Validators.required]],
-      confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
-      bloodgroup: ['', [Validators.required]],
-      gender: ['', [Validators.required]],
-      maritalstatus: ['', [Validators.required]],
-      gotra: ['', [Validators.required]],
-      educational: ['', [Validators.required]],
-      achivement: [''],
-      addressLine1: ['', [Validators.required]],
-      addressLineLandmark: [''],
-      addressLineCity: ['', [Validators.required]],
-      addressLinePincode: ['', [Validators.required]],
-      jobBusinessType: ['', [Validators.required]],
-      jobBusinessName: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      firstname: [data.firstName || '', Validators.required],
+      middlename: [data.firstName || '', [Validators.required]],
+      lastname: [data.lastName || '', [Validators.required]],
+      ffirstname: [data.firstName || '', [Validators.required]],
+      fmiddlename: [data.firstName || '', [Validators.required]],
+      flastname: [data.firstName || '', [Validators.required]],
+      contact: [data.contact || '', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      email: [data.email || '', [Validators.email]],
+      maritalstatus: [data.maritalStatus || '', [Validators.required]],
+      educational: [data.firstName || '', [Validators.required]],
+      achivement: [data.achievement || ''],
+      addressLine1: [address[0] || '', [Validators.required]],
+      addressLineLandmark: [address[1] || ''],
+      addressLineCity: [pincode[0] || '', [Validators.required]],
+      addressLinePincode: [pincode[1] || '', [Validators.required]],
+      jobBusinessType: data.occupationType || ['', [Validators.required]],
+      jobBusinessName: [data.occupationName || '', [Validators.required]],
+      description: [data.occupationDescription || '', [Validators.required]],
     });
-    this.RegistrationFormGroup.get('firstname').setValue('abc');
   }
 
   abc(event : any){
@@ -203,6 +207,14 @@ export class EditprofileComponent implements OnInit {
   get contact() {
     return this.RegistrationFormGroup.get('contact');
   }
+  
+  get country() {
+    return this.RegistrationFormGroup.get('country');
+  }
+
+  get dialcode(){
+    return this.RegistrationFormGroup.get('dialcode');
+  }
 
   // get email() {
   //   return this.RegistrationFormGroup.get('email');
@@ -214,6 +226,10 @@ export class EditprofileComponent implements OnInit {
   
   get confirmpassword() {
     return this.RegistrationFormGroup.get('confirmpassword');
+  }
+
+  get dateofbirth(){
+    return this.RegistrationFormGroup.get('dateofbirth');
   }
   
   get bloodgroup() {

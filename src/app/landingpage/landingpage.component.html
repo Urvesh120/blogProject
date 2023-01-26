@@ -14,13 +14,13 @@
     </div>
 
     <div *ngIf="!isLogedIn" class="user-prifile loginButton">
-      <button style="color: #f87060" mat-button [routerLink]="['/auth/login']">Login</button>
+      <button style="color: #f87060" mat-button [routerLink]="['/auth/login']">લોગ ઈન / રજીસ્ટર </button>
     </div>  
   
   <mat-divider></mat-divider>
     <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/home']">
       <mat-icon style="color: #f87060;">home</mat-icon>
-      <span>Home</span>
+      <span>હોમ</span>
     </button>
 
     <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
@@ -34,51 +34,51 @@
         <mat-panel-title>
           <button mat-button class="menu-button">
             <mat-icon style="color: #f87060;">view_carousel</mat-icon>
-            <span>Trusts</span>
+            <span>ટ્રસ્ટ</span>
           </button>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-          <span>Trust 1</span>
+          <span>નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</span>
         </button>
 
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-          <span>Trust 2</span>
+          <span>નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</span>
         </button>
   
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-          <span>Trust 3</span>
+          <span>નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</span>
         </button>
 
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-          <span>Mandal 1</span>
+          <span>નૉંદેરા પ્રગતિ મંડળ</span>
         </button>
 
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-          <span>Mandal 2</span>
+          <span>મહિલા મંડળ</span>
         </button>
     </mat-expansion-panel>   
   </mat-accordion> 
 
     <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-profile']">
       <mat-icon style="color: #f87060;">person</mat-icon>
-      <span>Profile</span>
+      <span>પ્રોફાઈલ</span>
     </button>
 
     <button mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon style="color: #f87060;">info</mat-icon>
-      <span>About</span>
+      <span>અબાઉટ</span>
     </button>
 
     <button *ngIf="isLogedIn" (click)="logout()" (click)="sidenav.close()"  mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon style="color: #ed2939;">power_settings_new</mat-icon>
-      <span>Logout</span>
+      <span>લોગ આઉટ</span>
     </button>
 
   </mat-sidenav>

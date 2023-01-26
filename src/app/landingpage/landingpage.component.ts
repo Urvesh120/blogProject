@@ -27,6 +27,7 @@ export class LandingpageComponent implements OnInit {
   username : any;
   logedout = false;
   image : any;
+  blankImage = 'assets/images/blank-profile.jpg';
 
   constructor( private router : Router, 
     private http : HttpService,
@@ -37,7 +38,13 @@ export class LandingpageComponent implements OnInit {
     if(localStorage.getItem('userEmailId')){
       this.userId = localStorage.getItem('UserId'); 
       this.http.getUserProfileById(this.userId).subscribe((res : any) => {
-        this.image = this.sanitizer.bypassSecurityTrustUrl(res.picture);
+        let picture = res.payload.picture.split(",");
+        if(!!picture[1]){
+          this.image = this.sanitizer.bypassSecurityTrustUrl(res.payload.picture);
+        }
+        else{
+          this.image = this.blankImage;
+        }
       });
       this.isLogedIn = true;
       // this.image = localStorage.getItem('profilePic');
