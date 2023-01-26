@@ -74,6 +74,7 @@ export class ProfileComponent implements OnInit {
                 '',
                 'success'
               )
+              this.loader.hide()
               this.dialogRef.close();
             }
             else{
@@ -99,6 +100,7 @@ export class ProfileComponent implements OnInit {
             '',
             'success'
           )
+          this.loader.hide();
           this.dialogRef.close();
         }
         else{

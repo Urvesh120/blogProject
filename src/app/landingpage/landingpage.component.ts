@@ -49,6 +49,7 @@ export class LandingpageComponent implements OnInit {
           else{
             this.image = this.blankImage;
           }
+          this.loader.hide();
         }
         else{
           Swal.fire({

@@ -333,6 +333,7 @@ export class RegisterComponent<D> implements OnInit {
           imageAlt: 'Register Request Success',
         })
         this.router.navigate(['']);
+        this.loader.hide();
       }
       else{
         Swal.fire({

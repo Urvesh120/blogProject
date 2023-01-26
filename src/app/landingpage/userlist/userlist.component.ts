@@ -3,6 +3,8 @@ import { HttpService } from '../../services/http.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
 import { MatTableDataSource } from '@angular/material/table';
+import { LoaderService } from 'src/app/services/loader.service';
+import Swal from 'sweetalert2';
 
 export interface userData {
   id: any;
@@ -34,7 +36,7 @@ export class UserlistComponent implements OnInit {
   isUser = false;
   columns : any = ['First_Name', 'Middle_Name', 'Last_Name', 'Father_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
 
-  constructor(private http : HttpService, private dialog: MatDialog) { }
+  constructor(private http : HttpService, private dialog: MatDialog, private loader : LoaderService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userEmailId')){
@@ -46,20 +48,60 @@ export class UserlistComponent implements OnInit {
       if(this.isAdmin){
         //pending user
         this.http.pendingUserList().subscribe((res : any) => {
-          this.pendingUserList = res.payload;
-          this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
+          if(res.status == 1){
+            this.pendingUserList = res.payload;
+            this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
+            this.loader.hide();
+          }
+          else{
+            Swal.fire({
+              title: res.message,
+              imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+              imageWidth: 400,
+              imageHeight: 200,
+              imageAlt: 'Something Went Wrong',
+            })
+            this.loader.hide();
+          }
+          
           });
 
           //register user
           this.http.adminUserlist().subscribe((res : any) => {
-            this.registeredUserList = res.payload;
-            this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+            if(res.status == 1){
+              this.registeredUserList = res.payload;
+              this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+              this.loader.hide();
+            }
+            else {
+              Swal.fire({
+                title: res.message,
+                imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Something Went Wrong',
+              })
+              this.loader.hide();
+            }
           });
       }
       else{
         this.http.userlist().subscribe((res : any) => {
-          this.registeredUserList = res.payload;
-          this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+          if(res.status ==1){
+            this.registeredUserList = res.payload;
+            this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+            this.loader.hide();
+          }
+          else{
+            Swal.fire({
+              title: res.message,
+              imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+              imageWidth: 400,
+              imageHeight: 200,
+              imageAlt: 'Something Went Wrong',
+            })
+            this.loader.hide();
+          }
         });
       }      
     }
