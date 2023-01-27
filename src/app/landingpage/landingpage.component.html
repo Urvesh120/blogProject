@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z8">
+<mat-toolbar class="mat-elevation-z8" style="height: 60px;">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
@@ -15,8 +15,8 @@
 
     <div *ngIf="!isLogedIn" class="user-prifile loginButton">
       <button style="color: #f87060" mat-button [routerLink]="['/auth/login']">લોગ ઈન / રજીસ્ટર </button>
-    </div>  
-  
+    </div>
+
   <mat-divider></mat-divider>
     <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/home']">
       <mat-icon style="color: #f87060;">home</mat-icon>
@@ -48,7 +48,7 @@
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</span>
         </button>
-  
+
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</span>
@@ -63,8 +63,8 @@
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>મહિલા મંડળ</span>
         </button>
-    </mat-expansion-panel>   
-  </mat-accordion> 
+    </mat-expansion-panel>
+  </mat-accordion>
 
     <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-profile']">
       <mat-icon style="color: #f87060;">person</mat-icon>
