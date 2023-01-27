@@ -1,177 +1,216 @@
 <div class="main-div">
-    <div class="form-div">
-      <div class="title-div">
-        <h1>Register</h1>
+  <div class="form-div">
+    <div class="title-div">
+      <h1>Edit Profile</h1>
+    </div>
+    <div>
+      <div class="inputDiv profile-div">
+        <div class="profile-img-div">
+          <img [src]="profileImage" class="image">
+        </div>
+        <div class="upload-profile-img-div">
+          <button mat-button class="file-upload-button">
+            <input type="file" accept="image/png, image/jpg, image/jpeg" (change)="onSelectFile($event)"/>
+          </button>
+        </div>
       </div>
-      <div>
-        <form [formGroup]="RegistrationFormGroup" (ngSubmit)="edit()">
-          <!-- NAME -->
-          <div>
+      
+      <form [formGroup]="RegistrationFormGroup" (ngSubmit)="edit()">
+        <!-- NAME -->
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input type="text" formControlName="firstname" matInput />
+            <mat-error *ngIf="firstname && firstname.invalid && firstname.touched">Please enter your first name.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Middle name</mat-label>
+            <input type="text" formControlName="middlename" matInput />
+            <mat-error *ngIf="middlename && middlename.invalid && middlename.touched">Please enter your middle name.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input type="text" formControlName="lastname" matInput />
+            <mat-error *ngIf="lastname && lastname.invalid && lastname.touched">Please enter your last name.</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Father's Name -->
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Father's first name</mat-label>
+            <input type="text" formControlName="ffirstname" matInput  />
+            <mat-error *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">Please enter your father's first name.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Father's middle name</mat-label>
+            <input type="text" formControlName="fmiddlename" matInput />
+            <mat-error *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">Please enter your father's middle name.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Father's last name</mat-label>
+            <input type="text" formControlName="flastname" matInput />
+            <mat-error *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's last name.</mat-error>
+          </mat-form-field>
+        </div>
+        
+        <!-- Contact Information -->
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Dial code</mat-label>
+            <mat-select formControlName="dialcode">
+              <mat-option value="{{item.dialCode}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone number</mat-label>
+            <input type="tel" minlength="10" maxlength="10" formControlName="contact" matInput />
+            <mat-error *ngIf="contact && contact.invalid && contact.touched">Please enter your father's last name.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" formControlName="email" matInput />
+            <!-- <mat-error *ngIf="email && email.invalid && email.touched">Please enter your father's last name.</mat-error> -->
+          </mat-form-field>
+        </div>
+
+        <!-- Other information -->
+        <div>
+          <!-- <mat-form-field appearance="outline" class="group">
+            <mat-label>Date of Birth</mat-label>
+              <input type="text" formControlName="dateofbirth" ngbDatepicker #d="ngbDatepicker" matInput />
+              <button class="btn" style="position: absolute;" (click)="d.toggle()" type="button"><mat-icon>date_range</mat-icon></button>
+            <mat-error *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</mat-error>
+          </mat-form-field>             -->
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Select Bloodgroup</mat-label>
+            <mat-select formControlName="bloodgroup">
+                <mat-option value="{{item}}" *ngFor="let item of bloodGrouptList">{{ item }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">Please select your blood group.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Select Gender</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="{{item}}" *ngFor="let item of genderList">{{ item }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="gender && gender.invalid && gender.touched">Please select your gender.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Select Marital status</mat-label>
+            <mat-select formControlName="maritalstatus">
+                <mat-option value="{{item}}" *ngFor="let item of maritalStatus">{{ item }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">Please select your marital status.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Gotra</mat-label>
+            <input type="text" formControlName="gotra" matInput />
+            <mat-error *ngIf="gotra && gotra.invalid && gotra.touched">Please enter your gotra.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Educational Qualification</mat-label>
+            <input type="text" formControlName="educational" matInput />
+            <mat-error *ngIf="educational && educational.invalid && educational.touched">Please enter your educational qualification.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Achievements</mat-label>
+            <input type="text" formControlName="achivement" matInput />
+            <!-- <mat-error *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's last name.</mat-error> -->
+          </mat-form-field>
+        </div>
+
+        <!-- Address -->
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Address line 1</mat-label>
+            <input type="text" formControlName="addressLine1" matInput />
+            <mat-error *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nearest landmark</mat-label>
+            <input type="text" formControlName="addressLineLandmark" matInput />
+            <!-- <mat-error *ngIf="educational && educational.invalid && educational.touched">Please enter your educational qualification.</mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input type="text" formControlName="addressLineCity" matInput />
+            <mat-error *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">Please enter your city.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pincode</mat-label>
+            <input type="text" pattern="[0-9]+" minlength="6" maxlength="6" formControlName="addressLinePincode" matInput />
+            <mat-error *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">Please enter valid Pincode.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Select Country</mat-label>
+            <mat-select formControlName="country">
+                <mat-option value="{{item.countryName}}" *ngFor="let item of countryList">{{ item.countryName }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="country && country.invalid && country.touched">Please select your country.</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Occupation -->
+        <div>
+          <mat-form-field appearance="outline" >
+            <mat-label>Select Occupation</mat-label>
+            <mat-select formControlName="jobBusinessType" (selectionChange)="abc($event.value)">
+                <mat-option value="{{item}}" *ngFor="let item of occupationList">{{ item }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">Please select your job or occupation.</mat-error>
+          </mat-form-field>
+
+          <div *ngIf="isJob && isOccupationSelected">
             <mat-form-field appearance="outline">
-              <mat-label>First name</mat-label>
-              <input type="text" formControlName="firstname" matInput />
-              <mat-error *ngIf="firstname && firstname.invalid && firstname.touched">Please enter your first name.</mat-error>
+              <mat-label>Company name</mat-label>
+              <input type="text" formControlName="jobBusinessName" matInput />
+              <mat-error *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</mat-error>
             </mat-form-field>
-    
+
             <mat-form-field appearance="outline">
-              <mat-label>Middle name</mat-label>
-              <input type="text" formControlName="middlename" matInput />
-              <mat-error *ngIf="middlename && middlename.invalid && middlename.touched">Please enter your middle name.</mat-error>
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-              <mat-label>Last name</mat-label>
-              <input type="text" formControlName="lastname" matInput />
-              <mat-error *ngIf="lastname && lastname.invalid && lastname.touched">Please enter your last name.</mat-error>
+              <mat-label>Designation</mat-label>
+              <input type="text" formControlName="description" matInput />
+              <mat-error *ngIf="description && description.invalid && description.touched">Please enter some description.</mat-error>
             </mat-form-field>
           </div>
-  
-          <!-- Father's Name -->
-          <div>
+
+          <div *ngIf="!isJob && isOccupationSelected">
             <mat-form-field appearance="outline">
-              <mat-label>Father's first name</mat-label>
-              <input type="text" formControlName="ffirstname" matInput />
-              <mat-error *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">Please enter your father's first name.</mat-error>
+              <mat-label>Business name</mat-label>
+              <input type="text" formControlName="jobBusinessName" matInput />
+              <mat-error *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</mat-error>
             </mat-form-field>
-    
+
             <mat-form-field appearance="outline">
-              <mat-label>Father's middle name</mat-label>
-              <input type="text" formControlName="fmiddlename" matInput />
-              <mat-error *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">Please enter your father's middle name.</mat-error>
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-              <mat-label>Father's last name</mat-label>
-              <input type="text" formControlName="flastname" matInput />
-              <mat-error *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's last name.</mat-error>
+              <mat-label>About business</mat-label>
+              <input type="text" formControlName="description" matInput />
+              <mat-error *ngIf="description && description.invalid && description.touched">Please enter some description.</mat-error>
             </mat-form-field>
           </div>
-          
-          <!-- Contact Information -->
-          <div>
-            <mat-form-field appearance="outline">
-              <mat-label>Dial code</mat-label>
-              <mat-select [(ngModel)]="selectedValue">
-                <mat-option value="{{item}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
-              </mat-select>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Phone number</mat-label>
-              <input type="tel" minlength="10" maxlength="10" formControlName="contact" matInput />
-              <mat-error *ngIf="contact && contact.invalid && contact.touched">Please enter your father's last name.</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
-              <input type="email" formControlName="email" matInput />
-              <!-- <mat-error *ngIf="email && email.invalid && email.touched">Please enter your father's last name.</mat-error> -->
-            </mat-form-field>
+
+          <!-- Register Button -->
+          <div class="submitButtonDiv">
+            <button class="btn registerButton">Edit</button>
           </div>
-  
-          <!-- Other information -->
-          <div>  
-            <mat-form-field appearance="outline" >
-              <mat-label>Select Marital status</mat-label>
-              <mat-select formControlName="maritalstatus">
-                  <mat-option value="{{item}}" *ngFor="let item of maritalStatus">{{ item }}</mat-option>
-              </mat-select>
-              <mat-error *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">Please select your marital status.</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Educational Qualification</mat-label>
-              <input type="text" formControlName="educational" matInput />
-              <mat-error *ngIf="educational && educational.invalid && educational.touched">Please enter your educational qualification.</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Achievements</mat-label>
-              <input type="text" formControlName="achivement" matInput />
-              <!-- <mat-error *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's last name.</mat-error> -->
-            </mat-form-field>
-          </div>
-  
-          <!-- Address -->
-          <div>
-            <mat-form-field appearance="outline">
-              <mat-label>Address line 1</mat-label>
-              <input type="text" formControlName="addressLine1" matInput />
-              <mat-error *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Nearest landmark</mat-label>
-              <input type="text" formControlName="addressLineLandmark" matInput />
-              <!-- <mat-error *ngIf="educational && educational.invalid && educational.touched">Please enter your educational qualification.</mat-error> -->
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>City</mat-label>
-              <input type="text" formControlName="addressLineCity" matInput />
-              <mat-error *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">Please enter your city.</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Pincode</mat-label>
-              <input type="text" pattern="[0-9]+" minlength="6" maxlength="6" formControlName="addressLinePincode" matInput />
-              <mat-error *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">Please enter valid Pincode.</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline" >
-              <mat-label>Select Country</mat-label>
-              <mat-select formControlName="country">
-                  <mat-option value="{{item}}" *ngFor="let item of countryList">{{ item.countryName }}</mat-option>
-              </mat-select>
-              <mat-error *ngIf="country && country.invalid && country.touched">Please select your country.</mat-error>
-            </mat-form-field>
-          </div>
-  
-          <!-- Occupation -->
-          <div>
-            <mat-form-field appearance="outline" >
-              <mat-label>Select Occupation</mat-label>
-              <mat-select formControlName="jobBusinessType" (selectionChange)="abc($event.value)">
-                  <mat-option value="{{item}}" *ngFor="let item of occupationList">{{ item }}</mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">Please select your job or occupation.</mat-error>
-            </mat-form-field>
-  
-            <div *ngIf="isJob && isOccupationSelected">
-              <mat-form-field appearance="outline">
-                <mat-label>Company name</mat-label>
-                <input type="text" formControlName="jobBusinessName" matInput />
-                <mat-error *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</mat-error>
-              </mat-form-field>
-  
-              <mat-form-field appearance="outline">
-                <mat-label>Designation</mat-label>
-                <input type="text" formControlName="description" matInput />
-                <mat-error *ngIf="description && description.invalid && description.touched">Please enter some description.</mat-error>
-              </mat-form-field>
-            </div>
-  
-            <div *ngIf="!isJob && isOccupationSelected">
-              <mat-form-field appearance="outline">
-                <mat-label>Business type</mat-label>
-                <input type="text" formControlName="jobBusinessName" matInput />
-                <mat-error *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</mat-error>
-              </mat-form-field>
-  
-              <mat-form-field appearance="outline">
-                <mat-label>Designation</mat-label>
-                <input type="text" formControlName="description" matInput />
-                <mat-error *ngIf="description && description.invalid && description.touched">Please enter some description.</mat-error>
-              </mat-form-field>
-            </div>
-  
-            <!-- Register Button -->
-            <div class="submitButtonDiv">
-              <button class="btn registerButton">Register</button>
-            </div>
-          </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
-  
+</div>

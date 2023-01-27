@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { LoaderService } from 'src/app/services/loader.service';
@@ -20,14 +19,6 @@ export class RegisterComponent<D> implements OnInit {
   reload = false;
 
   model!: NgbDateStruct;
-
-
-  separateDialCode = false;
-  SearchCountryField = SearchCountryField;
-  CountryISO = CountryISO;
-  preferredCountries: CountryISO[] = [
-    CountryISO.India,
-  ];
 
   imageBase64: string = "";
   imageType : string = "";
@@ -62,25 +53,25 @@ export class RegisterComponent<D> implements OnInit {
   countryList : any = [
     {
       countryCode : "CA",
-      dialCode : "+ 1",
+      dialCode : "+1",
       countryName : "Canada",
       currencyCode : "CAD"
     },
     {
       countryCode : "IN",
-      dialCode : "+ 91",
+      dialCode : "+91",
       countryName : "India",
       currencyCode : "INR"
     },
     {
       countryCode : "GB",
-      dialCode : "+ 44",
+      dialCode : "+44",
       countryName : "United Kingdom",
       currencyCode : "GBP"
     },
     {
       countryCode : "US",
-      dialCode : "+ 1",
+      dialCode : "+1",
       countryName : "United States",
       currencyCode : "USD"
     }   
@@ -140,9 +131,6 @@ export class RegisterComponent<D> implements OnInit {
       this.isOccupationSelected = true;
       this.isJob = false;
     }
-  }
-  dialCode(event : any){
-    console.log(event);
   }
 
   onPasswordValidation(){
@@ -268,7 +256,6 @@ export class RegisterComponent<D> implements OnInit {
   }
 
   register(){
-    debugger
     let address = 
       this.RegistrationFormGroup.value.addressLine1 + "," +
       this.RegistrationFormGroup.value.addressLineLandmark + "," +
@@ -321,7 +308,6 @@ export class RegisterComponent<D> implements OnInit {
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
-    console.log(data);
     this.http.register(data).subscribe((res : any) =>{
       if(res.status == 1){
         localStorage.removeItem('userEmailId');

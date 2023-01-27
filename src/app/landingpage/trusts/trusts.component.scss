@@ -16,6 +16,7 @@ h1,h3{
   margin-top: 50px;
   color: #FF6200;
   font-size: 25px;
+  border-bottom: 2px solid rgba(#FF6200, 0.2);
 }
 
 h3{
@@ -137,4 +138,23 @@ h3{
   .qr-img img{
     width: 220%;
   }
+}
+
+.card_container {
+  background-color: #fff !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  max-width: 150px;
+  width: 100%;
+  position: relative;
+  border-radius: 15px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card_image {
+  max-width: 100%;
+  border-radius: 15px;
 }

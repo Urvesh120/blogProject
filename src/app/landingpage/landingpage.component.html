@@ -71,13 +71,13 @@
       <span>પ્રોફાઈલ</span>
     </button>
 
-    <button mat-button class="menu-button" [routerLink]="['/home']">
+    <!-- <button mat-button class="menu-button" [routerLink]="['/home']">
       <mat-icon style="color: #f87060;">info</mat-icon>
       <span>અબાઉટ</span>
-    </button>
+    </button> -->
 
     <button *ngIf="isLogedIn" (click)="logout()" (click)="sidenav.close()"  mat-button class="menu-button" [routerLink]="['/home']">
-      <mat-icon style="color: #ed2939;">power_settings_new</mat-icon>
+      <mat-icon style="color: #f87060;">logout</mat-icon>
       <span>લોગ આઉટ</span>
     </button>
 

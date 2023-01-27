@@ -18,6 +18,7 @@ export class UserprofileComponent implements OnInit {
   isDescription = false;
   abc : any;
   image : any;
+  showContent = false;
 
   constructor(private http : HttpService, private sanitizer: DomSanitizer, private dialog: MatDialog, private loader : LoaderService) { }
 
@@ -25,6 +26,7 @@ export class UserprofileComponent implements OnInit {
     this.http.getUserProfileById(localStorage.getItem('UserId')).subscribe((res : any) => {
       if(res.status == 1){
         this.userData = res.payload;
+        console.log(this.userData);
         let profile = this.userData.picture.split(",");
         if(!!profile[1]){
           this.isImage = true;
@@ -34,6 +36,7 @@ export class UserprofileComponent implements OnInit {
           this.isDescription = true;
         }
         this.loader.hide();
+        this.showContent = true;
       }
       else{
         Swal.fire({
@@ -51,7 +54,6 @@ export class UserprofileComponent implements OnInit {
 
   openDialog(){  
     const dialogRef = this.dialog.open(EditprofileComponent, {
-      width: '500px',
       data: {data : this.userData},
     });
 

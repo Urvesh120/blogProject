@@ -16,6 +16,7 @@ import { EditprofileComponent } from './userprofile/editprofile/editprofile.comp
 import { PaymentComponent } from './trusts/payment/payment.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
 };
@@ -38,7 +39,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     ModuleModule,
     PerfectScrollbarModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [
     {

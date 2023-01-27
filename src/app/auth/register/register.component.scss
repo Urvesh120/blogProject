@@ -10,13 +10,6 @@ mat-form-field{
   position: relative;
 }
 
-.profile-div
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 button {
   top: 0;
   right: 0px;
@@ -24,6 +17,12 @@ button {
   cursor: pointer;
 }
 
+.profile-div
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .homeButtonDiv, .registerButtonDiv{
   a{
