@@ -1,20 +1,111 @@
-.main-div{
+@media screen and (max-width: 350px){
+  .title-div h1{
+    font-size: x-large;
+    font-weight: 500;
+    color: #f87060;
+    text-align: center;
+  }
+
+  
+  .profile-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .profile-img-div{
+        text-align: center;
+    
+        img{
+            width: 70px;
+            height: 70px;
+            outline: #cdd7d6 solid 3px;
+            border-radius: 50%;
+          }
+      }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .title-div h1{
+    font-size: x-large;
+    font-weight: 500;
+    color: #f87060;
+    text-align: center;
+  }
+
+  .profile-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .profile-img-div{
+        text-align: center;
+    
+        img{
+            width: 85px;
+            height: 85px;
+            outline: #cdd7d6 solid 3px;
+            border-radius: 50%;
+          }
+      }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .title-div h1{
+    font-size: x-large;
+    font-weight: 500;
+    color: #f87060;
+    text-align: center;
+  }
+  
+  .profile-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .profile-img-div{
+        text-align: center;
+    
+        img{
+            width: 85px;
+            height: 85px;
+            outline: #cdd7d6 solid 3px;
+            border-radius: 50%;
+          }
+      }
+  }
+}
+
+@media screen and (min-width: 992px){}
+
+@media screen and (min-width: 993px){
+  .main-div{
     display: flex;
     height: 550px;
-    width: 700px;
     flex-direction: row;
     justify-content: flex-start;
     overflow-x: hidden;
     overflow-y: auto;
 }
+}
+
+.main-div{
+  display: flex;
+  height: 550px;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 
 mat-form-field{
     width: 100%;
     margin-bottom: 10px;
-}
-
-.form-div{
-    margin: 20px;
 }
 
 .registerButton{
@@ -39,30 +130,7 @@ mat-form-field{
     }
   }
 
-  .title-div h1{
-    font-size: xx-large;
-    font-weight: 500;
-    color: #f87060;
-    text-align: center;
-  }
 
-  .profile-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-
-    .profile-img-div{
-        text-align: center;
-    
-        img{
-            width: 100px;
-            height: 100px;
-            outline: #cdd7d6 solid 3px;
-            border-radius: 50%;
-          }
-      }
-  }
 
   .group {
     position: relative;
@@ -88,3 +156,4 @@ mat-form-field{
     border-radius: 20px;
 }
 /*End scroll bar css*/
+

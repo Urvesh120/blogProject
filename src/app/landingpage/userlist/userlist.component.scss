@@ -10,16 +10,6 @@ table{
     padding: 0px 20px;
 }
 
-// .mat-column-First_Name,
-// .mat-column-Last_Name,
-// .mat-column-Email,
-// .mat-column-Contact,
-// .mat-column-Bloodgroup,
-// .mat-column-Occupation,
-// .mat-column-Address{
-//     width: 600px;
-// }
-
 td, th {
     text-align: center !important;
     vertical-align: middle !important;
@@ -39,14 +29,6 @@ h3{
 }
 
 @media only screen and (max-width: 45em){
-    th.mat-header-cell{
-        font-weight: 500;
-        font-size: 13px;
-    }
-
-    .mat-cell {
-        font-size: 13px;
-    }
 }
 
 
@@ -139,3 +121,17 @@ label {
     display: block;
     width: 100%;
 }
+
+@media screen and (max-width: 600px){
+	th.mat-header-cell{
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    .mat-cell {
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 768px){}
+@media screen and (min-width: 992px){}
+@media screen and (min-width: 993px){}

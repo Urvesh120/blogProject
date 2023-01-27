@@ -6,18 +6,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LoaderService } from 'src/app/services/loader.service';
 import Swal from 'sweetalert2';
 
-export interface userData {
+export interface tableData {
   id: any;
   firstName: any;
+  middleName: any;
   lastName: any;
+  fatherName: any;
   email: any;
   contact: any;
-  bloodGroup: any;
   occupation: any;
-  description : any;
   address: any;
-  picture: any;
 }
+
 
 @Component({
   selector: 'app-userlist',
@@ -26,14 +26,19 @@ export interface userData {
 })
 export class UserlistComponent implements OnInit {
 
-  pendingUserList : userData[] = [];
-  registeredUserList : userData[] = [];
+  pendingUserList : tableData[] = [];
+  registeredUserList : tableData[] = [];
   registeredUserDataSource : any;
   pendingUserDataSource : any;
   emailId : any;
   isLogedIn = false;
   isAdmin = false;
   isUser = false;
+  job!: boolean;
+  pendingData !: tableData[];
+  registerData !: tableData[];
+  business!: boolean;
+  filterValues: any = {};
   columns : any = ['First_Name', 'Middle_Name', 'Last_Name', 'Father_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
 
   constructor(private http : HttpService, private dialog: MatDialog, private loader : LoaderService) { }
@@ -50,7 +55,7 @@ export class UserlistComponent implements OnInit {
         this.http.pendingUserList().subscribe((res : any) => {
           if(res.status == 1){
             this.pendingUserList = res.payload;
-            this.pendingUserDataSource = new MatTableDataSource<userData>(this.pendingUserList);
+            this.pendingUserDataSource = new MatTableDataSource<tableData>(this.pendingUserList);
             this.loader.hide();
           }
           else{
@@ -63,14 +68,13 @@ export class UserlistComponent implements OnInit {
             })
             this.loader.hide();
           }
-          
           });
 
           //register user
           this.http.adminUserlist().subscribe((res : any) => {
             if(res.status == 1){
               this.registeredUserList = res.payload;
-              this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+              this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
               this.loader.hide();
             }
             else {
@@ -89,7 +93,7 @@ export class UserlistComponent implements OnInit {
         this.http.userlist().subscribe((res : any) => {
           if(res.status ==1){
             this.registeredUserList = res.payload;
-            this.registeredUserDataSource = new MatTableDataSource<userData>(this.registeredUserList);
+            this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
             this.loader.hide();
           }
           else{
@@ -107,6 +111,7 @@ export class UserlistComponent implements OnInit {
     }
   }
 
+  //input search filter
   registerListFilter(event: Event) {
     const filter = (event.target as HTMLInputElement).value;
     this.registeredUserDataSource.filter = filter.trim().toLowerCase();
@@ -117,7 +122,9 @@ export class UserlistComponent implements OnInit {
     this.pendingUserDataSource.filter = filter.trim().toLowerCase();
   }
 
+  //jon or business filter
   registerFilter(event : Event){
+    debugger
     const filter = (event.target as HTMLInputElement).id;
     this.registeredUserDataSource.filter = filter.trim().toLowerCase();
   }

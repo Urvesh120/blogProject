@@ -1,15 +1,6 @@
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
   <mat-tab label="Registered User">
-    <ng-template [ngTemplateOutlet]="registeredUser"></ng-template>
-  </mat-tab>
-  <mat-tab *ngIf="isAdmin" label="Pending User">
-    <ng-template [ngTemplateOutlet]="pendingUser"></ng-template>
-  </mat-tab>
-</mat-tab-group>
-
-<ng-template #registeredUser >
-  <div class="user-list-table">
-    <div class="filter-div">
+        <div class="filter-div">
       <div class="search-div">
         <mat-form-field>
           <mat-label>Filter</mat-label>
@@ -35,9 +26,17 @@
         </form>    
       </div>
   </div>
+    <ng-template [ngTemplateOutlet]="registeredUser"></ng-template>
+  </mat-tab>
+  <mat-tab *ngIf="isAdmin" label="Pending User">
+    <ng-template [ngTemplateOutlet]="pendingUser"></ng-template>
+  </mat-tab>
+</mat-tab-group>
 
+<ng-template #registeredUser >
+  <!-- <mat-checkbox [(ngModel)]="job" (change)="applyFilter('color', job ? 'blue': '')">Show only blue colors</mat-checkbox> -->
+  <div class="user-list-table">
     <table mat-table [dataSource]="registeredUserDataSource" class="mat-elevation-z8">
-    
       <!-- First name Column -->
       <ng-container matColumnDef="First_Name">
         <th mat-header-cell *matHeaderCellDef> First Name </th>
