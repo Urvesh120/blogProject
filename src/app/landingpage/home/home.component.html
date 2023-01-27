@@ -1,75 +1,300 @@
-<!-- <div class="image-text-div-1" data-aos="fade-left" data-aos-duration="1000"> -->
-<div class="image-text-div-1">
-  <div class="image-div">
-    <img src="{{image1Path}}" alt="image 1">
+<nav
+  class="navbar align-center navbar-expand-md navbar-dark bg-primary fixed-top p-2"
+>
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      (click)="isCollapsed = !isCollapsed"
+      data-target="#navbar10"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="navbar-collapse collapse"
+      #collapse="ngbCollapse"
+      [(ngbCollapse)]="isCollapsed"
+      id="navbar10"
+    >
+      <ul class="navbar-nav nav-fill w-100">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Trust</a>
+        </li>
+        <li class="nav-item fs-2 text-light">
+          <a class="nav-link" href="#">
+            <span class="text-light font-bold">નોંદેરા પરિવાર</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li *ngIf="false">
+          <button class="text-light" mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>person_outline</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Logout</button>
+            <button mat-menu-item></button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="text-div">
-    <h3>
-      <h1>શ્રી નવદુર્ગા માતા</h1>
-      ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ યોર્ક
-      શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ ધરાવે છે, જે
-      અનુક્રમે ૧,૦૦,૦૦૦થી <strong style="color: #FDA766;"> વધુ અને ૭૫,૦૦૦થી વધુ</strong> વક્તાઓ ધરાવે છે. એ સિવાય એ અમેરિકા
-      અને કેનેડાના મોટાભાગના મહાનગર વિસ્તારોમાં પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ
-      ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા
-      છે, અને હિન્દુસ્તાની (હિન્દી-ઉર્દૂ), પંજાબી અને તમિલ પછીની ચોથી સૌથી વધુ
-      બોલાતી દક્ષિણ એશિયન ભાષા છે.
-      ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ યોર્ક
-      શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ ધરાવે છે, જે
-      અનુક્રમે ૧,૦૦,૦૦૦થી વધુ અને ૭૫,૦૦૦થી વધુ વક્તાઓ ધરાવે છે. એ સિવાય એ અમેરિકા
-      અને કેનેડાના <strong style="color: #FDA766;">મોટાભાગના મહાનગર</strong> વિસ્તારોમાં પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ
-      ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા
-      છે, અને હિન્દુસ્તાની (હિન્દી-ઉર્દૂ), પંજાબી <strong style="color: #FDA766;">અને તમિલ પછીની</strong>અને તમિલ પછીની ચોથી સૌથી વધુ
-      બોલાતી દક્ષિણ એશિયન ભાષા છે.
-    </h3>
-  </div>
-</div>
-<!-- 
-<div class="image-text-div-2" data-aos="fade-right" data-aos-duration="1000">
-  <div class="image-div">
-    <img src="{{image1Path}}" alt="image 1">
-  </div>
-  <div class="text-div">
-    <h3>
-      <h1>શ્રી નવદુર્ગા માતા</h1>
-      ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ યોર્ક
-      શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ ધરાવે છે, જે
-      અનુક્રમે ૧,૦૦,૦૦૦થી <strong style="color: #FDA766;"> વધુ અને ૭૫,૦૦૦થી વધુ</strong> વક્તાઓ ધરાવે છે. એ સિવાય એ અમેરિકા
-      અને કેનેડાના મોટાભાગના મહાનગર વિસ્તારોમાં પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ
-      ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા
-      છે, અને હિન્દુસ્તાની (હિન્દી-ઉર્દૂ), પંજાબી અને તમિલ પછીની ચોથી સૌથી વધુ
-      બોલાતી દક્ષિણ એશિયન ભાષા છે.
-      ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ યોર્ક
-      શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ ધરાવે છે, જે
-      અનુક્રમે ૧,૦૦,૦૦૦થી વધુ અને ૭૫,૦૦૦થી વધુ વક્તાઓ ધરાવે છે. એ સિવાય એ અમેરિકા
-      અને કેનેડાના <strong style="color: #FDA766;">મોટાભાગના મહાનગર</strong> વિસ્તારોમાં પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ
-      ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા
-      છે, અને હિન્દુસ્તાની (હિન્દી-ઉર્દૂ), પંજાબી <strong style="color: #FDA766;">અને તમિલ પછીની</strong>અને તમિલ પછીની ચોથી સૌથી વધુ
-      બોલાતી દક્ષિણ એશિયન ભાષા છે.
-    </h3>
-  </div>
-</div>
+</nav>
 
-<div class="image-text-div-3" data-aos="fade-right" data-aos-duration="1000">
-  <div class="image-div">
-    <img src="{{image1Path}}" alt="image 1">
+<div class="container">
+  <div class="mt-5">
+    <div class="row col-md-12 mb-2">
+      <img
+        class="img-responsive fit-image"
+        src="{{ image2Path }}"
+        alt="image 1"
+      />
+    </div>
+    <div class="row border py-1">
+      <div class="col-md-6">
+        <img
+          class="img-responsive fit-image"
+          src="{{ image1Path }}"
+          alt="image 1"
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="lh-lg">
+          <div style="color: #fda766" class="text-center">
+            <h1><strong> શ્રી નવદુર્ગા માતા</strong></h1>
+          </div>
+          ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ
+          યોર્ક શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ
+          ધરાવે છે, જે અનુક્રમે ૧,૦૦,૦૦૦થી
+          <strong style="color: #fda766"> વધુ અને ૭૫,૦૦૦થી વધુ</strong> વક્તાઓ
+          ધરાવે છે. એ સિવાય એ અમેરિકા અને કેનેડાના મોટાભાગના મહાનગર વિસ્તારોમાં
+          પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના
+          ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા છે, અને હિન્દુસ્તાની
+          (હિન્દી-ઉર્દૂ), પંજાબી અને તમિલ પછીની ચોથી સૌથી વધુ બોલાતી દક્ષિણ
+          એશિયન ભાષા છે. ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ
+          કરીને ન્યુ યોર્ક શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં,
+          અસ્તિત્વ ધરાવે છે, જે અનુક્રમે ૧,૦૦,૦૦૦થી વધુ અને ૭૫,૦૦૦થી વધુ વક્તાઓ
+          ધરાવે છે. એ સિવાય એ અમેરિકા અને કેનેડાના
+          <strong style="color: #fda766">મોટાભાગના મહાનગર</strong> વિસ્તારોમાં
+          પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના
+          ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા છે, અને હિન્દુસ્તાની
+          (હિન્દી-ઉર્દૂ), પંજાબી
+          <strong style="color: #fda766">અને તમિલ પછીની</strong>અને તમિલ પછીની
+          ચોથી સૌથી વધુ બોલાતી દક્ષિણ એશિયન ભાષા છે.
+        </div>
+      </div>
+      <div class="col-md-6 mt-2">
+        <div class="lh-lg">
+          <div style="color: #fda766" class="text-center">
+            <h1><strong> શ્રી નવદુર્ગા માતા</strong></h1>
+          </div>
+          ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ
+          યોર્ક શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ
+          ધરાવે છે, જે અનુક્રમે ૧,૦૦,૦૦૦થી
+          <strong style="color: #fda766"> વધુ અને ૭૫,૦૦૦થી વધુ</strong> વક્તાઓ
+          ધરાવે છે. એ સિવાય એ અમેરિકા અને કેનેડાના મોટાભાગના મહાનગર વિસ્તારોમાં
+          પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના
+          ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા છે, અને હિન્દુસ્તાની
+          (હિન્દી-ઉર્દૂ), પંજાબી અને તમિલ પછીની ચોથી સૌથી વધુ બોલાતી દક્ષિણ
+          એશિયન ભાષા છે. ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ
+          કરીને ન્યુ યોર્ક શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં,
+          અસ્તિત્વ ધરાવે છે, જે અનુક્રમે ૧,૦૦,૦૦૦થી વધુ અને ૭૫,૦૦૦થી વધુ વક્તાઓ
+          ધરાવે છે. એ સિવાય એ અમેરિકા અને કેનેડાના
+          <strong style="color: #fda766">મોટાભાગના મહાનગર</strong> વિસ્તારોમાં
+          પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના
+          ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા છે, અને હિન્દુસ્તાની
+          (હિન્દી-ઉર્દૂ), પંજાબી
+          <strong style="color: #fda766">અને તમિલ પછીની</strong>અને તમિલ પછીની
+          ચોથી સૌથી વધુ બોલાતી દક્ષિણ એશિયન ભાષા છે.
+        </div>
+      </div>
+      <div class="col-md-6 mt-2">
+        <img
+          class="img-responsive fit-image"
+          src="{{ image1Path }}"
+          alt="image 1"
+        />
+      </div>
+      <div class="col-md-6 mt-2">
+        <img
+          class="img-responsive fit-image"
+          src="{{ image2Path }}"
+          alt="image 1"
+        />
+      </div>
+      <div class="col-md-6 mt-2">
+        <div class="lh-lg">
+          <div style="color: #fda766" class="text-center">
+            <h1><strong> શ્રી નવદુર્ગા માતા</strong></h1>
+          </div>
+          ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ
+          યોર્ક શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ
+          ધરાવે છે, જે અનુક્રમે ૧,૦૦,૦૦૦થી
+          <strong style="color: #fda766"> વધુ અને ૭૫,૦૦૦થી વધુ</strong> વક્તાઓ
+          ધરાવે છે. એ સિવાય એ અમેરિકા અને કેનેડાના મોટાભાગના મહાનગર વિસ્તારોમાં
+          પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના
+          ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા છે, અને હિન્દુસ્તાની
+          (હિન્દી-ઉર્દૂ), પંજાબી અને તમિલ પછીની ચોથી સૌથી વધુ બોલાતી દક્ષિણ
+          એશિયન ભાષા છે. ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ
+          કરીને ન્યુ યોર્ક શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં,
+          અસ્તિત્વ ધરાવે છે, જે અનુક્રમે ૧,૦૦,૦૦૦થી વધુ અને ૭૫,૦૦૦થી વધુ વક્તાઓ
+          ધરાવે છે. એ સિવાય એ અમેરિકા અને કેનેડાના
+          <strong style="color: #fda766">મોટાભાગના મહાનગર</strong> વિસ્તારોમાં
+          પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના
+          ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા છે, અને હિન્દુસ્તાની
+          (હિન્દી-ઉર્દૂ), પંજાબી
+          <strong style="color: #fda766">અને તમિલ પછીની</strong>અને તમિલ પછીની
+          ચોથી સૌથી વધુ બોલાતી દક્ષિણ એશિયન ભાષા છે.
+        </div>
+      </div>
+    </div>
+    <div
+      id="carouselExampleInterval"
+      class="carousel slide mt-3"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3000">
+          <img
+            class="img-responsive fit-image"
+            src="{{ image1Path }}"
+            alt="image 1"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="img-responsive fit-image"
+            src="{{ image2Path }}"
+            alt="image 1"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="img-responsive fit-image"
+            src="{{ image1Path }}"
+            alt="image 1"
+          />
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="text-div">
-    <h3>
-      <h1>શ્રી નવદુર્ગા માતા</h1>
-      ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ યોર્ક
-      શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ ધરાવે છે, જે
-      અનુક્રમે ૧,૦૦,૦૦૦થી <strong style="color: #FDA766;"> વધુ અને ૭૫,૦૦૦થી વધુ</strong> વક્તાઓ ધરાવે છે. એ સિવાય એ અમેરિકા
-      અને કેનેડાના મોટાભાગના મહાનગર વિસ્તારોમાં પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ
-      ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા
-      છે, અને હિન્દુસ્તાની (હિન્દી-ઉર્દૂ), પંજાબી અને તમિલ પછીની ચોથી સૌથી વધુ
-      બોલાતી દક્ષિણ એશિયન ભાષા છે.
-      ઉત્તર અમેરિકામાં એક નોંધપાત્ર ગુજરાતી બોલનાર વસ્તી, ખાસ કરીને ન્યુ યોર્ક
-      શહેર મહાનગર વિસ્તાર અને ગ્રેટર ટોરોન્ટો વિસ્તારમાં, અસ્તિત્વ ધરાવે છે, જે
-      અનુક્રમે ૧,૦૦,૦૦૦થી વધુ અને ૭૫,૦૦૦થી વધુ વક્તાઓ ધરાવે છે. એ સિવાય એ અમેરિકા
-      અને કેનેડાના <strong style="color: #FDA766;">મોટાભાગના મહાનગર</strong> વિસ્તારોમાં પણ અસ્તિત્વમાં છે. ૨૦૧૧ની વસતિ
-      ગણતરી મુજબ, ગ્રેટર ટૉરન્ટો વિસ્તારના ગુજરાતી સત્તરમી સૌથી વધુ બોલાતી ભાષા
-      છે, અને હિન્દુસ્તાની (હિન્દી-ઉર્દૂ), પંજાબી <strong style="color: #FDA766;">અને તમિલ પછીની</strong>અને તમિલ પછીની ચોથી સૌથી વધુ
-      બોલાતી દક્ષિણ એશિયન ભાષા છે.
-    </h3>
-  </div>
-</div> -->
+</div>
+<div class="container">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-muted">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-4 offset-1">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Monthly digest of whats new and exciting from us.</p>
+          <div class="d-flex w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden"
+              >Email address</label
+            >
+            <input
+              id="newsletter1"
+              type="text"
+              class="form-control"
+              placeholder="Email address"
+            />
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between py-4 my-4 border-top">
+      <p>&copy; 2023 Nondera. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3">
+          <a class="link-dark" href="#"
+            ><svg class="bi" width="24" height="24">
+              <use xlink:href="#twitter" /></svg
+          ></a>
+        </li>
+        <li class="ms-3">
+          <a class="link-dark" href="#"
+            ><svg class="bi" width="24" height="24">
+              <use xlink:href="#instagram" /></svg
+          ></a>
+        </li>
+        <li class="ms-3">
+          <a class="link-dark" href="#"
+            ><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook" /></svg
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>

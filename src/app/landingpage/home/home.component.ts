@@ -7,7 +7,7 @@ import * as AOS from 'aos';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  isCollapsed = false;
   showDescription1 : boolean = false;
   showDescription2 : boolean = false;
   image1Path  = "../../../assets/images/imageSlider1.jpeg";
