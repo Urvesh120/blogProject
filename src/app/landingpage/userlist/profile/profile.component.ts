@@ -33,9 +33,7 @@ export class ProfileComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    debugger
     this.profileData = this.userData.data.profileData;
-    console.log(this.profileData);
     this.isRegistered = this.userData.data.isRegistered;
     this.isAdmin = this.userData.data.isAdmin;
     var base64 = this.profileData.picture.split(",");

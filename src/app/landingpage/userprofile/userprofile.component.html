@@ -1,10 +1,10 @@
-<div class="edit-button">
+<!-- <div class="edit-button">
     <button mat-button style="background-color: #f49f44; color: #fcfcfc;" (click)="openDialog()">
         <mat-icon style="margin-right: 10px;">edit</mat-icon>
         <span style="font-size: 20px;">Edit</span>
       </button>
-</div>
-<div class="user-profile-div">
+</div> -->
+<!-- <div class="user-profile-div">
     <div class="info">
         <div *ngIf="isImage" class="profile-div">
             <img [src]="image" alt="user profile">
@@ -36,5 +36,113 @@
     <div *ngIf="isDescription" class="description-div">
         <h3>Description about occupation or business</h3>
         <h3>{{userData.description}}</h3>
+    </div>
+</div> -->
+
+<div class="main-div" *ngIf="showContent">
+    <div class="edit-button-div">
+        <button class="btn btn-outline-primary" (click)="openDialog()">
+            Edit profile
+        </button>
+    </div>
+    <div class="profile-data-div">
+        <div class="profile-image-div">
+            <div class="image">
+                <img [src]="image" alt="user profile">
+            </div>
+            <div class="description-div">
+                <h3>{{userData.laststName}} {{userData.firstName}} {{userData.middleName}}</h3>
+            </div>
+        </div>
+        <div class="other-detail-div">
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Father name</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.fathersName}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Contact number</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.contact}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Email</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.email}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Date of birth</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.dateOfBirth}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Blood group</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.bloodGroup}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Marital Status</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.maritalStatus}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Gotra</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.gotra}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Educationl qualification</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.qualification}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>achievement</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.achievement}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>Address</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.address}}</h3>
+                </div>
+            </div>
+            <div class="name-div">
+                <div class="header-div">
+                    <h2>{{userData.occupationType}}</h2>
+                </div>
+                <div class="description-div">
+                    <h3>{{userData.occupationName}}</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -69,7 +69,7 @@
           <mat-form-field appearance="outline">
             <mat-label>Dial code</mat-label>
             <mat-select formControlName="dialcode">
-              <mat-option value="{{item.countryCode}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
+              <mat-option value="{{item.dialCode}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -107,7 +107,7 @@
             <mat-label>Date of Birth</mat-label>
               <input type="text" formControlName="dateofbirth" ngbDatepicker #d="ngbDatepicker" matInput />
               <button class="btn" style="position: absolute;" (click)="d.toggle()" type="button"><mat-icon>date_range</mat-icon></button>
-            <mat-error *ngIf="gotra && gotra.invalid && gotra.touched">Please enter your gotra.</mat-error>
+            <mat-error *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</mat-error>
           </mat-form-field>            
 
           <mat-form-field appearance="outline" >
@@ -214,13 +214,13 @@
 
           <div *ngIf="!isJob && isOccupationSelected">
             <mat-form-field appearance="outline">
-              <mat-label>Business type</mat-label>
+              <mat-label>Business name</mat-label>
               <input type="text" formControlName="jobBusinessName" matInput />
               <mat-error *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-              <mat-label>Designation</mat-label>
+              <mat-label>About business</mat-label>
               <input type="text" formControlName="description" matInput />
               <mat-error *ngIf="description && description.invalid && description.touched">Please enter some description.</mat-error>
             </mat-form-field>

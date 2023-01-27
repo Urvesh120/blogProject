@@ -15,8 +15,11 @@ export class HttpService {
     }
 
     register(registerCredential : any){
-      debugger
       return this.httpWithoutInterceptor.post(this.preRoute+'/user/register', registerCredential);
+    }
+    
+    updateprofile(updatedCredential : any){
+      return this.http.put(this.preRoute+'/user/update', updatedCredential);
     }
 
     adminUserlist(){

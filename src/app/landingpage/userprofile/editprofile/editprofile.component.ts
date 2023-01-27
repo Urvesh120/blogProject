@@ -1,7 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { LoaderService } from 'src/app/services/loader.service';
+import Swal from 'sweetalert2';
 import { HttpService } from '../../../services/http.service';
 import { ProfileComponent } from '../../userlist/profile/profile.component';
 
@@ -16,41 +20,17 @@ export class EditprofileComponent implements OnInit {
   imageBase64: string = "";
   imageType : string = "";
   blankImage = 'assets/images/blank-profile.jpg';
+  profileImage : any;
   selectedValue : any;
+
+  profileData : any;
+  model!: NgbDateStruct;
 
   RegistrationFormGroup: any;
   isJob : boolean = true;
   isOccupationSelected : boolean = false;
 
-  // this.RegistrationFormGroup = this.fb.group({
-  //   firstname: ['', Validators.required],
-  //   middlename: ['', [Validators.required]],
-  //   lastname: ['', [Validators.required]],
-  //   ffirstname: ['', [Validators.required]],
-  //   fmiddlename: ['', [Validators.required]],
-  //   flastname: ['', [Validators.required]],
-  //   dialcode : ['', [Validators.required]],
-  //   contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-  //   country : ['', [Validators.required]],
-  //   // email: ['', [Validators.required, Validators.email]],
-  //   email: ['', [Validators.email]],
-  //   password: ['', [Validators.required]],
-  //   confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
-  //   dateofbirth : ['', [Validators.required]],
-  //   bloodgroup: ['', [Validators.required]],
-  //   gender: ['', [Validators.required]],
-  //   maritalstatus: ['', [Validators.required]],
-  //   gotra: ['', [Validators.required]],
-  //   educational: ['', [Validators.required]],
-  //   achivement: [''],
-  //   addressLine1: ['', [Validators.required]],
-  //   addressLineLandmark: [''],
-  //   addressLineCity: ['', [Validators.required]],
-  //   addressLinePincode: ['', [Validators.required]],
-  //   jobBusinessType: ['', [Validators.required]],
-  //   jobBusinessName: ['', [Validators.required]],
-  //   description: ['', [Validators.required]],
-  // });
+  disabled = true;
 
   bloodGrouptList : any = [
     'A+ (A positive)', 
@@ -66,11 +46,8 @@ export class EditprofileComponent implements OnInit {
     'Female',
   ]
   maritalStatus : any = [
-    'Single',
     'Married',
-    'Divorced',
-    'Widowed',
-    'Separated',
+    'Unarried',
   ]
   occupationList : any = [
     'Job',
@@ -107,58 +84,85 @@ export class EditprofileComponent implements OnInit {
   constructor(private fb: FormBuilder, 
     public router: Router, 
     private http : HttpService,
+    private sanitizer: DomSanitizer,
+    private loader : LoaderService,
     private dialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public userData: any) { }
 
   ngOnInit(): void {
-    let data = this.userData.data;
-    if(!!data.address){
-      var address = data.address.split(",");
+    this.profileData = this.userData.data;
+    let profilePicture = this.profileData.picture.split(","); 
+    if(!!profilePicture[1]){
+      this.profileImage = this.sanitizer.bypassSecurityTrustUrl(this.profileData.picture);
+    }
+    else{
+      this.profileImage = this.blankImage;
+    }
+    
+    if(!!this.profileData.address){
+      var address = this.profileData.address.split(",");
       if(!!address[2]){
         var pincode = address[2].split("-");
       }
     }
+
+    var fathersName = this.profileData.fathersName.split(" ");
     
     this.RegistrationFormGroup = this.fb.group({
-      firstname: [data.firstName || '', Validators.required],
-      middlename: [data.firstName || '', [Validators.required]],
-      lastname: [data.lastName || '', [Validators.required]],
-      ffirstname: [data.firstName || '', [Validators.required]],
-      fmiddlename: [data.firstName || '', [Validators.required]],
-      flastname: [data.firstName || '', [Validators.required]],
-      contact: [data.contact || '', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      email: [data.email || '', [Validators.email]],
-      maritalstatus: [data.maritalStatus || '', [Validators.required]],
-      educational: [data.firstName || '', [Validators.required]],
-      achivement: [data.achievement || ''],
+      firstname: [this.profileData.firstName || '', Validators.required],
+      middlename: [this.profileData.middleName || '', [Validators.required]],
+      lastname: [this.profileData.lastName || '', [Validators.required]],
+      ffirstname: [fathersName[1] || '', [Validators.required]],
+      fmiddlename: [fathersName[2] || '', [Validators.required]],
+      flastname: [fathersName[0] || '', [Validators.required]],
+      dialcode : [this.profileData.countryCode || '', [Validators.required]],
+      contact: [this.profileData.contact || '', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      country : [this.profileData.country || '', [Validators.required]],
+      email: [this.profileData.email || '', [Validators.email]],
+      dateofbirth : [this.profileData.dateOfBirth || '', [Validators.required]],
+      bloodgroup: [this.profileData.bloodGroup || '', [Validators.required]],
+      gender: [this.profileData.gender || '', [Validators.required]],
+      maritalstatus: [this.profileData.maritalStatus || '', [Validators.required]],
+      gotra: [this.profileData.gotra || '', [Validators.required]],
+      educational: [this.profileData.qualification || '', [Validators.required]],
+      achivement: [this.profileData.achievement || ''],
       addressLine1: [address[0] || '', [Validators.required]],
       addressLineLandmark: [address[1] || ''],
       addressLineCity: [pincode[0] || '', [Validators.required]],
       addressLinePincode: [pincode[1] || '', [Validators.required]],
-      jobBusinessType: data.occupationType || ['', [Validators.required]],
-      jobBusinessName: [data.occupationName || '', [Validators.required]],
-      description: [data.occupationDescription || '', [Validators.required]],
+      jobBusinessType: [this.profileData.occupationType || '', [Validators.required]],
+      jobBusinessName: [this.profileData.occupationName || '', [Validators.required]],
+      description: [this.profileData.occupationDescription || '', [Validators.required]],
     });
+
+      if(this.profileData.occupationType == this.occupationList[0]){
+        this.isOccupationSelected = true;
+        this.isJob = true;
+      }
+      if(this.profileData.occupationType == this.occupationList[1]){
+        this.isOccupationSelected = true;
+        this.isJob = false;
+      }
   }
 
   abc(event : any){
-    if(event.target.value == this.occupationList[0]){
+    if(event == this.occupationList[0]){
       this.isOccupationSelected = true;
       this.isJob = true;
     }
-    if(event.target.value == this.occupationList[1]){
+    if(event == this.occupationList[1]){
       this.isOccupationSelected = true;
       this.isJob = false;
     }
   }
 
   onSelectFile(event : any) {
-    if (event.target.files && event.target.files[0]) {      
+    if (event.target.files && event.target.files[0]) {  
       this.imageType = event.target.files[0].type;
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); 
       reader.onload = (event: any) => {
-        this.imageBase64 = event.target.result;
+        this.profileImage = event.target.result;
       }
     }
   }
@@ -193,15 +197,15 @@ export class EditprofileComponent implements OnInit {
   }
   
   get ffirstname() {
-    return this.RegistrationFormGroup.get('ffirstname');
+    return this.RegistrationFormGroup.get('ffirstname').disable();
   }
   
   get fmiddlename() {
-    return this.RegistrationFormGroup.get('fmiddlename');
+    return this.RegistrationFormGroup.get('fmiddlename').disable();
   }
 
   get flastname() {
-    return this.RegistrationFormGroup.get('flastname');
+    return this.RegistrationFormGroup.get('flastname').disable();
   }
 
   get contact() {
@@ -229,15 +233,15 @@ export class EditprofileComponent implements OnInit {
   }
 
   get dateofbirth(){
-    return this.RegistrationFormGroup.get('dateofbirth');
+    return this.RegistrationFormGroup.get('dateofbirth').disable();
   }
   
   get bloodgroup() {
-    return this.RegistrationFormGroup.get('bloodgroup');
+    return this.RegistrationFormGroup.get('bloodgroup').disable();
   }
   
   get gender() {
-    return this.RegistrationFormGroup.get('gender');
+    return this.RegistrationFormGroup.get('gender').disable();
   }
   
   get maritalstatus() {
@@ -245,7 +249,7 @@ export class EditprofileComponent implements OnInit {
   }
   
   get gotra() {
-    return this.RegistrationFormGroup.get('gotra');
+    return this.RegistrationFormGroup.get('gotra').disable();
   }
 
   get educational() {
@@ -277,10 +281,57 @@ export class EditprofileComponent implements OnInit {
   }
 
   edit(){
-    this.http.register(this.RegistrationFormGroup.value).subscribe((res : any) =>{
-      if(res.message = "User registration requested successfully."){
-        localStorage.removeItem('userEmailId');
-        this.router.navigate(['']);
+    let address = 
+      this.RegistrationFormGroup.value.addressLine1 + "," +
+      this.RegistrationFormGroup.value.addressLineLandmark + "," +
+      this.RegistrationFormGroup.value.addressLineCity + "-" +
+      this.RegistrationFormGroup.value.addressLinePincode + ".";
+    let data = {
+      "id" : this.profileData.id,
+      "picture": this.profileImage.changingThisBreaksApplicationSecurity,
+      "pictureType": this.imageType,
+      "firstName" : this.RegistrationFormGroup.value.firstname,
+      "middleName" : this.RegistrationFormGroup.value.middlename,
+      "lastName" : this.RegistrationFormGroup.value.lastname,
+      "fathersName" : this.profileData.fathersName,
+      "contact": this.RegistrationFormGroup.value.contact,
+      "email": this.RegistrationFormGroup.value.email,
+      "address": address,
+      "countryCode" : this.RegistrationFormGroup.value.dialcode,
+      "country": this.RegistrationFormGroup.value.country,
+      "dateOfBirth" : this.profileData.dateOfBirth,
+      "qualification" : this.RegistrationFormGroup.value.educational,
+      "achievement" : this.RegistrationFormGroup.value.achivement,
+      "bloodGroup": this.profileData.bloodGroup,
+      "gender": this.profileData.gender,
+      "gotra":this.profileData.gotra,
+      "maritalStatus": this.RegistrationFormGroup.value.maritalstatus,
+      "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
+      "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
+      "occupationDescription": this.RegistrationFormGroup.value.description,
+    }
+    console.log(data);
+    this.http.updateprofile(data).subscribe((res : any) =>{
+      if(res.status == 1){
+        Swal.fire({
+          title: res.message,
+          imageUrl: 'assets/illustators/RegisterRequestSuccess.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Profile Update Success',
+        })
+        this.loader.hide();
+        this.dialogRef.close();
+      }
+      else{
+        Swal.fire({
+          title: res.message,
+          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Something Went Wrong',
+        })
+        this.loader.hide();
       }
     });
   }
