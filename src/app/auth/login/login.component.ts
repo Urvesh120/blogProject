@@ -6,6 +6,7 @@ import { HttpService } from '../../services/http.service';
 import { LoaderService } from '../../services/loader.service';
 import { UtilService } from '../../services/util.service';
 import Swal from 'sweetalert2';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
     private http: HttpService, 
     private loader : LoaderService,
     private _snackBar: MatSnackBar,
-    private util : UtilService
+    private util : UtilService,
+    private sanitizer: DomSanitizer
     ) { }
 
   ngOnInit(): void {
@@ -36,10 +38,15 @@ export class LoginComponent implements OnInit {
       emailOrContact: ['', [Validators.required]],
       password: ['', [Validators.required]],
     })
+    this.sanitizer.bypassSecurityTrustResourceUrl("assets/illustators/Register.svg");
   }
 
   redirectToRegister(){
     this.router.navigate(['auth/register']);
+  }
+
+  forgotPass(){
+    this.router.navigate(['auth/forgot-password']);
   }
 
   login(){

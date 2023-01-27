@@ -47,7 +47,7 @@ export class EditprofileComponent implements OnInit {
   ]
   maritalStatus : any = [
     'Married',
-    'Unarried',
+    'Unmarried',
   ]
   occupationList : any = [
     'Job',

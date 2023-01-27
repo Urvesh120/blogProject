@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Sanitizer } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
@@ -7,6 +7,8 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { LoaderService } from 'src/app/services/loader.service';
 
+import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -43,7 +45,7 @@ export class RegisterComponent<D> implements OnInit {
   ]
   maritalStatus : any = [
     'Married',
-    'Unarried',
+    'Unmarried',
   ]
   occupationList : any = [
     'Job',
@@ -77,9 +79,10 @@ export class RegisterComponent<D> implements OnInit {
     }   
   ]
 
-  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private loader: LoaderService) { }
+  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar, private sanitizer: DomSanitizer, private loader: LoaderService) { }
 
   ngOnInit(): void {
+    this.sanitizer.bypassSecurityTrustResourceUrl("assets/illustators/Register.svg");
     this.RegistrationFormGroup = this.fb.group({
       firstname: ['', Validators.required],
       middlename: ['', [Validators.required]],

@@ -43,4 +43,16 @@ export class HttpService {
       queryParams = queryParams.append("id", id)
       return this.http.post(this.preRoute+'/user/profile',"", {params:queryParams});
     }
+
+    forgotPassword(data:any){
+      return this.httpWithoutInterceptor.post<any>(this.preRoute+'/user/forgot-password', data)
+    }
+
+    verifyResetPasswordToken(token: any){
+      return this.httpWithoutInterceptor.get<any>(`${this.preRoute}/user/verify-token?token=${token}`)
+    }
+    
+    resetPassword(data: any){
+      return this.httpWithoutInterceptor.post<any>(this.preRoute+'/user/reset-password', data);
+    }
 }

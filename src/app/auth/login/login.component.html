@@ -22,6 +22,9 @@
               <input type="password" formControlName="password" matInput />
               <mat-error *ngIf="password && password.invalid && password.touched">Please enter valid password.</mat-error>
             </mat-form-field>
+            <div>
+              <a (click)="forgotPass()" style="color: #f87060; cursor: pointer;">Forgot your password?</a>
+            </div>
           </div>
           <div class="submitButtonDiv">
             <button class="btn loginButton" [disabled]="loginFormGroup.invalid">Login</button>
