@@ -1,9 +1,9 @@
-<mat-toolbar class="mat-elevation-z8" style="height: 60px;">
+<!-- <mat-toolbar class="mat-elevation-z8" style="height: 60px;">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-</mat-toolbar>
+</mat-toolbar> -->
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
@@ -83,7 +83,7 @@
 
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content">
+    <div class="content pt-2">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

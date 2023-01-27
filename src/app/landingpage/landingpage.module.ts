@@ -14,6 +14,7 @@ import { ProfileComponent } from './userlist/profile/profile.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { EditprofileComponent } from './userprofile/editprofile/editprofile.component';
 import { PaymentComponent } from './trusts/payment/payment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -36,7 +37,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LandingpageRoutingModule,
     RouterModule,
     ModuleModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    NgbModule,
   ],
   providers: [
     {

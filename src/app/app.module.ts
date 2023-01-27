@@ -8,6 +8,8 @@ import { AuthInterceptorInterceptor } from './services/auth-interceptor.intercep
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CoustomtoastrComponent } from './coustomtoastr/coustomtoastr.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
