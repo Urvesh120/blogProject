@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder, 
     private http: HttpService, 
     private loader : LoaderService,
-    private _snackBar: MatSnackBar,
-    private util : UtilService,
     private sanitizer: DomSanitizer
     ) { }
 

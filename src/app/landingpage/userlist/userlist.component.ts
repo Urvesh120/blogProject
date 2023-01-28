@@ -121,21 +121,29 @@ export class UserlistComponent implements OnInit {
     }
   }
 
-  applyFilter(event : any) {
-    debugger
-    // let filterValue = event.target.id;
-    let filterValue = event;
+  //checkbox filter
+  applyRegisterFilter(filterValue : any) {
     let filteredData = _.filter(this.registeredUserList,(item : any) => {
       if(!!filterValue){
-        debugger
         return item.occupationType.toLowerCase() == filterValue.toLowerCase()
       }
       else{
-        debugger
         return item;
       }
     })
     this.registeredUserDataSource = new MatTableDataSource(filteredData);
+  }
+  
+  applyPendingFilter(filterValue : any) {
+    let filteredData = _.filter(this.pendingUserList,(item : any) => {
+      if(!!filterValue){
+        return item.occupationType.toLowerCase() == filterValue.toLowerCase()
+      }
+      else{
+        return item;
+      }
+    })
+    this.pendingUserDataSource = new MatTableDataSource(filteredData);
   }
 
   //input search filter
@@ -149,18 +157,6 @@ export class UserlistComponent implements OnInit {
     this.pendingUserDataSource.filter = filter.trim().toLowerCase();
   }
 
-  //jon or business filter
-  registerFilter(event : Event){
-    debugger
-    const filter = (event.target as HTMLInputElement).id;
-    this.registeredUserDataSource.filter = filter.trim().toLowerCase();
-  }
-  
-  pendingFilter(event : Event){
-    const filter = (event.target as HTMLInputElement).id;
-    this.pendingUserDataSource.filter = filter.trim().toLowerCase();
-  }
-
   openDialog(profileData : any, isRegistered : any){ 
     let data = {
       "profileData" : profileData,
@@ -168,7 +164,6 @@ export class UserlistComponent implements OnInit {
       "isRegistered" : isRegistered
     }
     const dialogRef = this.dialog.open(ProfileComponent, {
-      // width: '500px',
       data: {data},
       disableClose : true
     });

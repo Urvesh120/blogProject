@@ -26,7 +26,6 @@ export class UserprofileComponent implements OnInit {
     this.http.getUserProfileById(localStorage.getItem('UserId')).subscribe((res : any) => {
       if(res.status == 1){
         this.userData = res.payload;
-        console.log(this.userData);
         let profile = this.userData.picture.split(",");
         if(!!profile[1]){
           this.isImage = true;

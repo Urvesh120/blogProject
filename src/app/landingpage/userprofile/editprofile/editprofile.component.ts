@@ -310,7 +310,6 @@ export class EditprofileComponent implements OnInit {
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
-    console.log(data);
     this.http.updateprofile(data).subscribe((res : any) =>{
       if(res.status == 1){
         Swal.fire({

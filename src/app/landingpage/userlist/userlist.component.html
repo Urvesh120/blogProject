@@ -14,8 +14,8 @@
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="registerListFilter($event)" placeholder="search" #input>
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="business" (change)="applyFilter(business ? 'Business': '')">Business</mat-checkbox>
-    <mat-checkbox [(ngModel)]="job" (change)="applyFilter(job ? 'Job': '')">Job</mat-checkbox>
+    <mat-checkbox [(ngModel)]="business" (change)="applyRegisterFilter(business ? 'Business': '')">Business</mat-checkbox>
+    <mat-checkbox [(ngModel)]="job" (change)="applyRegisterFilter(job ? 'Job': '')">Job</mat-checkbox>
     <table mat-table [dataSource]="registeredUserDataSource" class="mat-elevation-z8">
       <!-- First name Column -->
       <ng-container matColumnDef="First_Name">
@@ -25,8 +25,8 @@
 
       <!-- Middle name Column -->
       <ng-container matColumnDef="Middle_Name">
-        <th mat-header-cell *matHeaderCellDef> First Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        <th mat-header-cell *matHeaderCellDef> Middle Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
       </ng-container>
     
       <!-- Last name Column -->
@@ -37,8 +37,8 @@
       
       <!-- Father name Column -->
       <ng-container matColumnDef="Father_Name">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        <th mat-header-cell *matHeaderCellDef> Father's Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.fathersName}} </td>
       </ng-container>
     
       <!-- Email Column -->
@@ -97,10 +97,10 @@
   <div class="user-list-table">
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input matInput (keyup)="registerListFilter($event)" placeholder="search" #input>
+      <input matInput (keyup)="pendingListFilter($event)" placeholder="search" #input>
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="business" (change)="applyFilter(business ? 'Business': '')">Business</mat-checkbox>
-    <mat-checkbox [(ngModel)]="job" (change)="applyFilter(job ? 'Job': '')">Job</mat-checkbox>
+    <mat-checkbox [(ngModel)]="business" (change)="applyPendingFilter(business ? 'Business': '')">Business</mat-checkbox>
+    <mat-checkbox [(ngModel)]="job" (change)="applyPendingFilter(job ? 'Job': '')">Job</mat-checkbox>
     <table mat-table [dataSource]="pendingUserDataSource" class="mat-elevation-z8">
     
       <!-- First name Column -->
@@ -111,8 +111,8 @@
     
       <!-- Last name Column -->
       <ng-container matColumnDef="Middle_Name">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        <th mat-header-cell *matHeaderCellDef> Middle Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
       </ng-container>
 
       <!-- Last name Column -->
@@ -123,8 +123,8 @@
 
       <!-- Last name Column -->
       <ng-container matColumnDef="Father_Name">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        <th mat-header-cell *matHeaderCellDef> Father's Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.fathersName}} </td>
       </ng-container>
     
       <!-- Email Column -->

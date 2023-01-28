@@ -123,6 +123,11 @@ input[type="date"]{
 }
 /*end common css*/
 
+::ng-ddep .md-icon-button + .md-datepicker-input-container {
+  float: left;
+  margin-top:7px;
+}
+
 /*Start scroll bar css*/
 ::-webkit-scrollbar{
   width: 10px;

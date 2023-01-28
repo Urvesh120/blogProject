@@ -9,6 +9,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 
 import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 import { DomSanitizer } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -79,7 +80,13 @@ export class RegisterComponent<D> implements OnInit {
     }   
   ]
 
-  constructor(private fb: FormBuilder, public router: Router, private http : HttpService, private _snackBar: MatSnackBar, private sanitizer: DomSanitizer, private loader: LoaderService) { }
+  constructor(private fb: FormBuilder, 
+    public router: Router, 
+    private http : HttpService, 
+    private sanitizer: DomSanitizer, 
+    private loader: LoaderService,
+    private datePipe: DatePipe
+    ) { }
 
   ngOnInit(): void {
     this.sanitizer.bypassSecurityTrustResourceUrl("assets/illustators/Register.svg");
@@ -277,18 +284,6 @@ export class RegisterComponent<D> implements OnInit {
       this.RegistrationFormGroup.value.flastname + " " +
       this.RegistrationFormGroup.value.ffirstname + " " +
       this.RegistrationFormGroup.value.fmiddlename;
-
-    let DOBObject = this.RegistrationFormGroup.value.dateofbirth;
-    let day = DOBObject.day
-    if(day < 10){
-      day = "0" + day;
-    }
-    let month = DOBObject.month
-    if(month < 10){
-      month = "0" + month;
-    }
-    let year = DOBObject.year
-    let dateOfBirth = year + "-" + month + "-" + day 
     
     let data = {
       "picture": this.imageBase64,
@@ -303,7 +298,7 @@ export class RegisterComponent<D> implements OnInit {
       "address": address,
       "countryCode" : this.RegistrationFormGroup.value.dialcode,
       "country": this.RegistrationFormGroup.value.country,
-      "dateOfBirth" : dateOfBirth,
+      "dateOfBirth" : this.datePipe.transform(this.RegistrationFormGroup.value.dateofbirth, 'yyyy-MM-dd'),
       "qualification" : this.RegistrationFormGroup.value.educational,
       "achievement" : this.RegistrationFormGroup.value.achivement,
       "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
@@ -314,6 +309,7 @@ export class RegisterComponent<D> implements OnInit {
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
+    console.log(data);
     this.http.register(data).subscribe((res : any) =>{
       if(res.status == 1){
         localStorage.removeItem('userEmailId');

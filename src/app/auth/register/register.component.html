@@ -103,12 +103,20 @@
 
         <!-- Other information -->
         <div>
-          <mat-form-field appearance="outline" class="group">
+          <!-- <mat-form-field appearance="outline" class="group">
             <mat-label>Date of Birth</mat-label>
               <input type="text" formControlName="dateofbirth" ngbDatepicker #d="ngbDatepicker" matInput />
               <button class="btn" style="position: absolute;" (click)="d.toggle()" type="button"><mat-icon>date_range</mat-icon></button>
             <mat-error *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</mat-error>
-          </mat-form-field>            
+          </mat-form-field>  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateofbirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</mat-error>
+          </mat-form-field>       
 
           <mat-form-field appearance="outline" >
             <mat-label>Select Bloodgroup</mat-label>
