@@ -54,6 +54,20 @@
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
           <span>નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</span>
         </button>
+        
+    </mat-expansion-panel>   
+  </mat-accordion> 
+
+  <mat-accordion #accordion="matAccordion" [multi]="true">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <button mat-button class="menu-button">
+            <mat-icon style="color: #f87060;">view_carousel</mat-icon>
+            <span>મંડળ</span>
+          </button>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
         <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
           <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
