@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { LoaderService } from 'src/app/services/loader.service';
 import Swal from 'sweetalert2';
+import * as _ from 'lodash';
 
 export interface tableData {
   id: any;
@@ -14,7 +15,7 @@ export interface tableData {
   fatherName: any;
   email: any;
   contact: any;
-  occupation: any;
+  occupationType: any;
   address: any;
 }
 
@@ -34,9 +35,9 @@ export class UserlistComponent implements OnInit {
   isLogedIn = false;
   isAdmin = false;
   isUser = false;
-  job!: boolean;
   pendingData !: tableData[];
   registerData !: tableData[];
+  job!: boolean;
   business!: boolean;
   filterValues: any = {};
   columns : any = ['First_Name', 'Middle_Name', 'Last_Name', 'Father_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
@@ -75,6 +76,15 @@ export class UserlistComponent implements OnInit {
             if(res.status == 1){
               this.registeredUserList = res.payload;
               this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
+
+
+              this.registeredUserDataSource.filterPredicate = ((data: tableData, filter: string): boolean => {
+                const filterValues = JSON.parse(filter);
+          
+                return (this.business ? data.occupationType.trim().toLowerCase() === filterValues.color : true);
+              })
+
+
               this.loader.hide();
             }
             else {
@@ -109,6 +119,23 @@ export class UserlistComponent implements OnInit {
         });
       }      
     }
+  }
+
+  applyFilter(event : any) {
+    debugger
+    // let filterValue = event.target.id;
+    let filterValue = event;
+    let filteredData = _.filter(this.registeredUserList,(item : any) => {
+      if(!!filterValue){
+        debugger
+        return item.occupationType.toLowerCase() == filterValue.toLowerCase()
+      }
+      else{
+        debugger
+        return item;
+      }
+    })
+    this.registeredUserDataSource = new MatTableDataSource(filteredData);
   }
 
   //input search filter

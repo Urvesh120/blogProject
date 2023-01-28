@@ -259,6 +259,9 @@ export class RegisterComponent<D> implements OnInit {
   }
 
   register(){
+    if(this.RegistrationFormGroup.invalid){
+      return;
+    }
     let address = 
       this.RegistrationFormGroup.value.addressLine1 + "," +
       this.RegistrationFormGroup.value.addressLineLandmark + "," +

@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    if(this.loginFormGroup.invalid){
+      return;
+    }
     this.http.login(this.loginFormGroup.value).subscribe((res : any) => {
       if(res.status == 1){
         Swal.fire({
