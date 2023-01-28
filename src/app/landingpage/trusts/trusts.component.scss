@@ -68,12 +68,12 @@ h3{
 
 .content{
   padding: 2% 0%;
-  display: grid;
-  justify-items: center;
-  align-items: center;
+  // display: grid;
+  // justify-items: center;
+  // align-items: center;
   border-radius: 20px;
   background-color: rgba(225, 225, 225, 0.3);
-  grid-template-columns: repeat(6, 1fr);
+  // grid-template-columns: repeat(6, 1fr);
 }
 
 .QRDiv{
@@ -143,7 +143,6 @@ h3{
 .card_container {
   background-color: #fff !important;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  max-width: 150px;
   width: 100%;
   position: relative;
   border-radius: 15px;
@@ -157,4 +156,87 @@ h3{
 .card_image {
   max-width: 100%;
   border-radius: 15px;
+}
+
+.six-profile, .five-profile{
+  display: grid;
+  justify-items: center;
+}
+.card_body {
+  text-align: center;
+  h2,p{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px){
+  .six-profile{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .five-profile{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card_container{
+    max-width: 125px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+  .six-profile{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .five-profile{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card_container{
+    max-width: 125px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px){
+  .six-profile{
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .five-profile{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card_container{
+    max-width: 150px;
+  }
+  
+}
+
+@media screen and (min-width: 993px) and (max-width: 1200px){
+  .six-profile{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .five-profile{
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .card_container{
+    max-width: 150px;
+  }
+}
+
+@media screen and (min-width: 1201px){
+  .six-profile{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .five-profile{
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .card_container{
+    max-width: 150px;
+  }
 }
