@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot-password',
@@ -19,7 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
   showResetPasswordPage = false;
   constructor(public sanitizer: DomSanitizer, private fb: FormBuilder, private http: HttpService, private route: ActivatedRoute,
     private router : Router) {
-    this.token = this.route.snapshot.paramMap.get('token');
+    this.token = this.route.snapshot.queryParams['token'];
     this.http.verifyResetPasswordToken(this.token).subscribe((res: any) => {
       if (res.status == 1) {
         this.showResetPasswordPage = true;
@@ -74,6 +75,16 @@ export class ForgotPasswordComponent implements OnInit {
     this.http.forgotPassword(data).subscribe((res: any) => {
       if (res.status == 1) {
         this.isVerified = true;
+      }
+      if(res.message == 'Email not registered'){
+        this.isVerified = true;
+        Swal.fire({
+          title: "Email has not been registered yet!",
+          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Email not registered',
+        })
       }
     });
   }
