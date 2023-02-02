@@ -27,7 +27,7 @@ mat-toolbar {
 }
 
 mat-sidenav {
-  width: 250px;
+  width: 285px;
   border-right: none;
   // background: $gray-color-shade;
   background: white;
@@ -71,17 +71,12 @@ mat-sidenav-container {
   }
 }
 
-.avatar {
-  margin-top: 16px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.name {
-  margin-top: 8px;
-  font-weight: normal;
-}
+// .avatar {
+//   margin-top: 16px;
+//   width: 100px;
+//   height: 100px;
+//   border-radius: 50%;
+// }
 
 .designation {
   margin-top: 2px;
@@ -93,4 +88,40 @@ mat-divider {
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggle-button{
+  font-size: 30px;
+}
+
+.image-div{
+  img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+.name-div{
+  margin-left: 20px;
+
+  h4{
+    margin: 0;
+    padding: 0;
+  }
+
+  .name{
+    font-size: 20px;
+  }
+
+  .name, .mobile-no {
+    font-weight: normal;
+  }
+}
+
+.profile-div{
+  display: flex;
+  align-items: center;
+  padding: 40px 30px;
+  background-color: #fbf2d5;
 }

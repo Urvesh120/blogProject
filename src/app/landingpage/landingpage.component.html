@@ -1,17 +1,25 @@
 <mat-toolbar class="mat-elevation-z8">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    <mat-icon class="navbar-toggle-button" *ngIf="!sidenav.opened"> apps </mat-icon>
+    <mat-icon class="navbar-toggle-button" *ngIf="sidenav.opened"> close </mat-icon>
   </button>
   <h1 style="text-align: center; flex: 1 1 auto;">નૉંદેરા પરિવાર તમારું સ્વાગત કરે છે!</h1>
+  <button mat-icon-button [routerLink]="['/user-profile']">
+    <mat-icon class="navbar-toggle-button"> account_circle </mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-    <div *ngIf="isLogedIn" class="user-prifile">
-      <img class="avatar mat-elevation-z8" [src]="image" />
-    <h4 class="name">{{username}}</h4>
+    <div class="profile-div">
+      <div class="image-div">
+        <img class="avatar mat-elevation-z8" [src]="image" alt="prifile image" />
+      </div>
+      <div class="name-div">
+        <h4 class="name">{{username}}</h4>
+        <h4 class="mobile-no">1234567890</h4>
+      </div>
     </div>
 
     <div *ngIf="!isLogedIn" class="user-prifile loginButton">
@@ -28,8 +36,13 @@
       <mat-icon style="color: #f87060;">list</mat-icon>
       <span>User list</span>
     </button>
+    
+    <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
+      <mat-icon style="color: #f87060;">view_carousel</mat-icon>
+      <span>ટ્રસ્ટ</span>
+    </button>
 
-    <mat-accordion #accordion="matAccordion" [multi]="true">
+    <!-- <mat-accordion #accordion="matAccordion" [multi]="true">
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -65,7 +78,7 @@
           <span>મહિલા મંડળ</span>
         </button>
     </mat-expansion-panel>   
-  </mat-accordion> 
+  </mat-accordion>  -->
 
     <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-profile']">
       <mat-icon style="color: #f87060;">person</mat-icon>
