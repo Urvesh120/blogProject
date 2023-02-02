@@ -5,37 +5,39 @@
   <div class="form-div">
     <div class="loginFormDiv">
       <div class="title-div">
-        <h1>Login</h1>
+        <h1>લોગીન</h1>
       </div>
       <div class="loginForm">
         <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
           <div class="inputDiv emailInputDiv">
             <mat-form-field appearance="outline">
-              <mat-label>Email or Phone number</mat-label>
+              <mat-label>ઈમેલ અથવા ફોન નંબર</mat-label>
               <input type="text" formControlName="emailOrContact" matInput />
-              <mat-error *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">Email or phone number is required for login.</mat-error>
+              <mat-error *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">લોગિન માટે ઈમેલ અથવા ફોન નંબર જરૂરી છે.</mat-error>
             </mat-form-field>
           </div>
           <div class="inputDiv passwordInputDiv">
             <mat-form-field appearance="outline">
               <mat-label>Password</mat-label>
               <input type="password" formControlName="password" matInput />
-              <mat-error *ngIf="password && password.invalid && password.touched">Please enter valid password.</mat-error>
+              <mat-error *ngIf="password && password.invalid && password.touched">
+                કૃપા કરીને માન્ય પાસવર્ડ દાખલ કરો.
+              </mat-error>
             </mat-form-field>
             <div>
-              <a (click)="forgotPass()" style="color: #f87060; cursor: pointer;">Forgot your password?</a>
+              <a (click)="forgotPass()" style="color: #f87060; cursor: pointer;">તમારો પાસવર્ડ ભૂલી ગયા છો?</a>
             </div>
           </div>
           <div class="submitButtonDiv">
-            <button class="btn loginButton">Login</button>
+            <button class="btn loginButton">લોગીન</button>
           </div>
         </form>
         <div class="navigation">
           <div class="navigation-div home-navigation-div">
-            <a class="homeButton" [routerLink]="['/home']">Back to home page</a>
+            <a class="homeButton" [routerLink]="['/home']">હોમ પેજ પર પાછા ફરો</a>
           </div>
           <div class="navigation-div login-navigation-div">
-            <a [routerLink]="['/auth/register']">Create an account</a>
+            <a [routerLink]="['/auth/register']">તમારું એકાઉન્ટ બનાવો</a>
           </div>
         </div>
       </div>
