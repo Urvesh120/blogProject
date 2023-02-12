@@ -1,6 +1,6 @@
 h1{
   text-align: center;
-  color: #FDA766;
+  color: #f87060;
 }
 
 h3{
@@ -12,13 +12,114 @@ h3{
   display: flex;
 }
 
+.title{
+  border-bottom: 2px solid #f87060;
+  margin-bottom: 20px;
+}
 
+.announcement-div{
+  padding-bottom: 1px;
+  border-radius: 10px;
+  border: 2px solid #f87060;
+  margin-bottom: 100px;
 
+  .announcement-title-div{
+    border-bottom: 2px solid #f87060;
+    padding: 10px;
+    text-align: center;
+    
+    h2{
+      margin: 0;
+      padding: 0;
+      color: #f87060;
+      font-weight: 700;
+    }
+  }
 
+  .announcement{
+    padding: 10px 20px 0px 20px;
+    margin: 15px 10px;
+    border-radius: 7px;
+    background-color: white;
+    display: flex;
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+
+    .icon-div{
+      color: #f87060;
+    }
+
+    .announcement-text-div{
+      margin-left: 10px;
+      
+      p{
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.donation-div{
+  padding-bottom: 1px;
+  border-radius: 13px;
+  border: 2px solid #f87060;
+  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+
+  .donation-title-div{
+    border-bottom: 2px solid #f87060;
+    padding: 10px;
+    text-align: center;
+    
+    h2{
+      margin: 0;
+      padding: 0;
+      color: #f87060;
+      font-weight: 700;
+    }
+  }
+
+  .donation{
+    padding: 10px 20px 0px 20px;
+    margin: 15px 10px;
+    border-radius: 7px;
+    background-color: white;
+    display: flex;
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+
+    .image-div{
+      color: #f87060;
+      padding: 10px;
+
+      img{
+        border-radius: 50%;
+      }
+    }
+
+    .donation-text-div{
+      display: flex;
+
+      p{
+        margin: 0;
+        padding: 0;
+        font-size: large;
+      }
+
+      .amount-div{
+        margin-right: 30px;
+
+        p{
+          border-radius: 5px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (min-width: 0px) and (max-width: 600px){
   .first-div, .third-div, .second-div{
     flex-direction: column;
+    margin-bottom: 10px;
   }
 
   h1{
@@ -32,18 +133,47 @@ h3{
   
     img{
       width: 85%;
-      border-radius: 10px;
     }
   }
   .text-div{
     width: 100%;
     padding: 10px 0px;
   }
+
+  h1{
+    font-size: 30px;
+  }
+
+  .donation{
+    align-items: center;
+    .image-div{
+      margin: 0;
+      width: 20%;
+      img{
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .donation-text-div{
+    width: 80%;
+    flex-direction: column;
+
+    .amount-div{
+      margin-right: 30px;
+
+      p{
+        color: rgb(77, 189, 77);
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 601px) and (max-width: 768px){
   .first-div, .third-div, .second-div{
     flex-direction: column;
+    margin-bottom: 10px;
   }
 
   .image-div{
@@ -52,7 +182,6 @@ h3{
   
     img{
       width: 85%;
-      border-radius: 15px;
     }
   }
   .text-div{
@@ -62,13 +191,42 @@ h3{
   }
 
   h1{
-    font-size: 40px;
+    font-size: 30px;
+  }
+
+  .donation{
+    align-items: center;
+    .image-div{
+      margin: 0;
+      width: 20%;
+      img{
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  .donation-text-div{
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    .amount-div{
+      margin-right: 30px;
+
+      p{
+        background-color: rgb(77, 189, 77);
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+      }
+    }
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px){
   .first-div, .third-div, .second-div{
     flex-direction: column;
+    margin-bottom: 10px;
   }
 
   .image-div{
@@ -77,7 +235,6 @@ h3{
   
     img{
       width: 75%;
-      border-radius: 20px;
     }
   }
   .text-div{
@@ -89,35 +246,99 @@ h3{
   h1{
     font-size: 40px;
   }
+
+  h2{
+    font-size: x-large;
+  }
+
+  .donation{
+    align-items: center;
+    .image-div{
+      margin: 0;
+      width: 20%;
+      img{
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  .donation-text-div{
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    .amount-div{
+      margin-right: 30px;
+
+      p{
+        background-color: rgb(77, 189, 77);
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 993px) and (max-width: 1200px){
   .first-div, .third-div{
     flex-direction: row;
     align-items: center;
+    margin-bottom: 30px;
   }
 
   .second-div{
     flex-direction: row-reverse;
     align-items: center;
+    margin-bottom: 30px;
   }
 
   .image-div{
-    width: 50%;
     text-align: center;
   
     img{
-      width: 100%;
-      border-radius: 20px;
+      width: 450px;
+      height: 300px;
     }
   }
   .text-div{
-    width: 50%;
     padding: 10px;
   }
 
   h1{
-    font-size: 50px;
+    font-size: 35px;
+  }
+
+  h2{
+    font-size: x-large;
+  }
+
+  .donation{
+    align-items: center;
+    .image-div{
+      margin: 0;
+      width: 20%;
+      img{
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  .donation-text-div{
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    .amount-div{
+      margin-right: 30px;
+
+      p{
+        background-color: rgb(77, 189, 77);
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+      }
+    }
   }
 }
 
@@ -125,29 +346,69 @@ h3{
   .first-div, .third-div{
     flex-direction: row;
     align-items: center;
+    margin-bottom: 50px;
   }
 
   .second-div{
     flex-direction: row-reverse;
     align-items: center;
+    margin-bottom: 50px;
   }
 
   .image-div{
-    width: 50%;
-    padding: 50px;
+    padding: 25px;
     text-align: center;
+    position: relative;
   
     img{
-      width: 100%;
-      border-radius: 20px;
+      width: 500px;
+      height: 333px;
     }
   }
   .text-div{
-    width: 50%;
     padding: 25px;
   }
 
   h1{
-    font-size: 50px;
+    font-size: 40px;
+  }
+
+  h2{
+    font-size: x-large;
+  }
+
+  .donation{
+    .image-div{
+      img{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .donation-text-div{
+    margin-left: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+      margin: 0;
+      padding: 0;
+      font-size: large;
+    }
+
+    .amount-div{
+      margin-right: 30px;
+
+      p{
+        background-color: rgb(77, 189, 77);
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+      }
+    }
   }
 }

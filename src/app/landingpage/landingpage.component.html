@@ -4,7 +4,7 @@
     <mat-icon class="navbar-toggle-button" *ngIf="sidenav.opened"> close </mat-icon>
   </button>
   <h1 style="text-align: center; flex: 1 1 auto;">નૉંદેરા પરિવાર તમારું સ્વાગત કરે છે!</h1>
-  <button mat-icon-button [routerLink]="['/user-profile']">
+  <button *ngIf="isLogedIn" mat-icon-button [routerLink]="['/user-profile']">
     <mat-icon class="navbar-toggle-button"> account_circle </mat-icon>
   </button>
 </mat-toolbar>
@@ -12,13 +12,12 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-    <div class="profile-div">
+    <div class="profile-div" *ngIf="isLogedIn">
       <div class="image-div">
         <img class="avatar mat-elevation-z8" [src]="image" alt="prifile image" />
       </div>
       <div class="name-div">
         <h4 class="name">{{username}}</h4>
-        <h4 class="mobile-no">1234567890</h4>
       </div>
     </div>
 
@@ -37,7 +36,7 @@
       <span>User list</span>
     </button>
     
-    <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
+    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
       <mat-icon style="color: #f87060;">view_carousel</mat-icon>
       <span>ટ્રસ્ટ</span>
     </button>
