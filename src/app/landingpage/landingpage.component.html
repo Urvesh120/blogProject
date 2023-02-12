@@ -1,9 +1,9 @@
 <mat-toolbar class="mat-elevation-z8">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon class="navbar-toggle-button" *ngIf="!sidenav.opened"> <img src="../../assets/icons/shiva.png" alt=""> </mat-icon>
+    <mat-icon class="navbar-toggle-button" *ngIf="!sidenav.opened"> apps </mat-icon>
     <mat-icon class="navbar-toggle-button" *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-  <h1 style="text-align: center; flex: 1 1 auto; font-size: x-large; font-weight: 500;letter-spacing: 5px;">શ્રી નૉંદેરા પરિવાર તમારું સ્વાગત કરે છે!</h1>
+  <h1 style="text-align: center; flex: 1 1 auto;">નૉંદેરા પરિવાર તમારું સ્વાગત કરે છે!</h1>
   <button *ngIf="isLogedIn" mat-icon-button [routerLink]="['/user-profile']">
     <mat-icon class="navbar-toggle-button"> account_circle </mat-icon>
   </button>
@@ -39,11 +39,6 @@
     <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
       <mat-icon style="color: #f87060;">view_carousel</mat-icon>
       <span>ટ્રસ્ટ</span>
-    </button>
-    
-    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">view_carousel</mat-icon>
-      <span>મંડળ</span>
     </button>
 
     <!-- <mat-accordion #accordion="matAccordion" [multi]="true">
