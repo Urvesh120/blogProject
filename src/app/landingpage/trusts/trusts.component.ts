@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class TrustsComponent implements OnInit {
 
   currentPage = 1;
+  image1Path  = "../../../assets/images/imageSlider1.jpeg";
 
   constructor(private dialog: MatDialog) { }
 

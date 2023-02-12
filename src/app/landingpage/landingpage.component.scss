@@ -6,6 +6,12 @@ $gray-font-color : #909090;
   padding: 0;
 }
 
+mat-icon img{
+  width: 50px;
+  height: 50px;
+  margin-top: -20px;
+}
+
 .mat-expansion-indicator::after {
   height: 1px;
   width: 10px;
@@ -23,7 +29,7 @@ $gray-font-color : #909090;
 mat-toolbar {
   background: $orange-gray-color-shade;
   color: whitesmoke;
-  height: 45px;
+  height: 60px;
 }
 
 mat-sidenav {
