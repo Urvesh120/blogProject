@@ -74,11 +74,23 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label> પિતાની અટક</mat-label>
+            <mat-label>પિતાની અટક</mat-label>
             <input type="text" formControlName="flastname" matInput />
             <mat-error
               *ngIf="flastname && flastname.invalid && flastname.touched"
-              >Please enter your father's last name.</mat-error
+              >Please enter your father's surname.</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <!-- Mother's Name -->
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label> માતાનું પૂરું નામ</mat-label>
+            <input type="text" formControlName="mothername" matInput />
+            <mat-error
+              *ngIf="mothername && mothername.invalid && mothername.touched"
+              >Please enter your mother's name.</mat-error
             >
           </mat-form-field>
         </div>

@@ -50,7 +50,7 @@ export class RegisterComponent<D> implements OnInit {
   ]
   occupationList : any = [
     'Job',
-    'Bussiness'
+    'Business'
   ]
 
   countryList : any = [
@@ -97,6 +97,7 @@ export class RegisterComponent<D> implements OnInit {
       ffirstname: ['', [Validators.required]],
       fmiddlename: ['', [Validators.required]],
       flastname: ['', [Validators.required]],
+      mothername: ['', [Validators.required]],
       dialcode : ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       country : ['', [Validators.required]],
@@ -182,6 +183,10 @@ export class RegisterComponent<D> implements OnInit {
 
   get flastname() {
     return this.RegistrationFormGroup.get('flastname');
+  }
+  
+  get mothername() {
+    return this.RegistrationFormGroup.get('mothername');
   }
 
   get contact() {
@@ -269,11 +274,12 @@ export class RegisterComponent<D> implements OnInit {
     if(this.RegistrationFormGroup.invalid){
       return;
     }
-    let address = 
-      this.RegistrationFormGroup.value.addressLine1 + "," +
-      this.RegistrationFormGroup.value.addressLineLandmark + "," +
-      this.RegistrationFormGroup.value.addressLineCity + "-" +
-      this.RegistrationFormGroup.value.addressLinePincode + ".";
+
+    // let address = 
+    //   this.RegistrationFormGroup.value.addressLine1 + "," +
+    //   this.RegistrationFormGroup.value.addressLineLandmark + "," +
+    //   this.RegistrationFormGroup.value.addressLineCity + "-" +
+    //   this.RegistrationFormGroup.value.addressLinePincode + ".";
 
     // let name = 
     //   this.RegistrationFormGroup.value.lastname + " " +
@@ -292,10 +298,14 @@ export class RegisterComponent<D> implements OnInit {
       "middleName" : this.RegistrationFormGroup.value.middlename,
       "lastName" : this.RegistrationFormGroup.value.lastname,
       "fathersName" : fatherName,
+      "mothername" : this.RegistrationFormGroup.value.mothername,
       "contact": this.RegistrationFormGroup.value.contact,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
-      "address": address,
+      "address": this.RegistrationFormGroup.value.addressLine1,
+      "landmark": this.RegistrationFormGroup.value.addressLineLandmark,
+      "city": this.RegistrationFormGroup.value.addressLineCity,
+      "pinCode": this.RegistrationFormGroup.value.addressLinePincode,
       "countryCode" : this.RegistrationFormGroup.value.dialcode,
       "country": this.RegistrationFormGroup.value.country,
       "dateOfBirth" : this.datePipe.transform(this.RegistrationFormGroup.value.dateofbirth, 'yyyy-MM-dd'),

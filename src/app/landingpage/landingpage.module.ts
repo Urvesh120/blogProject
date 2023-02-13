@@ -16,13 +16,9 @@ import { EditprofileComponent } from './userprofile/editprofile/editprofile.comp
 import { PaymentComponent } from './trusts/payment/payment.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NandikeshwarmahadevComponent } from './trust/nandikeshwarmahadev/nandikeshwarmahadev.component';
-import { NandikeshwarcheritableComponent } from './trusts/nandikeshwarcheritable/nandikeshwarcheritable.component';
-import { NonderaboardingComponent } from './trusts/nonderaboarding/nonderaboarding.component';
-import { NonderapagatiComponent } from './mandal/nonderapagati/nonderapagati.component';
-import { MahilaComponent } from './mandal/mahila/mahila.component';
+import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandikeshwarmahadev.component';
 import { MandalComponent } from './mandal/mandal.component';
-
+import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
 };
@@ -39,11 +35,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     EditprofileComponent,
     PaymentComponent,
     NandikeshwarmahadevComponent,
-    NandikeshwarcheritableComponent,
-    NonderaboardingComponent,
-    NonderapagatiComponent,
-    MahilaComponent,
-    MandalComponent
+    MandalComponent,
+    NonderapragatiComponent,
   ],
   imports: [
     CommonModule,

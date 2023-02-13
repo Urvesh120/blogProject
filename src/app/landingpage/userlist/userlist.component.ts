@@ -40,6 +40,8 @@ export class UserlistComponent implements OnInit {
   job!: boolean;
   business!: boolean;
   filterValues: any = {};
+  pendingMappedData : tableData[] = [];;
+  registeredMappedData : tableData[] = [];;
   columns : any = ['First_Name', 'Middle_Name', 'Last_Name', 'Father_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
 
   constructor(private http : HttpService, private dialog: MatDialog, private loader : LoaderService) { }
@@ -56,7 +58,19 @@ export class UserlistComponent implements OnInit {
         this.http.pendingUserList().subscribe((res : any) => {
           if(res.status == 1){
             this.pendingUserList = res.payload;
-            this.pendingUserDataSource = new MatTableDataSource<tableData>(this.pendingUserList);
+            this.pendingMappedData = res.payload.map((x : any) => ({
+              id : x.id,
+              firstName: x.firstName,
+              middleName: x.middleName,
+              lastName: x.lastName,
+              fatherName: x.fatherName,
+              email: x.email,
+              contact: x.contact,
+              occupationType: x.occupationType,
+              address: x.address,
+            }));
+            this.pendingUserDataSource = new MatTableDataSource<tableData>(this.pendingMappedData);
+            // this.pendingUserDataSource = new MatTableDataSource<tableData>(this.pendingUserList);
             this.loader.hide();
           }
           else{
@@ -76,15 +90,18 @@ export class UserlistComponent implements OnInit {
             if(res.status == 1){
               this.registeredUserList = res.payload;
               this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
-
-
-              this.registeredUserDataSource.filterPredicate = ((data: tableData, filter: string): boolean => {
-                const filterValues = JSON.parse(filter);
-          
-                return (this.business ? data.occupationType.trim().toLowerCase() === filterValues.color : true);
-              })
-
-
+              this.registeredMappedData = res.payload.map((x : any) => ({
+                id : x.id,
+                firstName: x.firstName,
+                middleName: x.middleName,
+                lastName: x.lastName,
+                fatherName: x.fatherName,
+                email: x.email,
+                contact: x.contact,
+                occupationType: x.occupationType,
+                address: x.address,
+              }));
+              this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredMappedData);
               this.loader.hide();
             }
             else {
@@ -103,7 +120,18 @@ export class UserlistComponent implements OnInit {
         this.http.userlist().subscribe((res : any) => {
           if(res.status ==1){
             this.registeredUserList = res.payload;
-            this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
+            this.registeredMappedData = res.payload.map((x : any) => ({
+              id : x.id,
+              firstName: x.firstName,
+              middleName: x.middleName,
+              lastName: x.lastName,
+              fatherName: x.fatherName,
+              email: x.email,
+              contact: x.contact,
+              occupationType: x.occupationType,
+              address: x.address,
+            }));
+            this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredMappedData);
             this.loader.hide();
           }
           else{
