@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.payload.jwtToken);
         localStorage.setItem('UserName', res.payload.displayName);
         localStorage.setItem('UserId', res.payload.userId);
+        localStorage.setItem('isAdmin', "true");
         this.userId = localStorage.getItem('UserId');
         this.router.navigate(['']);
       }

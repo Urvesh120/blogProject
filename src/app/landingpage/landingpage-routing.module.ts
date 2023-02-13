@@ -10,6 +10,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandikeshwarmahadev.component';
 import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
+import { ProfileComponent } from './userlist/profile/profile.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path : 'nandikeshwar-mahadev-trusts', component : NandikeshwarmahadevComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
+    {path : 'profile-preview', component : ProfileComponent,canActivate:[AuthGuard]},
   ]}
 ];
 

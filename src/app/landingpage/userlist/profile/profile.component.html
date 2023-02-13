@@ -1,177 +1,90 @@
-<div class="close-button">
-    <button class="btn" (click)="closeDialog()"><mat-icon>clear</mat-icon></button>
-</div>
-
-<div class="main-div">
-    <div class="profile-div">
-        <img [src]="profileData.picture" alt="Prifile Picture">
-    </div>   
-
-    <!-- <div class="details-div">
-        <div class="field name-div">
-            <div class="title-div">
-                <h2>Name</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</h3>
-            </div>
-        </div>
-        <div class="field father-name-div">
-            <div class="title-div">
-                <h2>Father name</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</h3>
-            </div>
-        </div>
-        <div class="field bloodGroop-div" *ngIf="isAdmin">
-            <div class="title-div">
-                <h2>Bloodgroop</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.bloodGroup}}</h3>
-            </div>
-        </div>
-        <div class="field contact-div">
-            <div class="title-div">
-                <h2>Contact number</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.contact}}</h3>
-            </div>
-        </div>
-        <div class="field contact-div">
-            <div class="title-div">
-                <h2>Email</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.email}}</h3>
-            </div>
-        </div>
-        <div class="field address">
-            <div class="title-div">
-                <h2>Address</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.address}}</h3>
-            </div>
-        </div>
-        <div class="field occupation">
-            <div class="title-div">
-                <h2>{{profileData.occupationType}}</h2>
-            </div>
-            <div class="description-div">
-                <h3>{{profileData.occupationName}}</h3>
-            </div>
-        </div>
-    </div> -->
-
-    <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td class="head-column">Name</td>
-            <td>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</td>
-          </tr>
-          <tr>
-            <td class="head-column">Father's name</td>
-            <td>{{profileData.fathersName}}</td>
-          </tr>
-          <tr *ngIf="isAdmin">
-            <td class="head-column">Blood group</td>
-            <td>{{profileData.bloodGroup}}</td>
-          </tr>
-          <tr>
-            <td class="head-column">Contact number</td>
-            <td>{{profileData.contact}}</td>
-          </tr>
-          <tr>
-            <td class="head-column">Email</td>
-            <td>{{profileData.email}}</td>
-          </tr>
-          <tr>
-            <td class="head-column">Address</td>
-            <td>{{profileData.address}}</td>
-          </tr>
-          <tr>
-            <td class="head-column">{{profileData.occupationType}}</td>
-            <td>{{profileData.occupationName}}</td>
-          </tr>
-        </tbody>
-      </table>
-</div>
-
-<div class="action-button" *ngIf="!isRegistered">
-    <div class="approvr-btn">
-        <button class="btn btn-success" (click)="action(true)">Approve</button>
-    </div>
-    <div class="reject-btn">
-        <button class="btn btn-outline-danger" (click)="action(false)">Reject</button>
-    </div>
-</div>
-
-
-<!-- 
-<div class="close-button">
-    <button class="btn" mat-dialog-close>Abc</button>
-</div>
-
-<div class="user-profile-div">
-
-    <div class="image-div">
-        <div class="profile-img-div">
-            <img [src]="profilePic" class="image">
-        </div>
-    </div>
-     
-    <div class="name-div">
-        <div class="textDiv firstNameInputDiv">
-            <h3 class="heading">First Name</h3>
-            <h3>{{profileData.firstName}}</h3>
-        </div>
-        <div class="textDiv lastNameInputDiv">
-            <h3 class="heading">Last Name</h3>
-            <h3>{{profileData.lastName}}</h3>
-        </div>
-    </div>
-
-    <div class="email-contact-div">
-        <div class="textDiv contactInputDiv">
-            <h3 class="heading">Contact</h3>
-            <h3>{{profileData.contact}}</h3>
-        </div>
-        <div class="textDiv emailInputDiv">
-            <h3 class="heading">Email</h3>
-            <h3>{{profileData.email}}</h3>
-        </div>
-    </div>
-    
-    <div class="textDiv blood-group-div" *ngIf="isAdmin">
-        <h3 class="heading">Blood Group</h3>
-        <h3>{{profileData.bloodGroup}}</h3>
-    </div>
-
-    <div class="textDiv address-div">
-        <h3 class="heading">Address</h3>
-        <h3>{{profileData.address}}</h3>
-    </div>
-    
-    <div class="textDiv occupation-business-name">
-        <h3 class="heading">Occupation or Business</h3>
-        <h3>{{profileData.occupationName}}</h3>
-    </div>
-
-    <div *ngIf="isAdmin && !isRegistered" class="button-div">
-        <div class="approve-button">
-            <button style="background-color: #1cac78; color: white;" mat-raised-button class="action-button" (click)="action(true)">
-                <mat-icon class="button-icon">done_all</mat-icon>
-                <span>Approve</span>
+<div class="display-content" *ngIf="display">
+    <div class="action-btn-div">
+        <div class="action-btn accept-btn">
+            <button mat-button class="menu-button" (click)="action(true)">
+                <mat-icon>done</mat-icon>
             </button>
         </div>
-        <div class="reject-button">
-            <button style="background-color: #fe2712; color: white;" mat-raised-button class="action-button" (click)="action(false)">
-                <mat-icon class="button-icon">delete_outline</mat-icon>
-                <span>Reject</span>
+        <div class="action-btn reject-btn">
+            <button mat-button class="menu-button" (click)="action(true)">
+                <mat-icon>close</mat-icon>
             </button>
         </div>
     </div>
-</div> -->
+
+    <div class="user-detail">
+        <div class="profile-picture-div">
+            <div class="image">
+                <img [src]="profileData.picture" alt="profile picture">
+            </div>
+            <div class="name">
+                <h1>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</h1>
+            </div>
+        </div>
+
+        <div class="other-detail">
+            <div class="content-div fathersName">
+                <div class="lable">
+                    <h2>Father's Name</h2>
+                </div>
+                <div class="value">
+                    <h2>{{profileData.fathersName}}</h2>
+                </div>
+            </div>
+
+            <div class="content-div mothersName">
+                <div class="lable">
+                    <h2>Mother's Name</h2>
+                </div>
+                <div class="value">
+                    <h2>{{profileData.mothersName}}</h2>
+                </div>
+            </div>
+
+            <div class="content-div dateOfBirth">
+                <div class="lable">
+                    <h2>Date of Birth</h2>
+                </div>
+                <div class="value">
+                    <h2>{{profileData.dateOfBirth}}</h2>
+                </div>
+            </div>
+
+            <div class="content-div contact">
+                <div class="lable">
+                    <h2>Contact number</h2>
+                </div>
+                <div class="value">
+                    <h2>{{profileData.contact}}</h2>
+                </div>
+            </div>
+
+            <div class="content-div email" *ngIf="haveEmail">
+                <div class="lable">
+                    <h2>Email</h2>
+                </div>
+                <div class="value">
+                    <h2>{{profileData.email}}</h2>
+                </div>
+            </div>
+
+            <div class="content-div bloodGroup" *ngIf="isAdmin">
+                <div class="lable">
+                    <h2>Bloodgroup</h2>
+                </div>
+                <div class="value">
+                    <h2>{{profileData.bloodGroup}}</h2>
+                </div>
+            </div>      
+
+            <div class="content-div address">
+                <div class="lable">
+                    <h2>Address</h2>
+                </div>
+                <div class="value">
+                    <h2>{{address}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

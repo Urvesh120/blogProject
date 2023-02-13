@@ -73,7 +73,7 @@
                 <mat-icon style="color: #0f52ba;">more_horiz</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="openDialog(element, true)">
+                <button mat-menu-item [routerLink]="['/profile-preview']">
                   <mat-icon style="color: #0f52ba;">person</mat-icon>
                   <span>View Profile</span>
                 </button>

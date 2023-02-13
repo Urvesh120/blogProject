@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpService } from '../../../services/http.service';
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { LoaderService } from 'src/app/services/loader.service';
 
@@ -14,35 +13,66 @@ import { LoaderService } from 'src/app/services/loader.service';
 })
 export class ProfileComponent implements OnInit {
 
-  //snackbar position 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-
+  display = false;
+  haveEmail = false;
   profileData : any;
   isAdmin = false;
   isRegistered : any;
   blankImage = 'assets/images/blank-profile.jpg';
   closeButton = 'assets/icons/close.png';
   profilePic : any;
+  address = "";
 
-  constructor(private dialogRef: MatDialogRef<ProfileComponent>,
-    @Inject(MAT_DIALOG_DATA) public userData: any, 
-    private http : HttpService,
-    private sanitizer: DomSanitizer,
-    private loader : LoaderService
-    ) { }
+  constructor(private http : HttpService, private sanitizer: DomSanitizer, private loader : LoaderService) { }
 
   ngOnInit(): void {
-    this.profileData = this.userData.data.profileData;
-    this.isRegistered = this.userData.data.isRegistered;
-    this.isAdmin = this.userData.data.isAdmin;
-    var base64 = this.profileData.picture.split(",");
-    if(base64[1] == "" || base64[1] == null){
-      this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.blankImage);
-    }
-    else{
-      this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.profileData.picture);
-    }
+    this.http.getUserProfileById(localStorage.getItem('UserId')).subscribe((x : any) => {
+      if(x.status == 1){
+        this.profileData = x.payload;
+        var base64 = this.profileData.picture.split(",");
+        if(base64[1] == "" || base64[1] == null){
+          this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.blankImage);
+        }
+        else{
+          this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.profileData.picture);
+        }
+
+        if(!!this.profileData.email){
+          this.haveEmail = true;
+        }
+
+        if(!!this.profileData.address){
+          this.address = this.profileData.address + ","
+        }
+
+        if(!!this.profileData.landmark){
+          this.address = this.profileData.landmark + ","
+        }
+
+        if(!!this.profileData.city){
+          this.address = this.profileData.city + "-"
+        }
+
+        if(!!this.profileData.address){
+          this.address = this.profileData.address + "."
+        }
+        this.loader.hide();
+        if(localStorage.getItem('isAdmin') == "true"){
+          this.isAdmin = true;
+        }
+        this.display = true;
+      }
+      else{
+        Swal.fire({
+          title: x.message,
+          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Something Went Wrong',
+        })
+        this.loader.hide();
+      }
+    });
   }
 
   action(status : any){
@@ -73,7 +103,6 @@ export class ProfileComponent implements OnInit {
                 'success'
               )
               this.loader.hide()
-              this.dialogRef.close();
             }
             else{
               Swal.fire({
@@ -99,7 +128,6 @@ export class ProfileComponent implements OnInit {
             'success'
           )
           this.loader.hide();
-          this.dialogRef.close();
         }
         else{
           Swal.fire({
@@ -113,9 +141,5 @@ export class ProfileComponent implements OnInit {
         }
       });
     }
-  }
-
-  closeDialog(){
-    this.dialogRef.close();
   }
 }
