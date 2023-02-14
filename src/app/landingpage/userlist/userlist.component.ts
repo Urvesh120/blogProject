@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LoaderService } from 'src/app/services/loader.service';
 import Swal from 'sweetalert2';
 import * as _ from 'lodash';
+import { UtilService } from 'src/app/services/util.service';
 
 export interface tableData {
   id: any;
@@ -44,7 +45,7 @@ export class UserlistComponent implements OnInit {
   registeredMappedData : tableData[] = [];;
   columns : any = ['First_Name', 'Middle_Name', 'Last_Name', 'Father_Name', 'Email', 'Contact', 'Occupation', 'Address', 'Action'];
 
-  constructor(private http : HttpService, private dialog: MatDialog, private loader : LoaderService) { }
+  constructor(private http : HttpService, private dialog: MatDialog, private loader : LoaderService, private util : UtilService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userEmailId')){
@@ -199,5 +200,10 @@ export class UserlistComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
     });
+  }
+
+  setData(element : any, type : string){
+    this.util.setId(element.id);
+    this.util.setUserType(type);
   }
 }

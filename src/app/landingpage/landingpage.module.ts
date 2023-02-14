@@ -19,6 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandikeshwarmahadev.component';
 import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
+import { MatNativeDateModule } from '@angular/material/core'; 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
 };
@@ -44,7 +46,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     ModuleModule,
     PerfectScrollbarModule,
-    NgbModule
+    NgbModule,
+    MatNativeDateModule
   ],
   providers: [
     {

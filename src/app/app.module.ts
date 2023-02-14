@@ -6,13 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CoustomtoastrComponent } from './coustomtoastr/coustomtoastr.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoustomtoastrComponent,
   ],
   imports: [
     BrowserModule,

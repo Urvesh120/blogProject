@@ -17,8 +17,4 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
   }
-  getShowMessage(){
-    return this.util.getShowMessage()
-  }
-
 }

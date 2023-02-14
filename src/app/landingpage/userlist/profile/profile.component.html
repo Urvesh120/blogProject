@@ -1,5 +1,5 @@
 <div class="display-content" *ngIf="display">
-    <div class="action-btn-div">
+    <div class="action-btn-div" *ngIf="userType == 'pending'">
         <div class="action-btn accept-btn">
             <button mat-button class="menu-button" (click)="action(true)">
                 <mat-icon>done</mat-icon>

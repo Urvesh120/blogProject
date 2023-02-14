@@ -10,9 +10,8 @@ export class UtilService {
 
     token : any;
     userLogedIn : any;
-    message = new Subject<string>();
-    messageType = new Subject<messages>();
-    displayMessage !: boolean ;
+    id = new BehaviorSubject<string>("");
+    userType = new BehaviorSubject<string>("");
 
     constructor(private util: HttpClient) { }
 
@@ -31,24 +30,19 @@ export class UtilService {
         }
     }
 
-    public setMessage(message : any, type : messages){
-        this.message.next(message);
-        this.messageType.next(type);
+    public setId(id : string){
+        this.id.next(id);
     }
 
-    public getMessage() : Observable<string>{
-        return this.message.asObservable();
-    }
-    
-    public getMessageType() : Observable<messages>{
-        return this.messageType.asObservable();
+    public getId(){
+        return this.id.asObservable();
     }
 
-    public setShowMessage( display : boolean){
-        this.displayMessage = display;
+    public setUserType(type : string){
+        this.userType.next(type);
     }
 
-    public getShowMessage(){
-        return this.displayMessage;
+    public getUserType(){
+        return this.userType.asObservable();
     }
 }
