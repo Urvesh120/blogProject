@@ -298,7 +298,7 @@ export class RegisterComponent<D> implements OnInit {
       "middleName" : this.RegistrationFormGroup.value.middlename,
       "lastName" : this.RegistrationFormGroup.value.lastname,
       "fathersName" : fatherName,
-      "mothername" : this.RegistrationFormGroup.value.mothername,
+      "mothersName" : this.RegistrationFormGroup.value.mothername,
       "contact": this.RegistrationFormGroup.value.contact,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,

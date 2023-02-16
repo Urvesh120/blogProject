@@ -64,7 +64,7 @@ export class UserlistComponent implements OnInit {
               firstName: x.firstName,
               middleName: x.middleName,
               lastName: x.lastName,
-              fatherName: x.fatherName,
+              fatherName: x.fathersName,
               email: x.email,
               contact: x.contact,
               occupationType: x.occupationType,
@@ -90,13 +90,14 @@ export class UserlistComponent implements OnInit {
           this.http.adminUserlist().subscribe((res : any) => {
             if(res.status == 1){
               this.registeredUserList = res.payload;
-              this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
+              (res.payload[3]);
+              // this.registeredUserDataSource = new MatTableDataSource<tableData>(this.registeredUserList);
               this.registeredMappedData = res.payload.map((x : any) => ({
                 id : x.id,
                 firstName: x.firstName,
                 middleName: x.middleName,
                 lastName: x.lastName,
-                fatherName: x.fatherName,
+                fatherName: x.fathersName,
                 email: x.email,
                 contact: x.contact,
                 occupationType: x.occupationType,
@@ -126,7 +127,7 @@ export class UserlistComponent implements OnInit {
               firstName: x.firstName,
               middleName: x.middleName,
               lastName: x.lastName,
-              fatherName: x.fatherName,
+              fatherName: x.fathersName,
               email: x.email,
               contact: x.contact,
               occupationType: x.occupationType,

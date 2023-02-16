@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.util.getId().subscribe(x => this.userId = x);
-    console.log("ABC : ", this.userId)
     if(!!this.userId){
       this.util.getUserType().subscribe(x => this.userType = x);
       this.http.getUserProfileById(this.userId).subscribe((x : any) => {
@@ -120,7 +119,9 @@ export class ProfileComponent implements OnInit {
                 res.message,
                 '',
                 'success'
-              )
+              ).then(function(){
+                window.location.reload();
+              })
               this.loader.hide()
             }
             else{

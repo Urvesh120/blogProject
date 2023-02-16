@@ -62,7 +62,7 @@
         <div>
           <mat-form-field appearance="outline">
             <mat-label>Dial code</mat-label>
-            <mat-select formControlName="dialcode">
+            <mat-select formControlName="dialcode" [disabled]="disabled">
               <mat-option value="{{item.dialCode}}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</mat-option>
             </mat-select>
           </mat-form-field>

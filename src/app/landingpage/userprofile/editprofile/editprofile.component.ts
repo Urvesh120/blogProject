@@ -22,7 +22,6 @@ export class EditprofileComponent implements OnInit {
   blankImage = 'assets/images/blank-profile.jpg';
   profileImage : any;
   selectedValue : any;
-
   profileData : any;
   model!: NgbDateStruct;
 
