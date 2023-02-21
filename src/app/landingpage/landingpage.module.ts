@@ -15,7 +15,6 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { EditprofileComponent } from './userprofile/editprofile/editprofile.component';
 import { PaymentComponent } from './trusts/payment/payment.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandikeshwarmahadev.component';
 import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
@@ -46,7 +45,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     ModuleModule,
     PerfectScrollbarModule,
-    NgbModule,
     MatNativeDateModule
   ],
   providers: [

@@ -18,7 +18,6 @@ export class UserprofileComponent implements OnInit {
   haveEmail = false;
   isImage = false;
   isDescription = false;
-  abc : any;
   image : any;
   disabled = true;
   showContent = false;
@@ -102,6 +101,12 @@ export class UserprofileComponent implements OnInit {
         else{
           this.image = this.blankImage;
         }
+        if(this.userData.occupationType == this.occupationList[0]){
+          this.isJob = true;
+        }
+        if(this.userData.occupationType == this.occupationList[1]){
+          this.isJob = false;
+        }
         if(!!this.userData.description){
           this.isDescription = true;
         }
@@ -178,6 +183,16 @@ export class UserprofileComponent implements OnInit {
       }
     }
   }  
+
+  abc(event : any){
+    console.log(event.target.value);
+    if(event.target.value == this.occupationList[0]){
+      this.isJob = true;
+    }
+    if(event.target.value == this.occupationList[1]){
+      this.isJob = false;
+    }
+  }
 
   get firstname() {
     return this.RegistrationFormGroup.get('firstname');
@@ -295,31 +310,23 @@ export class UserprofileComponent implements OnInit {
 
   enableForm(){
     this.disabled = false;
-    this.RegistrationFormGroup = this.fb.group({
-          firstname: [{value: this.userData.firstName || '', disabled: this.disabled}, Validators.required],
-          middlename: [{value: this.userData.middleName || '', disabled: this.disabled}, [Validators.required]],
-          lastname: [{value: this.userData.lastName || '', disabled: this.disabled}, [Validators.required]],
-          ffirstname: [{value: this.userData.fathersName || '', disabled: true}, [Validators.required]],
-          mothername: [{value: this.userData.mothersName || '', disabled: true}, [Validators.required]],
-          dialcode : [{value: this.userData.countryCode || '', disabled: this.disabled}, [Validators.required]],
-          contact: [{value: this.userData.contact || '', disabled: this.disabled}, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-          country : [{value: this.userData.country || '', disabled: this.disabled}, [Validators.required]],
-          email: [{value: this.userData.email || '', disabled: this.disabled}, [Validators.email]],
-          dateofbirth : [{value: this.userData.dateOfBirth || '', disabled: true}, [Validators.required]],
-          bloodgroup: [{value: this.userData.bloodGroup || '', disabled: true}, [Validators.required]],
-          gender: [{value: this.userData.gender || '', disabled: true}, [Validators.required]],
-          maritalstatus: [{value: this.userData.maritalStatus || '', disabled: this.disabled}, [Validators.required]],
-          gotra: [{value: this.userData.gotra || '', disabled: true}, [Validators.required]],
-          educational: [{value: this.userData.qualification || '', disabled: this.disabled}, [Validators.required]],
-          achivement: [{value: this.userData.achievement || '', disabled: this.disabled}],
-          addressLine1: [{value: this.userData.address || '', disabled: this.disabled}, [Validators.required]],
-          addressLineLandmark: [{value: this.userData.landmark || '', disabled: this.disabled}],
-          addressLineCity: [{value: this.userData.city || '', disabled: this.disabled}, [Validators.required]],
-          addressLinePincode: [{value: this.userData.pinCode || '', disabled: this.disabled}, [Validators.required]],
-          jobBusinessType: [{value: this.userData.occupationType || '', disabled: this.disabled}, [Validators.required]],
-          jobBusinessName: [{value: this.userData.occupationName || '', disabled: this.disabled}, [Validators.required]],
-          description: [{value: this.userData.occupationDescription || '', disabled: this.disabled}, [Validators.required]],
-    });
+    this.RegistrationFormGroup.controls['firstname'].enable();
+    this.RegistrationFormGroup.controls['middlename'].enable();
+    this.RegistrationFormGroup.controls['lastname'].enable();
+    this.RegistrationFormGroup.controls['contact'].enable();
+    this.RegistrationFormGroup.controls['dialcode'].enable();
+    this.RegistrationFormGroup.controls['country'].enable();
+    this.RegistrationFormGroup.controls['email'].enable();
+    this.RegistrationFormGroup.controls['maritalstatus'].enable();
+    this.RegistrationFormGroup.controls['educational'].enable();
+    this.RegistrationFormGroup.controls['achivement'].enable();
+    this.RegistrationFormGroup.controls['addressLine1'].enable();
+    this.RegistrationFormGroup.controls['addressLineLandmark'].enable();
+    this.RegistrationFormGroup.controls['addressLineCity'].enable();
+    this.RegistrationFormGroup.controls['addressLinePincode'].enable();
+    this.RegistrationFormGroup.controls['jobBusinessType'].enable();
+    this.RegistrationFormGroup.controls['jobBusinessName'].enable();
+    this.RegistrationFormGroup.controls['description'].enable();
   }
 
   edit(){
@@ -343,7 +350,6 @@ export class UserprofileComponent implements OnInit {
       "maritalStatus": this.RegistrationFormGroup.value.maritalstatus,
       "middleName": this.RegistrationFormGroup.value.middlename,
       "mothersName": this.userData.mothersName,
-      // "mothersName": this.RegistrationFormGroup.value.mothername,
       "occupationDescription": this.RegistrationFormGroup.value.description,
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
@@ -352,8 +358,10 @@ export class UserprofileComponent implements OnInit {
       "pinCode": this.RegistrationFormGroup.value.addressLinePincode,
       "qualification": this.RegistrationFormGroup.value.educational
     }
+
     this.http.updateprofile(data).subscribe((res : any) =>{
       if(res.status == 1){
+        this.disabled = true;
         Swal.fire({
           title: res.message,
           imageUrl: 'assets/illustators/RegisterRequestSuccess.svg',
@@ -380,31 +388,33 @@ export class UserprofileComponent implements OnInit {
 
   close(){
     this.disabled = true;
-    this.RegistrationFormGroup = this.fb.group({
-          firstname: [{value: this.userData.firstName || '', disabled: this.disabled}, Validators.required],
-          middlename: [{value: this.userData.middleName || '', disabled: this.disabled}, [Validators.required]],
-          lastname: [{value: this.userData.lastName || '', disabled: this.disabled}, [Validators.required]],
-          ffirstname: [{value: this.userData.fathersName || '', disabled: true}, [Validators.required]],
-          mothername: [{value: this.userData.mothersName || '', disabled: true}, [Validators.required]],
-          dialcode : [{value: this.userData.countryCode || '', disabled: this.disabled}, [Validators.required]],
-          contact: [{value: this.userData.contact || '', disabled: this.disabled}, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-          country : [{value: this.userData.country || '', disabled: this.disabled}, [Validators.required]],
-          email: [{value: this.userData.email || '', disabled: this.disabled}, [Validators.email]],
-          dateofbirth : [{value: this.userData.dateOfBirth || '', disabled: true}, [Validators.required]],
-          bloodgroup: [{value: this.userData.bloodGroup || '', disabled: true}, [Validators.required]],
-          gender: [{value: this.userData.gender || '', disabled: true}, [Validators.required]],
-          maritalstatus: [{value: this.userData.maritalStatus || '', disabled: this.disabled}, [Validators.required]],
-          gotra: [{value: this.userData.gotra || '', disabled: true}, [Validators.required]],
-          educational: [{value: this.userData.qualification || '', disabled: this.disabled}, [Validators.required]],
-          achivement: [{value: this.userData.achievement || '', disabled: this.disabled}],
-          addressLine1: [{value: this.userData.address || '', disabled: this.disabled}, [Validators.required]],
-          addressLineLandmark: [{value: this.userData.landmark || '', disabled: this.disabled}],
-          addressLineCity: [{value: this.userData.city || '', disabled: this.disabled}, [Validators.required]],
-          addressLinePincode: [{value: this.userData.pinCode || '', disabled: this.disabled}, [Validators.required]],
-          jobBusinessType: [{value: this.userData.occupationType || '', disabled: this.disabled}, [Validators.required]],
-          jobBusinessName: [{value: this.userData.occupationName || '', disabled: this.disabled}, [Validators.required]],
-          description: [{value: this.userData.occupationDescription || '', disabled: this.disabled}, [Validators.required]],
-    });
+    // this.RegistrationFormGroup.reset(this.RegistrationFormGroup.value);
+    this.RegistrationFormGroup.disable();
+    // this.RegistrationFormGroup = this.fb.group({
+    //       firstname: [{value: this.userData.firstName || '', disabled: this.disabled}, Validators.required],
+    //       middlename: [{value: this.userData.middleName || '', disabled: this.disabled}, [Validators.required]],
+    //       lastname: [{value: this.userData.lastName || '', disabled: this.disabled}, [Validators.required]],
+    //       ffirstname: [{value: this.userData.fathersName || '', disabled: true}, [Validators.required]],
+    //       mothername: [{value: this.userData.mothersName || '', disabled: true}, [Validators.required]],
+    //       dialcode : [{value: this.userData.countryCode || '', disabled: this.disabled}, [Validators.required]],
+    //       contact: [{value: this.userData.contact || '', disabled: this.disabled}, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+    //       country : [{value: this.userData.country || '', disabled: this.disabled}, [Validators.required]],
+    //       email: [{value: this.userData.email || '', disabled: this.disabled}, [Validators.email]],
+    //       dateofbirth : [{value: this.userData.dateOfBirth || '', disabled: true}, [Validators.required]],
+    //       bloodgroup: [{value: this.userData.bloodGroup || '', disabled: true}, [Validators.required]],
+    //       gender: [{value: this.userData.gender || '', disabled: true}, [Validators.required]],
+    //       maritalstatus: [{value: this.userData.maritalStatus || '', disabled: this.disabled}, [Validators.required]],
+    //       gotra: [{value: this.userData.gotra || '', disabled: true}, [Validators.required]],
+    //       educational: [{value: this.userData.qualification || '', disabled: this.disabled}, [Validators.required]],
+    //       achivement: [{value: this.userData.achievement || '', disabled: this.disabled}],
+    //       addressLine1: [{value: this.userData.address || '', disabled: this.disabled}, [Validators.required]],
+    //       addressLineLandmark: [{value: this.userData.landmark || '', disabled: this.disabled}],
+    //       addressLineCity: [{value: this.userData.city || '', disabled: this.disabled}, [Validators.required]],
+    //       addressLinePincode: [{value: this.userData.pinCode || '', disabled: this.disabled}, [Validators.required]],
+    //       jobBusinessType: [{value: this.userData.occupationType || '', disabled: this.disabled}, [Validators.required]],
+    //       jobBusinessName: [{value: this.userData.occupationName || '', disabled: this.disabled}, [Validators.required]],
+    //       description: [{value: this.userData.occupationDescription || '', disabled: this.disabled}, [Validators.required]],
+    // });
   }
 
 }

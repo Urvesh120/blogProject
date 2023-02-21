@@ -28,7 +28,13 @@ h3{
     max-width: 200px !important;
 }
 
-@media only screen and (max-width: 45em){
+.table-div{
+	overflow-y: hidden;
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 24px;
+    background-color: #cfcfcf;
 }
 
 
@@ -38,6 +44,10 @@ h3{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.radio-div{
+	margin: 0 20px;
 }
 
 $primary-color: #f87060; // Change color here. C'mon, try it! 
@@ -97,41 +107,21 @@ label {
 	}
 }
 
-// Codepen spesific styling - only to center the elements in the pen preview and viewport
-.container {
-	//position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 20px;
-}
-// End Codepen spesific styling
+@media (min-width: 0px) and (max-width: 600px){
+	.filter-div{
+		flex-direction: column;
+		margin-bottom: 30px;
+	}
+	
+	.radio-button-div{
+		justify-content: flex-start;
+	}
 
-.main{
-    display: block;
+	.radio-div{
+		margin-right: 30px;
+	}
 }
-
-.pay-btn{
-    text-align: center;
-    display: block;
-    width: 100%;
-}
-
-@media screen and (max-width: 600px){
-	th.mat-header-cell{
-        font-weight: 500;
-        font-size: 13px;
-    }
-
-    .mat-cell {
-        font-size: 13px;
-    }
-}
-@media screen and (min-width: 768px){}
-@media screen and (min-width: 992px){}
-@media screen and (min-width: 993px){}
+@media (min-width: 6000px) and (max-width: 768px){}
+@media (min-width: 769px) and (max-width: 992px){}
+@media (min-width: 993px) and (max-width: 1200px){}
+@media (min-width: 12000px){}
