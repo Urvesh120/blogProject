@@ -1,414 +1,151 @@
-h1{
-  text-align: center;
-  color: #f87060;
-}
-
-h3{
-  text-align: justify;
-  padding: 20px;
-}
-
-.first-div, .second-div, .third-div{
+.background-image-div{
+  background-image: url('../../../assets/images/WhatsApp\ Image\ 2023-02-28\ at\ 7.09.01\ PM.jpeg');
+  background-size: 100% 100%;
   display: flex;
+  align-items: end;
 }
 
-.title{
-  border-bottom: 2px solid #f87060;
-  margin-bottom: 20px;
+.nandikeshwar-mahadev-div{
+  justify-content: space-between;
 }
 
-.announcement-div{
-  padding-bottom: 1px;
-  border-radius: 10px;
-  border: 2px solid #f87060;
-  margin-bottom: 100px;
 
-  .announcement-title-div{
-    border-bottom: 2px solid #f87060;
-    padding: 10px;
-    text-align: center;
-    
-    h2{
-      margin: 0;
-      padding: 0;
-      color: #f87060;
-      font-weight: 700;
-    }
-  }
-
-  .announcement{
-    padding: 10px 20px 0px 20px;
-    margin: 15px 10px;
-    border-radius: 7px;
-    background-color: white;
-    display: flex;
-    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
-
-    .icon-div{
-      color: #f87060;
-    }
-
-    .announcement-text-div{
-      margin-left: 10px;
-      
-      p{
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
+.navdurga-mata-div{
+  justify-content: space-between;
 }
 
-.donation-div{
-  padding-bottom: 1px;
-  border-radius: 13px;
-  border: 2px solid #f87060;
-  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+.slider{
+  background-color: #b5b5b5;
+}
 
-  .donation-title-div{
-    border-bottom: 2px solid #f87060;
-    padding: 10px;
-    text-align: center;
-    
-    h2{
-      margin: 0;
-      padding: 0;
-      color: #f87060;
-      font-weight: 700;
-    }
-  }
-
-  .donation{
-    padding: 10px 20px 0px 20px;
-    margin: 15px 10px;
-    border-radius: 7px;
-    background-color: white;
-    display: flex;
-    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
-
-    .image-div{
-      color: #f87060;
-      padding: 10px;
-
-      img{
-        border-radius: 50%;
-      }
-    }
-
-    .donation-text-div{
-      display: flex;
-
-      p{
-        margin: 0;
-        padding: 0;
-        font-size: large;
-      }
-
-      .amount-div{
-        margin-right: 30px;
-
-        p{
-          border-radius: 5px;
-          padding: 10px;
-        }
-      }
-    }
-  }
+.container{
+  background-color: rgba(51, 51, 79, 0.7);
 }
 
 @media screen and (min-width: 0px) and (max-width: 600px){
-  .first-div, .third-div, .second-div{
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
+  .background-image-div{
+    height: 40vh;
 
-  h1{
-    font-size: 30px;
+    div{
+      h1,p{
+        color: white;
+        text-align: justify;
+        margin: 0;
+        padding: 0;
+      }
+    }
   }
-
-  .image-div{
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
   
-    img{
-      width: 85%;
-    }
-  }
-  .text-div{
-    width: 100%;
-    padding: 10px 0px;
+  .nandikeshwar-mahadev-div, .navdurga-mata-div{
+    flex-direction: column;
+    margin: 50px 20px;
   }
 
   h1{
-    font-size: 30px;
+    text-align: center;
+    margin: 30px;
   }
 
-  .donation{
-    align-items: center;
-    .image-div{
-      margin: 0;
-      width: 20%;
-      img{
-        width: 50px;
-        height: 50px;
-      }
+  .nandikeshwar-mahadev-image, .navdurga-mata-image{
+    img{
+      max-width: 250px;
     }
   }
 
-  .donation-text-div{
-    width: 80%;
-    flex-direction: column;
-
-    .amount-div{
-      margin-right: 30px;
-
-      p{
-        color: rgb(77, 189, 77);
-      }
-    }
+  .container{
+    flex-direction: column-reverse;
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 768px){
-  .first-div, .third-div, .second-div{
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
+  .background-image-div{
+    height: 50vh;
 
-  .image-div{
-    width: 100%;
-    text-align: center;
-  
-    img{
-      width: 85%;
-    }
-  }
-  .text-div{
-    width: 100%;
-    padding: 10px 0px;
-    margin-top: 30px;
-  }
-
-  h1{
-    font-size: 30px;
-  }
-
-  .donation{
-    align-items: center;
-    .image-div{
-      margin: 0;
-      width: 20%;
-      img{
-        width: 70px;
-        height: 70px;
-      }
-    }
-  }
-
-  .donation-text-div{
-    width: 80%;
-    justify-content: space-between;
-    align-items: center;
-    .amount-div{
-      margin-right: 30px;
-
-      p{
-        background-color: rgb(77, 189, 77);
+    div{
+      h1,p{
         color: white;
-        border-radius: 5px;
-        padding: 10px;
+        text-align: justify;
       }
+  
+      p{
+        font-size: medium;
+        letter-spacing: 0px;
+      }
+      
+    }
+  }
+  
+  .nandikeshwar-mahadev-div, .navdurga-mata-div{
+    margin: 100px 50px;
+  }
+
+  .nandikeshwar-mahadev-image, .navdurga-mata-image{
+    img{
+      max-width: 550px;
     }
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 992px){
-  .first-div, .third-div, .second-div{
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
+@media screen and (min-width: 768px) and (max-width: 992px){
+  .background-image-div{
+    height: 75vh;
 
-  .image-div{
-    width: 100%;
-    text-align: center;
-  
-    img{
+    .image-width{
       width: 75%;
     }
-  }
-  .text-div{
-    width: 100%;
-    padding: 10px 0px;
-    margin-top: 30px;
-  }
 
-  h1{
-    font-size: 40px;
+    h1,p{
+      color: white;
+      text-align: justify;
+    }
   }
-
-  h2{
-    font-size: x-large;
-  }
-
-  .donation{
-    align-items: center;
-    .image-div{
-      margin: 0;
-      width: 20%;
-      img{
-        width: 70px;
-        height: 70px;
-      }
+  
+  .nandikeshwar-mahadev-image, .navdurga-mata-image{
+    img{
+      max-width: 500px;
     }
   }
 
-  .donation-text-div{
-    width: 80%;
-    justify-content: space-between;
-    align-items: center;
-    .amount-div{
-      margin-right: 30px;
-
-      p{
-        background-color: rgb(77, 189, 77);
-        color: white;
-        border-radius: 5px;
-        padding: 10px;
-      }
+  .nandikeshwar-mahadev-div, .navdurga-mata-div{
+    margin: 100px 25px;
+    div{
+      padding: 30px;
     }
   }
 }
 
-@media screen and (min-width: 993px) and (max-width: 1200px){
-  .first-div, .third-div{
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 30px;
-  }
+@media screen and (min-width: 993px){
+  .background-image-div{
+    height: 100vh;
 
-  .second-div{
-    flex-direction: row-reverse;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-
-  .image-div{
-    text-align: center;
-  
-    img{
-      width: 450px;
-      height: 300px;
+    .image-width{
+      width: 75%;
     }
-  }
-  .text-div{
-    padding: 10px;
-  }
 
-  h1{
-    font-size: 35px;
-  }
-
-  h2{
-    font-size: x-large;
-  }
-
-  .donation{
-    align-items: center;
-    .image-div{
-      margin: 0;
-      width: 20%;
-      img{
-        width: 70px;
-        height: 70px;
-      }
-    }
-  }
-
-  .donation-text-div{
-    width: 80%;
-    justify-content: space-between;
-    align-items: center;
-    .amount-div{
-      margin-right: 30px;
-
-      p{
-        background-color: rgb(77, 189, 77);
+    div{
+      h1,p{
         color: white;
-        border-radius: 5px;
-        padding: 10px;
+        text-align: justify;
       }
-    }
-  }
-}
-
-@media screen and (min-width: 1200px){
-  .first-div, .third-div{
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  .second-div{
-    flex-direction: row-reverse;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  .image-div{
-    padding: 25px;
-    text-align: center;
-    position: relative;
   
-    img{
-      width: 500px;
-      height: 333px;
-    }
-  }
-  .text-div{
-    padding: 25px;
-  }
-
-  h1{
-    font-size: 40px;
-  }
-
-  h2{
-    font-size: x-large;
-  }
-
-  .donation{
-    .image-div{
-      img{
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-      }
-    }
-  }
-
-  .donation-text-div{
-    margin-left: 10px;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    p{
-      margin: 0;
-      padding: 0;
-      font-size: large;
-    }
-
-    .amount-div{
-      margin-right: 30px;
-
       p{
-        background-color: rgb(77, 189, 77);
-        color: white;
-        border-radius: 5px;
-        padding: 10px;
+        font-size: large;
+        letter-spacing: 3px;
       }
+      
+    }
+  }
+  
+  .nandikeshwar-mahadev-image, .navdurga-mata-image{
+    img{
+      max-width: 450px;
+    }
+  }
+
+  .nandikeshwar-mahadev-div, .navdurga-mata-div{
+    margin: 100px 70px;
+    div{
+      padding: 30px;
     }
   }
 }
