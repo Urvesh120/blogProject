@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { LoaderService } from 'src/app/services/loader.service';
 import Swal from 'sweetalert2';
 import { HttpService } from '../../../services/http.service';
@@ -23,7 +22,6 @@ export class EditprofileComponent implements OnInit {
   profileImage : any;
   selectedValue : any;
   profileData : any;
-  model!: NgbDateStruct;
 
   RegistrationFormGroup: any;
   isJob : boolean = true;

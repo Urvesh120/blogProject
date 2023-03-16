@@ -1,3 +1,11 @@
+label{
+    color: #f87060;
+    margin: 10px 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: medium;
+}
+
 
 input:disabled {
     color: black;
@@ -106,7 +114,8 @@ mat-label{
 
 @media screen and (min-width: 0px) and (max-width: 600px){
     .main-content-div{
-        padding-bottom: 60px;
+        padding: 0 20px 60px 20px;
+        background-color: transparent;
     
         .profile-picture-div{
             .image img{
@@ -129,7 +138,7 @@ mat-label{
             width: 100%;
             padding: 20px 0;
             border-radius: 0px !important;
-            background-color: rgb(#e9d5d5, $alpha : 1.001);
+            background-color: transparent;
         }
     }
 

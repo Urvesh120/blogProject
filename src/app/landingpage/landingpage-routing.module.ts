@@ -11,6 +11,7 @@ import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandi
 import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
 import { ProfileComponent } from './userlist/profile/profile.component';
+import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path : 'home', component : HomeComponent},
     {path : 'trusts', component : TrustsComponent},
     {path : 'mandal', component : MandalComponent},
+    {path : 'nearest-places', component : NearestplacesComponent},
     {path : 'nondera-pragati-mandal', component : NonderapragatiComponent},
     {path : 'nandikeshwar-mahadev-trusts', component : NandikeshwarmahadevComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},

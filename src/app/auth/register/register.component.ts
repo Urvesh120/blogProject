@@ -3,11 +3,9 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { LoaderService } from 'src/app/services/loader.service';
 
-import { CountryISO, SearchCountryField } from "ngx-intl-tel-input";
 import { DomSanitizer } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
 @Component({
@@ -21,7 +19,6 @@ export class RegisterComponent<D> implements OnInit {
   selectedValue : any;
   reload = false;
 
-  model!: NgbDateStruct;
 
   imageBase64: string = "";
   imageType : string = "";
