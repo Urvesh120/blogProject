@@ -197,4 +197,32 @@ footer{
 }
 
 
+.navbar-div{
+  background-color: rgb(51, 51, 79);
+}
 
+.navbar-expand-lg .navbar-collapse {
+  justify-content: center;
+}
+
+.nav-item{
+  margin: 0 20px;
+  a{
+    color: white;
+    font-size: large;
+  }
+  a:hover{
+    color: rgb(139, 139, 171);
+  }
+
+  .dropdown-menu{
+    background-color: rgb(139, 139, 171);
+    a{
+      color: rgb(51, 51, 79);
+    }
+    .dropdown-item:hover{
+      background-color: transparent;
+      color: white;
+    }
+  }
+}

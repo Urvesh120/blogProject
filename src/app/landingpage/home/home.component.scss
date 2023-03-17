@@ -22,7 +22,27 @@
   background-color: rgba(51, 51, 79, 0.7);
 }
 
+.scanner-div{
+  margin: 100px 50px;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: rgba(51, 51, 79, 0.7);
+  align-items: center;
+  .name div{
+    margin: 0 20px;
+  }
+}
+
 @media screen and (min-width: 0px) and (max-width: 600px){
+
+  .scanner-div{
+    flex-direction: column-reverse;
+    align-items: center;
+    .qr-div{
+      margin-bottom: 30px;
+    }
+  }
+
   .background-image-div{
     height: 40vh;
 
@@ -58,6 +78,16 @@
 }
 
 @media screen and (min-width: 601px) and (max-width: 768px){
+
+  .scanner-div{
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0px !important;
+    .qr-div{
+      margin-bottom: 30px;
+    }
+  }
+
   .background-image-div{
     height: 50vh;
 
