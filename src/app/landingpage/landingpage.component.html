@@ -1,129 +1,6 @@
-<!-- <mat-toolbar class="mat-elevation-z8">
-  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon class="navbar-toggle-button" *ngIf="!sidenav.opened"> <img src="../../assets/icons/shiva.png" alt=""> </mat-icon>
-    <mat-icon class="navbar-toggle-button" *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
-  <h1 style="text-align: center; flex: 1 1 auto;">શ્રી નૉંદેરા પરિવાર તમારું સ્વાગત કરે છે!</h1>
-  <button *ngIf="isLogedIn" mat-icon-button [routerLink]="['/user-profile']">
-    <mat-icon class="navbar-toggle-button"> account_circle </mat-icon>
-  </button>
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-
-    <div class="profile-div" *ngIf="isLogedIn">
-      <div class="image-div">
-        <img class="avatar mat-elevation-z8" [src]="image" alt="prifile image" />
-      </div>
-      <div class="name-div">
-        <h4 class="name">{{username}}</h4>
-      </div>
-    </div>
-
-    <div *ngIf="!isLogedIn" class="user-prifile loginButton">
-      <button style="color: #f87060" mat-button [routerLink]="['/auth/login']">લોગ ઈન / રજીસ્ટર </button>
-    </div>  
-  
-  <mat-divider></mat-divider>
-    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/home']">
-      <mat-icon style="color: #f87060;">home</mat-icon>
-      <span>હોમ</span>
-    </button>
-
-    <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-list']">
-      <mat-icon style="color: #f87060;">list</mat-icon>
-      <span>User list</span>
-    </button>
-    
-    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">view_carousel</mat-icon>
-      <span>ટ્રસ્ટ</span>
-    </button>
-
-    <button mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/mandal']">
-      <mat-icon style="color: #f87060;">view_carousel</mat-icon>
-      <span>મંડળ</span>
-    </button> -->
-
-<!-- <mat-accordion #accordion="matAccordion" [multi]="true">
-<mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      <button mat-button class="menu-button">
-        <mat-icon style="color: #f87060;">view_carousel</mat-icon>
-        <span>ટ્રસ્ટ</span>
-      </button>
-    </mat-panel-title>
-  </mat-expansion-panel-header>
-
-    <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-      <span>નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</span>
-    </button>
-
-    <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-      <span>નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</span>
-    </button>
-
-    <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-      <span>નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</span>
-    </button>
-    
-</mat-expansion-panel>   
-</mat-accordion> 
-
-<mat-accordion #accordion="matAccordion" [multi]="true">
-<mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      <button mat-button class="menu-button">
-        <mat-icon style="color: #f87060;">view_carousel</mat-icon>
-        <span>મંડળ</span>
-      </button>
-    </mat-panel-title>
-  </mat-expansion-panel-header>
-
-    <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-      <span>નૉંદેરા પ્રગતિ મંડળ</span>
-    </button>
-
-    <button mat-button class="menu-button" (click)="sidenav.close(); accordion.closeAll()" [routerLink]="['/trusts']">
-      <mat-icon style="color: #f87060;">subdirectory_arrow_right</mat-icon>
-      <span>મહિલા મંડળ</span>
-    </button>
-</mat-expansion-panel>   
-</mat-accordion>  -->
-
-<!-- <button *ngIf="isLogedIn" mat-button class="menu-button" (click)="sidenav.close()" [routerLink]="['/user-profile']">
-      <mat-icon style="color: #f87060;">person</mat-icon>
-      <span>પ્રોફાઈલ</span>
-    </button>
-
-    <button mat-button class="menu-button" [routerLink]="['/home']">
-      <mat-icon style="color: #f87060;">info</mat-icon>
-      <span>સંપર્ક</span>
-    </button>
-
-    <button *ngIf="isLogedIn" (click)="logout()" (click)="sidenav.close()"  mat-button class="menu-button" [routerLink]="['/home']">
-      <mat-icon style="color: #f87060;">logout</mat-icon>
-      <span>લોગ આઉટ</span>
-    </button>
-
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
 <!-- Navbar Start -->
 <div class="navbar-div">
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <a class="navbar-brand" href="#"></a>
     <button
       class="navbar-toggler"
@@ -134,10 +11,10 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon text-light"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse text-center navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav text-center">
         <li class="nav-item">
           <a
@@ -174,23 +51,23 @@
               class="dropdown-item"
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
-              [routerLink]="['/trusts']"
+              [routerLink]="['/nandikeshwar-mahadev-trusts']"
               >શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a
             >
             <a
               class="dropdown-item"
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
-              [routerLink]="['/trusts']"
+              [routerLink]="['/nandikeshwar-mahadev-trusts']"
               >શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a
             >
-            <a
+            <!-- <a
               class="dropdown-item"
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
               [routerLink]="['/trusts']"
               >શ્રી નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</a
-            >
+            > -->
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -210,14 +87,14 @@
               class="dropdown-item"
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
-              [routerLink]="['/mandal']"
+              [routerLink]="['/nondera-pragati-mandal']"
               >નૉંદેરા પ્રગતિ મંડળ</a
             >
             <a
               class="dropdown-item"
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
-              [routerLink]="['/mandal']"
+              [routerLink]="['/nondera-pragati-mandal']"
               >મહિલા મંડળ</a
             >
           </div>
