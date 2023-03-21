@@ -1,0 +1,46 @@
+$dark-blue : rgb(51, 51, 79);
+
+table tr:nth-child(2n-1){
+    background: rgba($color: $dark-blue, $alpha: 0.2);
+}
+
+.background-image-div {
+    background-image: url(../../../../assets/nearest-places/background-image.jpg);
+    min-height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.text-div {
+    background-color: rgba($color: #d4d0ed, $alpha: 0.75);
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: rgb(51, 51, 79);
+    }
+}
+
+.audio-div{
+    padding: 50px;
+}
+
+@media (min-width: 0px) and (max-width: 768px){
+    table tr td{
+        display: block;
+        text-align: left;
+    }
+
+    .audio-div{
+        padding: 20px;
+    }
+}

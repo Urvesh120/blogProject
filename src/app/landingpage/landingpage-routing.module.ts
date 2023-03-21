@@ -12,6 +12,8 @@ import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
 import { ProfileComponent } from './userlist/profile/profile.component';
 import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
+import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
+import { VideomediaComponent } from './media/videomedia/videomedia.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -23,6 +25,8 @@ const routes: Routes = [
     {path : 'nearest-places', component : NearestplacesComponent},
     {path : 'nondera-pragati-mandal', component : NonderapragatiComponent},
     {path : 'nandikeshwar-mahadev-trusts', component : NandikeshwarmahadevComponent},
+    {path : 'audio', component : AudiomediaComponent},
+    {path : 'video', component : VideomediaComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
     {path : 'profile-preview', component : ProfileComponent,canActivate:[AuthGuard]},

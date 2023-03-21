@@ -126,6 +126,43 @@
             >સંપર્ક</a
           >
         </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          Media
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a
+              class="dropdown-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              [routerLink]="['/audio']"
+              >ભજન-ભક્તિ-કીર્તન
+              </a
+            >
+            <a
+              class="dropdown-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              [routerLink]="['/audio']"
+              >દર્શન</a
+            >
+            <!-- <a
+              class="dropdown-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              [routerLink]="['/trusts']"
+              >શ્રી નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</a
+            > -->
+          </div>
+        </li>
       </ul>
       <button
         *ngIf="!isLogedIn"

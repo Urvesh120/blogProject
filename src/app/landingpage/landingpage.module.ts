@@ -19,7 +19,9 @@ import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandi
 import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { NearestplacesComponent } from './nearestplaces/nearestplaces.component'; 
+import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
+import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
+import { VideomediaComponent } from './media/videomedia/videomedia.component'; 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -40,6 +42,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MandalComponent,
     NonderapragatiComponent,
     NearestplacesComponent,
+    AudiomediaComponent,
+    VideomediaComponent,
   ],
   imports: [
     CommonModule,
