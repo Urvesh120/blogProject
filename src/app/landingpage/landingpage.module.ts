@@ -21,7 +21,8 @@ import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.
 import { MatNativeDateModule } from '@angular/material/core';
 import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
 import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
-import { VideomediaComponent } from './media/videomedia/videomedia.component'; 
+import { VideomediaComponent } from './media/videomedia/videomedia.component';
+import { PhotomediaComponent } from './media/photomedia/photomedia.component'; 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -44,6 +45,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NearestplacesComponent,
     AudiomediaComponent,
     VideomediaComponent,
+    PhotomediaComponent,
   ],
   imports: [
     CommonModule,

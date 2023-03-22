@@ -1,0 +1,56 @@
+$bs-gutter-x: 1.5rem;
+$bs-gutter-y: 0;
+$dark-blue : rgb(51, 51, 79);
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc($bs-gutter-y * -1);
+    margin-right: calc($bs-gutter-x * -.5);
+    margin-left: calc($bs-gutter-x * -.5);
+}
+
+h6 {
+    font-size: 18px;
+    line-height: 1.7;
+    color: $dark-blue;
+    font-weight: 600;
+    text-align: center;
+}
+
+.background-image-div {
+    background-image: url(../../../../assets/nearest-places/background-image.jpg);
+    min-height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.text-div {
+    background-color: rgba($color: #d4d0ed, $alpha: 0.75);
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: rgb(51, 51, 79);
+    }
+}
+
+.video-div{
+    background-color: rgba($color: $dark-blue, $alpha: 0.3);
+    padding: 10px;
+    max-width: 450px;
+    margin: 20px 20px;
+    border-radius: 5px;
+}
+
+.sigma_broadcast-video{
+    margin: 0 50px;
+}

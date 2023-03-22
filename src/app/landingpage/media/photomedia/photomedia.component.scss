@@ -1,12 +1,5 @@
-$dark-blue : rgb(51, 51, 79);
-
-table tr:nth-child(2n-1){
-    background: rgba($color: $dark-blue, $alpha: 0.1);
-}
-
-p{
-    font-size: 17px;
-}
+$laptop-image-width : 400px;
+$mobile-image-width : 250px;
 
 .background-image-div {
     background-image: url(../../../../assets/nearest-places/background-image.jpg);
@@ -34,17 +27,24 @@ p{
     }
 }
 
-.audio-div{
-    padding: 50px;
+.title-div{
+    background-color: rgb(51, 51, 79);
+    padding: 10px;
+    color: white;   
 }
 
-@media (min-width: 0px) and (max-width: 768px){
-    table tr td{
-        display: block;
-        text-align: left;
-    }
+.image-container{
+    border: 3px solid rgb(51, 51, 79);
+    border-radius: 0.25rem;
+}
 
-    .audio-div{
-        padding: 20px;
+@media screen and (min-width: 0px) and (max-width: 768px){
+    .main-title-div{
+        h1{
+            margin-top: 60px;
+            font-size: 25px;
+            letter-spacing: 2px;
+            line-height: 40px;
+        }
     }
 }
