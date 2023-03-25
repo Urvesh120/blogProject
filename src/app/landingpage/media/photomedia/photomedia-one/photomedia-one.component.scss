@@ -1,0 +1,30 @@
+.image-container{
+    border: 3px solid rgb(51, 51, 79);
+    border-radius: 0.25rem;
+}
+
+.background-image-div {
+    background-image: url(../../../../../assets/nearest-places/background-image.jpg);
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.text-div {
+    background-color: rgba($color: #d4d0ed, $alpha: 0.75);
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: rgb(51, 51, 79);
+    }
+}

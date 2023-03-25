@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotomediaComponent implements OnInit {
 
+  image1Path  = "../../../assets/images/imageSlider1.jpeg";
+
   constructor() { }
 
   ngOnInit(): void {
