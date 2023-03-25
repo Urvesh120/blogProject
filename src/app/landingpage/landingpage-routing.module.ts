@@ -15,6 +15,9 @@ import { NearestplacesComponent } from './nearestplaces/nearestplaces.component'
 import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
 import { VideomediaComponent } from './media/videomedia/videomedia.component';
 import { PhotomediaComponent } from './media/photomedia/photomedia.component';
+import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photomedia-one.component';
+import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
+import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -29,6 +32,9 @@ const routes: Routes = [
     {path : 'audio', component : AudiomediaComponent},
     {path : 'video', component : VideomediaComponent},
     {path : 'photo', component : PhotomediaComponent},
+    {path : 'photo-one', component : PhotomediaOneComponent},
+    {path : 'photo-two', component : PhotomediaTwoComponent},
+    {path : 'photo-three', component : PhotomediaThreeComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
     {path : 'profile-preview', component : ProfileComponent,canActivate:[AuthGuard]},

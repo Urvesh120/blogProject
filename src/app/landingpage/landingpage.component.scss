@@ -73,3 +73,30 @@ footer{
     }
   }
 }
+
+.loginButton, .logoutButton{
+  background-color: white;
+  border: 0;
+  font-weight: 600;
+  color: rgb(51, 51, 79);
+  letter-spacing: 1px;
+}
+
+@media (min-width: 0px) and (max-width: 992px) {
+  .nav-item{
+    margin: 10px 20px;
+  }
+
+  .buttons{
+    justify-content: center !important;
+  }
+}
+
+@media (min-width: 992px){
+  .nav-item{
+    margin: 0 20px;
+  }
+  .buttons{
+    justify-content: end !important;
+  }
+}

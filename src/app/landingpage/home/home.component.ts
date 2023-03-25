@@ -10,8 +10,8 @@ export class HomeComponent implements OnInit {
 
   showDescription1 : boolean = false;
   showDescription2 : boolean = false;
-  image1Path  = "../../../assets/images/imageSlider1.jpeg";
-  image2Path  = "../../../assets/images/imageSlider2.jpeg";
+  image1Path  = "../../../assets/images/imageSlider1.png";
+  image2Path  = "../../../assets/images/imageSlider2.png";
 
   constructor() { }
 

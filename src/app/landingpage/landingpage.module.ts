@@ -22,7 +22,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
 import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
 import { VideomediaComponent } from './media/videomedia/videomedia.component';
-import { PhotomediaComponent } from './media/photomedia/photomedia.component'; 
+import { PhotomediaComponent } from './media/photomedia/photomedia.component';
+import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photomedia-one.component';
+import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
+import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -46,6 +49,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AudiomediaComponent,
     VideomediaComponent,
     PhotomediaComponent,
+    PhotomediaOneComponent,
+    PhotomediaTwoComponent,
+    PhotomediaThreeComponent,
   ],
   imports: [
     CommonModule,
