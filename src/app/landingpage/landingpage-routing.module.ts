@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LandingpageComponent } from './landingpage.component';
-import { TrustsComponent } from './trusts/trusts.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { AuthGuard } from '../services/auth.guard';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandikeshwarmahadev.component';
-import { MandalComponent } from './mandal/mandal.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
 import { ProfileComponent } from './userlist/profile/profile.component';
 import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
@@ -18,6 +16,7 @@ import { PhotomediaComponent } from './media/photomedia/photomedia.component';
 import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photomedia-one.component';
 import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
 import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -35,6 +34,7 @@ const routes: Routes = [
     {path : 'photo-one', component : PhotomediaOneComponent},
     {path : 'photo-two', component : PhotomediaTwoComponent},
     {path : 'photo-three', component : PhotomediaThreeComponent},
+    {path : 'contact', component : ContactComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
     {path : 'profile-preview', component : ProfileComponent,canActivate:[AuthGuard]},

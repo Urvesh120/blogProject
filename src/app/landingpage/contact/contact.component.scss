@@ -1,0 +1,74 @@
+$dark-blue : #33334f;
+
+.background-image-div {
+    background-image: url(../../../assets/nearest-places/background-image.jpg);
+    min-height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.text-div {
+    background-color: rgba($color: #d4d0ed, $alpha: 0.75);
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: rgb(51, 51, 79);
+    }
+}
+
+.icon{
+    color: rgba($color: $dark-blue, $alpha: 1);
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+h1,h2{
+    margin: 0;
+    padding: 0;
+    color: $dark-blue;
+}
+
+h1{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card{
+    border: 3px solid $dark-blue;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgba($color: $dark-blue, $alpha: 0.2);
+    transition: transform 0.3s;
+}
+
+.row .card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+@media (min-width: 0px) and (max-width: 600px){
+    .row>*{
+        margin: 1.5rem;
+    }
+
+    .icon{
+        font-size: 35px;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+    h2{
+        font-size: 15px;
+    }
+}

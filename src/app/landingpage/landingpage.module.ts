@@ -26,6 +26,7 @@ import { PhotomediaComponent } from './media/photomedia/photomedia.component';
 import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photomedia-one.component';
 import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
 import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
+import { ContactComponent } from './contact/contact.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -52,6 +53,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PhotomediaOneComponent,
     PhotomediaTwoComponent,
     PhotomediaThreeComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,
