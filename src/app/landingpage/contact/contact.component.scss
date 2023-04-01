@@ -44,17 +44,33 @@ h1{
 }
 
 .card{
-    border: 3px solid $dark-blue;
+    border: none;
     height: 100%;
     border-radius: 10px;
-    background-color: rgba($color: $dark-blue, $alpha: 0.2);
+    background-color: rgba($color: $dark-blue, $alpha: 0.1);
     transition: transform 0.3s;
 }
 
-.row .card:hover{
-    transform: scale(1.05);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+.row{
+    width: 100%;
+    height: 100%;
+     .card:hover{
+        transform: scale(1.01);
+        border: none;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
 }
+
+.loaction-map-div{
+    padding: 100px 50px 20px 50px;
+    .map-class {
+        width: 100%;
+        height: 500px;
+        border-radius: 10px;
+    }
+}
+
+
 
 @media (min-width: 0px) and (max-width: 600px){
     .row>*{
@@ -70,5 +86,13 @@ h1{
     }
     h2{
         font-size: 15px;
+    }
+
+    .loaction-map-div{
+        padding: 20px;
+        .map-class {
+            width: 100%;
+            height: 250px;
+        }
     }
 }

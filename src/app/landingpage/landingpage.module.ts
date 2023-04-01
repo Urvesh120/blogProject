@@ -27,6 +27,9 @@ import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photom
 import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
 import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
 import { ContactComponent } from './contact/contact.component';
+import { DonationComponent } from './donation/donation.component';
+import { NandikeshwarcharitableComponent } from './trusts/nandikeshwarcharitable/nandikeshwarcharitable.component';
+import { MahilaComponent } from './mandal/mahila/mahila.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -54,6 +57,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PhotomediaTwoComponent,
     PhotomediaThreeComponent,
     ContactComponent,
+    DonationComponent,
+    NandikeshwarcharitableComponent,
+    MahilaComponent,
   ],
   imports: [
     CommonModule,

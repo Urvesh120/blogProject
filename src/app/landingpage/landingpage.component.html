@@ -17,17 +17,16 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ટ્રસ્ટ</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" 
-            [routerLink]="['/nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a>
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a>
             <!-- <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/trusts']">શ્રી નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</a> -->
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">મંડળ</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nondera-pragati-mandal']">નૉંદેરા પ્રગતિ મંડળ</a>
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nondera-pragati-mandal']">મહિલા મંડળ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-pragati-mandal']">શ્રી નૉંદેરા પ્રગતિ મંડળ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-mahila-mandal']">શ્રી મહિલા મંડળ</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -39,10 +38,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nearest-places']">નજીકના સ્થળો</a>
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nearest-places']">નજીકના આકર્ષણો</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">દાન-દક્ષિણા</a>
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/donation']">દાન-દક્ષિણા</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']">સંપર્ક</a>
@@ -53,7 +52,6 @@
         <li class="nav-item" *ngIf="isLogedIn">
           <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/user-profile']">પ્રોફાઈલ</a>
         </li>
-        
       </ul>
       <div class="buttons d-flex flex-fill">
         <button *ngIf="!isLogedIn" [routerLink]="['/auth/login']"class="btn loginButton">Log In</button>
@@ -72,73 +70,36 @@
 
 <!-- Footer Start -->
 <footer>
-  <div class="container py-5">
-    <div class="row py-4">
-      <div class="col-12"><h1>નોંદેરા પરીવાર</h1></div>
+  <div class="container py-3">
+    <div class="row py-3">
+      <div class="col-12 text-center mb-5"><h1>નોંદેરા પરીવાર</h1></div>
       <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-        <h2>સરનામું:</h2>
+        <h2><i class="fa fa-location-dot icon mr-3"></i>સરનામું</h2>
         <p>શ્રી નંદિકેશ્વર મહાદેવ મંદિર</p>
         <p>જીતનગર, રાજપીપળા,</p>
         <p>ગુજરાત 393155, ભારત.</p>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
         <div>
-          <h2><i class="fa fa-phone mr-3"></i>ફોન:</h2>
+          <h2><i class="fa fa-phone mr-3"></i>ફોન</h2>
           <p>+91 2640 251056</p>
         </div>
         <div>
-          <h2><i class="fa fa-phone mr-3"></i>મોબાઈલ:</h2>
-          <p>+91 94271 31056, +91 98798 98211</p>
+          <h2><i class="fa-solid fa-mobile-screen mr-3"></i>મોબાઈલ</h2>
+          <p>+91 94271 31056</p>
+          <p>+91 98798 98211</p>
         </div>
-        <ul class="social list-inline mt-4">
-          <li class="list-inline-item">
-            <a
-              class="social-media-icon"
-              href="#"
-              target="_blank"
-              title="twitter"
-              ><i class="fa fa-twitter"></i
-            ></a>
-          </li>
-          <li class="list-inline-item">
-            <a
-              class="social-media-icon"
-              href="#"
-              target="_blank"
-              title="facebook"
-              ><i class="fa fa-facebook"></i
-            ></a>
-          </li>
-          <li class="list-inline-item">
-            <a
-              class="social-media-icon"
-              href="#"
-              target="_blank"
-              title="instagram"
-              ><i class="fa fa-instagram"></i
-            ></a>
-          </li>
-          <li class="list-inline-item">
-            <a
-              class="social-media-icon"
-              href="https://www.youtube.com/watch?v=9K_vMgQef78"
-              target="_blank"
-              title="youtube"
-              ><i class="fa fa-youtube-play"></i
-            ></a>
-          </li>
-        </ul>
       </div>
       <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
           <!-- Links -->
-          <h2>સંબંધિત લિંક્સ:</h2>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>હોમ</p>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>ટ્રસ્ટ</p>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>મંડળ</p>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>મીડિયા</p>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>નજીકના આકર્ષણો</p>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>દાન-દક્ષિણા</p>
-          <p><i class="fa-sharp fa-solid fa-om footer-icons"></i>સંપર્ક</p>
+          <h2><i class="fa fa-paperclip mr-3"></i>સંબંધિત લિંક્સ</h2>
+          <a class="btn text-light" [routerLink]="['/home']">મુખ પૃષ્ઠ</a><br>
+          <a class="btn text-light" [routerLink]="['/trusts']">ટ્રસ્ટ</a><br>
+          <a class="btn text-light" [routerLink]="['/mandal']">મંડળ</a><br>
+          <a class="btn text-light" [routerLink]="['/audio']">મીડિયા</a><br>
+          <a class="btn text-light" [routerLink]="['/nearest-places']">નજીકના આકર્ષણો</a><br>
+          <a class="btn text-light" [routerLink]="['/donation']">દાન-દક્ષિણા</a><br>
+          <a class="btn text-light" [routerLink]="['/contact']">સંપર્ક</a><br>
       </div>
       <div class="col-lg-4 col-md-6 mb-lg-0 text-center">
         <div class="d-flex flex-column align-items-center">
@@ -149,6 +110,22 @@
             />
           </div>
         </div>
+      </div>
+      <div class="col-12 text-center mt-3">
+        <ul class="social list-inline mt-4">
+          <li class="list-inline-item">
+            <a class="social-media-icon" href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-media-icon" href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-media-icon" href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-media-icon" href="https://www.youtube.com/watch?v=9K_vMgQef78" target="_blank" title="youtube"><i class="fa fa-youtube-play"></i></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
