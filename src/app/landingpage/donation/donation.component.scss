@@ -1,5 +1,19 @@
 $dark-blue : #33334f;
 
+.title-quote{
+    background-color: rgba($color: $dark-blue, $alpha: 0.3);
+    padding: 30px;
+
+    h1{
+        color: $dark-blue;
+        font-weight: 600;
+        padding: 0;
+        margin: 0;
+        line-height: 40px;
+    }
+}
+
+
 .background-image-div {
     background-image: url(../../../assets/nearest-places/background-image.jpg);
     min-height: 250px;
