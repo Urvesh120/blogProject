@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   showDescription2 : boolean = false;
   image1Path  = "../../../assets/images/imageSlider1.png";
   image2Path  = "../../../assets/images/imageSlider2.png";
+  image3Path  = "../../../assets/images/Rang-Avadhot-1.jpg";
 
   constructor() { }
 
