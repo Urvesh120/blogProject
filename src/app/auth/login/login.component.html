@@ -1,6 +1,6 @@
-<div class="main-div">
+<!-- <div class="main-div">
   <div class="svg-div">
-    <img [src]="loginImage" alt="">
+    <img src="../../../assets/images/login _page.png" alt="">
   </div>
   <div class="form-div">
     <div class="loginFormDiv">
@@ -42,5 +42,50 @@
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+
+<div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row flex-xl-row justify-content-lg-around justify-content-xl-around align-items-center login-page-div">
+  <div class="image-div w-50 text-center mt-5">
+    <img class="img-fluid" src="../../../assets/images/login _page.png" alt="">
+    <h4>
+      અમે ભગવાન શિવની પૂજા કરીએ છીએ, જેમને ત્રણ આંખો છે,
+    </h4>
+    <h4>
+      જે દરેક શ્વાસમાં જીવન શક્તિનો સંચાર કરે છે અને સમગ્ર વિશ્વને ટકાવી રાખે છે.
+    </h4>
+  </div>
+  <div class="form-div p-3 p-sm-3 p-md-3 p-lg-5 p-xl-5">
+      <h1 class="text-center font-weight-bold">લોગીન</h1>
+      <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+        <div class="email-div my-3">
+          <input type="text" class="form-control" formControlName="emailOrContact" placeholder="ઈમેલ અથવા ફોન નંબર">
+          <span *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">લોગિન માટે ઈમેલ અથવા ફોન નંબર જરૂરી છે.</span>
+        </div>
+        <div class="password-div my-3">
+          <input type="password" class="form-control" formControlName="password" placeholder="પાસવર્ડ">
+          <span *ngIf="password && password.invalid && password.touched">કૃપા કરીને માન્ય પાસવર્ડ દાખલ કરો.</span>
+        </div>
+
+        <div class="links d-flex flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row justify-content-sm-around justify-content-md-around justify-content-lg-around justify-content-xl-around">
+          <div class="link">
+            <a (click)="forgotPass()">તમારો પાસવર્ડ ભૂલી ગયા છો?</a>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <button class="btn login-button" type="submit">લોગીન</button>
+        </div>
+      </form>
+
+      <div class="links d-flex flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row justify-content-sm-around justify-content-md-around justify-content-lg-around justify-content-xl-around">
+        <div class="link">
+          <a [routerLink]="['/auth/register']">તમારું એકાઉન્ટ બનાવો</a>
+        </div>
+        <div class="link">
+          <a class="homeButton" [routerLink]="['/home']">હોમ પેજ પર પાછા ફરો</a>
+        </div>
+      </div>
   </div>
 </div>

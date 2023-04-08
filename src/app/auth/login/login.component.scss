@@ -1,181 +1,131 @@
-$gray-color-shade : #cdd7d6;
-$orange-gray-color-shade : #f87060;
+$dark-blue : rgb(51, 51, 79);
+$light-dark-blue : rgb(126, 126, 182);
 
-mat-form-field{
-  width: 100%;
-  margin-bottom: 10px;
+*{
+  background-color: $light-dark-blue;
 }
 
-.swal2-styled.swal2-confirm {
-  border: 0;
-  border-radius: .25em;
-  background: initial;
-  background-color: #f87060;
-  color: #fff;
-  font-size: 1em;
+.login-page-div{
+  height: 100vh;
 }
 
-
-.loginButton{
-  width: 100%;
-  margin-top: 20px;
-  font-size: larger;
-  font-weight: 500;
-  color: white ;
-  background-color: $orange-gray-color-shade;
-  border-radius: 10px;
+h1{
+  color: $dark-blue;
 }
 
-.homeButtonDiv, .registerButtonDiv{
-    
+.login-button{
+  background-color: $dark-blue;
+  color: $light-dark-blue;
+}
+
+span{
+  color: rgb(135, 45, 45);
+}
+
+input[type="text"], input[type="password"]{
+  border: 1px solid $dark-blue;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+  box-shadow: none;
+  background-color: $light-dark-blue;
+}
+
+.form-control::placeholder {
+  color: $dark-blue;
+}
+
+.links{
   a{
-    color: $orange-gray-color-shade;
-    text-decoration: none;
-  }
-
-  text-align: center;
-  margin-top: 30px;
-}
-
-.title-div h1{
-  font-size: xx-large;
-  font-weight: 500;
-  color: $orange-gray-color-shade;
-  text-align: center;
-}
-/*End of input style*/
-
-.navigation{
-  display: flex;
-  justify-content: space-around;
-}
-
-.navigation-div{
-  text-align: center;
-  a{
-    color: #f87060;
+    color: $dark-blue;
     text-decoration: none;
   }
 }
 
-@media screen and (max-width: 767px){
-
-  .navigation{
-    flex-direction: column-reverse;
-  }
-
-  .navigation-div{
-    margin: 10px 0px;
-  }
-
-  .main-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 1000px;
-  }
-
-  .svg-div{
-    width: 60%;
-  }
-
-  .svg-div img{
+@media (min-width: 0px) and (max-width: 578.98px){
+  .form-div{
     width: 100%;
   }
 
-  .form-div{
-    text-align: -webkit-center;
-    width: 80%;
+  h1{
+    font-size: 30px;
   }
 
-  .loginFormDiv{
-    margin: 0;
-    padding: 0;
-  }
-}
-
-@media screen and (min-width: 768px){
-
-  .navigation{
-    flex-direction: row-reverse;
+  .login-button{
+    padding: 5px 50px;
+    margin: 20px 0;
+    font-size: 20px;
   }
 
-  .navigation-div{
-    margin: 25px 0px;
-  }
-
-  .svg-div{
+  .links{
     text-align: center;
-    width: 44%;
-  }
 
-  .svg-div img{
-    width: 100%;
-  }
-
-  .form-div{
-    padding: 0px 50px;
-    text-align: -webkit-center;
-    width: 100%;
+    .link{
+      margin: 10px 0;
+    }
   }
 }
 
-@media screen and (min-width: 992px){
-  .main-div{
-    width: 1000px;
-    height: 600px;
-    margin: 0 15%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 1000px;
-  }
-  
-  .svg-div{
-    width: 50%;
-  }
-  .svg-div img{
+@media (min-width: 576px) and (max-width: 767.98px){
+  .form-div{
     width: 100%;
   }
-  
-  .form-div{
-    padding-top: 50px;
-    width: 50%;
+
+  h1{
+    font-size: 30px;
   }
-  
-  .loginFormDiv{
-    margin: 10%;
-    background-color: white;
+
+  .login-button{
+    padding: 5px 50px;
+    margin: 20px 0;
+    font-size: 20px;
   }
 }
 
-@media screen and (min-width: 1200px){
-  .main-div{
-    width: 1000px;
-    height: 600px;
-    margin: 0 15%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 1000px;
-  }
-  
-  .svg-div{
-    width: 50%;
-  }
-  .svg-div img{
+@media (min-width: 768px) and (max-width: 991.98px){
+  .form-div{
     width: 100%;
   }
-  
+
+  h1{
+    font-size: 30px;
+  }
+
+  .login-button{
+    padding: 5px 50px;
+    margin: 20px 0;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px){
   .form-div{
-    padding-top: 50px;
     width: 50%;
   }
-  
-  .loginFormDiv{
-    margin: 10%;
-    background-color: white;
+
+  h1{
+    font-size: 40px;
+  }
+
+  .login-button{
+    padding: 5px 50px;
+    margin: 20px 0;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1200px){
+  .form-div{
+    width: 50%;
+  }
+
+  h1{
+    font-size: 40px;
+  }
+
+  .login-button{
+    padding: 5px 50px;
+    margin: 20px 0;
+    font-size: 30px;
   }
 }

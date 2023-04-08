@@ -15,7 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class LoginComponent implements OnInit {
 
-  loginImage = 'assets/illustators/Login.svg';
+  loginImage = './assets/images/login_page.png';
 
   //snack bar position
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
