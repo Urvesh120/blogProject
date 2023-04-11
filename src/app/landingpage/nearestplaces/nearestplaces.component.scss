@@ -48,3 +48,24 @@ $mobile-image-width : 250px;
         }
     }
 }
+
+$light-blue : #C9C9FD;
+$dark-blue : rgb(51, 51, 79);
+
+.title-div{
+    background-color: $light-blue;
+    padding: 10px;
+    color: $dark-blue;
+    h2{
+      font-weight: bold;
+    }
+}
+
+.image-container{
+  background-color: $dark-blue;
+  padding: 7px 7px 50px 7px;
+}
+
+h2{
+  max-width: 400px;
+}

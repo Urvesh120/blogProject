@@ -55,6 +55,7 @@
 
 $dark-blue : rgb(51, 51, 79);
 
+
 .card{
   max-width: 25rem;
   border: 3px solid rgb(51, 51, 79);
@@ -69,3 +70,29 @@ $dark-blue : rgb(51, 51, 79);
   color: whitesmoke;
   background-color: $dark-blue;
 }
+
+
+//nearest
+$light-blue : #C9C9FD;
+
+.title-div{
+    background-color: $light-blue;
+    padding: 10px;
+    color: $dark-blue;
+    h2{
+      font-weight: bold;
+    }
+}
+
+.image-container{
+  background-color: $dark-blue;
+  padding: 7px 7px 50px 7px;
+  .image-div img{
+    width: 100%;
+  }
+}
+
+h2{
+  max-width: 400px;
+}
+
