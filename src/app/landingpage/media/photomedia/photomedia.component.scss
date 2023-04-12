@@ -1,6 +1,19 @@
 // $laptop-image-width : 400px;
 // $mobile-image-width : 250px;
 
+$light-blue : #C9C9FD;
+$dark-blue : rgb(51, 51, 79);
+
+
+.title-tag-div{
+  h1{
+    background-color: $light-blue;
+    color: $dark-blue;
+    padding: 15px 25px;
+    border-radius: 20px;
+  }
+}
+
 .background-image-div {
     background-image: url(../../../../assets/nearest-places/background-image.jpg);
     min-height: 200px;
@@ -94,5 +107,31 @@ $light-blue : #C9C9FD;
 
 h2{
   max-width: 400px;
+}
+
+.background{
+  // background-image: url('../../../../assets/video-galary/background.png');
+  background-color: black;
+  min-height: 350px;
+  background-size: cover;
+
+  .upper-background .image{
+    img{
+      max-width: 100%;
+      margin: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 992px){
+.background{
+  .upper-background .image{
+    text-align: center;
+    img{
+      max-width: 60%;
+      margin: 30px;
+    }
+  }
+}
 }
 

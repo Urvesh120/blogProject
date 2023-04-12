@@ -15,3 +15,26 @@ $light-blue : #C9C9FD;
   color: $dark-blue;
   background-color: white;
 }
+
+.title-tag-div{
+  h1{
+    background-color: $light-blue;
+    color: $dark-blue;
+    padding: 15px 25px;
+    border-radius: 20px;
+  }
+}
+
+.background{
+  background-image: url('../../../../assets/audio-galary/backgroung.png');
+  background-color: black;
+  min-height: 350px;
+  background-size: 100% 100%;
+
+  .upper-background .image{
+    img{
+      max-width: 100%;
+      margin: 30px;
+    }
+  }
+}
