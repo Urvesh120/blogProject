@@ -39,6 +39,10 @@
   border-radius: 0.25rem;
 }
 
+.margin-left-12{
+  margin-left: 12px;
+}
+
 @media screen and (min-width: 0px) and (max-width: 600px){
 
   .image-container{
@@ -204,7 +208,7 @@
   }
 
   .nandikeshwar-mahadev-div, .navdurga-mata-div, .rang-avadhut-div{
-    margin: 100px 70px;
+    margin: 100px 30px;
     div{
       padding: 30px;
     }
