@@ -21,11 +21,12 @@ h1{
 }
 
 footer{
-  background-color: rgb(51, 51, 79);
+  background-color: $light-blue;
   background-image: url(../../assets/images/footer-background.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  color: white;
+  color: rgb(51, 51, 79);
+  background-blend-mode: initial;
 }
 
 .button-div{
@@ -130,9 +131,3 @@ footer{
     padding: 0 0 0 60px;
   }
 }
-
-// Footer CSS Start
-
-
-
-// Footer CSS End
