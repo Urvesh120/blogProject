@@ -10,9 +10,13 @@ $light-blue : #C9C9FD;
     color: $dark-blue;
 }
 
+.dark-blue-border{
+  border: 5px solid rgb(51, 51, 79);
+}
+
 .card{
   max-width: 25rem;
-  border: 3px solid rgb(51, 51, 79);
+  border: 10px solid rgb(51, 51, 79);
 }
 
 .btn{
@@ -30,15 +34,8 @@ $light-blue : #C9C9FD;
 }
 
 .background{
-  background-image: url('../../../../assets/audio-galary/backgroung.png');
+  background-image: url('../../../../assets/audio-galary/audio_backgroung.png');
   background-color: black;
   min-height: 350px;
   background-size: 100% 100%;
-
-  .upper-background .image{
-    img{
-      max-width: 100%;
-      margin: 30px;
-    }
-  }
 }

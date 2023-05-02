@@ -1,13 +1,15 @@
-<div class="main-div">
-  <div class="svg-div">
+<div class="main-div d-flex flex-column flex-lg-row">
+  <div class="svg-div text-center">
     <img [src]="registerImage" alt="" />
   </div>
   <div class="form-div">
-    <div class="title-div">
-      <h1>એકાઉન્ટ બનાવો</h1>
+    <div class="m-5 title-tag-div d-flex justify-content-center">
+      <div class="text-div">
+        <h1 class="font-weight-bold">એકાઉન્ટ બનાવો</h1>
+      </div>
     </div>
     <div>
-      <div class="inputDiv profile-div">
+      <div class="inputDiv profile-div d-flex flex-column align-items-center justify-content-center">
         <div class="profile-img-div">
           <img *ngIf="imageBase64" [src]="imageBase64" class="image" />
           <img *ngIf="!imageBase64" [src]="blankImage" class="image" />
@@ -26,398 +28,144 @@
       <form [formGroup]="RegistrationFormGroup" (ngSubmit)="register()">
         <!-- NAME -->
         <div>
-          <mat-form-field appearance="outline">
-            <mat-label>નામ</mat-label>
-            <input type="text" formControlName="firstname" matInput />
-            <mat-error
-              *ngIf="firstname && firstname.invalid && firstname.touched"
-              >Please enter your first name.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="firstname" placeholder="નામ">
+          <span *ngIf="firstname && firstname.invalid && firstname.touched">Please enter your first name.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>પિતાનું નામ</mat-label>
-            <input type="text" formControlName="middlename" matInput />
-            <mat-error
-              *ngIf="middlename && middlename.invalid && middlename.touched"
-              >Please enter your middle name.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" formControlName="middlename" class="form-control" placeholder="પિતાનું નામ">
+          <span *ngIf="middlename && middlename.invalid && middlename.touched">Please enter your middle name.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>અટક</mat-label>
-            <input type="text" formControlName="lastname" matInput />
-            <mat-error *ngIf="lastname && lastname.invalid && lastname.touched"
-              >Please enter your last name.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="lastname" placeholder="અટક">
+          <span *ngIf="lastname && lastname.invalid && lastname.touched">Please enter your last name.</span>
         </div>
 
         <!-- Father's Name -->
         <div>
-          <mat-form-field appearance="outline">
-            <mat-label>પિતાનું નામ</mat-label>
-            <input type="text" formControlName="ffirstname" matInput />
-            <mat-error
-              *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched"
-              >Please enter your father's first name.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="ffirstname" placeholder="પિતાનું નામ">
+          <span *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">Please enter your father's first name.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>પિતાના પિતાનું નામ</mat-label>
-            <input type="text" formControlName="fmiddlename" matInput />
-            <mat-error
-              *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched"
-              >Please enter your father's middle name.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="fmiddlename" placeholder="પિતાના પિતાનું નામ">
+          <span *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">Please enter your father's middle name.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>પિતાની અટક</mat-label>
-            <input type="text" formControlName="flastname" matInput />
-            <mat-error
-              *ngIf="flastname && flastname.invalid && flastname.touched"
-              >Please enter your father's surname.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="flastname" placeholder="પિતાની અટક">
+          <span *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's surname.</span>
         </div>
 
         <!-- Mother's Name -->
         <div>
-          <mat-form-field appearance="outline">
-            <mat-label> માતાનું પૂરું નામ</mat-label>
-            <input type="text" formControlName="mothername" matInput />
-            <mat-error
-              *ngIf="mothername && mothername.invalid && mothername.touched"
-              >Please enter your mother's name.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="mothername" placeholder="માતાનું પૂરું નામ">
+          <span *ngIf="mothername && mothername.invalid && mothername.touched">Please enter your mother's name.</span>
         </div>
 
         <!-- Contact Information -->
         <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Dial code</mat-label>
-            <mat-select formControlName="dialcode">
-              <mat-option
-                value="{{ item.dialCode }}"
-                *ngFor="let item of countryList"
-                >{{ item.dialCode }} {{ item.countryCode }}</mat-option
-              >
-            </mat-select>
-          </mat-form-field>
+          <select class="form-control" formControlName="dialcode">
+            <option value="{{ item.dialCode }}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</option>
+          </select>
+          <span *ngIf="dialcode && dialcode.invalid && dialcode.touched">Please select dial code.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label> ફોન નંબર</mat-label>
-            <input
-              type="tel"
-              minlength="10"
-              maxlength="10"
-              formControlName="contact"
-              matInput
-            />
-            <mat-error *ngIf="contact && contact.invalid && contact.touched"
-              >કૃપા કરીને તમારા પિતાની અટક દાખલ કરો.</mat-error
-            >
-          </mat-form-field>
+          <input type="tel" minlength="10" maxlength="10" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
+          <span *ngIf="contact && contact.invalid && contact.touched">Please enter valid phone number.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label> ઇમેઇલ</mat-label>
-            <input type="email" formControlName="email" matInput />
-            <!-- <mat-error *ngIf="email && email.invalid && email.touched">Please enter your father's last name.</mat-error> -->
-          </mat-form-field>
+          <input type="email" class="form-control" formControlName="email" placeholder="ઇમેઇલ">
+          <!-- <span *ngIf="email && email.invalid && email.touched">Please enter valid email.</span> -->
 
-          <mat-form-field appearance="outline">
-            <mat-label> પાસવર્ડ</mat-label>
-            <input
-              type="password"
-              formControlName="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              (keyup)="onPasswordValidation()"
-              matInput
-            />
-            <mat-error
-              *ngIf="password && password.touched && password.errors?.['required']"
-              >Password is required!</mat-error
-            >
-            <mat-error *ngIf="password.errors?.['pattern']"
-              >Password must contain at least one number,one uppercase and
-              lowercase letter, at least 8 or more characters.</mat-error
-            >
-          </mat-form-field>
+          <input type="password" class="form-control" formControlName="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" (keyup)="onPasswordValidation()" placeholder="પાસવર્ડ">
+          <span *ngIf="password && password.touched && password.errors?.['required']">Password is required!</span>
+          <span *ngIf="password.errors?.['pattern']">Password must contain at least one number,one uppercase and lowercase letter, at least 8 or more characters.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label> પાસવર્ડની પુષ્ટિ કરો</mat-label>
-            <input
-              type="password"
-              formControlName="confirmpassword"
-              (change)="onPasswordChange()"
-              matInput
-            />
-            <mat-error
-              *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.errors?.['required']"
-              >Please enter confirm password!</mat-error
-            >
-            <mat-error *ngIf="confirmpassword.errors?.['mismatch']"
-              >કન્ફર્મ પાસવર્ડ ઉપરના પાસવર્ડ સાથે મેળ ખાતો હોવો જોઈએ!</mat-error
-            >
-          </mat-form-field>
+          <input type="password" class="form-control" formControlName="confirmpassword" (change)="onPasswordChange()" placeholder="પાસવર્ડની પુષ્ટિ કરો">
+          <span *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.errors?.['required']">Please enter confirm password!</span>
+          <span *ngIf="confirmpassword.errors?.['mismatch']">કન્ફર્મ પાસવર્ડ ઉપરના પાસવર્ડ સાથે મેળ ખાતો હોવો જોઈએ!</span>
         </div>
 
         <!-- Other information -->
         <div>
-          <!-- <mat-form-field appearance="outline" class="group">
-            <mat-label>Date of Birth</mat-label>
-              <input type="text" formControlName="dateofbirth" ngbDatepicker #d="ngbDatepicker" matInput />
-              <button class="btn" style="position: absolute;" (click)="d.toggle()" type="button"><mat-icon>date_range</mat-icon></button>
-            <mat-error *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</mat-error>
-          </mat-form-field>  -->
+          <input type="date" class="form-control" formControlName="dateofbirth" placeholder="જન્મ તારીખ">
+          <span *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label> જન્મ તારીખ</mat-label>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              formControlName="dateofbirth"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error
-              *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched"
-              >Please select your date of birth.</mat-error
-            >
-          </mat-form-field>
+          <select class="form-control" formControlName="bloodgroup">
+            <option value="{{ item }}" *ngFor="let item of bloodGrouptList">{{ item }}</option>
+          </select>
+          <span *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">Please select your blood group.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>બ્લડગ્રુપ પસંદ કરો</mat-label>
-            <mat-select formControlName="bloodgroup">
-              <mat-option
-                value="{{ item }}"
-                *ngFor="let item of bloodGrouptList"
-                >{{ item }}</mat-option
-              >
-            </mat-select>
-            <mat-error
-              *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched"
-              >Please select your blood group.</mat-error
-            >
-          </mat-form-field>
+          <select class="form-control" formControlName="gender">
+            <option value="{{ item }}" *ngFor="let item of genderList">{{ item }}</option>
+          </select>
+          <span *ngIf="gender && gender.invalid && gender.touched">Please select your gender.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label> લિંગ પસંદ કરો</mat-label>
-            <mat-select formControlName="gender">
-              <mat-option value="{{ item }}" *ngFor="let item of genderList">{{
-                item
-              }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="gender && gender.invalid && gender.touched"
-              >Please select your gender.</mat-error
-            >
-          </mat-form-field>
+          <select class="form-control" formControlName="maritalstatus">
+            <option value="{{ item }}" *ngFor="let item of maritalStatus">{{ item }}</option>
+          </select>
+          <span *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">Please select your marital status.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>વૈવાહિક સ્થિતિ પસંદ કરો</mat-label>
-            <mat-select formControlName="maritalstatus">
-              <mat-option
-                value="{{ item }}"
-                *ngFor="let item of maritalStatus"
-                >{{ item }}</mat-option
-              >
-            </mat-select>
-            <mat-error
-              *ngIf="
-                maritalstatus && maritalstatus.invalid && maritalstatus.touched
-              "
-              >Please select your marital status.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="gotra" placeholder="ગોત્ર">
+          <span *ngIf="gotra && gotra.invalid && gotra.touched">Please enter your gotra.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>ગોત્ર</mat-label>
-            <input type="text" formControlName="gotra" matInput />
-            <mat-error *ngIf="gotra && gotra.invalid && gotra.touched"
-              >Please enter your gotra.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="educational" placeholder="શૈક્ષણિક લાયકાત">
+          <span *ngIf="educational && educational.invalid && educational.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label> શૈક્ષણિક લાયકાત</mat-label>
-            <input type="text" formControlName="educational" matInput />
-            <mat-error
-              *ngIf="educational && educational.invalid && educational.touched"
-              >કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</mat-error
-            >
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label> સિદ્ધિઓ</mat-label>
-            <input type="text" formControlName="achivement" matInput />
-            <!-- <mat-error *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's last name.</mat-error> -->
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="achivement" placeholder="સિદ્ધિઓ">
+          <!-- <span *ngIf="educational && educational.invalid && educational.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span> -->
         </div>
 
         <!-- Address -->
         <div>
-          <mat-form-field appearance="outline">
-            <mat-label> એડ્રેસ લાઇન 1</mat-label>
-            <input type="text" formControlName="addressLine1" matInput />
-            <mat-error
-              *ngIf="
-                addressLine1 && addressLine1.invalid && addressLine1.touched
-              "
-              >Address is required!</mat-error
-            >
-          </mat-form-field>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Nearest landmark</mat-label>
-            <input type="text" formControlName="addressLineLandmark" matInput />
-            <!-- <mat-error *ngIf="educational && educational.invalid && educational.touched">Please enter your educational qualification.</mat-error> -->
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="addressLine1" placeholder="એડ્રેસ લાઇન 1">
+          <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>શહેર</mat-label>
-            <input type="text" formControlName="addressLineCity" matInput />
-            <mat-error
-              *ngIf="
-                addressLineCity &&
-                addressLineCity.invalid &&
-                addressLineCity.touched
-              "
-              >Please enter your city.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="addressLineLandmark" placeholder="Nearest landmark">
+          <!-- <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</span> -->
 
-          <mat-form-field appearance="outline">
-            <mat-label> પીન કોડ</mat-label>
-            <input
-              type="text"
-              pattern="[0-9]+"
-              minlength="6"
-              maxlength="6"
-              formControlName="addressLinePincode"
-              matInput
-            />
-            <mat-error
-              *ngIf="
-                addressLinePincode &&
-                addressLinePincode.invalid &&
-                addressLinePincode.touched
-              "
-              >કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" class="form-control" formControlName="addressLineCity" placeholder="શહેર">
+          <span *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">Please enter your city.</span>
 
-          <mat-form-field appearance="outline">
-            <mat-label>દેશ પસંદ કરો</mat-label>
-            <mat-select formControlName="country">
-              <mat-option
-                value="{{ item.countryName }}"
-                *ngFor="let item of countryList"
-                >{{ item.countryName }}</mat-option
-              >
-            </mat-select>
-            <mat-error *ngIf="country && country.invalid && country.touched"
-              >Please select your country.</mat-error
-            >
-          </mat-form-field>
+          <input type="text" pattern="[0-9]+" minlength="6" maxlength="6" class="form-control" formControlName="addressLinePincode" placeholder="પીન કોડ">
+          <span *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</span>
+
+          <select class="form-control" formControlName="country">
+            <option value="{{ item.countryName }}" *ngFor="let item of countryList">{{ item.countryName }}</option>
+          </select>
+          <span *ngIf="country && country.invalid && country.touched">Please select your country.</span>
         </div>
 
         <!-- Occupation -->
         <div>
-          <mat-form-field appearance="outline">
-            <mat-label> વ્યવસાય પસંદ કરો</mat-label>
-            <mat-select
-              formControlName="jobBusinessType"
-              (selectionChange)="abc($event.value)"
-            >
-              <mat-option
-                value="{{ item }}"
-                *ngFor="let item of occupationList"
-                >{{ item }}</mat-option
-              >
-            </mat-select>
-            <mat-error
-              *ngIf="
-                jobBusinessType &&
-                jobBusinessType.invalid &&
-                jobBusinessType.touched
-              "
-              >Please select your job or occupation.</mat-error
-            >
-          </mat-form-field>
+          <select (change)="abc($event)" class="form-control" formControlName="jobBusinessType">
+            <option value="{{ item }}" *ngFor="let item of occupationList">{{ item }}</option>
+          </select>
+          <span *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">Please select your job or occupation.</span>
 
           <div *ngIf="isJob && isOccupationSelected">
-            <mat-form-field appearance="outline">
-              <mat-label>કંપની નું નામ</mat-label>
-              <input type="text" formControlName="jobBusinessName" matInput />
-              <mat-error
-                *ngIf="
-                  jobBusinessName &&
-                  jobBusinessName.invalid &&
-                  jobBusinessName.touched
-                "
-                >Please enter name.</mat-error
-              >
-            </mat-form-field>
+            <input type="text" class="form-control" formControlName="jobBusinessName" placeholder="કંપની નું નામ">
+            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</span>
 
-            <mat-form-field appearance="outline">
-              <mat-label> હોદ્દો</mat-label>
-              <input type="text" formControlName="description" matInput />
-              <mat-error
-                *ngIf="
-                  description && description.invalid && description.touched
-                "
-                >Please enter some description.</mat-error
-              >
-            </mat-form-field>
+            <input type="text" class="form-control" formControlName="description" placeholder="હોદ્દો">
+            <span *ngIf="description && description.invalid && description.touched">Please enter some description.</span>
           </div>
 
           <div *ngIf="!isJob && isOccupationSelected">
-            <mat-form-field appearance="outline">
-              <mat-label>વ્યવસાયનું નામ</mat-label>
-              <input type="text" formControlName="jobBusinessName" matInput />
-              <mat-error
-                *ngIf="
-                  jobBusinessName &&
-                  jobBusinessName.invalid &&
-                  jobBusinessName.touched
-                "
-                >Please enter name.</mat-error
-              >
-            </mat-form-field>
+            <input type="text" class="form-control" formControlName="jobBusinessName" placeholder="વ્યવસાયનું નામ">
+            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</span>
 
-            <mat-form-field appearance="outline">
-              <mat-label> વ્યવસાય વિશે</mat-label>
-              <input type="text" formControlName="description" matInput />
-              <mat-error
-                *ngIf="
-                  description && description.invalid && description.touched
-                "
-                >Please enter some description.</mat-error
-              >
-            </mat-form-field>
+            <input type="text" class="form-control" formControlName="description" placeholder="વ્યવસાય વિશે">
+            <span *ngIf="description && description.invalid && description.touched">Please enter some description.</span>
           </div>
+        </div>
 
-          <!-- Register Button -->
-          <div class="submitButtonDiv">
-            <button class="btn registerButton">એકાઉન્ટ બનાવો</button>
-          </div>
+        <!-- Register Button -->
+        <div class="submitButtonDiv text-center mt-5">
+          <button class="btn registerButton">એકાઉન્ટ બનાવો</button>
         </div>
       </form>
     </div>
 
-    <div class="navigation">
+    <div class="navigation d-flex flex-column flex-md-row justify-content-center justify-content-md-around">
       <div class="navigation-div home-navigation-div">
         <a class="homeButton" [routerLink]="['/home']">હોમ પેજ પર પાછા ફરો</a>
       </div>
       <div class="navigation-div login-navigation-div">
-        <a class="loginButton" [routerLink]="['/auth/resister']"
-          >પહેલેથી જ એકાઉન્ટ છે?</a
+        <a class="loginButton" [routerLink]="['/auth/resister']">પહેલેથી જ એકાઉન્ટ છે?</a
         >
       </div>
     </div>

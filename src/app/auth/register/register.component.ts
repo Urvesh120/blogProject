@@ -15,7 +15,7 @@ import { DatePipe } from '@angular/common';
 })
 export class RegisterComponent<D> implements OnInit {
 
-  registerImage = 'assets/illustators/Register.svg';
+  registerImage = 'assets/images/register-bg.png';
   selectedValue : any;
   reload = false;
 
@@ -36,7 +36,8 @@ export class RegisterComponent<D> implements OnInit {
     'O+ (O positive)', 
     'O- (O negative)', 
     'AB+ (AB positive)', 
-    'AB- (AB negative)'];
+    'AB- (AB negative)'
+  ];
   genderList : any = [
     'Male',
     'Female',
@@ -49,7 +50,6 @@ export class RegisterComponent<D> implements OnInit {
     'Job',
     'Business'
   ]
-
   countryList : any = [
     {
       countryCode : "CA",
@@ -131,11 +131,11 @@ export class RegisterComponent<D> implements OnInit {
   }
 
   abc(event : any){
-    if(event == this.occupationList[0]){
+    if(event.target.value == this.occupationList[0]){
       this.isOccupationSelected = true;
       this.isJob = true;
     }
-    if(event == this.occupationList[1]){
+    if(event.target.value == this.occupationList[1]){
       this.isOccupationSelected = true;
       this.isJob = false;
     }
@@ -316,7 +316,7 @@ export class RegisterComponent<D> implements OnInit {
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
-    console.log(data);
+    
     this.http.register(data).subscribe((res : any) =>{
       if(res.status == 1){
         localStorage.removeItem('userEmailId');

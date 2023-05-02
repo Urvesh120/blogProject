@@ -1,4 +1,6 @@
 $dark-blue : rgb(51, 51, 79);
+$light-blue : #C9C9FD;
+
 
 .main-title{
   font-size: 35px;
@@ -8,29 +10,19 @@ $dark-blue : rgb(51, 51, 79);
   color: $dark-blue;
 }
 
-.background-image-div {
-  background-image: url(../../../../assets/nearest-places/background-image.jpg);
-  min-height: 250px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: grid;
-  place-content: center;
+.background{
+  background-image: url('../../../../assets/trust-mandal/background_1.png');
+  background-color: white;
+  min-height: 350px;
+  background-size: 100% 100%;
 }
 
-.text-div {
-  background-color: rgba($color: #d4d0ed, $alpha: 0.75);
-  position: relative;
-  width: 100%;
-  padding: 15px;
-  text-align: center;
-
-  h1 {
-      padding: 0;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: rgb(51, 51, 79);
+.title-tag-div{
+  h1{
+    background-color: $light-blue;
+    color: $dark-blue;
+    padding: 15px 25px;
+    border-radius: 20px;
   }
 }
 
@@ -66,5 +58,11 @@ $dark-blue : rgb(51, 51, 79);
 
   .details{
     margin: 0 20px;
+  }
+
+  .title-tag-div{
+    h1{
+      font-size: 20px;
+    }
   }
 }

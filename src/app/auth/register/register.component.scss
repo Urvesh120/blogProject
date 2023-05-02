@@ -1,53 +1,50 @@
-$gray-color-shade : #cdd7d6;
-$orange-gray-color-shade : #f87060;
+$dark-blue : rgb(51, 51, 79);
+$light-dark-blue : rgb(126, 126, 182);
 
-mat-form-field{
-  width: 100%;
-  margin-bottom: 10px;
+
+
+
+
+// overall css start
+.main-div{
+  background-color: $dark-blue;
 }
 
-.group {
-  position: relative;
-}
+.svg-div{
+  background-color: $dark-blue;
+  margin: auto 0;
+  padding: 0 10px;
+  position: sticky;
+  width: 30%;
 
-button {
-  top: 0;
-  right: 0px;
-  top: 2px;
-  cursor: pointer;
-}
-
-.profile-div
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homeButtonDiv, .registerButtonDiv{
-  a{
-    color: $orange-gray-color-shade;
-    text-decoration: none;
+  img{
+    width: 100%;
   }
-
-  text-align: center;
-  margin-top: 30px;
 }
 
-.title-div h1{
-  font-size: xx-large;
-  font-weight: 500;
-  color: $orange-gray-color-shade;
-  text-align: center;
+.form-div{
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 70%;
+  padding: 25px;
 }
+// overall css end
 
-/*Profile pic upload button css*/
+
+
+
+
+
+
+// Profile pic upload button css start
 .file-upload-button {
-  border: 1px solid #f87060;
+  background-color: white;
+  margin: 10px 0;
 
   &::after {
-    content: 'Upload Profile';
-    color: #f87060;
+    content: 'પ્રોફાઇલ અપલોડ કરો';
+    color: $dark-blue;
   }
 
   input[type="file"] {
@@ -63,208 +60,118 @@ button {
   border-radius: 50%;
 }
 
-/*start common css*/
-
-.registerButton{
-  width: 100%;
-  color: white;
-  background-color: $orange-gray-color-shade;
-}
-
-.titles{
-  padding-left: 20px;
-  border-radius: 5px;
-  color: $orange-gray-color-shade;
-}
-
-.titles h3{
-  font-size: 20px;
-}
-
-.name-div, .email-contact-div, .password-div, .address-lines, .city-pincode{
-  display: grid;
-  column-gap: 10px;
-  grid-template-columns: repeat(1, 1fr);
-}
-
-input[type="date"]{
-  background-color: #e9ecef;
-  color: #5b6166;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-}
-::-webkit-calendar-picker-indicator{
-  background-color: #e9ecef;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.dialCodeSelect, .phoneNumber{
-  padding: 0 !important;
-}
-
 .profile-img-div, .upload-profile-img-div{
   margin-bottom: 10px;
 }
+// Profile pic upload button css end
 
-.navigation{
-  display: flex;
-  justify-content: space-around;
-}
 
-.navigation-div{
-  text-align: center;
+
+
+
+
+// redirect link css start
+.home-navigation-div, .login-navigation-div{
   a{
-    color: #f87060;
+    color: $light-dark-blue;
     text-decoration: none;
   }
-}
-/*end common css*/
 
-::ng-ddep .md-icon-button + .md-datepicker-input-container {
-  float: left;
-  margin-top:7px;
+  text-align: center;
+  margin-top: 30px;
 }
+// redirect link css end
 
-/*Start scroll bar css*/
-::-webkit-scrollbar{
-  width: 10px;
-}
-::-webkit-scrollbar-track{
-  background-color: white;
-}
-::-webkit-scrollbar-thumb{
-  background-color: #f87060;
-  border-radius: 20px;
-}
-/*End scroll bar css*/
 
-@media screen and (max-width: 600px){
 
-  .navigation{
-    flex-direction: column-reverse;
+
+
+
+
+.title-tag-div{
+  h1{
+    background-color: $light-dark-blue;
+    color: $dark-blue;
+    padding: 15px 25px;
+    border-radius: 20px;
   }
+}
 
-  .navigation-div{
-    margin: 10px 0px;
-  }
+.registerButton{
+  color: white;
+  background-color: $light-dark-blue;
+}
 
+.form-control{
+  margin-bottom: 10px;
+}
+
+span{
+  color: red;
+}
+
+
+
+
+
+
+@media (min-width: 0px) and (max-width: 575.98px) {
   .main-div{
-    display: flex;
-    flex-direction: column;
+    .svg-div, .form-div{
+      width: 100%;
+      overflow: auto;
+    }
   }
 
   .svg-div{
-    background-color: #f87060;
+    img{
+      width: 50% !important;
+    }
+  }
+
+  .title-tag-div{
+    h1{
+      font-size: 15px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .main-div{
+    .svg-div, .form-div{
+      width: 100%;
+      overflow: auto;
+    }
+  }
+
+  .svg-div{
+    img{
+      width: 60% !important;
+    }
+  }
+
+  .title-tag-div{
+    h1{
+      font-size: 25px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .main-div{
+    .svg-div, .form-div{
+      width: 100%;
+      overflow: auto;
+    }
+  }
+
+  .svg-div{
     text-align: center;
-    margin: 0;
-    padding: 0 10px;    
-    width: 100%;
-  }
-  .svg-div img{
-    width: 40%;
-    margin: 20px 0px;
-  }
-  
-  .form-div{
-    padding: 25px;
-    height: 100vh;
-    width: 100%;
+    img{
+      width: 60% !important;
+    }
   }
 }
 
-@media screen and (min-width: 768px){
-
-  .navigation{
-    flex-direction: row-reverse;
-  }
-
-  .navigation-div{
-    margin: 25px 0px;
-  }
-
-  .main-div{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .svg-div{
-    background-color: #f87060;
-    text-align: center;
-    margin: 0;
-    padding: 0 10px;    
-    width: 100%;
-  }
-  .svg-div img{
-    width: 40%;
-    margin: 20px 0px;
-  }
-  
-  .form-div{
-    padding: 50px;
-    height: 100vh;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 992px){
-  .main-div{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    justify-content: flex-start;
-    overflow: hidden !important;
-  }
-
-  .svg-div{
-    background-color: #f87060;
-    overflow: hidden;
-    margin: 0;
-    padding: 0 10px;    
-    width: 25%;
-  }
-  .svg-div img{
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .form-div{
-    padding: 50px;
-    height: 100vh;
-    width: 75%;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-}
-
-@media screen and (min-width: 993px){
-  .main-div{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    justify-content: flex-start;
-    overflow: hidden !important;
-  }
-  
-  .svg-div{
-    background-color: #f87060;
-    overflow: hidden;
-    margin: 0;
-    padding: 0 20px;    
-    width: 25%;
-  }
-  .svg-div img{
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .form-div{
-    padding: 50px 100px;
-    height: 100vh;
-    width: 75%;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+@media (min-width: 1200) {
 }
