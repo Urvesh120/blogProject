@@ -8,6 +8,7 @@ $light-dark-blue : rgb(126, 126, 182);
 // overall css start
 .main-div{
   background-color: $dark-blue;
+  padding: 0 20px;
 }
 
 .svg-div{
@@ -157,11 +158,33 @@ span{
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199.98px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   .main-div{
     .svg-div, .form-div{
       width: 100%;
       overflow: auto;
+    }
+  }
+
+  .svg-div{
+    text-align: center;
+    img{
+      width: 60% !important;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .main-div{
+    .svg-div, .form-div{
+      width: 100%;
+      overflow: auto;
+    }
+    .svg-div{
+      width: 40%;
+    }
+    .form-div{
+      width: 60%;
     }
   }
 
