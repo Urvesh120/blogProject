@@ -63,3 +63,9 @@ h2{
 .image-container{
     margin: 0 10px;
 }
+
+@media (min-width: 992px){
+  .image-gallary{
+    padding: 3rem 20px;
+  }
+}

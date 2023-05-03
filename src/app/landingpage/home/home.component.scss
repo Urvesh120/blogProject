@@ -34,7 +34,11 @@ hr{
 }
 
 .slider{
-  background-color: #b5b5b5;
+  color: $dark-blue;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background-color: rgba($color: $light-blue, $alpha: 0.35);
 }
 
 .container{
@@ -69,6 +73,7 @@ hr{
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .card {
   text-align: center;
   margin: 20px 0;
@@ -97,6 +102,7 @@ hr{
     background-color: $light-blue;
   }
 }
+
 .card-title {
   font-weight: bold;
   font-size: 1.5em;
@@ -272,5 +278,21 @@ hr{
     div{
       padding: 30px;
     }
+  }
+
+  .birthday{
+    padding: 0 60px;
+  }
+
+  .donators{
+    padding: 0 50px;
+  }
+
+  .ads{
+    background-color: $light-blue;
+  }
+
+  .slider{
+    padding: 0 60px;
   }
 }

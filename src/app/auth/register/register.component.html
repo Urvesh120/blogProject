@@ -29,42 +29,43 @@
         <!-- NAME -->
         <div>
           <input type="text" class="form-control" formControlName="firstname" placeholder="નામ">
-          <span *ngIf="firstname && firstname.invalid && firstname.touched">Please enter your first name.</span>
+          <span *ngIf="firstname && firstname.invalid && firstname.touched">કૃપા કરીને તમારું નામ દાખલ કરો.</span>
 
           <input type="text" formControlName="middlename" class="form-control" placeholder="પિતાનું નામ">
-          <span *ngIf="middlename && middlename.invalid && middlename.touched">Please enter your middle name.</span>
+          <span *ngIf="middlename && middlename.invalid && middlename.touched">કૃપા કરીને તમારા પિતાનું નામ દાખલ કરો.</span>
 
           <input type="text" class="form-control" formControlName="lastname" placeholder="અટક">
-          <span *ngIf="lastname && lastname.invalid && lastname.touched">Please enter your last name.</span>
+          <span *ngIf="lastname && lastname.invalid && lastname.touched">કૃપા કરીને તમારી અટક દાખલ કરો.</span>
         </div>
 
         <!-- Father's Name -->
         <div>
           <input type="text" class="form-control" formControlName="ffirstname" placeholder="પિતાનું નામ">
-          <span *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">Please enter your father's first name.</span>
+          <span *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">કૃપા કરીને તમારા પિતાનું નામ દાખલ કરો..</span>
 
           <input type="text" class="form-control" formControlName="fmiddlename" placeholder="પિતાના પિતાનું નામ">
-          <span *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">Please enter your father's middle name.</span>
+          <span *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">કૃપા કરીને તમારા પિતાના પિતાનું નામ દાખલ કરો.</span>
 
           <input type="text" class="form-control" formControlName="flastname" placeholder="પિતાની અટક">
-          <span *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's surname.</span>
+          <span *ngIf="flastname && flastname.invalid && flastname.touched">કૃપા કરીને તમારા પિતાની અટક દાખલ કરો.</span>
         </div>
 
         <!-- Mother's Name -->
         <div>
           <input type="text" class="form-control" formControlName="mothername" placeholder="માતાનું પૂરું નામ">
-          <span *ngIf="mothername && mothername.invalid && mothername.touched">Please enter your mother's name.</span>
+          <span *ngIf="mothername && mothername.invalid && mothername.touched">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
         </div>
 
         <!-- Contact Information -->
         <div>
           <select class="form-control" formControlName="dialcode">
+            <option value="" disabled selected>Dial Code</option>
             <option value="{{ item.dialCode }}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</option>
           </select>
           <span *ngIf="dialcode && dialcode.invalid && dialcode.touched">Please select dial code.</span>
 
           <input type="tel" minlength="10" maxlength="10" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
-          <span *ngIf="contact && contact.invalid && contact.touched">Please enter valid phone number.</span>
+          <span *ngIf="contact && contact.invalid && contact.touched">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
 
           <input type="email" class="form-control" formControlName="email" placeholder="ઇમેઇલ">
           <!-- <span *ngIf="email && email.invalid && email.touched">Please enter valid email.</span> -->
@@ -81,25 +82,28 @@
         <!-- Other information -->
         <div>
           <input type="date" class="form-control" formControlName="dateofbirth" placeholder="જન્મ તારીખ">
-          <span *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please select your date of birth.</span>
+          <span *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">કૃપા કરીને તમારી જન્મ તારીખ પસંદ કરો.</span>
 
           <select class="form-control" formControlName="bloodgroup">
+            <option value="" disabled selected>તમારું બ્લડ ગ્રુપ</option>
             <option value="{{ item }}" *ngFor="let item of bloodGrouptList">{{ item }}</option>
           </select>
-          <span *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">Please select your blood group.</span>
+          <span *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">કૃપા કરીને તમારું બ્લડ ગ્રુપ પસંદ કરો.</span>
 
           <select class="form-control" formControlName="gender">
+            <option value="" disabled selected>તમારું લિંગ</option>
             <option value="{{ item }}" *ngFor="let item of genderList">{{ item }}</option>
           </select>
-          <span *ngIf="gender && gender.invalid && gender.touched">Please select your gender.</span>
+          <span *ngIf="gender && gender.invalid && gender.touched">કૃપા કરીને તમારું લિંગ પસંદ કરો.</span>
 
           <select class="form-control" formControlName="maritalstatus">
+            <option value="" disabled selected>તમારી વૈવાહિક સ્થિતિ</option>
             <option value="{{ item }}" *ngFor="let item of maritalStatus">{{ item }}</option>
           </select>
-          <span *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">Please select your marital status.</span>
+          <span *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">કૃપા કરીને તમારી વૈવાહિક સ્થિતિ પસંદ કરો.</span>
 
           <input type="text" class="form-control" formControlName="gotra" placeholder="ગોત્ર">
-          <span *ngIf="gotra && gotra.invalid && gotra.touched">Please enter your gotra.</span>
+          <span *ngIf="gotra && gotra.invalid && gotra.touched">કૃપા કરીને તમારું ગોત્ર દાખલ કરો.</span>
 
           <input type="text" class="form-control" formControlName="educational" placeholder="શૈક્ષણિક લાયકાત">
           <span *ngIf="educational && educational.invalid && educational.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span>
@@ -112,44 +116,46 @@
         <div>
 
           <input type="text" class="form-control" formControlName="addressLine1" placeholder="એડ્રેસ લાઇન 1">
-          <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</span>
+          <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">સરનામું જરૂરી છે!</span>
 
-          <input type="text" class="form-control" formControlName="addressLineLandmark" placeholder="Nearest landmark">
+          <input type="text" class="form-control" formControlName="addressLineLandmark" placeholder="નજીકનું સીમાચિહ્ન">
           <!-- <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</span> -->
 
           <input type="text" class="form-control" formControlName="addressLineCity" placeholder="શહેર">
-          <span *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">Please enter your city.</span>
+          <span *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">કૃપા કરીને તમારું શહેર દાખલ કરો.</span>
 
           <input type="text" pattern="[0-9]+" minlength="6" maxlength="6" class="form-control" formControlName="addressLinePincode" placeholder="પીન કોડ">
           <span *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</span>
 
           <select class="form-control" formControlName="country">
+            <option value="" disabled selected>તમારો દેશ</option>
             <option value="{{ item.countryName }}" *ngFor="let item of countryList">{{ item.countryName }}</option>
           </select>
-          <span *ngIf="country && country.invalid && country.touched">Please select your country.</span>
+          <span *ngIf="country && country.invalid && country.touched">કૃપા કરીને તમારો દેશ પસંદ કરો.</span>
         </div>
 
         <!-- Occupation -->
         <div>
           <select (change)="abc($event)" class="form-control" formControlName="jobBusinessType">
+            <option value="" disabled selected>નોકરી અથવા વ્યવસાય</option>
             <option value="{{ item }}" *ngFor="let item of occupationList">{{ item }}</option>
           </select>
-          <span *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">Please select your job or occupation.</span>
+          <span *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">કૃપા કરીને તમારી નોકરી અથવા વ્યવસાય પસંદ કરો.</span>
 
           <div *ngIf="isJob && isOccupationSelected">
             <input type="text" class="form-control" formControlName="jobBusinessName" placeholder="કંપની નું નામ">
-            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</span>
+            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">કૃપા કરીને નામ દાખલ કરો.</span>
 
             <input type="text" class="form-control" formControlName="description" placeholder="હોદ્દો">
-            <span *ngIf="description && description.invalid && description.touched">Please enter some description.</span>
+            <span *ngIf="description && description.invalid && description.touched">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
           </div>
 
           <div *ngIf="!isJob && isOccupationSelected">
             <input type="text" class="form-control" formControlName="jobBusinessName" placeholder="વ્યવસાયનું નામ">
-            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</span>
+            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">કૃપા કરીને નામ દાખલ કરો.</span>
 
             <input type="text" class="form-control" formControlName="description" placeholder="વ્યવસાય વિશે">
-            <span *ngIf="description && description.invalid && description.touched">Please enter some description.</span>
+            <span *ngIf="description && description.invalid && description.touched">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
           </div>
         </div>
 

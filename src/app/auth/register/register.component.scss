@@ -8,7 +8,6 @@ $light-dark-blue : rgb(126, 126, 182);
 // overall css start
 .main-div{
   background-color: $dark-blue;
-  padding: 0 20px;
 }
 
 .svg-div{
@@ -82,6 +81,31 @@ $light-dark-blue : rgb(126, 126, 182);
   margin-top: 30px;
 }
 // redirect link css end
+
+
+
+
+
+
+
+
+
+// Input CSS Start
+span{
+  color: rgb(135, 45, 45);
+}
+
+input{
+  border: 1px solid $light-dark-blue;
+  background-color: white;
+}
+
+input:focus{
+  box-shadow: none;
+}
+// Input CSS End
+
+
 
 
 
