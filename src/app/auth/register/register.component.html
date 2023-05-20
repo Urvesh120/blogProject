@@ -1,13 +1,18 @@
 <div class="main-div d-flex flex-column flex-lg-row">
   <div class="svg-div text-center">
+    <h1 class="image-text my-5">પરિચય &nbsp; | &nbsp; સંપર્ક &nbsp; | &nbsp; સમન્વય </h1>
     <img [src]="registerImage" alt="" />
   </div>
   <div class="form-div">
+
+    <!-- Title -->
     <div class="m-5 title-tag-div d-flex justify-content-center">
       <div class="text-div">
         <h1 class="font-weight-bold">એકાઉન્ટ બનાવો</h1>
       </div>
     </div>
+
+    <!-- Form -->
     <div>
       <div class="inputDiv profile-div d-flex flex-column align-items-center justify-content-center">
         <div class="profile-img-div">
@@ -25,7 +30,7 @@
         </div>
       </div>
 
-      <form [formGroup]="RegistrationFormGroup" (ngSubmit)="register()">
+      <form [formGroup]="RegistrationFormGroup">
         <!-- NAME -->
         <div>
           <input type="text" class="form-control" formControlName="firstname" placeholder="નામ">
@@ -52,20 +57,34 @@
 
         <!-- Mother's Name -->
         <div>
-          <input type="text" class="form-control" formControlName="mothername" placeholder="માતાનું પૂરું નામ">
-          <span *ngIf="mothername && mothername.invalid && mothername.touched">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="mfirstname" placeholder="માતાનું નામ">
+          <span *ngIf="mfirstname && mfirstname.invalid && mfirstname.touched">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
+          
+          <input type="text" class="form-control" formControlName="mmiddlename" placeholder="માતાના પતિ/પિતા નું નામ">
+          <span *ngIf="mmiddlename && mmiddlename.invalid && mmiddlename.touched">કૃપા કરીને તમારી માતાના પતિ/પિતા નું નામ દાખલ કરો.</span>
+          
+          <input type="text" class="form-control" formControlName="mlastname" placeholder="માતાની અટક">
+          <span *ngIf="mlastname && mlastname.invalid && mlastname.touched">કૃપા કરીને તમારી માતાની અટક દાખલ કરો.</span>
         </div>
 
         <!-- Contact Information -->
         <div>
-          <select class="form-control" formControlName="dialcode">
-            <option value="" disabled selected>Dial Code</option>
-            <option value="{{ item.dialCode }}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</option>
-          </select>
-          <span *ngIf="dialcode && dialcode.invalid && dialcode.touched">Please select dial code.</span>
+          <div class="row">
+            <div class="col-12 col-md-2">
+              <select class="form-control" formControlName="dialcode">
+                <option value="" disabled selected>Dial Code</option>
+                <option value="{{ item.dialCode }}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</option>
+              </select>
+              <span *ngIf="dialcode && dialcode.invalid && dialcode.touched">Please select dial code.</span>
+            </div>
+            <div class="col-12 col-md-10">
+              <input type="tel" minlength="10" maxlength="10" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
+              <span *ngIf="contact && contact.invalid && contact.touched">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
+            </div>
+          </div>
+          
 
-          <input type="tel" minlength="10" maxlength="10" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
-          <span *ngIf="contact && contact.invalid && contact.touched">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
+          
 
           <input type="email" class="form-control" formControlName="email" placeholder="ઇમેઇલ">
           <!-- <span *ngIf="email && email.invalid && email.touched">Please enter valid email.</span> -->
@@ -158,14 +177,15 @@
             <span *ngIf="description && description.invalid && description.touched">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
           </div>
         </div>
-
-        <!-- Register Button -->
-        <div class="submitButtonDiv text-center mt-5">
-          <button class="btn registerButton">એકાઉન્ટ બનાવો</button>
-        </div>
       </form>
+
+      <!-- Register Button -->
+      <div class="submitButtonDiv text-center mt-5">
+        <button type="submit" class="btn registerButton" (click)="register()">એકાઉન્ટ બનાવો</button>
+      </div>
     </div>
 
+    <!-- Navigation Buttons -->
     <div class="navigation d-flex flex-column flex-md-row justify-content-center justify-content-md-around">
       <div class="navigation-div home-navigation-div">
         <a class="homeButton" [routerLink]="['/home']">હોમ પેજ પર પાછા ફરો</a>
@@ -175,5 +195,6 @@
         >
       </div>
     </div>
+
   </div>
 </div>

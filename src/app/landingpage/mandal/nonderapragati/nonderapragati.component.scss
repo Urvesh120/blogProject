@@ -11,10 +11,16 @@ $light-blue : #C9C9FD;
 }
 
 .background{
-  background-image: url('../../../../assets/trust-mandal/background_1.png');
-  background-color: white;
-  min-height: 350px;
+  background-color: black;
+  min-height: 500px;
   background-size: 100% 100%;
+
+  .other{
+    h2{
+      font-size: 40px;
+    }
+  }
+
 }
 
 .title-tag-div{
@@ -64,5 +70,14 @@ $light-blue : #C9C9FD;
     h1{
       font-size: 20px;
     }
+  }
+
+  .background{
+    .other{
+      h2{
+        font-size: 24px;
+      }
+    }
+  
   }
 }

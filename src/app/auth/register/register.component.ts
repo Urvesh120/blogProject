@@ -94,7 +94,9 @@ export class RegisterComponent<D> implements OnInit {
       ffirstname: ['', [Validators.required]],
       fmiddlename: ['', [Validators.required]],
       flastname: ['', [Validators.required]],
-      mothername: ['', [Validators.required]],
+      mfirstname: ['', [Validators.required]],
+      mmiddlename: ['', [Validators.required]],
+      mlastname: ['', [Validators.required]],
       dialcode : ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       country : ['', [Validators.required]],
@@ -182,8 +184,16 @@ export class RegisterComponent<D> implements OnInit {
     return this.RegistrationFormGroup.get('flastname');
   }
   
-  get mothername() {
-    return this.RegistrationFormGroup.get('mothername');
+  get mfirstname() {
+    return this.RegistrationFormGroup.get('mfirstname');
+  }
+  
+  get mmiddlename() {
+    return this.RegistrationFormGroup.get('mmiddlename');
+  }
+  
+  get mlastname() {
+    return this.RegistrationFormGroup.get('mlastname');
   }
 
   get contact() {
@@ -271,22 +281,16 @@ export class RegisterComponent<D> implements OnInit {
     if(this.RegistrationFormGroup.invalid){
       return;
     }
-
-    // let address = 
-    //   this.RegistrationFormGroup.value.addressLine1 + "," +
-    //   this.RegistrationFormGroup.value.addressLineLandmark + "," +
-    //   this.RegistrationFormGroup.value.addressLineCity + "-" +
-    //   this.RegistrationFormGroup.value.addressLinePincode + ".";
-
-    // let name = 
-    //   this.RegistrationFormGroup.value.lastname + " " +
-    //   this.RegistrationFormGroup.value.firstname + " " +
-    //   this.RegistrationFormGroup.value.middlename;
     
     let fatherName = 
       this.RegistrationFormGroup.value.flastname + " " +
       this.RegistrationFormGroup.value.ffirstname + " " +
       this.RegistrationFormGroup.value.fmiddlename;
+    
+    let motherName = 
+      this.RegistrationFormGroup.value.mlastname + " " +
+      this.RegistrationFormGroup.value.mfirstname + " " +
+      this.RegistrationFormGroup.value.mmiddlename;
     
     let data = {
       "picture": this.imageBase64,
@@ -295,7 +299,7 @@ export class RegisterComponent<D> implements OnInit {
       "middleName" : this.RegistrationFormGroup.value.middlename,
       "lastName" : this.RegistrationFormGroup.value.lastname,
       "fathersName" : fatherName,
-      "mothersName" : this.RegistrationFormGroup.value.mothername,
+      "mothersName" : motherName,
       "contact": this.RegistrationFormGroup.value.contact,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
@@ -316,6 +320,8 @@ export class RegisterComponent<D> implements OnInit {
       "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
+
+    console.log(data);
     
     this.http.register(data).subscribe((res : any) =>{
       if(res.status == 1){

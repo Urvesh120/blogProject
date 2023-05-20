@@ -8,10 +8,14 @@ hr{
 }
 
 .background-image-div{
-  background-image: url('../../../assets/images/WhatsApp\ Image\ 2023-02-28\ at\ 7.09.01\ PM.jpeg');
-  background-size: 100% 100%;
+  background-image: url('../../../assets/images/home-title-background.png');
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: $dark-blue;
   display: flex;
   align-items: end;
+  margin-top: 50px;
 }
 
 .title-tag-div{
@@ -109,6 +113,28 @@ hr{
 }
 
 
+
+.birthday{
+  .ads{
+    div{
+      background-color: grey;
+    }
+  }
+
+  .card{
+    width: 18rem;
+  }
+}
+
+
+
+.see-more{
+  a{
+    text-decoration: underline;
+  }
+}
+
+
 @media screen and (min-width: 0px) and (max-width: 600px){
 
   .image-container{
@@ -125,6 +151,7 @@ hr{
 
   .background-image-div{
     height: 40vh;
+    background-size: 70% 100%;
 
     div{
       h1,p{
@@ -183,6 +210,7 @@ hr{
 
   .background-image-div{
     height: 50vh;
+    background-size: 70% 100%;
 
     div{
       h1,p{
@@ -220,6 +248,7 @@ hr{
 @media screen and (min-width: 768px) and (max-width: 992px){
   .background-image-div{
     height: 75vh;
+    background-size: 70% 100%;
 
     .image-width{
       width: 75%;
@@ -247,10 +276,10 @@ hr{
 
 @media screen and (min-width: 993px){
   .background-image-div{
-    height: 100vh;
+    height: 70vh;
 
     .image-width{
-      width: 75%;
+      width: 50%;
     }
 
     div{
@@ -282,14 +311,22 @@ hr{
 
   .birthday{
     padding: 0 60px;
+    height: 440px;
+    .ads{
+      width: 75%;
+      padding: 30px 50px;
+      div{
+        background-color: grey;
+      }
+    }
+
+    .card{
+      width: 25%;
+    }
   }
 
   .donators{
-    padding: 0 50px;
-  }
-
-  .ads{
-    background-color: $light-blue;
+    padding: 0 60px;
   }
 
   .slider{

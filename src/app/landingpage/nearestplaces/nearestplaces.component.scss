@@ -4,8 +4,9 @@ $light-blue : #C9C9FD;
 .background{
     background-image: url('../../../assets/nearest-places/near_background.png');
     background-color: gray;
-    min-height: 350px;
+    min-height: 500px;
     background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
   
   .title-tag-div{

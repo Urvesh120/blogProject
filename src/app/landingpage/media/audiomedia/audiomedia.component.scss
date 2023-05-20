@@ -1,8 +1,8 @@
 $dark-blue : rgb(51, 51, 79);
 $light-blue : #C9C9FD;
 
-.black-font{
-  color: black;
+.white-font{
+  color: white;
 }
 
 .light-blue-background{
@@ -34,8 +34,7 @@ $light-blue : #C9C9FD;
 }
 
 .background{
-  background-image: url('../../../../assets/audio-galary/audio_backgroung.png');
   background-color: black;
-  min-height: 350px;
+  min-height: 500px;
   background-size: 100% 100%;
 }

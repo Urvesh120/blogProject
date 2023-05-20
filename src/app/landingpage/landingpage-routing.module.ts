@@ -28,8 +28,8 @@ const routes: Routes = [
   children : [
     {path : '', component : HomeComponent},
     {path : 'home', component : HomeComponent},
-    {path : 'trusts', component : TrustsComponent},
-    {path : 'mandal', component : MandalComponent},
+    // {path : 'trusts', component : TrustsComponent},
+    // {path : 'mandal', component : MandalComponent},
     {path : 'nearest-places', component : NearestplacesComponent},
     {path : 'shree-nondera-pragati-mandal', component : NonderapragatiComponent},
     {path : 'shree-nondera-mahila-mandal', component : MahilaComponent},

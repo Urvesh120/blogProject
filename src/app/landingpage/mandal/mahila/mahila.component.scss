@@ -10,11 +10,21 @@ $light-blue : #C9C9FD;
   color: $dark-blue;
 }
 
+.big-font{
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
 .background{
-  background-image: url('../../../../assets/trust-mandal/background_2.png');
-  background-color: white;
-  min-height: 350px;
+  background-color: black;
+  min-height: 500px;
   background-size: 100% 100%;
+
+  .other{
+    h2{
+      font-size: 40px;
+    }
+  }
 }
 
 .title-tag-div{
@@ -63,6 +73,18 @@ $light-blue : #C9C9FD;
   .title-tag-div{
     h1{
       font-size: 20px;
+    }
+  }
+
+  .big-font{
+    font-size: 20px;
+  }
+
+  .background{
+    .other{
+      h2{
+        font-size: 20px;
+      }
     }
   }
 }

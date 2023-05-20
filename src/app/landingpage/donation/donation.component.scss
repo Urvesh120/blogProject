@@ -1,4 +1,5 @@
 $dark-blue : #33334f;
+$light-blue : #C9C9FD;
 
 .title-quote{
     background-color: rgba($color: $dark-blue, $alpha: 0.3);
@@ -16,7 +17,7 @@ $dark-blue : #33334f;
 
 .background-image-div {
     background-image: url(../../../assets/nearest-places/background-image.jpg);
-    min-height: 250px;
+    height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -46,4 +47,19 @@ $dark-blue : #33334f;
 
 .row>*{
     margin: 20px 0px;
+}
+
+
+.slider{
+    color: $dark-blue;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: rgba($color: $light-blue, $alpha: 0.35);
+}
+
+@media (min-width: 992px) {
+    .slider{
+        padding: 0 60px;
+    }    
 }

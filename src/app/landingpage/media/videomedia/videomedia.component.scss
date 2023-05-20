@@ -29,20 +29,30 @@ h6 {
 }
 
 .background{
-    background-image: url('../../../../assets/video-galary/video-background.png');
     background-color: black;
-    min-height: 350px;
+    min-height: 500px;
     background-size: cover;
+    text-align: center;
 
-    .upper-background .image{
-      img{
-        max-width: 100%;
-        margin: 30px;
+    .upper-background{
+      .image{
+        img{
+          max-width: 100%;
+          margin: 30px;
+        }
+      }
+
+      .other{
+        h2{
+          width: 100% !important;
+          text-align: center;
+          font-size: 24px;
+        }
       }
     }
 }
 
-@media screen and (min-width: 0px) and (max-width: 992px){
+@media (min-width: 0px) and (max-width: 991.98px){
   .background{
     .upper-background .image{
       text-align: center;
@@ -54,39 +64,21 @@ h6 {
   }
 }
 
-// @media screen and (min-width: 0px) and (max-width: 600px){}
-
-// @media screen and (min-width: 601px) and (max-width: 768px){}
-
-// @media screen and (min-width: 769px) and (max-width: 992px){}
-
-// @media screen and (min-width: 992px){}
-
-// .background-image-div {
-//     background-image: url(../../../../assets/video-galary/background.png);
-//     min-height: 250px;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     position: relative;
-//     display: grid;
-//     place-content: center;
-// }
-
-// .text-div {
-//     // background-color: rgba($color: #d4d0ed, $alpha: 0.75);
-//     position: relative;
-//     // width: 100%;
-//     padding: 15px;
-//     text-align: center;
-
-//     h1 {
-//         padding: 0;
-//         margin: 0;
-//         text-transform: uppercase;
-//         letter-spacing: 3px;
-//         // color: rgb(51, 51, 79);
-//     }
-// }
+@media (min-width: 992px){
+  .background{
+    .upper-background{
+      .image{
+        width: 50%;
+        margin-top: 50px;
+      }
+    
+      .other{
+        width: 50%;
+        margin-top: 50px;
+      }
+    }
+  }
+}
 
 .video-div{
     background-color: rgba($color: $dark-blue, $alpha: 0.3);
@@ -112,8 +104,35 @@ h6 {
 .image-container{
   background-color: $dark-blue;
   padding: 7px 7px 50px 7px;
+  width: 550px;
 }
 
 h2{
   max-width: 400px;
+}
+
+@media (min-width: 0px) and (max-width:575.96px){
+  .image-container{
+    width: 300px;
+  }
+}
+@media (min-width: 576px) and (max-width:767.98px){
+  .image-container{
+    width: 500px;
+  }
+}
+@media (min-width: 768px) and (max-width:991.98px){
+  .image-container{
+    width: 350px;
+  }
+}
+@media (min-width: 992px) and (max-width:1199.98px){
+  .image-container{
+    width: 450px;
+  }
+}
+@media (min-width: 1200px){
+  .image-container{
+    width: 550px;
+  }
 }

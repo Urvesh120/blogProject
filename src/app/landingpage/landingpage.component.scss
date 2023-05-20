@@ -105,15 +105,26 @@ footer{
 }
 
 .linkes{
+
+  // border-left: 2px solid rgb(51, 51, 79);
   a{
     color: rgb(51, 51, 79);
     text-decoration: none;
-    font-size: 20px;
   }
 }
 
-footer h2,p{
-  font-size: 20px;
+footer{
+  .footer-titles{
+    font-size: 20px;
+  }
+
+  p,a{
+    font-size: 18px;
+  }
+}
+
+.time{
+  margin-top: 32px;
 }
 
 @media (min-width: 0px) and (max-width: 991.98px) {

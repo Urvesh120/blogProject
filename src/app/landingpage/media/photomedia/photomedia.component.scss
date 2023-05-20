@@ -14,16 +14,6 @@ $dark-blue : rgb(51, 51, 79);
   }
 }
 
-.background-image-div {
-    background-image: url(../../../../assets/nearest-places/background-image.jpg);
-    min-height: 200px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: grid;
-    place-content: center;
-}
-
 .text-div {
     background-color: rgba($color: #d4d0ed, $alpha: 0.75);
     position: relative;
@@ -72,6 +62,8 @@ $dark-blue : rgb(51, 51, 79);
 .card{
   max-width: 25rem;
   border: 3px solid rgb(51, 51, 79);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn{
@@ -110,28 +102,36 @@ h2{
 }
 
 .background{
-  // background-image: url('../../../../assets/video-galary/background.png');
   background-color: black;
-  min-height: 350px;
+  min-height: 500px;
   background-size: cover;
 
-  .upper-background .image{
-    img{
-      max-width: 100%;
-      margin: 30px;
+  .upper-background{
+    .image{
+      img{
+        max-width: 100%;
+        margin: 30px;
+      }
+    }
+    .other{
+      h4{
+        font-size: 24px;
+        line-height: 25px;
+        word-spacing: 3px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 0px) and (max-width: 992px){
-.background{
-  .upper-background .image{
-    text-align: center;
-    img{
-      max-width: 60%;
-      margin: 30px;
+  .background{
+    .upper-background .image{
+      text-align: center;
+      img{
+        max-width: 60%;
+        margin: 30px;
+      }
     }
   }
-}
 }
 
