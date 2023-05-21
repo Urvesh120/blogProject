@@ -1,53 +1,69 @@
-<!-- <div class="main-div">
-  <div class="svg-div">
-    <img src="../../../assets/images/login _page.png" alt="">
-  </div>
-  <div class="form-div">
-    <div class="loginFormDiv">
-      <div class="title-div">
-        <h1>લોગીન</h1>
-      </div>
-      <div class="loginForm">
-        <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
-          <div class="inputDiv emailInputDiv">
-            <mat-form-field appearance="outline">
-              <mat-label>ઈમેલ અથવા ફોન નંબર</mat-label>
-              <input type="text" formControlName="emailOrContact" matInput />
-              <mat-error *ngIf="emailOrContact && emailOrContact.invalid && emailOrContact.touched">લોગિન માટે ઈમેલ અથવા ફોન નંબર જરૂરી છે.</mat-error>
-            </mat-form-field>
+<!-- Navbar Start -->
+<div class="navbar-div">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img class="img-fluid" width="45" src="../../assets/images/site_logo.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-light"></span>
+    </button>
+
+    <div class="collapse text-center navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item">
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">મુખ પૃષ્ઠ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">જ્ઞાતિ સંબંધિત</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">મંદિર સંબંધિત</a>
+        </li>        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ટ્રસ્ટ</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a>
+            <!-- <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/trusts']">શ્રી નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</a> -->
           </div>
-          <div class="inputDiv passwordInputDiv">
-            <mat-form-field appearance="outline">
-              <mat-label>Password</mat-label>
-              <input type="password" formControlName="password" matInput />
-              <mat-error *ngIf="password && password.invalid && password.touched">
-                કૃપા કરીને માન્ય પાસવર્ડ દાખલ કરો.
-              </mat-error>
-            </mat-form-field>
-            <div>
-              <a (click)="forgotPass()" style="color: #f87060; cursor: pointer;">તમારો પાસવર્ડ ભૂલી ગયા છો?</a>
-            </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">મંડળ</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-pragati-mandal']">નૉંદેરા પ્રગતિ મંડળ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-mahila-mandal']">મહિલા મંડળ</a>
           </div>
-          <div class="submitButtonDiv">
-            <button class="btn loginButton">લોગીન</button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ગેલેરી</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/audio']">ઓડિયો ગેલેરી</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/video']">વિડિઓ ગેલેરી</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/photo']">ફોટો ગેલેરી</a>
           </div>
-        </form>
-        <div class="navigation">
-          <div class="navigation-div home-navigation-div">
-            <a class="homeButton" [routerLink]="['/home']">હોમ પેજ પર પાછા ફરો</a>
-          </div>
-          <div class="navigation-div login-navigation-div">
-            <a [routerLink]="['/auth/register']">તમારું એકાઉન્ટ બનાવો</a>
-          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nearest-places']">નજીકના આકર્ષણો</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/donation']">દાન-દક્ષિણા</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']">સંપર્ક</a>
+        </li>
+      </ul>
+      <div class="buttons d-flex flex-column flex-lg-row flex-fill">
+        <div>
+          <a class="btn liveButton" [routerLink]="['/home']">લાઈવ દર્શન</a>
         </div>
       </div>
     </div>
-  </div>
-</div> -->
+  </nav>
+</div>
+<!-- Navbar End -->
 
-
-<div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row flex-xl-row justify-content-lg-around justify-content-xl-around align-items-center login-page-div">
-  <div class="image-div w-50 text-center mt-5">
+<div class="login-page d-flex flex-column flex-sm-column flex-md-column flex-lg-row flex-xl-row justify-content-lg-around justify-content-xl-around align-items-center login-page-div">
+  <div class="image-div w-50 text-center">
 
     <h2>ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् ।</h2>
     <h2>उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय मामृतात् ॥</h2>
@@ -86,10 +102,10 @@
       </form>
 
       <div class="links d-flex flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row justify-content-sm-around justify-content-md-around justify-content-lg-around justify-content-xl-around">
-        <div class="link">
+        <div class="link create-account">
           <a [routerLink]="['/auth/register']">તમારું એકાઉન્ટ બનાવો</a>
         </div>
-        <div class="link">
+        <div class="link home-page">
           <a class="homeButton" [routerLink]="['/home']">હોમ પેજ પર પાછા ફરો</a>
         </div>
       </div>
