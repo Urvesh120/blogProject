@@ -31,6 +31,11 @@ $light-dark-blue : rgb(126, 126, 182);
   width: 70%;
   padding: 25px;
 }
+
+.form-control:focus{
+  border-color: white;
+  box-shadow: none;
+}
 // overall css end
 
 

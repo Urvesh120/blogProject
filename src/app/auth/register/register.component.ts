@@ -309,7 +309,7 @@ export class RegisterComponent<D> implements OnInit {
       "pinCode": this.RegistrationFormGroup.value.addressLinePincode,
       "countryCode" : this.RegistrationFormGroup.value.dialcode,
       "country": this.RegistrationFormGroup.value.country,
-      "dateOfBirth" : this.datePipe.transform(this.RegistrationFormGroup.value.dateofbirth, 'yyyy-MM-dd'),
+      "dateOfBirth" : this.RegistrationFormGroup.value.dateofbirth,
       "qualification" : this.RegistrationFormGroup.value.educational,
       "achievement" : this.RegistrationFormGroup.value.achivement,
       "bloodGroup": this.RegistrationFormGroup.value.bloodgroup,
