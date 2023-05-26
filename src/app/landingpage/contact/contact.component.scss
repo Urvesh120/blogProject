@@ -1,30 +1,43 @@
 $dark-blue : #33334f;
+$light-blue : #C9C9FD;
 
-.background-image-div {
-    background-image: url(../../../assets/nearest-places/background-image.jpg);
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: grid;
-    place-content: center;
-}
-
-.text-div {
-    background-color: rgba($color: #d4d0ed, $alpha: 0.75);
-    position: relative;
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-
-    h1 {
-        padding: 0;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: rgb(51, 51, 79);
+.title-tag-div{
+    h1{
+      background-color: $light-blue;
+      color: $dark-blue;
+      padding: 15px 25px;
+      border-radius: 20px;
+    }
+  }
+  
+  .title{
+    background-color: rgba($color: $dark-blue, $alpha: 0.4);
+    padding: 7px;
+    margin: 30px 53px;
+    h2{
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+      color: $dark-blue;
     }
 }
+
+.background{
+    background-color: black;
+    min-height: 450px;
+    background-size: 100% 100%;
+  
+    .other{
+      h2{
+        font-size: 25px;
+        color: white;
+      }
+  
+      .second-shlok{
+        margin-top: 60px;
+      }
+    }
+  }
 
 .icon{
     color: rgba($color: $dark-blue, $alpha: 1);
@@ -72,7 +85,7 @@ h1{
 
 
 
-@media (min-width: 0px) and (max-width: 600px){
+@media (min-width: 0px) and (max-width: 991.98px){
     .row>*{
         margin: 1.5rem;
     }
@@ -93,6 +106,15 @@ h1{
         .map-class {
             width: 100%;
             height: 250px;
+        }
+    }
+
+    .background{
+        .other{
+            h2{
+                font-size: 20px;
+                color: white;
+            }
         }
     }
 }

@@ -15,29 +15,40 @@ $light-blue : #C9C9FD;
 }
 
 
-.background-image-div {
-    background-image: url(../../../assets/nearest-places/background-image.jpg);
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: grid;
-    place-content: center;
-}
+.background{
+    background-color: black;
+    min-height: 450px;
+    background-size: 100% 100%;
+  
+    .other{
+      h2{
+        font-size: 35px;
+      }
+  
+      .second-shlok{
+        margin-top: 60px;
+      }
+    }
+  }
 
-.text-div {
-    background-color: rgba($color: #d4d0ed, $alpha: 0.75);
-    position: relative;
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-
-    h1 {
-        padding: 0;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: rgb(51, 51, 79);
+  .title-tag-div{
+    h1{
+      background-color: $light-blue;
+      color: $dark-blue;
+      padding: 15px 25px;
+      border-radius: 20px;
+    }
+  }
+  
+  .title{
+    background-color: rgba($color: $dark-blue, $alpha: 0.4);
+    padding: 7px;
+    margin: 30px 53px;
+    h2{
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+      color: $dark-blue;
     }
 }
 
@@ -56,6 +67,16 @@ $light-blue : #C9C9FD;
     font-weight: 600;
     letter-spacing: 1px;
     background-color: rgba($color: $light-blue, $alpha: 0.35);
+}
+
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .background{
+        .other{
+          h2{
+            font-size: 20px;
+          }
+        }
+      }
 }
 
 @media (min-width: 992px) {

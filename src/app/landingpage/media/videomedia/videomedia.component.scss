@@ -30,51 +30,29 @@ h6 {
 
 .background{
     background-color: black;
-    min-height: 500px;
+    min-height: 450px;
     background-size: cover;
-    text-align: center;
-
-    .upper-background{
-      .image{
-        img{
-          max-width: 100%;
-          margin: 30px;
-        }
-      }
-
-      .other{
-        h2{
-          width: 100% !important;
-          text-align: center;
-          font-size: 24px;
-        }
-      }
-    }
 }
 
-@media (min-width: 0px) and (max-width: 991.98px){
+@media (min-width: 0px) and (max-width: 767.98px){
   .background{
-    .upper-background .image{
-      text-align: center;
-      img{
-        max-width: 60%;
-        margin: 30px;
+    .upper-background{
+      .other{
+        h2{
+          font-size: 20px;
+        }
       }
     }
   }
 }
 
-@media (min-width: 992px){
+@media (min-width: 768px){
   .background{
     .upper-background{
-      .image{
-        width: 50%;
-        margin-top: 50px;
-      }
-    
       .other{
-        width: 50%;
-        margin-top: 50px;
+        h2{
+          font-size: 35px;
+        }
       }
     }
   }
@@ -105,34 +83,4 @@ h6 {
   background-color: $dark-blue;
   padding: 7px 7px 50px 7px;
   width: 550px;
-}
-
-h2{
-  max-width: 400px;
-}
-
-@media (min-width: 0px) and (max-width:575.96px){
-  .image-container{
-    width: 300px;
-  }
-}
-@media (min-width: 576px) and (max-width:767.98px){
-  .image-container{
-    width: 500px;
-  }
-}
-@media (min-width: 768px) and (max-width:991.98px){
-  .image-container{
-    width: 350px;
-  }
-}
-@media (min-width: 992px) and (max-width:1199.98px){
-  .image-container{
-    width: 450px;
-  }
-}
-@media (min-width: 1200px){
-  .image-container{
-    width: 550px;
-  }
 }

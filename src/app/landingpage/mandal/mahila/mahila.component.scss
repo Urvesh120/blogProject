@@ -17,13 +17,12 @@ $light-blue : #C9C9FD;
 
 .background{
   background-color: black;
-  min-height: 500px;
+  min-height: 450px;
   background-size: 100% 100%;
+  padding: 30px 30px 0;
 
-  .other{
-    h2{
-      font-size: 40px;
-    }
+  h2{
+    font-size: 35px;
   }
 }
 
@@ -81,10 +80,8 @@ $light-blue : #C9C9FD;
   }
 
   .background{
-    .other{
-      h2{
-        font-size: 20px;
-      }
+    h2{
+      font-size: 20px;
     }
   }
 }

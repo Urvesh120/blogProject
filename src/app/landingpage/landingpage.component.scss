@@ -7,8 +7,9 @@ $light-blue : #C9C9FD;
     box-shadow: none;
 }
 
-hr{
-  border-top: 2px solid white;
+.common-hr{
+  border-top: 3.5px solid rgb(51, 51, 79);
+  margin: 50px 38px;
 }
 
 h1{
@@ -105,7 +106,6 @@ footer{
 }
 
 .linkes{
-
   border-left: 2px solid rgb(51, 51, 79);
   a{
     color: rgb(51, 51, 79);
@@ -151,6 +151,10 @@ footer{
     padding: 0 0 0 25px;
     }
   }
+
+  .linkes{
+    border: 0;
+  }
 }
 
 @media (min-width: 992px){
@@ -169,4 +173,6 @@ footer{
   .social{
     margin-right: 60px;
   }
+
+
 }

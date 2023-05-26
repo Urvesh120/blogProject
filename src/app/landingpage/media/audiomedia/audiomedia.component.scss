@@ -35,6 +35,38 @@ $light-blue : #C9C9FD;
 
 .background{
   background-color: black;
-  min-height: 500px;
+  min-height: 450px;
   background-size: 100% 100%;
+}
+
+@media (min-width: 0px) and (max-width: 767.98){
+  .background{
+    .upper-background{
+      .other{
+        .main-shlok{
+          font-size: 20px;
+        }
+  
+        .explain, .gujarati{
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .background{
+    .upper-background{
+      .other{
+        .main-shlok{
+          font-size: 25px;
+        }
+  
+        .explain, .gujarati{
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }
