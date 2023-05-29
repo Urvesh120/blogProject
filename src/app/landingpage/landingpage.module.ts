@@ -30,6 +30,8 @@ import { ContactComponent } from './contact/contact.component';
 import { DonationComponent } from './donation/donation.component';
 import { NandikeshwarcharitableComponent } from './trusts/nandikeshwarcharitable/nandikeshwarcharitable.component';
 import { MahilaComponent } from './mandal/mahila/mahila.component';
+import { MandirSambandhitComponent } from './mandir-sambandhit/mandir-sambandhit.component';
+import { GyatiSambandhitComponent } from './gyati-sambandhit/gyati-sambandhit.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -60,6 +62,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DonationComponent,
     NandikeshwarcharitableComponent,
     MahilaComponent,
+    MandirSambandhitComponent,
+    GyatiSambandhitComponent,
   ],
   imports: [
     CommonModule,

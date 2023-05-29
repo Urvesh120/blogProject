@@ -22,12 +22,16 @@ import { TrustsComponent } from './trusts/trusts.component';
 import { MandalComponent } from './mandal/mandal.component';
 import { NandikeshwarcharitableComponent } from './trusts/nandikeshwarcharitable/nandikeshwarcharitable.component';
 import { MahilaComponent } from './mandal/mahila/mahila.component';
+import { MandirSambandhitComponent } from './mandir-sambandhit/mandir-sambandhit.component';
+import { GyatiSambandhitComponent } from './gyati-sambandhit/gyati-sambandhit.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
   children : [
     {path : '', component : HomeComponent},
     {path : 'home', component : HomeComponent},
+    {path : 'mandir-sambandhit', component : MandirSambandhitComponent},
+    {path : 'gyati-sambandhit', component : GyatiSambandhitComponent},
     // {path : 'trusts', component : TrustsComponent},
     // {path : 'mandal', component : MandalComponent},
     {path : 'nearest-places', component : NearestplacesComponent},
