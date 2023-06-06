@@ -54,6 +54,11 @@ $light-blue : #C9C9FD;
   }
 }
 
+.trustees-images{
+  background-color: rgb(226, 226, 226);
+  margin-bottom: 30px;
+}
+
 @media screen and (min-width: 0px) and (max-width: 768px){
   .main-title{
     font-size: 25px;
@@ -63,6 +68,10 @@ $light-blue : #C9C9FD;
 
   .title{
     margin: 15px 15px;
+  }
+
+  .trustees-images{
+    background-color: rgb(239, 239, 239);
   }
 
   .details{

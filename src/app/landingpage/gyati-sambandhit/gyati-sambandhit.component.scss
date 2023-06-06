@@ -1,72 +1,70 @@
-$dark-blue : rgb(51, 51, 79);
-$light-blue : #C9C9FD;
+$dark-blue: rgb(51, 51, 79);
+$light-blue: #c9c9fd;
 
-@media (min-width: 0px) and (max-width: 991.98px) {
-  .container-fluid {
-    background-color: $dark-blue;
-    margin-top: 30px;
-    min-height: 400px;
-  }  
+.background {
+  background-color: black;
+  min-height: 400px;
+  background-size: 100% 100%;
+  padding: 30px 30px 0;
 
-  .image-container {
-    width: 65%;
-    margin-top: 20px;
-  }
-  
-  .image-container img {
-    top: 0;
-  }
-  
-  .text-container {
-    margin-top: 30px;
-    width: 100%;
-
-    .ribbon-title{
-      font-size: 25px;
-      font-weight: 600;
-    }
-
-    .ribbon-text{
-      font-size: 20px;
-      line-height: 25px;
-    }
+  h2 {
+    font-size: 30px;
   }
 }
-  
-@media (min-width: 992px) {
-  .container-fluid {
-    background-color: $dark-blue;
-    margin-top: calc(20px + 3rem);
-    height: 400px;
-    margin-bottom: 150px;
-}
-  
-  .image-container {
-    position: relative;
-    overflow: hidden;
-    width: 50%;
-    margin-top: 25px;
-  }
-  
-  .image-container img {
-    width: 100%;
-    display: block;
-    position: relative;
-    top: -50%;
-    right: 7%;
-  }
-  
-  .text-container {
-    width: 50%;
-    padding: 250px 20px 20px;
 
-    .ribbon-title{
-      font-size: 25px;
-    }
-    
-    .ribbon-text{
+.title-tag-div {
+  h1 {
+    background-color: $light-blue;
+    color: $dark-blue;
+    padding: 15px 25px;
+    border-radius: 20px;
+  }
+}
+
+.title {
+  background-color: rgba($color: $dark-blue, $alpha: 0.4);
+  padding: 7px;
+  margin: 30px 53px;
+  h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: $dark-blue;
+  }
+}
+
+.details{
+  margin: 0 60px;
+  h3{
+    text-align: justify;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px){
+  .main-title{
+    font-size: 25px;
+    margin: 30px 0;
+    letter-spacing: 0px;
+  }
+
+  .title{
+    margin: 15px 15px;
+  }
+
+  .details{
+    margin: 0 20px;
+  }
+
+  .trustees-images{
+    background-color: rgb(239, 239, 239);
+  }
+
+  .title-tag-div{
+    h1{
       font-size: 20px;
-      line-height: 25px;
     }
   }
-}  
+  .big-font{
+    font-size: 20px;
+  }
+}
