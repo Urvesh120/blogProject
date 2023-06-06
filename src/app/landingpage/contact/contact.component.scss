@@ -31,6 +31,7 @@ $light-blue : #C9C9FD;
       h2{
         font-size: 25px;
         color: white;
+        line-height: 35px;
       }
   
       .second-shlok{
@@ -114,6 +115,11 @@ h1{
             h2{
                 font-size: 20px;
                 color: white;
+                line-height: 30px;
+            }
+            
+            .second-shlok{
+                margin-top: 40px;
             }
         }
     }

@@ -39,7 +39,7 @@ $light-blue : #C9C9FD;
   background-size: 100% 100%;
 }
 
-@media (min-width: 0px) and (max-width: 767.98){
+@media (min-width: 0px) and (max-width: 575.98px){
   .background{
     .upper-background{
       .other{
@@ -53,9 +53,45 @@ $light-blue : #C9C9FD;
       }
     }
   }
+
+  .bottom-audios-div{
+    .bottom-audios{
+      width: 80%;
+
+      div{
+        width: 100%;
+      }
+    }
+  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) and (max-width: 767.98px){
+  .background{
+    .upper-background{
+      .other{
+        .main-shlok{
+          font-size: 17px;
+        }
+  
+        .explain, .gujarati{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .bottom-audios-div{
+    .bottom-audios{
+      width: 80%;
+
+      div{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px){
   .background{
     .upper-background{
       .other{
@@ -66,6 +102,68 @@ $light-blue : #C9C9FD;
         .explain, .gujarati{
           font-size: 17px;
         }
+      }
+    }
+  }
+
+  .bottom-audios-div{
+    .bottom-audios{
+      width: 80%;
+
+      div{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px){
+  .background{
+    .upper-background{
+      .other{
+        .main-shlok{
+          font-size: 23px;
+        }
+  
+        .explain, .gujarati{
+          font-size: 17px;
+        }
+      }
+    }
+  }
+
+  .bottom-audios-div{
+    .bottom-audios{
+      width: 40%;
+    }
+
+    div{
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .background{
+    .upper-background{
+      .other{
+        .main-shlok{
+          font-size: 23px;
+        }
+  
+        .explain, .gujarati{
+          font-size: 17px;
+        }
+      }
+    }
+  }
+
+  .bottom-audios-div{
+    .bottom-audios{
+      width: 40%;
+
+      div{
+        width: 100%;
       }
     }
   }

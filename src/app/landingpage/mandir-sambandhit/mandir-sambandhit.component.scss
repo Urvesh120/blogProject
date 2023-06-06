@@ -10,7 +10,7 @@ $light-blue : #C9C9FD;
 
   .image-container {
     width: 65%;
-    margin-top: 0;
+    margin-top: 20px;
   }
   
   .image-container img {
@@ -22,11 +22,13 @@ $light-blue : #C9C9FD;
     width: 100%;
 
     .ribbon-title{
-      font-size: 20px;
+      font-size: 25px;
+      font-weight: 600;
     }
 
     .ribbon-text{
-      font-size: 15px;
+      font-size: 20px;
+      line-height: 25px;
     }
   }
 }
@@ -34,7 +36,7 @@ $light-blue : #C9C9FD;
 @media (min-width: 992px) {
   .container-fluid {
     background-color: $dark-blue;
-    margin-top: 100px;
+    margin-top: calc(20px + 3rem);
     min-height: 400px;
 }
   
@@ -46,7 +48,7 @@ $light-blue : #C9C9FD;
   }
   
   .image-container img {
-    width: 60%;
+    width: 53%;
     display: block;
     position: relative;
     top: -50%;
@@ -55,15 +57,15 @@ $light-blue : #C9C9FD;
   
   .text-container {
     width: 50%;
-    padding: 20px;
-    line-height: 30px;
+    padding: 250px 20px 20px;
 
     .ribbon-title{
-      font-size: 30px;
+      font-size: 25px;
     }
     
     .ribbon-text{
-      font-size: 25px;
+      font-size: 20px;
+      line-height: 25px;
     }
   }
 }  
