@@ -59,10 +59,10 @@
         <div>
           <input type="text" class="form-control" formControlName="mfirstname" placeholder="માતાનું નામ">
           <span *ngIf="mfirstname && mfirstname.invalid && mfirstname.touched">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
-          
+
           <input type="text" class="form-control" formControlName="mmiddlename" placeholder="માતાના પતિ/પિતા નું નામ">
           <span *ngIf="mmiddlename && mmiddlename.invalid && mmiddlename.touched">કૃપા કરીને તમારી માતાના પતિ/પિતા નું નામ દાખલ કરો.</span>
-          
+
           <input type="text" class="form-control" formControlName="mlastname" placeholder="માતાની અટક">
           <span *ngIf="mlastname && mlastname.invalid && mlastname.touched">કૃપા કરીને તમારી માતાની અટક દાખલ કરો.</span>
         </div>
@@ -82,9 +82,9 @@
               <span *ngIf="contact && contact.invalid && contact.touched">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
             </div>
           </div>
-          
 
-          
+
+
 
           <input type="email" class="form-control" formControlName="email" placeholder="ઇમેઇલ">
           <!-- <span *ngIf="email && email.invalid && email.touched">Please enter valid email.</span> -->
@@ -177,7 +177,13 @@
             <span *ngIf="description && description.invalid && description.touched">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
           </div>
         </div>
+        
       </form>
+
+      <div class="custom-file">
+        <input accept="image/png, image/jpg, image/jpeg" type="file" class="custom-file-input" id="fileInput" (change)="updateFileName($event)" />
+        <label class="custom-file-label selected-file-label" for="fileInput">{{ fileName }}</label>
+      </div>
 
       <!-- Register Button -->
       <div class="submitButtonDiv text-center mt-5">

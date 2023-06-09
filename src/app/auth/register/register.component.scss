@@ -92,6 +92,32 @@ $light-dark-blue : rgb(126, 126, 182);
 
 
 
+// visiting card CSS start
+.selected-file-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-file-label{
+  background-color: $dark-blue;
+  border-color: white;
+  color: white;
+  box-shadow: none;
+}
+
+.custom-file-label::after {
+  content: "વિઝિટિંગ કાર્ડ" !important;
+  background-color: white;
+  border-color: white;
+  color: $dark-blue;
+  box-shadow: none;
+}
+// visiting card CSS end
+
+
+
+
 
 
 

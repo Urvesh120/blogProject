@@ -1,4 +1,4 @@
-import { Component, OnInit, Sanitizer } from '@angular/core';
+import { Component, ElementRef, OnInit, Sanitizer, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
@@ -18,6 +18,10 @@ export class RegisterComponent<D> implements OnInit {
   registerImage = 'assets/images/register-bg.png';
   selectedValue : any;
   reload = false;
+
+  fileName: string = "";
+  cardImageBase64: string = "";
+  cardImageType : string = "";
 
 
   imageBase64: string = "";
@@ -124,12 +128,40 @@ export class RegisterComponent<D> implements OnInit {
   onSelectFile(event : any) {
     if (event.target.files && event.target.files[0]) {      
       this.imageType = event.target.files[0].type;
+      let isValidImage = this.checkImageValidation(event.target.files[0].type);
+      if(!isValidImage){
+        return;
+      }
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); 
       reader.onload = (event: any) => {
         this.imageBase64 = event.target.result;
       }
     }
+  }
+
+  updateFileName(event: any) {
+    const fileInput = event.target;
+    this.fileName = fileInput.files[0].name;
+    let isValidImage = this.checkImageValidation(fileInput.files[0].type);
+    if(!isValidImage){
+      return;
+    }
+    if (event.target.files && event.target.files[0]) {      
+      this.cardImageType = event.target.files[0].type;
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); 
+      reader.onload = (event: any) => {
+        this.cardImageBase64 = event.target.result;
+      }
+    }
+  }
+
+  checkImageValidation(fileType: any){
+    if(fileType == 'image/png' || fileType == 'image/jpeg' || fileType == 'image/jpg'){
+      return true;
+    }
+    return false;
   }
 
   abc(event : any){
@@ -295,6 +327,8 @@ export class RegisterComponent<D> implements OnInit {
     let data = {
       "picture": this.imageBase64,
       "pictureType": this.imageType,
+      "visitingCard": this.cardImageBase64,
+      "visitingCardImageType": this.cardImageType,
       "firstName" : this.RegistrationFormGroup.value.firstname,
       "middleName" : this.RegistrationFormGroup.value.middlename,
       "lastName" : this.RegistrationFormGroup.value.lastname,

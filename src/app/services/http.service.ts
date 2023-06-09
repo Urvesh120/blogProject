@@ -5,8 +5,8 @@ import { HttpBackend, HttpClient, HttpParams } from '@angular/common/http';
 })
 export class HttpService {
 
-  preRoute = "http://13.233.105.238:8090";
-  // preRoute = "http://localhost:8090";
+  // preRoute = "http://13.233.105.238:8090";
+  preRoute = "http://localhost:8090";
     constructor( private http: HttpClient,private httpWithoutInterceptor:HttpClient, private httpbackend:HttpBackend ){
         this.httpWithoutInterceptor= new HttpClient(httpbackend);
     }
@@ -55,5 +55,9 @@ export class HttpService {
     
     resetPassword(data: any){
       return this.httpWithoutInterceptor.post<any>(this.preRoute+'/user/reset-password', data);
+    }
+
+    currentDayBirthday(){
+      return this.httpWithoutInterceptor.get(this.preRoute+'/user/birthday');
     }
 }

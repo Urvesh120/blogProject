@@ -145,23 +145,27 @@
 
 <hr>
 
-<div
-  class="container-fluid birthday d-flex flex-wrap align-items-center justify-content-center justify-content-md-around mb-5">
+<div class="container-fluid birthday d-flex flex-wrap align-items-center justify-content-center justify-content-md-around mb-5">
   <div class="card">
     <div class="birthday-title">
       <h1>Today's Birthday</h1>
     </div>
-    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-profile-card-image.jpg" class="card-img-top"
-      alt="...">
+    <div class="birthday-image-div">
+      <img [src]="birthdayUserImage" class="card-img-top" alt="Today's birthday">
+    </div>
+    
     <div class="card-body">
-      <h5 class="card-title">Raam Pathak</h5>
+      <h5 class="card-title m-0">{{firstUserBirthday?.firstName}} {{firstUserBirthday?.lastName}}</h5>
     </div>
   </div>
 
   <div class="ads h-100 d-flex justify-content-center align-items-center">
     <div class="d-flex justify-content-center align-items-center w-100 h-100 rounded">
-      <div>
-        <img class="img-fluid rounded" width="700" src="../../../assets/images/download.jpeg" alt="">
+      <div class="user-visiting-card-div" *ngIf="isVisitingCard">
+        <img class="img-fluid rounded" width="700" [src]="userCardImage" alt="">
+      </div>
+      <div *ngIf="!isVisitingCard">
+        <h1>Visiting card not available</h1>
       </div>
     </div>
   </div>
