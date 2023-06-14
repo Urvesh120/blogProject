@@ -88,6 +88,20 @@ $light-blue : #C9C9FD;
       font-size: 25px;
     }
   }
+
+  .trustess-table{
+    padding: 0 15px;
+    margin: 50px 0;
+
+    table{
+      thead{
+        th{
+          font-size: 17px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
 
 
@@ -98,14 +112,22 @@ $light-blue : #C9C9FD;
     h2{
       font-size: 30px;
     }
-  }
-}
-
-@media screen and (min-width: 768px){
-  .background{
-    padding: 20px 30px 0;
     h2.custom-font{
       font-size: 25px;
+    }
+  }
+
+  .trustess-table{
+    padding: 0 53px;
+    margin: 50px 0;
+
+    table{
+      thead{
+        th{
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

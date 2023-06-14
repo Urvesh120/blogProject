@@ -58,6 +58,25 @@ $light-blue : #C9C9FD;
   margin-bottom: 30px;
 }
 
+.card{
+  max-width: 10rem;
+  border: 3px solid rgb(51, 51, 79);
+}
+
+.trustess-table{
+  padding: 0 53px;
+  margin: 50px 0;
+
+  table{
+    thead{
+      th{
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 0px) and (max-width: 768px){
   .main-title{
     font-size: 25px;
@@ -89,9 +108,18 @@ $light-blue : #C9C9FD;
       font-size: 25px;
     }
   }
-}
 
-.card{
-  max-width: 10rem;
-  border: 3px solid rgb(51, 51, 79);
+  .trustess-table{
+    padding: 0 15px;
+    margin: 50px 0;
+
+    table{
+      thead{
+        th{
+          font-size: 17px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
