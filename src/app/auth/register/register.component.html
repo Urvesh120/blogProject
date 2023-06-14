@@ -1,3 +1,68 @@
+<!-- Navbar Start -->
+<div class="navbar-div">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img class="img-fluid" width="45" src="../../assets/images/site_logo.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-light"></span>
+    </button>
+
+    <div class="collapse text-center navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item">
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">મુખ પૃષ્ઠ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">જ્ઞાતિ સંબંધિત</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">મંદિર સંબંધિત</a>
+        </li>        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ટ્રસ્ટ</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a>
+            <!-- <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/trusts']">શ્રી નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</a> -->
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">મંડળ</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-pragati-mandal']">નૉંદેરા પ્રગતિ મંડળ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-mahila-mandal']">મહિલા મંડળ</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ગેલેરી</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/audio']">ઓડિયો ગેલેરી</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/video']">વિડિઓ ગેલેરી</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/photo']">ફોટો ગેલેરી</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nearest-places']">નજીકના આકર્ષણો</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/donation']">દાન-દક્ષિણા</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']">સંપર્ક</a>
+        </li>
+      </ul>
+      <div class="buttons d-flex flex-column flex-lg-row flex-fill">
+        <div>
+          <a class="btn liveButton" [routerLink]="['/home']">લાઈવ દર્શન</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- Navbar End -->
+
+
 <div class="main-div d-flex flex-column flex-lg-row">
   <div class="svg-div text-center">
     <h1 class="image-text my-5">પરિચય &nbsp; | &nbsp; સંપર્ક &nbsp; | &nbsp; સમન્વય </h1>

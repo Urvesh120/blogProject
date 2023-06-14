@@ -141,6 +141,14 @@ hr{
   font-size: large;
 }
 
+.slider{
+  color: $dark-blue;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background-color: rgba($color: $light-blue, $alpha: 0.35);
+}
+
 
 @media screen and (min-width: 0px) and (max-width: 575.98px){
 
@@ -324,9 +332,12 @@ hr{
         font-size: large;
         letter-spacing: 1px;
         line-height: 22px;
-      }
-      
+      }  
     }
+
+    .slider{
+      padding: 0 60px;
+    } 
   }
   
   .nandikeshwar-mahadev-image, .navdurga-mata-image, .rang-avadhut-image{
