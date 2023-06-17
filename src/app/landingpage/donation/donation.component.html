@@ -35,43 +35,110 @@
   </div>
 </div>
 
-<div class="donation-form container my-5 rounded py-3">
-  <form>
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <input type="text" class="form-control" placeholder="નામ">
+<div class="donation-form rounded d-flex justify-content-center">
+  <div>
+    <form>
+
+      <div class="row">
+        <div class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" formControlName="trustRadioButton" value="nandikeshwarMahadevTrust" type="radio" name="trustRadioButton" id="flexRadioDefault1" (change)="changeRadioButton($event)" checked>
+          <label class="form-check-label radio-button-main-label" for="flexRadioDefault1">
+            શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ
+          </label>
+        </div>
+        <div class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" formControlName="trustRadioButton" value="nandikeshwarCheritableTrust" type="radio" name="trustRadioButton" (change)="changeRadioButton($event)" id="flexRadioDefault2">
+          <label class="form-check-label radio-button-main-label" for="flexRadioDefault2">
+            શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ
+          </label>
+        </div>
+        <div class="col-12 col-md-6">
+          <input type="text" class="form-control" placeholder="નામ">
+        </div>
+        <div class="col-12 col-md-6">
+          <input type="text" class="form-control" placeholder="PAN No. (પી એ એન નં)">
+        </div>
+        <div class="col-12 col-md-6">
+          <input type="text" class="form-control" placeholder="ઈમેલ">
+        </div>
+        <div class="col-12 col-md-6">
+          <input type="text" class="form-control" placeholder="ફોન નંબર">
+        </div>
+        <div class="col-12 col-md-6">
+          <input type="number" class="form-control" placeholder="Total amount">
+        </div>
+        <!-- <div class="col-12 col-md-6">
+          <textarea class="form-control" rows="1" placeholder="એડ્રેસ"></textarea>
+        </div> -->
+        <div class="col-12 col-md-6">
+          <textarea class="form-control" rows="3" placeholder="વર્ણન"></textarea>
+        </div>
+
+
+        <div *ngIf="isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault1"checked>
+          <label class="form-check-label radio-button-label" for="flexRadioDefault1">
+            જીર્ણોદ્ધાર નિમિત્તે
+          </label>
+        </div>
+        <div *ngIf="isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault2">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault2">
+            અખંડ દિવા નિમિત્તે
+          </label>
+        </div>
+        <div *ngIf="isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault1">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault1">
+            અખંડ દિવા નિમિત્તે
+          </label>
+        </div>
+        <div *ngIf="isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault2">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault2">
+            પૂજા નિમિત્તે
+          </label>
+        </div>
+        <div *ngIf="isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault1">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault1">
+            અન્ય
+          </label>
+        </div>
+    
+    
+    
+        <div *ngIf="!isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarCheritableTrustRadioButton" id="flexRadioDefault2" checked>
+          <label class="form-check-label radio-button-label" for="flexRadioDefault2">
+            આરોગ્યલક્ષી કાર્યો નિમિત્તે  
+          </label>
+        </div>
+        <div *ngIf="!isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarCheritableTrustRadioButton" id="flexRadioDefault1">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault1">
+            કેળવણી ને લગતા કાર્યો નિમિત્તે
+          </label>
+        </div>
+        <div *ngIf="!isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarCheritableTrustRadioButton" id="flexRadioDefault2">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault2">
+            સામાજીક તેમજ સાંસ્કૃતિક કાર્યક્રમો નિમિત્તે
+          </label>
+        </div>
+        <div *ngIf="!isNandikeshwarMahadevTrustRadioButtonSelected" class="check-box-div col-12 col-md-6">
+          <input class="form-check-input" type="radio" name="nandikeshwarCheritableTrustRadioButton" id="flexRadioDefault1">
+          <label class="form-check-label radio-button-label" for="flexRadioDefault1">
+            અન્ય
+          </label>
+        </div>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <input type="text" class="form-control" placeholder="PAN No. (પી એ એન નં)">
+
+      <div class="submit-button text-center my-5">
+        <button class="btn btn-success w-25">દાન કરો</button>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <input type="text" class="form-control" placeholder="ઈમેલ">
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <input type="text" class="form-control" placeholder="ફોન નંબર">
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <select class="form-control" id="sel1" name="sellist1">
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-          <option>Option 4</option>
-        </select>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <input type="number" class="form-control" placeholder="Total amount">
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <textarea class="form-control" rows="2" placeholder="એડ્રેસ"></textarea>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <textarea class="form-control" rows="2" placeholder="વર્ણન"></textarea>
-      </div>
-    </div>
-    <div class="submit-button text-center my-5">
-      <button class="btn btn-success w-25">દાન કરો</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <div class="slider w-100 mb-5">
