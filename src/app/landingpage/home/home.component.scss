@@ -177,10 +177,10 @@ hr{
   border: 0;
 }
 
-.container-fluid {
-  background-color: $dark-blue;
-  margin-top: calc(20px + 3rem);
-}
+// .container-fluid {
+//   background-color: $dark-blue;
+//   margin-top: calc(20px + 3rem);
+// }
 
 
 @media screen and (min-width: 0px) and (max-width: 575.98px){
@@ -344,17 +344,7 @@ hr{
     .ads{
       margin-top: 50px;
     }
-  }
-
-
-
-
-
-  .container-fluid {
-    background-color: $dark-blue;
-    margin-top: 30px;
-    min-height: 400px;
-  }  
+  } 
 }
 
 @media screen and (min-width: 992px){
@@ -426,27 +416,5 @@ hr{
 
   .slider{
     padding: 0 60px;
-  }
-
-
-
-
-
-
-  .container-fluid {
-    background-color: $dark-blue;
-    margin-top: calc(20px + 3rem);
-    height: 430px;
-  }
-
-  .image-container.ribbon-image-div{
-    position: absolute;
-    top: 90px;
-  }
-  
-  .image-container {
-    img{
-      width: 27%;
-    }
   }
 }
