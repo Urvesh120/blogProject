@@ -53,9 +53,9 @@
         </li>
       </ul>
       <div class="buttons d-flex flex-column flex-lg-row flex-fill">
-        <div>
+        <!-- <div>
           <a class="btn liveButton" [routerLink]="['/home']">લાઈવ દર્શન</a>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
@@ -99,52 +99,52 @@
         <!-- NAME -->
         <div>
           <input type="text" class="form-control" formControlName="firstname" placeholder="નામ">
-          <span *ngIf="firstname && firstname.invalid && firstname.touched">કૃપા કરીને તમારું નામ દાખલ કરો.</span>
+          <span *ngIf="firstname && firstname.invalid && firstname.touched || ( isSubmited && firstname.invalid )">કૃપા કરીને તમારું નામ દાખલ કરો.</span>
 
-          <input type="text" formControlName="middlename" class="form-control" placeholder="પિતાનું નામ">
-          <span *ngIf="middlename && middlename.invalid && middlename.touched">કૃપા કરીને તમારા પિતાનું નામ દાખલ કરો.</span>
+          <input type="text" formControlName="middlename" class="form-control" placeholder="તમારા પતિ/પિતા નું નામ">
+          <span *ngIf="middlename && middlename.invalid && middlename.touched || ( isSubmited && middlename.invalid )">કૃપા કરીને તમારા પતિ/પિતા નું નામ દાખલ કરો.</span>
 
-          <input type="text" class="form-control" formControlName="lastname" placeholder="અટક">
-          <span *ngIf="lastname && lastname.invalid && lastname.touched">કૃપા કરીને તમારી અટક દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="lastname" placeholder="તમારી અટક">
+          <span *ngIf="lastname && lastname.invalid && lastname.touched || ( isSubmited && lastname.invalid )">કૃપા કરીને તમારી અટક દાખલ કરો.</span>
         </div>
 
         <!-- Father's Name -->
         <div>
-          <input type="text" class="form-control" formControlName="ffirstname" placeholder="પિતાનું નામ">
-          <span *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched">કૃપા કરીને તમારા પિતાનું નામ દાખલ કરો..</span>
+          <input type="text" class="form-control" formControlName="ffirstname" placeholder="તમારા પિતાનું નામ">
+          <span *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched || ( isSubmited && ffirstname.invalid )">કૃપા કરીને તમારા પિતાનું નામ દાખલ કરો..</span>
 
-          <input type="text" class="form-control" formControlName="fmiddlename" placeholder="પિતાના પિતાનું નામ">
-          <span *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched">કૃપા કરીને તમારા પિતાના પિતાનું નામ દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="fmiddlename" placeholder="તમારા પિતાના પિતાનું નામ">
+          <span *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched || ( isSubmited && fmiddlename.invalid )">કૃપા કરીને તમારા પિતાના પિતાનું નામ દાખલ કરો.</span>
 
-          <input type="text" class="form-control" formControlName="flastname" placeholder="પિતાની અટક">
-          <span *ngIf="flastname && flastname.invalid && flastname.touched">કૃપા કરીને તમારા પિતાની અટક દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="flastname" placeholder="તમારા પિતાની અટક">
+          <span *ngIf="flastname && flastname.invalid && flastname.touched || ( isSubmited && flastname.invalid )">કૃપા કરીને તમારા પિતાની અટક દાખલ કરો.</span>
         </div>
 
         <!-- Mother's Name -->
         <div>
-          <input type="text" class="form-control" formControlName="mfirstname" placeholder="માતાનું નામ">
-          <span *ngIf="mfirstname && mfirstname.invalid && mfirstname.touched">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="mfirstname" placeholder="તમારા માતાનું નામ">
+          <span *ngIf="mfirstname && mfirstname.invalid && mfirstname.touched || ( isSubmited && mfirstname.invalid )">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
 
-          <input type="text" class="form-control" formControlName="mmiddlename" placeholder="માતાના પતિ/પિતા નું નામ">
-          <span *ngIf="mmiddlename && mmiddlename.invalid && mmiddlename.touched">કૃપા કરીને તમારી માતાના પતિ/પિતા નું નામ દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="mmiddlename" placeholder="તમારા માતાના પતિ/પિતા નું નામ">
+          <span *ngIf="mmiddlename && mmiddlename.invalid && mmiddlename.touched || ( isSubmited && mmiddlename.invalid )">કૃપા કરીને તમારી માતાના પતિ/પિતા નું નામ દાખલ કરો.</span>
 
-          <input type="text" class="form-control" formControlName="mlastname" placeholder="માતાની અટક">
-          <span *ngIf="mlastname && mlastname.invalid && mlastname.touched">કૃપા કરીને તમારી માતાની અટક દાખલ કરો.</span>
+          <input type="text" class="form-control" formControlName="mlastname" placeholder="તમારા માતાની અટક">
+          <span *ngIf="mlastname && mlastname.invalid && mlastname.touched || ( isSubmited && mlastname.invalid )">કૃપા કરીને તમારી માતાની અટક દાખલ કરો.</span>
         </div>
 
         <!-- Contact Information -->
         <div>
           <div class="row">
-            <div class="col-12 col-md-2">
+            <!-- <div class="col-12 col-md-2">
               <select class="form-control" formControlName="dialcode">
                 <option value="" disabled selected>Dial Code</option>
                 <option value="{{ item.dialCode }}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</option>
               </select>
               <span *ngIf="dialcode && dialcode.invalid && dialcode.touched">Please select dial code.</span>
-            </div>
-            <div class="col-12 col-md-10">
-              <input type="tel" minlength="10" maxlength="10" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
-              <span *ngIf="contact && contact.invalid && contact.touched">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
+            </div> -->
+            <div class="col-12">
+              <input type="tel" #phoneInput id="phone" minlength="10" maxlength="10" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
+              <span *ngIf="(contact && contact.invalid && contact.touched) || (!iti.isValidNumber() && contact.touched) || ( isSubmited && contact.invalid )">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
             </div>
           </div>
 
@@ -152,45 +152,45 @@
 
 
           <input type="email" class="form-control" formControlName="email" placeholder="ઇમેઇલ">
-          <!-- <span *ngIf="email && email.invalid && email.touched">Please enter valid email.</span> -->
+          <span *ngIf="email.value.length > 0 && (email && email.invalid && email.touched) || ( isSubmited && email.invalid )">કૃપા કરીને માન્ય ઇમેઇલ દાખલ કરો.</span>
 
           <input type="password" class="form-control" formControlName="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" (keyup)="onPasswordValidation()" placeholder="પાસવર્ડ">
-          <span *ngIf="password && password.touched && password.errors?.['required']">Password is required!</span>
+          <span *ngIf="password && password.touched && password.errors?.['required'] || ( isSubmited && password.errors?.['required'] )">Password is required!</span>
           <span *ngIf="password.errors?.['pattern']">Password must contain at least one number,one uppercase and lowercase letter, at least 8 or more characters.</span>
 
           <input type="password" class="form-control" formControlName="confirmpassword" (change)="onPasswordChange()" placeholder="પાસવર્ડની પુષ્ટિ કરો">
-          <span *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.errors?.['required']">Please enter confirm password!</span>
-          <span *ngIf="confirmpassword.errors?.['mismatch']">કન્ફર્મ પાસવર્ડ ઉપરના પાસવર્ડ સાથે મેળ ખાતો હોવો જોઈએ!</span>
+          <span *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.errors?.['required'] || ( isSubmited && confirmpassword.invalid && confirmpassword.errors?.['required'] )">Please enter confirm password!</span>
+          <span *ngIf="confirmpassword.errors?.['mismatch'] || ( isSubmited && confirmpassword.errors?.['mismatch'] )">કન્ફર્મ પાસવર્ડ ઉપરના પાસવર્ડ સાથે મેળ ખાતો હોવો જોઈએ!</span>
         </div>
 
         <!-- Other information -->
         <div>
           <input type="date" class="form-control" formControlName="dateofbirth" placeholder="જન્મ તારીખ">
-          <span *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">કૃપા કરીને તમારી જન્મ તારીખ પસંદ કરો.</span>
+          <span *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched || ( isSubmited && dateofbirth.invalid )">કૃપા કરીને તમારી જન્મ તારીખ પસંદ કરો.</span>
 
           <select class="form-control" formControlName="bloodgroup">
             <option value="" disabled selected>તમારું બ્લડ ગ્રુપ</option>
             <option value="{{ item }}" *ngFor="let item of bloodGrouptList">{{ item }}</option>
           </select>
-          <span *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched">કૃપા કરીને તમારું બ્લડ ગ્રુપ પસંદ કરો.</span>
+          <span *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched || ( isSubmited && bloodgroup.invalid )">કૃપા કરીને તમારું બ્લડ ગ્રુપ પસંદ કરો.</span>
 
           <select class="form-control" formControlName="gender">
             <option value="" disabled selected>તમારું લિંગ</option>
             <option value="{{ item }}" *ngFor="let item of genderList">{{ item }}</option>
           </select>
-          <span *ngIf="gender && gender.invalid && gender.touched">કૃપા કરીને તમારું લિંગ પસંદ કરો.</span>
+          <span *ngIf="gender && gender.invalid && gender.touched || ( isSubmited && gender.invalid )">કૃપા કરીને તમારું લિંગ પસંદ કરો.</span>
 
           <select class="form-control" formControlName="maritalstatus">
             <option value="" disabled selected>તમારી વૈવાહિક સ્થિતિ</option>
             <option value="{{ item }}" *ngFor="let item of maritalStatus">{{ item }}</option>
           </select>
-          <span *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">કૃપા કરીને તમારી વૈવાહિક સ્થિતિ પસંદ કરો.</span>
+          <span *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched || ( isSubmited && maritalstatus.invalid )">કૃપા કરીને તમારી વૈવાહિક સ્થિતિ પસંદ કરો.</span>
 
           <input type="text" class="form-control" formControlName="gotra" placeholder="ગોત્ર">
-          <span *ngIf="gotra && gotra.invalid && gotra.touched">કૃપા કરીને તમારું ગોત્ર દાખલ કરો.</span>
+          <span *ngIf="gotra && gotra.invalid && gotra.touched || ( isSubmited && gotra.invalid )">કૃપા કરીને તમારું ગોત્ર દાખલ કરો.</span>
 
           <input type="text" class="form-control" formControlName="educational" placeholder="શૈક્ષણિક લાયકાત">
-          <span *ngIf="educational && educational.invalid && educational.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span>
+          <span *ngIf="educational && educational.invalid && educational.touched || ( isSubmited && educational.invalid )">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span>
 
           <input type="text" class="form-control" formControlName="achivement" placeholder="સિદ્ધિઓ">
           <!-- <span *ngIf="educational && educational.invalid && educational.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span> -->
@@ -200,22 +200,22 @@
         <div>
 
           <input type="text" class="form-control" formControlName="addressLine1" placeholder="એડ્રેસ લાઇન 1">
-          <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">સરનામું જરૂરી છે!</span>
+          <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched || ( isSubmited && addressLine1.invalid )">સરનામું જરૂરી છે!</span>
 
           <input type="text" class="form-control" formControlName="addressLineLandmark" placeholder="નજીકનું સીમાચિહ્ન">
           <!-- <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</span> -->
 
           <input type="text" class="form-control" formControlName="addressLineCity" placeholder="શહેર">
-          <span *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">કૃપા કરીને તમારું શહેર દાખલ કરો.</span>
+          <span *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched || ( isSubmited && addressLineCity.invalid )">કૃપા કરીને તમારું શહેર દાખલ કરો.</span>
 
           <input type="text" pattern="[0-9]+" minlength="6" maxlength="6" class="form-control" formControlName="addressLinePincode" placeholder="પીન કોડ">
-          <span *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</span>
+          <span *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched || ( isSubmited && addressLinePincode.invalid )">કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</span>
 
-          <select class="form-control" formControlName="country">
+          <!-- <select class="form-control" formControlName="country">
             <option value="" disabled selected>તમારો દેશ</option>
             <option value="{{ item.countryName }}" *ngFor="let item of countryList">{{ item.countryName }}</option>
           </select>
-          <span *ngIf="country && country.invalid && country.touched">કૃપા કરીને તમારો દેશ પસંદ કરો.</span>
+          <span *ngIf="country && country.invalid && country.touched">કૃપા કરીને તમારો દેશ પસંદ કરો.</span> -->
         </div>
 
         <!-- Occupation -->
@@ -224,25 +224,24 @@
             <option value="" disabled selected>નોકરી અથવા વ્યવસાય</option>
             <option value="{{ item }}" *ngFor="let item of occupationList">{{ item }}</option>
           </select>
-          <span *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">કૃપા કરીને તમારી નોકરી અથવા વ્યવસાય પસંદ કરો.</span>
+          <span *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched || ( isSubmited && jobBusinessType.invalid )">કૃપા કરીને તમારી નોકરી અથવા વ્યવસાય પસંદ કરો.</span>
 
           <div *ngIf="isJob && isOccupationSelected">
             <input type="text" class="form-control" formControlName="jobBusinessName" placeholder="કંપની નું નામ">
-            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">કૃપા કરીને નામ દાખલ કરો.</span>
+            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched || ( isSubmited && jobBusinessName.invalid )">કૃપા કરીને નામ દાખલ કરો.</span>
 
             <input type="text" class="form-control" formControlName="description" placeholder="હોદ્દો">
-            <span *ngIf="description && description.invalid && description.touched">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
+            <span *ngIf="description && description.invalid && description.touched || ( isSubmited && description.invalid )">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
           </div>
 
           <div *ngIf="!isJob && isOccupationSelected">
             <input type="text" class="form-control" formControlName="jobBusinessName" placeholder="વ્યવસાયનું નામ">
-            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">કૃપા કરીને નામ દાખલ કરો.</span>
+            <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched || ( isSubmited && jobBusinessName.invalid )">કૃપા કરીને નામ દાખલ કરો.</span>
 
             <input type="text" class="form-control" formControlName="description" placeholder="વ્યવસાય વિશે">
-            <span *ngIf="description && description.invalid && description.touched">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
+            <span *ngIf="description && description.invalid && description.touched || ( isSubmited && description.invalid )">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
           </div>
-        </div>
-        
+        </div>        
       </form>
 
       <div class="custom-file">
@@ -254,6 +253,7 @@
       <div class="submitButtonDiv text-center mt-5">
         <button type="submit" class="btn registerButton" (click)="register()">એકાઉન્ટ બનાવો</button>
       </div>
+
     </div>
 
     <!-- Navigation Buttons -->

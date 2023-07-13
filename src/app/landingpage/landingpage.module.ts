@@ -23,19 +23,23 @@ import { NearestplacesComponent } from './nearestplaces/nearestplaces.component'
 import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
 import { VideomediaComponent } from './media/videomedia/videomedia.component';
 import { PhotomediaComponent } from './media/photomedia/photomedia.component';
-import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photomedia-one.component';
-import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
-import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonationComponent } from './donation/donation.component';
 import { NandikeshwarcharitableComponent } from './trusts/nandikeshwarcharitable/nandikeshwarcharitable.component';
 import { MahilaComponent } from './mandal/mahila/mahila.component';
 import { MandirSambandhitComponent } from './mandir-sambandhit/mandir-sambandhit.component';
 import { GyatiSambandhitComponent } from './gyati-sambandhit/gyati-sambandhit.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
 };
+
+export function httpTranslateLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -55,9 +59,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AudiomediaComponent,
     VideomediaComponent,
     PhotomediaComponent,
-    PhotomediaOneComponent,
-    PhotomediaTwoComponent,
-    PhotomediaThreeComponent,
     ContactComponent,
     DonationComponent,
     NandikeshwarcharitableComponent,
@@ -71,7 +72,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     ModuleModule,
     PerfectScrollbarModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {

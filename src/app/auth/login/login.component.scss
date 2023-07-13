@@ -26,13 +26,20 @@ span{
   color: rgb(135, 45, 45);
 }
 
+.form-control{
+  background-color: $light-dark-blue !important;
+}
+
+.form-control:focus{
+  background-color: white !important;
+}
+
 input[type="text"], input[type="password"]{
   border: 1px solid $dark-blue;
 }
 
 input[type="text"]:focus, input[type="password"]:focus{
   box-shadow: none;
-  background-color: $light-dark-blue;
 }
 
 .form-control::placeholder {
@@ -58,6 +65,10 @@ h2.shlok{
 }
 h4.shlok{
   font-size: 23px;
+}
+
+.forget-password-link{
+  cursor: pointer;
 }
 
 @media (min-width: 0px) and (max-width: 578.98px){

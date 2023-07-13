@@ -19,7 +19,7 @@ import { DatePipe } from '@angular/common';
     CommonModule,
     AuthRoutingModule,
     ModuleModule,
-    MatNativeDateModule,
+    MatNativeDateModule
   ],
   providers: [
     DatePipe,

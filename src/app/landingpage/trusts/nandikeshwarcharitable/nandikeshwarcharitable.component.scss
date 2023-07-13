@@ -94,6 +94,10 @@ $light-blue : #C9C9FD;
   font-size: 17px;
 }
 
+.qr-div, .form-div{
+  padding: 25px;
+}
+
 .form-div{
   .row{
     .col-12, .col-lg-6{
@@ -253,6 +257,7 @@ $light-blue : #C9C9FD;
 
     .form-div{
       width: 70%;
+      border-left: 2px solid $dark-blue;
     }
   }
 }
@@ -269,6 +274,7 @@ $light-blue : #C9C9FD;
 
     .form-div{
       width: 70%;
+      border-left: 2px solid $dark-blue;
     }
   }
 }

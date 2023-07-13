@@ -13,9 +13,6 @@ import { NearestplacesComponent } from './nearestplaces/nearestplaces.component'
 import { AudiomediaComponent } from './media/audiomedia/audiomedia.component';
 import { VideomediaComponent } from './media/videomedia/videomedia.component';
 import { PhotomediaComponent } from './media/photomedia/photomedia.component';
-import { PhotomediaOneComponent } from './media/photomedia/photomedia-one/photomedia-one.component';
-import { PhotomediaTwoComponent } from './media/photomedia/photomedia-two/photomedia-two.component';
-import { PhotomediaThreeComponent } from './media/photomedia/photomedia-three/photomedia-three.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonationComponent } from './donation/donation.component';
 import { TrustsComponent } from './trusts/trusts.component';
@@ -24,6 +21,11 @@ import { NandikeshwarcharitableComponent } from './trusts/nandikeshwarcharitable
 import { MahilaComponent } from './mandal/mahila/mahila.component';
 import { MandirSambandhitComponent } from './mandir-sambandhit/mandir-sambandhit.component';
 import { GyatiSambandhitComponent } from './gyati-sambandhit/gyati-sambandhit.component';
+import { DattYaagComponent } from './media/photomedia/datt-yaag/datt-yaag.component';
+import { ShardotsavComponent } from './media/photomedia/shardotsav/shardotsav.component';
+import { ShavanMassComponent } from './media/photomedia/shavan-mass/shavan-mass.component';
+import { ShreeBhagvdKathaComponent } from './media/photomedia/shree-bhagvd-katha/shree-bhagvd-katha.component';
+import { VishnuYaagComponent } from './media/photomedia/vishnu-yaag/vishnu-yaag.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -42,9 +44,11 @@ const routes: Routes = [
     {path : 'audio', component : AudiomediaComponent},
     {path : 'video', component : VideomediaComponent},
     {path : 'photo', component : PhotomediaComponent},
-    {path : 'photo-one', component : PhotomediaOneComponent},
-    {path : 'photo-two', component : PhotomediaTwoComponent},
-    {path : 'photo-three', component : PhotomediaThreeComponent},
+    {path : 'datt-yaag', component : DattYaagComponent},
+    {path : 'shardotshv', component : ShardotsavComponent},
+    {path : 'shravan-maash', component : ShavanMassComponent},
+    {path : 'shreemad-bhagvad-katha', component : ShreeBhagvdKathaComponent},
+    {path : 'vishu-yaag', component : VishnuYaagComponent},
     {path : 'contact', component : ContactComponent},
     {path : 'donation', component : DonationComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},

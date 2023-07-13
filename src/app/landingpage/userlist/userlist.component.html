@@ -1,204 +1,412 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-  <mat-tab label="Registered User">
-    <ng-template [ngTemplateOutlet]="registeredUser"></ng-template>
-  </mat-tab>
-  
-  <mat-tab *ngIf="isAdmin" label="Pending User">
-    <ng-template [ngTemplateOutlet]="pendingUser"></ng-template>
-  </mat-tab>
-</mat-tab-group>
+<!-- Main Catagory -->
+<div class="main-category-div d-flex flex-wrap">
 
-<ng-template #registeredUser >
-  <!-- <mat-checkbox [(ngModel)]="job" (change)="applyFilter('color', job ? 'blue': '')">Show only blue colors</mat-checkbox> -->
-  <div class="user-list-table">
-    <div class="filter-div">
-      <div class="input-filter">
-        <mat-form-field>
-          <mat-label>Filter</mat-label>
-          <input matInput (keyup)="registerListFilter($event)" placeholder="search" #input>
-        </mat-form-field>
+  <div class="category-div">
+    <input type="radio"  class="designed-radio-button" name="table-content" id="user-management" value="user-management" checked (change)="changeRadioButton($event)"/>
+    <label for="user-management" class="user-management">
+      User Management
+    </label>
+  </div>
+
+  <div class="category-div">
+    <input type="radio" class="designed-radio-button" name="table-content" id="blood-group" value="blood-group" (change)="changeRadioButton($event)"/>
+    <label for="blood-group" class="blood-group">
+      Blood Group
+    </label>
+  </div>
+
+  <div class="category-div">
+    <input type="radio" class="designed-radio-button" name="table-content" id="match-making" value="match-making" (change)="changeRadioButton($event)"/>
+    <label for="match-making" class="match-making">
+      Match Making
+    </label>
+  </div>
+
+  <div class="category-div">
+    <input type="radio" class="designed-radio-button" name="table-content" id="occupational" value="occupational" (change)="changeRadioButton($event)"/>
+    <label for="occupational" class="occupational">
+      Ocupational
+    </label>
+  </div>      
+
+</div>
+
+<hr>
+
+<!-- Sub Catagory -->
+<div>
+  <div *ngIf="isUserManagement">
+    <div class="user-management-main-category-div d-flex flex-column flex-lg-row justify-content-around">
+
+      <div class="user-management-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="user-management-content" id="registered-users" value="registered-users" checked (change)="userManagementSelection($event)"/>
+        <label for="registered-users" class="registered-users ">
+          Registered Users
+        </label>
       </div>
-      <div class="radio-button-div">
-        <div class="radio-div b-div">
-          <mat-checkbox [(ngModel)]="business" (change)="applyRegisterFilter(business ? 'Business': '')">Business</mat-checkbox>
-        </div>
-        <div class="radio-div j-div">
-          <mat-checkbox [(ngModel)]="job" (change)="applyRegisterFilter(job ? 'Job': '')">Job</mat-checkbox>
-        </div>
-      </div>
-    </div>
-    <div class="table-div">
-      <table mat-table [dataSource]="registeredUserDataSource" class="mat-elevation-z8">
-        <!-- First name Column -->
-        <ng-container matColumnDef="First_Name">
-          <th mat-header-cell *matHeaderCellDef> First Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-        </ng-container>
-  
-        <!-- Middle name Column -->
-        <ng-container matColumnDef="Middle_Name">
-          <th mat-header-cell *matHeaderCellDef> Middle Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
-        </ng-container>
-      
-        <!-- Last name Column -->
-        <ng-container matColumnDef="Last_Name">
-          <th mat-header-cell *matHeaderCellDef> Last Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-        </ng-container>
-        
-        <!-- Father name Column -->
-        <ng-container matColumnDef="Father_Name">
-          <th mat-header-cell *matHeaderCellDef> Father's Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.fatherName}} </td>
-        </ng-container>
-      
-        <!-- Email Column -->
-        <ng-container matColumnDef="Email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-        </ng-container>
-  
-        <!-- Email Column -->
-        <ng-container matColumnDef="Contact">
-          <th mat-header-cell *matHeaderCellDef> Contact </th>
-          <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
-        </ng-container>
-  
-        <!-- Email Column -->
-        <ng-container matColumnDef="Occupation">
-          <th mat-header-cell *matHeaderCellDef> Occupation </th>
-          <td mat-cell *matCellDef="let element"> {{element.occupationType}} </td>
-        </ng-container>
-  
-        <!-- Email Column -->
-        <ng-container matColumnDef="Address">
-          <th mat-header-cell *matHeaderCellDef> Address </th>
-          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-        </ng-container>
     
-        <!-- View profile Column -->
-        <ng-container matColumnDef="Action" stickyEnd>
-            <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let element">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                  <mat-icon style="color: #616060;">more_horiz</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item (click)="setData(element,'registered')" [routerLink]="['/profile-preview']">
-                    <mat-icon style="color: #0f52ba;">person</mat-icon>
-                    <span>View Profile</span>
-                  </button>
-                </mat-menu>
+      <div class="user-management-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="user-management-content" id="unregistered-users" value="unregistered-users" (change)="userManagementSelection($event)"/>
+        <label for="unregistered-users" class="unregistered-users ">
+          Unregistered Users
+        </label>
+      </div>    
+
+    </div>
+  </div>
+
+  <div *ngIf="isBloodGroup">
+    <div class="blood-group-manin-category-div d-flex flex-column flex-lg-row justify-content-around">
+
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="ab-p" value="ab-p" (change)="bloodGroupSelection($event)"/>
+        <label for="ab-p" class="ab-p blood-group-label ">
+          AB+
+        </label>
+      </div>
+    
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="ab-n" value="ab-n" (change)="bloodGroupSelection($event)"/>
+        <label for="ab-n" class="ab-n blood-group-label ">
+          AB-
+        </label>
+      </div>    
+
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="a-p" value="a-p" (change)="bloodGroupSelection($event)"/>
+        <label for="a-p" class="a-p blood-group-label ">
+          A+
+        </label>
+      </div>
+    
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="a-n" value="a-n" (change)="bloodGroupSelection($event)"/>
+        <label for="a-n" class="a-n blood-group-label ">
+          A-
+        </label>
+      </div>    
+
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="b-p" value="b-p" (change)="bloodGroupSelection($event)"/>
+        <label for="b-p" class="b-p blood-group-label ">
+          B+
+        </label>
+      </div>
+    
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="b-n" value="b-n" (change)="bloodGroupSelection($event)"/>
+        <label for="b-n" class="b-n blood-group-label ">
+          B-
+        </label>
+      </div>    
+
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="o-p" value="o-p" (change)="bloodGroupSelection($event)"/>
+        <label for="o-p" class="o-p blood-group-label ">
+          O+
+        </label>
+      </div>
+    
+      <div class="blood-group-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="o-n" value="o-n" (change)="bloodGroupSelection($event)"/>
+        <label for="o-n" class="o-n blood-group-label ">
+          O-
+        </label>
+      </div>    
+
+    </div>
+  </div>
+
+  <div *ngIf="isMatchMaking">
+    <div class="match-making-main-category-div d-flex flex-column flex-lg-row justify-content-around align-items-center">
+
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content-gender" id="male" value="male" (change)="matchMakingGenderSelection($event)"/>
+        <label for="male" class="male match-making-genders ">
+          Male
+        </label>
+      </div>
+      
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content-gender" id="female" value="female" (change)="matchMakingGenderSelection($event)"/>
+        <label for="female" class="female match-making-genders ">
+          Female
+        </label>
+      </div>
+
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="one" value="one" (change)="matchMakingAgeSelection($event)"/>
+        <label for="one" class="one match-making-label ">
+          18-25
+        </label>
+      </div>
+    
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="two" value="two" (change)="matchMakingAgeSelection($event)"/>
+        <label for="two" class="two match-making-label ">
+          26-30
+        </label>
+      </div>   
+      
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="three" value="three" (change)="matchMakingAgeSelection($event)"/>
+        <label for="three" class="three match-making-label ">
+          31-35
+        </label>
+      </div>
+    
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="four" value="four" (change)="matchMakingAgeSelection($event)"/>
+        <label for="four" class="four match-making-label ">
+          36-40
+        </label>
+      </div>   
+
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="five" value="five" (change)="matchMakingAgeSelection($event)"/>
+        <label for="five" class="five match-making-label ">
+          41-45
+        </label>
+      </div>
+    
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="six" value="six" (change)="matchMakingAgeSelection($event)"/>
+        <label for="six" class="six match-making-label ">
+          46-50
+        </label>
+      </div>   
+
+      <div class="match-making-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="seven" value="seven" (change)="matchMakingAgeSelection($event)"/>
+        <label for="seven" class="seven match-making-label ">
+          50+
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="isOccupational">
+    <div class="occupational-main-category-div d-flex flex-column flex-lg-row justify-content-around">
+
+      <div class="occupational-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="occupational-content" checked id="job" value="job" (change)="occupationSelection($event)"/>
+        <label for="job" class="job ">
+          Job
+        </label>
+      </div>
+    
+      <div class="occupational-category-div w-100">
+        <input type="radio" class="designed-radio-button" name="occupational-content" id="business" value="business" (change)="occupationSelection($event)"/>
+        <label for="business" class="business ">
+          Business
+        </label>
+      </div>    
+
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- Table -->
+<div>
+
+  <div *ngIf="isUserManagement">  
+
+    <div class="table-div" *ngIf="isRegisteredUsers">
+      <input class="form-control mb-3 userManagementSearch" id="myInput" type="text" placeholder="Search.." [(ngModel)]="registeredUserSearch">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>View Profile</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr *ngFor="let user of filteredRegisteredUser">
+            <td>{{ user.firstName}}</td>
+            <td>{{ user.middleName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.contact }}</td>
+            <td class="viewProfileCell">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+                <img [src]="viewProfile" alt="view profile">
+              </button>
             </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="columns"></tr>
-        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
-  
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" [attr.colspan]="columns.length">No data matching the filter</td>
-        </tr>
-      </table>
+          </tr>
+          <tr *ngIf="filteredRegisteredUser.length <= 0">
+            <td colspan="5">No data found</td>
+          </tr>
+        </tbody>
+      </table>  
     </div>
-  </div>  
-</ng-template>
 
-
-<ng-template #pendingUser >
-  <div class="user-list-table">
-    <div class="filter-div">
-      <div class="input-filter">
-        <mat-form-field>
-          <mat-label>Filter</mat-label>
-          <input matInput (keyup)="pendingListFilter($event)" placeholder="search" #input>
-        </mat-form-field>
-      </div>
-      <div class="radio-button-div">
-        <div class="radio-div b-div">
-          <mat-checkbox [(ngModel)]="business" (change)="applyPendingFilter(business ? 'Business': '')">Business</mat-checkbox>
-        </div>
-        <div class="radio-div j-div">
-          <mat-checkbox [(ngModel)]="job" (change)="applyPendingFilter(job ? 'Job': '')">Job</mat-checkbox>
-        </div>
-      </div>
-    </div>
-    <div class="table-div">
-      <table mat-table [dataSource]="pendingUserDataSource" class="mat-elevation-z8">
-    
-        <!-- First name Column -->
-        <ng-container matColumnDef="First_Name">
-          <th mat-header-cell *matHeaderCellDef> First Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-        </ng-container>
-      
-        <!-- Last name Column -->
-        <ng-container matColumnDef="Middle_Name">
-          <th mat-header-cell *matHeaderCellDef> Middle Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
-        </ng-container>
-  
-        <!-- Last name Column -->
-        <ng-container matColumnDef="Last_Name">
-          <th mat-header-cell *matHeaderCellDef> Last Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-        </ng-container>
-  
-        <!-- Last name Column -->
-        <ng-container matColumnDef="Father_Name">
-          <th mat-header-cell *matHeaderCellDef> Father's Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.fatherName}} </td>
-        </ng-container>
-      
-        <!-- Email Column -->
-        <ng-container matColumnDef="Email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-        </ng-container>
-        
-        <!-- Email Column -->
-        <ng-container matColumnDef="Contact">
-          <th mat-header-cell *matHeaderCellDef> Contact </th>
-          <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
-        </ng-container>
-        
-        <!-- Email Column -->
-        <ng-container matColumnDef="Occupation">
-          <th mat-header-cell *matHeaderCellDef> Occupation </th>
-          <td mat-cell *matCellDef="let element"> {{element.occupationType}} </td>
-        </ng-container>
-        
-        <!-- Email Column -->
-        <ng-container matColumnDef="Address">
-          <th mat-header-cell *matHeaderCellDef> Address </th>
-          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-        </ng-container>
-    
-        <!-- View profile Column -->
-        <ng-container matColumnDef="Action" stickyEnd>
-            <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let element">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                  <mat-icon style="color: #616060;">more_horiz</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item (click)="setData(element,'pending')" [routerLink]="['/profile-preview']">
-                    <mat-icon style="color: #0f52ba;">person</mat-icon>
-                    <span>View Profile</span>
-                  </button>
-                </mat-menu>
+    <div class="table-div" *ngIf="!isRegisteredUsers">
+      <input class="form-control mb-3 userManagementSearch" id="myInput" type="text" placeholder="Search.." [(ngModel)]="unregisteredUserSearch">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>View Profile</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr *ngFor="let user of filteredPendingUser">
+            <td>{{ user.firstName}}</td>
+            <td>{{ user.middleName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.contact }}</td>
+            <td class="viewProfileCell">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+                <img [src]="viewProfile" alt="view profile">
+              </button>
             </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="columns"></tr>
-        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
-  
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" [attr.colspan]="columns.length">No data matching the filter</td>
-        </tr>
-      </table>
+            <td>
+              <div class="d-flex justify-content-center">
+                <div class="action-button">
+                  <button class="btn" (click)="action($event, true)"><img [src]="approve" alt="view profile"></button>
+                </div>
+                <div class="action-button">
+                  <button class="btn" (click)="action($event, false)"><img [src]="denied" alt="view profile"></button>
+                </div>
+              </div>          
+            </td>
+          </tr>
+          <tr *ngIf="filteredPendingUser.length <= 0">
+            <td colspan="6">No data found</td>
+          </tr>
+        </tbody>
+      </table>  
     </div>
-  </div>  
-</ng-template>
+
+  </div>
+
+  <div *ngIf="isBloodGroup">
+    <div class="table-div">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Mobile Number</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr *ngFor="let user of filteredBloodGroup">
+            <td>{{ user.firstName}}</td>
+            <td>{{ user.middleName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.contact }}</td>
+          </tr>
+          <tr *ngIf="filteredBloodGroup.length <= 0">
+            <td colspan="5">No data found</td>
+          </tr>
+        </tbody>
+      </table> 
+    </div> 
+  </div>
+  
+  <div *ngIf="isMatchMaking">
+    <div class="table-div">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Status</th>
+            <th>Mobile Number</th>
+            <th>View Profile</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr *ngFor="let user of filteredMatchMaking">
+            <td>{{ user.firstName}}</td>
+            <td>{{ user.middleName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.maritalStatus }}</td>
+            <td>{{ user.contact }}</td>
+            <td class="viewProfileCell">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+                <img [src]="viewProfile" alt="view profile">
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredMatchMaking.length <= 0">
+            <td colspan="7">No data found</td>
+          </tr>
+        </tbody>
+      </table> 
+    </div> 
+  </div>
+
+  <div *ngIf="isOccupational">
+    <div class="table-div">
+      <input class="form-control mb-3 occupationSearch" id="myInput" type="text" placeholder="Search.." [(ngModel)]="occupationSearch">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th *ngIf="selectedOccupation == 'business'">Business Firm</th>
+            <th *ngIf="selectedOccupation == 'job'">Company Name</th>
+            <th>Designation</th>
+            <th>Mobile Number</th>
+            <th>View Profile</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr *ngFor="let user of filteredOccupation">
+            <td>{{ user.firstName}}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.occupationName }}</td>
+            <td>{{ user.occupationDescription }}</td>
+            <td>{{ user.contact }}</td>
+            <td class="viewProfileCell">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+                <img [src]="viewProfile" alt="view profile">
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredOccupation.length <= 0">
+            <td colspan="6">No data found</td>
+          </tr>
+        </tbody>
+      </table> 
+    </div> 
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Profile</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        USER DATA
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

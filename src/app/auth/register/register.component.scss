@@ -6,6 +6,15 @@ $light-dark-blue : rgb(126, 126, 182);
   color: $light-dark-blue;
 }
 
+::ng-deep .iti{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+::ng-deep .iti--separate-dial-code .iti__selected-dial-code{
+  color: white;
+}
+
 
 // overall css start
 .main-div{

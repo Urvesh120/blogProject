@@ -5,6 +5,7 @@ import { HttpService } from '../services/http.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 import { LoaderService } from '../services/loader.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-landingpage',
@@ -34,7 +35,9 @@ export class LandingpageComponent implements OnInit {
   constructor( private router : Router, 
     private http : HttpService,
     private sanitizer: DomSanitizer,
-    private loader : LoaderService) { 
+    private loader : LoaderService,
+    public translate: TranslateService) { 
+      translate.setDefaultLang('guj');
   }
 
   ngOnInit(): void {
@@ -73,6 +76,11 @@ export class LandingpageComponent implements OnInit {
         this.isUser = true;
       }
     }
+    this.loader.hide();
+  }
+
+  changeLanguage(event: any){
+    this.translate.use(event.target.value);
   }
 
   routeToLogin(){

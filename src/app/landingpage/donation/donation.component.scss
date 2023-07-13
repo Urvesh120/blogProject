@@ -77,6 +77,25 @@ label.radio-button-label{
     color: white;
 }
 
+.line-with-text {
+  position: relative;
+  margin: 20px 0;
+}
+
+.line-with-text hr {
+  margin: 0;
+  border-top: 2px solid $dark-blue;
+}
+
+.line-with-text span {
+  position: absolute;
+  top: -0.7em;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #efeffe;
+  padding: 0 5px;
+}
+
 @media (min-width: 0px) and (max-width: 991.98px) {
   .background{
       .other{

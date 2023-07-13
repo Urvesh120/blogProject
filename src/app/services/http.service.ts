@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
 
-  preRoute = "http://13.233.105.238:8090";
-  // preRoute = "http://localhost:8090";
+  preRoute = environment.apiURL;
     constructor( private http: HttpClient,private httpWithoutInterceptor:HttpClient, private httpbackend:HttpBackend ){
         this.httpWithoutInterceptor= new HttpClient(httpbackend);
     }

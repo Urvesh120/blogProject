@@ -5,15 +5,21 @@ import { HttpService } from '../../services/http.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { LoaderService } from 'src/app/services/loader.service';
-
 import { DomSanitizer } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+import * as intelInput from 'intl-tel-input';
+import 'intl-tel-input/build/js/utils';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent<D> implements OnInit {
+
+  iti: any;
+  @ViewChild('phoneInput') phoneInput!: ElementRef;
+
+  isSubmited = false;
 
   registerImage = 'assets/images/register-bg.png';
   selectedValue : any;
@@ -49,6 +55,7 @@ export class RegisterComponent<D> implements OnInit {
   maritalStatus : any = [
     'Married',
     'Unmarried',
+    'Divorced'
   ]
   occupationList : any = [
     'Job',
@@ -87,9 +94,16 @@ export class RegisterComponent<D> implements OnInit {
     private sanitizer: DomSanitizer, 
     private loader: LoaderService,
     private datePipe: DatePipe
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+    const phoneInput = document.getElementById('phone');
+    if(phoneInput){
+      this.iti = intelInput(phoneInput, {
+        separateDialCode : true,
+        preferredCountries : ['in', 'us', 'ca'],
+      })
+    }
     this.sanitizer.bypassSecurityTrustResourceUrl("assets/illustators/Register.svg");
     this.RegistrationFormGroup = this.fb.group({
       firstname: ['', Validators.required],
@@ -101,9 +115,9 @@ export class RegisterComponent<D> implements OnInit {
       mfirstname: ['', [Validators.required]],
       mmiddlename: ['', [Validators.required]],
       mlastname: ['', [Validators.required]],
-      dialcode : ['', [Validators.required]],
+      // dialcode : ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      country : ['', [Validators.required]],
+      // country : ['', [Validators.required]],
       // email: ['', [Validators.required, Validators.email]],
       email: ['', [Validators.email]],
       password: ['', [Validators.required]],
@@ -232,17 +246,17 @@ export class RegisterComponent<D> implements OnInit {
     return this.RegistrationFormGroup.get('contact');
   }
   
-  get country() {
-    return this.RegistrationFormGroup.get('country');
-  }
-
-  get dialcode(){
-    return this.RegistrationFormGroup.get('dialcode');
-  }
-
-  // get email() {
-  //   return this.RegistrationFormGroup.get('email');
+  // get country() {
+  //   return this.RegistrationFormGroup.get('country');
   // }
+
+  // get dialcode(){
+  //   return this.RegistrationFormGroup.get('dialcode');
+  // }
+
+  get email() {
+    return this.RegistrationFormGroup.get('email');
+  }
   
   get password() {
     return this.RegistrationFormGroup.get('password');
@@ -310,7 +324,21 @@ export class RegisterComponent<D> implements OnInit {
   }
 
   register(){
-    if(this.RegistrationFormGroup.invalid){
+
+    const isValid = this.iti.isValidNumber();
+    const dialCode = this.iti.getSelectedCountryData().dialCode;
+    const phoneNumber = this.iti.getNumber();
+    const parsedPhoneNumber = phoneNumber.slice(dialCode.length+1).trim();
+    const countryName = this.iti.getSelectedCountryData().name;
+
+    this.isSubmited = true;
+    if(this.RegistrationFormGroup.invalid || !isValid){
+      // if(this.RegistrationFormGroup.invalid){
+      //   this.RegistrationFormGroup.controls.forEach((element: any) => {
+      //     if(element.status == 'INVALID')
+      //     console.log(element);
+      //   });
+      // }
       return;
     }
     
@@ -334,15 +362,15 @@ export class RegisterComponent<D> implements OnInit {
       "lastName" : this.RegistrationFormGroup.value.lastname,
       "fathersName" : fatherName,
       "mothersName" : motherName,
-      "contact": this.RegistrationFormGroup.value.contact,
+      "contact": parsedPhoneNumber,
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": this.RegistrationFormGroup.value.addressLine1,
       "landmark": this.RegistrationFormGroup.value.addressLineLandmark,
       "city": this.RegistrationFormGroup.value.addressLineCity,
       "pinCode": this.RegistrationFormGroup.value.addressLinePincode,
-      "countryCode" : this.RegistrationFormGroup.value.dialcode,
-      "country": this.RegistrationFormGroup.value.country,
+      "countryCode" : dialCode,
+      "country": countryName,
       "dateOfBirth" : this.RegistrationFormGroup.value.dateofbirth,
       "qualification" : this.RegistrationFormGroup.value.educational,
       "achievement" : this.RegistrationFormGroup.value.achivement,
@@ -355,31 +383,28 @@ export class RegisterComponent<D> implements OnInit {
       "occupationDescription": this.RegistrationFormGroup.value.description,
     }
 
-    console.log(data);
     
     this.http.register(data).subscribe((res : any) =>{
       if(res.status == 1){
         localStorage.removeItem('userEmailId');
-        Swal.fire({
-          title: res.message,
-          imageUrl: 'assets/illustators/RegisterRequestSuccess.svg',
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: 'Register Request Success',
-        })
+        this.errorMesaaage(res.message);
         this.router.navigate(['']);
         this.loader.hide();
       }
       else{
-        Swal.fire({
-          title: res.message,
-          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: 'Something Went Wrong',
-        })
+        this.errorMesaaage(res.message);
         this.loader.hide();
       }
     });
+  }
+
+  errorMesaaage(message: string) {
+    Swal.fire({
+      title: message,
+      imageUrl: 'assets/illustators/RegisterRequestSuccess.svg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Register Request Success',
+    })
   }
 }

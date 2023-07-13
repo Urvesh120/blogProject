@@ -1,13 +1,5 @@
-.user-list-table{
-    margin-top: 20px;
-}
-
 table{
     width: 100%;
-}
-
-.mat-cell {
-    padding: 0px 20px;
 }
 
 td, th {
@@ -15,97 +7,150 @@ td, th {
     vertical-align: middle !important;
 }
 
-th.mat-header-cell{
-    font-size: 17px;
-    font-weight: 500;
+.userManagementSearch, .occupationSearch{
+	box-shadow: none;
+	border: 1px solid #33334f;
 }
 
-h3{
-    text-align: center;
+.userManagementSearch::placeholder, .occupationSearch::placeholder {
+	color: #33334f;
 }
 
-::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
-    max-width: 200px !important;
+.viewProfileCell img, .action-button img{
+	width: 25px;
 }
 
+hr{
+	border-top: 3.5px solid #33334f;
+	margin: 1rem 0.5rem;
+}
+
+.btn{
+	box-shadow: none;
+	outline: 0;
+}
+
+.main-category-div{
+	margin: 20px 0;
+}
+
+.category-div {
+	width: 150px;
+	flex-basis: 300px;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.category-div,
+.user-management-category-div,
+.blood-group-category-div,
+.match-making-category-div,
+.occupational-category-div,
 .table-div{
-	overflow-y: hidden;
-}
-
-th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
-    padding-right: 24px;
-    background-color: #cfcfcf;
-}
-
-
-/*Filter Switch*/
-
-.filter-div, .radio-button-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.radio-div{
 	margin: 0 20px;
 }
-
-$primary-color: #f87060; // Change color here. C'mon, try it! 
-$text-color: mix(#000, $primary-color, 64%);
-
-form {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
+  
+input[type="radio"].designed-radio-button{
+	visibility: hidden;
+	height: 0;
+	width: 0;
 }
-
-label {
-	display: flex;
+  
+label{
 	cursor: pointer;
-	font-weight: 500;
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 0.375em;
-	/* Accessible outline */
-	/* Remove comment to use */ 
-	/*
-		&:focus-within {
-				outline: .125em solid $primary-color;
-		}
-	*/
-	input {
-		position: absolute;
-		left: -9999px;
-		&:checked + span {
-			background-color: mix(#fff, $primary-color, 84%);
-			&:before {
-				box-shadow: inset 0 0 0 0.4375em $primary-color;
-			}
-		}
-	}
-	span {
-		display: flex;
-		align-items: center;
-		padding: 0.375em 0.75em 0.375em 0.375em;
-		border-radius: 99em; // or something higher...
-		transition: 0.25s ease;
-		&:hover {
-			background-color: mix(#fff, $primary-color, 84%);
-		}
-		&:before {
-			display: flex;
-			flex-shrink: 0;
-			content: "";
-			background-color: #fff;
-			width: 1.5em;
-			height: 1.5em;
-			border-radius: 50%;
-			margin-right: 0.375em;
-			transition: 0.25s ease;
-			box-shadow: inset 0 0 0 0.125em $primary-color;
-		}
-	}
+	color: black;
+	padding: 5px 10px;
+	border-radius: 3px;
+	padding: 20px;
+	font-size: 20px;
+	transition: all .1s ease-out;
+	text-align: center;
+	width: 100%;
 }
+
+label.match-making-label{
+	padding: 13px;
+}
+
+input[type="radio"]:checked + label{
+	border: 3px solid #757474;
+}
+
+
+
+
+
+label.user-management,
+label.registered-users,
+label.unregistered-users{
+	border: 3px solid rgba($color: #C4C4E5, $alpha: 0.1);
+	background-color: rgba($color: #C4C4E5, $alpha: 0.7);
+}
+input[type="radio"]:checked + label.user-management,
+input[type="radio"]:checked + label.registered-users,
+input[type="radio"]:checked + label.unregistered-users{
+	background-color: rgba($color: #C4C4E5, $alpha: 1.0);
+}
+
+
+
+
+
+label.blood-group,
+label.blood-group-label{
+	border: 3px solid rgba($color: #FFAEAE, $alpha: 0.1);
+	background-color: rgba($color: #FFAEAE, $alpha: 0.6);
+}
+input[type="radio"]:checked + label.blood-group,
+input[type="radio"]:checked + label.blood-group-label{
+	background-color: rgba($color: #FFAEAE, $alpha: 1.0);
+}
+
+
+
+
+
+label.match-making-genders{
+	border: 3px solid rgba($color: #C9C9FD, $alpha: 0.1);
+	background-color: rgba($color: #C9C9FD, $alpha: 0.4);
+}
+input[type="radio"]:checked + label.match-making-genders{
+	background-color: rgba($color: #C9C9FD, $alpha: 1.0);
+}
+
+
+
+
+
+label.match-making,
+label.match-making-label{
+	border: 3px solid rgba($color: #FF73E9, $alpha: 0.1);
+	background-color: rgba($color: #FF73E9, $alpha: 0.5);
+}
+input[type="radio"]:checked + label.match-making,
+input[type="radio"]:checked + label.match-making-label{
+	background-color: rgba($color: #FF73E9, $alpha: 1.0);
+}
+
+
+
+
+
+label.occupational,
+label.job,
+label.business{
+	border: 3px solid rgba($color: #C9C9FD, $alpha: 0.1);
+	background-color: rgba($color: #C9C9FD, $alpha: 0.4);
+}
+input[type="radio"]:checked + label.occupational,
+input[type="radio"]:checked + label.job,
+input[type="radio"]:checked + label.business{
+	background-color: rgba($color: #C9C9FD, $alpha: 1.0);
+}
+
+
+
+
 
 @media (min-width: 0px) and (max-width: 600px){
 	.filter-div{
