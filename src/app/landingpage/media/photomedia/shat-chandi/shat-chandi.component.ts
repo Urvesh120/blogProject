@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-shavan-mass',
-  templateUrl: './shavan-mass.component.html',
-  styleUrls: ['./shavan-mass.component.scss']
+  selector: 'app-shat-chandi',
+  templateUrl: './shat-chandi.component.html',
+  styleUrls: ['./shat-chandi.component.scss']
 })
-export class ShavanMassComponent implements OnInit {
+export class ShatChandiComponent implements OnInit {
 
   constructor(private viewportScroller: ViewportScroller) { }
 

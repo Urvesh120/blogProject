@@ -92,7 +92,7 @@ $light-blue : #C9C9FD;
 }
 
 
-.trustess-table-1, .trustess-table-2{
+.trustess-table-1, .trustess-table-2, .invited-trustess-table-1, .invited-trustess-table-2{
   padding: 0 53px;
   margin: 0;
 
@@ -107,7 +107,6 @@ $light-blue : #C9C9FD;
 
   .table td{
     border-top: 0 !important;
-    width: 50%;
     font-size: 17px;
   }
 }
@@ -130,6 +129,10 @@ $light-blue : #C9C9FD;
     .form-control{
       margin: 10px 0;
     }
+  }
+
+  .submit-button-div{
+    margin-bottom: 10px;
   }
 }
 
@@ -161,7 +164,7 @@ $light-blue : #C9C9FD;
     font-size: 25px;
   }
 
-  .trustess-table-1, .trustess-table-2{
+  .trustess-table-1, .trustess-table-2, .invited-trustess-table-1, .invited-trustess-table-2{
     padding: 0 15px;
     margin: 0;
   }
@@ -175,21 +178,38 @@ $light-blue : #C9C9FD;
         background-color: whitesmoke;
       }
 
-      td.f{
-        width: 75%;
-      }
-      
-      td.s{
-        width: 25%;
+      td.f, td.s, td.t{
+        width: 100%;
       }
     }
 
     .table td{
       border-top: 0 !important;
+      display: block;
     }
   }
   
   .trustess-table-2{
+    table{
+      tbody tr:nth-of-type(even) {
+        background-color: whitesmoke;
+      }
+      tbody tr:nth-of-type(odd) {
+        background-color: rgba($color: $dark-blue, $alpha: 0.15);
+      }
+
+      td.f, td.s, td.t{
+        width: 100%;
+      }
+    }
+
+    .table td{
+      border-top: 0 !important;
+      display: block;
+    }
+  }
+
+  .invited-trustess-table-1{
     table{
       tbody tr:nth-of-type(even) {
         background-color: rgba($color: $dark-blue, $alpha: 0.15);
@@ -198,17 +218,34 @@ $light-blue : #C9C9FD;
         background-color: whitesmoke;
       }
 
-      td.f{
-        width: 75%;
-      }
-      
-      td.s{
-        width: 25%;
+      td.f, td.s, td.t{
+        width: 100%;
       }
     }
 
     .table td{
       border-top: 0 !important;
+      display: block;
+    }
+  }
+
+  .invited-trustess-table-2{
+    table{
+      tbody tr:nth-of-type(even) {
+        background-color: whitesmoke;
+      }
+      tbody tr:nth-of-type(odd) {
+        background-color: rgba($color: $dark-blue, $alpha: 0.15);
+      }
+
+      td.f, td.s, td.t{
+        width: 100%;
+      }
+    }
+
+    .table td{
+      border-top: 0 !important;
+      display: block;
     }
   }
 
@@ -220,6 +257,11 @@ $light-blue : #C9C9FD;
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
   .card{
     margin: 10px 20px;
+  }
+
+  .form-div{
+    border-left: 2px solid #33334f;
+    padding-left: 20px;
   }
 }
 
@@ -235,6 +277,8 @@ $light-blue : #C9C9FD;
 
     .form-div{
       width: 70%;
+      border-left: 2px solid #33334f;
+      padding-left: 20px;
     }
   }
 }
@@ -251,6 +295,8 @@ $light-blue : #C9C9FD;
 
     .form-div{
       width: 70%;
+      border-left: 2px solid #33334f;
+      padding-left: 20px;
     }
   }
 }

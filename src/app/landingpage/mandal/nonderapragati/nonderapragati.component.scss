@@ -78,7 +78,6 @@ $light-blue : #C9C9FD;
 
   .table td{
     border-top: 0 !important;
-    width: 50%;
     font-size: 17px;
   }
 }
@@ -133,17 +132,14 @@ $light-blue : #C9C9FD;
         background-color: whitesmoke;
       }
 
-      td.f{
-        width: 75%;
-      }
-      
-      td.s{
-        width: 25%;
+      td.f, td.s, td.t{
+        width: 100%;
       }
     }
 
     .table td{
       border-top: 0 !important;
+      display: block;
     }
   }
   
@@ -156,17 +152,14 @@ $light-blue : #C9C9FD;
         background-color: whitesmoke;
       }
 
-      td.f{
-        width: 75%;
-      }
-      
-      td.s{
-        width: 25%;
+      td.f, td.s, td.t{
+        width: 100%;
       }
     }
 
     .table td{
       border-top: 0 !important;
+      display: block;
     }
   }
 }

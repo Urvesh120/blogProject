@@ -170,3 +170,275 @@ input[type="radio"]:checked + label.business{
 @media (min-width: 769px) and (max-width: 992px){}
 @media (min-width: 993px) and (max-width: 1200px){}
 @media (min-width: 12000px){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h2{
+    margin: 0;
+    padding: 3px;
+}
+
+.profile-table td, .profile-table th {
+    text-align: left !important;
+    vertical-align: middle !important;
+}
+
+.display-content{
+    display: flex;
+}
+
+.user-detail{
+    margin: 10px;
+
+    .profile-picture-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+		margin-bottom: 30px;
+    
+        .image img{
+            border-radius: 50%;
+        }
+    
+        .name{
+            margin-top: 20px;
+            color: #f87060;
+    
+            h1{
+                font-weight: 600;
+                letter-spacing: 5px;
+            }
+        }
+    }
+
+    .content-div{
+        display: flex;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.08);
+        padding: 0px 10px;
+        margin: 10px 0px;
+
+        .lable{
+            color: #914138;
+        }
+
+        .value{
+            color: #f48d82;
+        }
+    }
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 600px){
+    .display-content{
+        flex-direction: column-reverse;
+    }
+
+    h2{
+        font-size: 15px;
+    }
+    
+    .action-btn-div{
+        justify-content: space-evenly;
+    
+        .action-btn{
+            width: 80px;
+        }
+    }
+    
+    .user-detail{
+        .profile-picture-div{
+            .image img{
+                width: 100px;
+                height: 100px;
+            }
+        
+            .name{
+                h1{
+                    font-size: 20px;
+                }
+            }
+        }
+    
+        .content-div{
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+    .display-content{
+        flex-direction: column-reverse;
+    }
+
+    h2{
+        font-size: 17px;
+    }
+    
+    .action-btn-div{
+        justify-content: space-evenly;
+    
+        .action-btn{
+            width: 150px;
+        }
+    }
+    
+    .user-detail{
+        .profile-picture-div{
+            .image img{
+                width: 120px;
+                height: 120px;
+            }
+        
+            .name{
+                h1{
+                    font-size: 20px;
+                }
+            }
+        }
+    
+        .content-div{
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px){
+    .display-content{
+        flex-direction: column-reverse;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+    
+    .action-btn-div{
+        justify-content: space-evenly;
+    
+        .action-btn{
+            width: 200px;
+        }
+    }
+    
+    .user-detail{
+        .profile-picture-div{
+            .image img{
+                width: 120px;
+                height: 120px;
+            }
+        
+            .name{
+                h1{
+                    font-size: 27px;
+                }
+            }
+        }
+    
+        .content-div{
+            flex-direction: row;
+            .lable{
+                width: 25%;
+            }
+
+            .vlaue{
+                width: 75%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1200px){
+    .display-content{
+        flex-direction: column;
+    }
+    
+    .action-btn-div{
+        justify-content: end;
+    
+        .action-btn{
+            width: 100px;
+            margin-left: 50px;
+        }
+    }
+    
+    .user-detail{
+        .profile-picture-div{
+            .image img{
+                width: 150px;
+                height: 150px;
+            }
+        }
+    
+        .content-div{
+            align-items: start;
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.08);
+            padding: 0px 10px;
+            margin: 10px 0px;
+    
+            .lable{
+                width: 25%;
+            }
+    
+            .value{
+                width: 75%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1201px){
+    .display-content{
+        flex-direction: column;
+    }
+    
+    .action-btn-div{
+        justify-content: end;
+    
+        .action-btn{
+            color: white;
+            width: 100px;
+            margin-left: 50px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    }
+    
+    .user-detail{
+        .profile-picture-div{
+            .image img{
+                width: 150px;
+                height: 150px;
+            }
+        }
+    
+        .content-div{
+            align-items: start;
+            .lable{
+                width: 25%;
+            }
+    
+            .value{
+                width: 75%;
+            }
+        }
+    }
+}

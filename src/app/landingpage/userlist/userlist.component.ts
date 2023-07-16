@@ -5,6 +5,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 import Swal from 'sweetalert2';
 import * as _ from 'lodash';
 import { UtilService } from 'src/app/services/util.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-userlist',
@@ -14,6 +15,17 @@ import { UtilService } from 'src/app/services/util.service';
 
 export class UserlistComponent implements OnInit {
 
+  display = false;
+  haveEmail = false;
+  profileData : any;
+  userId : any;
+  userType : any;
+  isRegistered : any;
+  blankImage = 'assets/images/blank-profile.jpg';
+  closeButton = 'assets/icons/close.png';
+  profilePic : any;
+  address = "";
+
   viewProfile = 'assets/icons/view_profile.svg';
   approve = 'assets/icons/check.png';
   denied = 'assets/icons/close.png';
@@ -22,7 +34,6 @@ export class UserlistComponent implements OnInit {
   unregisteredUserSearch!: string;
   pendingUserList: any = [];
   registeredUserList: any = [];
-  isLogedIn = false;
   isAdmin = false;
 
   isUserManagement = true;
@@ -41,50 +52,49 @@ export class UserlistComponent implements OnInit {
   selectedOccupation = 'job';
   occupationSearch: string = '';
 
-  constructor(private http : HttpService, private dialog: MatDialog, private loader : LoaderService, private util : UtilService) { }
+  constructor(private http : HttpService,  private loader : LoaderService, private util : UtilService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('userEmailId')){
-      this.isLogedIn = true;
-      let emailId = localStorage.getItem('userEmailId'); 
-      if(emailId == "admin@email.com"){
-        this.isAdmin = true;
-      }
-      if(this.isAdmin){
-        //pending user
-        this.http.pendingUserList().subscribe((res : any) => {
-          if(res.status == 1){
-            this.pendingUserList = res.payload; 
-          }
-          else{
-            this.errorMesaaage(res.message);
-          }
-          });
+    this.isAdmin = localStorage.getItem('isAdmin') == 'true' ? true : false;
+    this.isMatchMaking = !this.isAdmin;
+    this.getUserLIst();
+  }
 
-          //register user
-          this.http.adminUserlist().subscribe((res : any) => {
-            if(res.status == 1){
-              this.registeredUserList = res.payload;
-              this.loader.hide();
-            }
-            else {
-              this.errorMesaaage(res.message);
-              this.loader.hide();
-            }
-          });
-      }
-      else{
-        this.http.userlist().subscribe((res : any) => {
+  getUserLIst(){
+    if(this.isAdmin){
+      //pending user
+      this.http.pendingUserList().subscribe((res : any) => {
+        if(res.status == 1){
+          this.pendingUserList = res.payload; 
+        }
+        else{
+          this.errorMesaaage(res.message);
+        }
+        });
+
+        //register user
+        this.http.adminUserlist().subscribe((res : any) => {
           if(res.status == 1){
             this.registeredUserList = res.payload;
+            this.loader.hide();
           }
-          else{
+          else {
             this.errorMesaaage(res.message);
+            this.loader.hide();
           }
         });
-      } 
-      this.loader.hide();     
     }
+    else{
+      this.http.userlist().subscribe((res : any) => {
+        if(res.status == 1){
+          this.registeredUserList = res.payload;
+        }
+        else{
+          this.errorMesaaage(res.message);
+        }
+      });
+    } 
+    this.loader.hide(); 
   }
 
   errorMesaaage(message: string) {
@@ -103,8 +113,8 @@ export class UserlistComponent implements OnInit {
     }
     return this.registeredUserList.filter((person: any) =>
       person.firstName.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
+      person.middleName.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
       person.lastName.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
-      person.email.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
       person.contact.toLowerCase().includes(this.registeredUserSearch.toLowerCase())
     );
   }
@@ -115,22 +125,20 @@ export class UserlistComponent implements OnInit {
     }
     return this.pendingUserList.filter((person: any) =>
       person.firstName.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
+      person.middleName.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
       person.lastName.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
-      person.email.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
       person.contact.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase())
     );
   }
 
   get filteredBloodGroup(): any[] {
     return this.registeredUserList.filter((person: any) =>
-      person.bloodGroup.toLowerCase().includes(this.selectedBloodGroup.toLowerCase())
+      person.bloodGroup.toLowerCase().includes(this.selectedBloodGroup.toLowerCase()) &&
+      person.age <= 50
     );
   }
 
   get filteredOccupation(): any[] {
-    // if (!this.occupationSearch) {
-    //   return this.registeredUserList;
-    // }
     return this.registeredUserList.filter((person: any) =>
       person.occupationType.toLowerCase().includes(this.selectedOccupation.toLowerCase()) &&
       (person.occupationName.toLowerCase().includes(this.occupationSearch.toLowerCase()) ||
@@ -142,7 +150,7 @@ export class UserlistComponent implements OnInit {
     if((this.minAge == 0 && this.maxAge == 0) || this.selectedGenderForMatchMaking == ''){
       if(this.selectedAgeForMatchMaking == 0 && this.selectedGenderForMatchMaking != ''){
         return this.registeredUserList.filter((person: any) =>
-          person.gender.toLowerCase().includes(this.selectedGenderForMatchMaking.toLowerCase())
+          person.gender.toLowerCase() == this.selectedGenderForMatchMaking.toLowerCase()
         );
       }
       else if(!(this.minAge == 0 && this.maxAge == 0) && this.selectedGenderForMatchMaking == ''){
@@ -293,6 +301,7 @@ export class UserlistComponent implements OnInit {
         if (result.isConfirmed) {
           this.http.requestAction(data).subscribe((res : any) => {
             if(res.status == 1){
+              this.getUserLIst();
               Swal.fire(
                 res.message,
                 '',
@@ -339,5 +348,54 @@ export class UserlistComponent implements OnInit {
         }
       });
     }
+  }
+
+  getProfileData(id: any){
+    this.profileData = null;
+    this.display = false;
+    this.http.getUserProfileById(id).subscribe((x : any) => {
+      if(x.status == 1){
+        this.profileData = x.payload;
+        this.isAdmin = localStorage.getItem('isAdmin') == "true" ? true : false;
+        var base64 = this.profileData.picture.split(",");
+        if(base64[1] == "" || base64[1] == null){
+          this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.blankImage);
+        }
+        else{
+          this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.profileData.picture);
+        }
+
+        if(!!this.profileData.email){
+          this.haveEmail = true;
+        }
+
+        if(!!this.profileData.address){
+          this.address = this.profileData.address + ","
+        }
+
+        if(!!this.profileData.landmark){
+          this.address = this.profileData.landmark + ","
+        }
+
+        if(!!this.profileData.city){
+          this.address = this.profileData.city + "-"
+        }
+
+        if(!!this.profileData.address){
+          this.address = this.profileData.address + "."
+        }
+        this.display = true;
+      }
+      else{
+        Swal.fire({
+          title: x.message,
+          imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Something Went Wrong',
+        })
+      }
+      this.loader.hide();
+    });
   }
 }

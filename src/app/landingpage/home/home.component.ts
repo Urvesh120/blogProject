@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   userCardImage:any;
   isVisitingCard: boolean = false;
   blankImage = 'assets/images/blank-profile.jpg';
+  showBirthdayDiv = false;
 
   constructor(private httpService: HttpService, private loader : LoaderService, private sanitizer: DomSanitizer,) { }
 
@@ -55,6 +56,7 @@ export class HomeComponent implements OnInit {
             this.isVisitingCard = true;
             this.userCardImage = this.sanitizer.bypassSecurityTrustUrl(this.firstUserBirthday.visitingCard);
           }
+          this.showBirthdayDiv = true;
         }
         else{
           console.log("Birthday user not found!!")

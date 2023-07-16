@@ -26,6 +26,8 @@ import { ShardotsavComponent } from './media/photomedia/shardotsav/shardotsav.co
 import { ShavanMassComponent } from './media/photomedia/shavan-mass/shavan-mass.component';
 import { ShreeBhagvdKathaComponent } from './media/photomedia/shree-bhagvd-katha/shree-bhagvd-katha.component';
 import { VishnuYaagComponent } from './media/photomedia/vishnu-yaag/vishnu-yaag.component';
+import { AtiRudraComponent } from './media/photomedia/ati-rudra/ati-rudra.component';
+import { ShatChandiComponent } from './media/photomedia/shat-chandi/shat-chandi.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -49,6 +51,8 @@ const routes: Routes = [
     {path : 'shravan-maash', component : ShavanMassComponent},
     {path : 'shreemad-bhagvad-katha', component : ShreeBhagvdKathaComponent},
     {path : 'vishu-yaag', component : VishnuYaagComponent},
+    {path : 'ati-rudra', component : AtiRudraComponent},
+    {path : 'shat-chandi', component : ShatChandiComponent},
     {path : 'contact', component : ContactComponent},
     {path : 'donation', component : DonationComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},

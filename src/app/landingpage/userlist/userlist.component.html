@@ -1,14 +1,14 @@
 <!-- Main Catagory -->
 <div class="main-category-div d-flex flex-wrap">
 
-  <div class="category-div">
-    <input type="radio"  class="designed-radio-button" name="table-content" id="user-management" value="user-management" checked (change)="changeRadioButton($event)"/>
+  <div class="category-div" *ngIf="isAdmin">
+    <input type="radio"  class="designed-radio-button" name="table-content" id="user-management" value="user-management" [checked]="isAdmin" (change)="changeRadioButton($event)"/>
     <label for="user-management" class="user-management">
       User Management
     </label>
   </div>
 
-  <div class="category-div">
+  <div class="category-div" *ngIf="isAdmin">
     <input type="radio" class="designed-radio-button" name="table-content" id="blood-group" value="blood-group" (change)="changeRadioButton($event)"/>
     <label for="blood-group" class="blood-group">
       Blood Group
@@ -16,7 +16,7 @@
   </div>
 
   <div class="category-div">
-    <input type="radio" class="designed-radio-button" name="table-content" id="match-making" value="match-making" (change)="changeRadioButton($event)"/>
+    <input type="radio" class="designed-radio-button" name="table-content" id="match-making" value="match-making" [checked]="!isAdmin" (change)="changeRadioButton($event)"/>
     <label for="match-making" class="match-making">
       Match Making
     </label>
@@ -35,11 +35,11 @@
 
 <!-- Sub Catagory -->
 <div>
-  <div *ngIf="isUserManagement">
+  <div *ngIf="isUserManagement && isAdmin">
     <div class="user-management-main-category-div d-flex flex-column flex-lg-row justify-content-around">
 
       <div class="user-management-category-div w-100">
-        <input type="radio" class="designed-radio-button" name="user-management-content" id="registered-users" value="registered-users" checked (change)="userManagementSelection($event)"/>
+        <input type="radio" class="designed-radio-button" name="user-management-content" id="registered-users" value="registered-users" [checked]="isAdmin" (change)="userManagementSelection($event)"/>
         <label for="registered-users" class="registered-users ">
           Registered Users
         </label>
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div *ngIf="isBloodGroup">
+  <div *ngIf="isBloodGroup && isAdmin">
     <div class="blood-group-manin-category-div d-flex flex-column flex-lg-row justify-content-around">
 
       <div class="blood-group-category-div w-100">
@@ -212,7 +212,7 @@
 <!-- Table -->
 <div>
 
-  <div *ngIf="isUserManagement">  
+  <div *ngIf="isUserManagement && isAdmin">  
 
     <div class="table-div" *ngIf="isRegisteredUsers">
       <input class="form-control mb-3 userManagementSearch" id="myInput" type="text" placeholder="Search.." [(ngModel)]="registeredUserSearch">
@@ -233,7 +233,7 @@
             <td>{{ user.lastName }}</td>
             <td>{{ user.contact }}</td>
             <td class="viewProfileCell">
-              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
               </button>
             </td>
@@ -265,17 +265,17 @@
             <td>{{ user.lastName }}</td>
             <td>{{ user.contact }}</td>
             <td class="viewProfileCell">
-              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
               </button>
             </td>
             <td>
               <div class="d-flex justify-content-center">
                 <div class="action-button">
-                  <button class="btn" (click)="action($event, true)"><img [src]="approve" alt="view profile"></button>
+                  <button class="btn" (click)="action(user, true)"><img [src]="approve" alt="view profile"></button>
                 </div>
                 <div class="action-button">
-                  <button class="btn" (click)="action($event, false)"><img [src]="denied" alt="view profile"></button>
+                  <button class="btn" (click)="action(user, false)"><img [src]="denied" alt="view profile"></button>
                 </div>
               </div>          
             </td>
@@ -289,7 +289,7 @@
 
   </div>
 
-  <div *ngIf="isBloodGroup">
+  <div *ngIf="isBloodGroup && isAdmin">
     <div class="table-div">
       <table class="table table-bordered table-striped">
         <thead>
@@ -340,7 +340,7 @@
             <td>{{ user.maritalStatus }}</td>
             <td>{{ user.contact }}</td>
             <td class="viewProfileCell">
-              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
               </button>
             </td>
@@ -376,7 +376,7 @@
             <td>{{ user.occupationDescription }}</td>
             <td>{{ user.contact }}</td>
             <td class="viewProfileCell">
-              <button class="btn" data-toggle="modal" data-target="#exampleModal">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
               </button>
             </td>
@@ -393,16 +393,71 @@
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Profile</h2>
+        <h2 class="modal-title m-0 p-0" id="exampleModalLabel">Profile</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        USER DATA
+        
+        <div *ngIf="!display && !(!!profileData)"><h3 class="m-0 p-0">Loading...</h3></div>
+
+        <div class="display-content" *ngIf="display">
+      
+          <div class="user-detail">
+              <div class="profile-picture-div">
+                  <div class="image">
+                      <img [src]="profileData.picture" alt="profile picture">
+                  </div>
+              </div>
+
+              <table class="profile-table table table-striped">
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <td>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Father's Name</th>
+                    <td>{{profileData.fathersName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mother's Name</th>
+                    <td>{{profileData.mothersName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Date of Birth</th>
+                    <td>{{profileData.dateOfBirth}}</td>
+                  </tr>
+                  <tr>
+                    <th>Contact number</th>
+                    <td>{{profileData.contact}}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{profileData.email}}</td>
+                  </tr>
+                  <tr *ngIf="isAdmin">
+                    <th>Bloodgroup</th>
+                    <td>{{profileData.bloodGroup}}</td>
+                  </tr>
+                  <tr>
+                    <th>Address</th>
+                    <td>{{address}}</td>
+                  </tr>
+                </tbody>
+              </table>
+      
+          </div>
+      </div>
+
+
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>

@@ -294,11 +294,9 @@
   </div>
 </div> -->
 
-<hr />
+<hr *ngIf="showBirthdayDiv" />
 
-<div
-  class="container-fluid birthday d-flex flex-wrap align-items-center justify-content-center justify-content-md-around mb-5"
->
+<div *ngIf="showBirthdayDiv" class="container-fluid birthday d-flex flex-wrap align-items-center justify-content-center justify-content-md-around mb-5">
   <div class="card">
     <div class="birthday-title">
       <h1>જન્મદિવસ ની શુભેચ્છાઓ:</h1>

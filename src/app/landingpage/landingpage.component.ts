@@ -81,6 +81,7 @@ export class LandingpageComponent implements OnInit {
 
   changeLanguage(event: any){
     this.translate.use(event.target.value);
+    this.loader.hide();
   }
 
   routeToLogin(){
