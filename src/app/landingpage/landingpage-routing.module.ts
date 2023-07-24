@@ -28,6 +28,8 @@ import { ShreeBhagvdKathaComponent } from './media/photomedia/shree-bhagvd-katha
 import { VishnuYaagComponent } from './media/photomedia/vishnu-yaag/vishnu-yaag.component';
 import { AtiRudraComponent } from './media/photomedia/ati-rudra/ati-rudra.component';
 import { ShatChandiComponent } from './media/photomedia/shat-chandi/shat-chandi.component';
+import { MaharudraComponent } from './media/photomedia/maharudra/maharudra.component';
+import { SundarKandComponent } from './media/photomedia/sundar-kand/sundar-kand.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -53,6 +55,8 @@ const routes: Routes = [
     {path : 'vishu-yaag', component : VishnuYaagComponent},
     {path : 'ati-rudra', component : AtiRudraComponent},
     {path : 'shat-chandi', component : ShatChandiComponent},
+    {path : 'maharudra', component : MaharudraComponent},
+    {path : 'sundar-kand', component : SundarKandComponent},
     {path : 'contact', component : ContactComponent},
     {path : 'donation', component : DonationComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},

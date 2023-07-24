@@ -88,11 +88,20 @@ h2{
     }
 }
 
+@media (min-width: 0px) and (max-width: 991.98px){
+    tr{
+        border-top: 1px solid black;
+        td{
+            display: block;
+        }
+    }
+}
+
 
 
 @media (min-width: 0px) and (max-width: 991.98px){
     .row>*{
-        margin: 1.5rem;
+        margin: 1rem;
     }
 
     .icon{

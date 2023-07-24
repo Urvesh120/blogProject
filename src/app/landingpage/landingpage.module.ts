@@ -34,6 +34,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { AtiRudraComponent } from './media/photomedia/ati-rudra/ati-rudra.component';
 import { ShatChandiComponent } from './media/photomedia/shat-chandi/shat-chandi.component';
+import { MaharudraComponent } from './media/photomedia/maharudra/maharudra.component';
+import { SundarKandComponent } from './media/photomedia/sundar-kand/sundar-kand.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -69,6 +71,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     GyatiSambandhitComponent,
     AtiRudraComponent,
     ShatChandiComponent,
+    MaharudraComponent,
+    SundarKandComponent,
   ],
   imports: [
     CommonModule,

@@ -8,17 +8,8 @@ hr{
 }
 
 .background-image-div{
-  background-image: url('../../../assets/images/home-page-new-background.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  justify-content: space-between;
-
-  .home-ribbon-shlok-div{
-    padding-top: 40px;
-  }
+  background-color: $dark-blue;
+  margin-top: 100px;
 }
 
 .title-tag-div{
@@ -146,8 +137,6 @@ hr{
 }
 
 .see-more.nandi{
-  position: absolute;
-  right: 47.5rem;
   font-size: large;
 }
 
@@ -198,17 +187,24 @@ hr{
   }
 
   .background-image-div{
-    height: 35vh;
-    // background-size: 70% 100%;
 
-    div{
-      h1,p{
-        color: white;
-        text-align: justify;
-        margin: 0;
-        padding: 0;
+    .text-div{
+      margin: 10px 15px;
+    }
+
+    h1,p{
+      color: white;
+      text-align: justify;
+    }
+
+    .nandi-image-div div{
+      text-align: center;
+      img{
+        margin: 20px 0 10px 0;
+        width: 60%;
       }
     }
+
   }
   
   .nandikeshwar-mahadev-div, .navdurga-mata-div, .rang-avadhut-div{
@@ -271,20 +267,24 @@ hr{
   }
 
   .background-image-div{
-    height: 50vh;
-    // background-size: 70% 100%;
 
-    div{
-      h1,p{
-        color: white;
-        text-align: justify;
-      }
-  
-      p{
-        font-size: medium;
-        letter-spacing: 0px;
+    .text-div{
+      margin: 20px 30px;
+    }
+
+    h1,p{
+      color: white;
+      text-align: justify;
+    }
+
+    .nandi-image-div div{
+      text-align: center;
+      img{
+        margin-bottom: 30px;
+        width: 60%;
       }
     }
+
   }
   
   .nandikeshwar-mahadev-div, .navdurga-mata-div, .rang-avadhut-div{
@@ -314,17 +314,24 @@ hr{
 
 @media screen and (min-width: 768px) and (max-width: 991.92px){
   .background-image-div{
-    height: 75vh;
-    // background-size: 70% 100%;
 
-    .image-width{
-      width: 75%;
+    .text-div{
+      margin: 20px 30px;
     }
 
     h1,p{
       color: white;
       text-align: justify;
     }
+
+    .nandi-image-div div{
+      text-align: center;
+      img{
+        margin: 20px 0 10px 0;
+        width: 60%;
+      }
+    }
+
   }
   
   .nandikeshwar-mahadev-image, .navdurga-mata-image, .rang-avadhut-image{
@@ -348,30 +355,10 @@ hr{
 }
 
 @media screen and (min-width: 992px){
-  .background-image-div{
-    height: 70vh;
 
-    .image-width{
-      width: 50%;
-    }
-
-    div{
-      h1,p{
-        color: white;
-        text-align: justify;
-      }
-  
-      p{
-        font-size: large;
-        letter-spacing: 1px;
-        line-height: 22px;
-      }  
-    }
-
-    .slider{
-      padding: 0 60px;
-    } 
-  }
+  .slider{
+    padding: 0 60px;
+  } 
   
   .nandikeshwar-mahadev-image, .navdurga-mata-image, .rang-avadhut-image{
     img{
@@ -416,5 +403,61 @@ hr{
 
   .slider{
     padding: 0 60px;
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 1199.98px){
+  .background-image-div{
+    height: 65vh;
+
+    .text-div{
+      width: 50%;
+    }
+
+    div{
+      h1,p{
+        color: white;
+        text-align: justify;
+      }
+  
+      p{
+        font-size: large;
+        letter-spacing: 1px;
+        line-height: 22px;
+      }  
+    }
+
+    img{
+      width: 80%;
+      float: right;
+    }
+  }
+}
+
+@media (min-width: 1200px){
+  .background-image-div{
+    height: 65vh;
+
+    div{
+      h1,p{
+        color: white;
+        text-align: justify;
+      }
+  
+      p{
+        font-size: large;
+        letter-spacing: 1px;
+        line-height: 22px;
+      }  
+    }
+
+    img{
+      width: 125%;
+      float: right;
+    }
+
+    .see-more.nandi{
+      margin-right: 135px;
+    }
   }
 }
