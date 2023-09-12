@@ -4,6 +4,8 @@ import * as AOS from 'aos';
 import { HttpService } from 'src/app/services/http.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import Swal from 'sweetalert2';
+import { ViewportScroller } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
@@ -14,8 +16,8 @@ export class HomeComponent implements OnInit {
 
   showDescription1 : boolean = false;
   showDescription2 : boolean = false;
-  image1Path  = "../../../assets/images/imageSlider1.png";
-  image2Path  = "../../../assets/images/imageSlider2.png";
+  image1Path  = "../../../assets/images/home_mahadev_portrait.jpg";
+  image2Path  = "../../../assets/images/home_navdurga_portrait.jpg";
   image3Path  = "../../../assets/images/Rang-Avadhot-1.jpg";
 
   firstUserBirthday: any;
@@ -25,11 +27,15 @@ export class HomeComponent implements OnInit {
   blankImage = 'assets/images/blank-profile.jpg';
   showBirthdayDiv = false;
 
-  constructor(private httpService: HttpService, private loader : LoaderService, private sanitizer: DomSanitizer,) { }
+  constructor(private httpService: HttpService, private loader : LoaderService, private sanitizer: DomSanitizer,private viewportScroller: ViewportScroller) { }
 
   ngOnInit(): void {
     AOS.init();
     this.currentDayBirthday();
+  }
+
+  ngAfterViewInit() {
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 
   description1(){

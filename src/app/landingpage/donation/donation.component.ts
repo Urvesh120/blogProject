@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import * as convert from 'xml-js';
 import axios from 'axios';
+import { ViewportScroller } from '@angular/common';
+
 
 @Component({
   selector: 'app-donation',
@@ -15,7 +17,7 @@ export class DonationComponent implements OnInit {
   donationFormGroup: any;
   isNandikeshwarMahadevTrustRadioButtonSelected = true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private viewportScroller: ViewportScroller) {
     
    }
 
@@ -25,6 +27,10 @@ export class DonationComponent implements OnInit {
       trustRadioButton: ['nandikeshwarMahadevTrust', [Validators.required]],
       password: ['', [Validators.required]],
     })
+  }
+
+  ngAfterViewInit() {
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 
   changeRadioButton(event : any){

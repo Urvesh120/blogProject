@@ -55,7 +55,9 @@ export class RegisterComponent<D> implements OnInit {
   maritalStatus : any = [
     'Married',
     'Unmarried',
-    'Divorced'
+    'Divorced',
+    'Single',
+    'Widow'
   ]
   occupationList : any = [
     'Job',

@@ -36,6 +36,12 @@ import { AtiRudraComponent } from './media/photomedia/ati-rudra/ati-rudra.compon
 import { ShatChandiComponent } from './media/photomedia/shat-chandi/shat-chandi.component';
 import { MaharudraComponent } from './media/photomedia/maharudra/maharudra.component';
 import { SundarKandComponent } from './media/photomedia/sundar-kand/sundar-kand.component';
+import { OneComponent } from './media/videomedia/one/one.component';
+import { TwoComponent } from './media/videomedia/two/two.component';
+import { ThreeComponent } from './media/videomedia/three/three.component';
+import { FourComponent } from './media/videomedia/four/four.component';
+import { MahashivratriComponent } from './media/photomedia/mahashivratri/mahashivratri.component';
+import { ShravaniparvComponent } from './media/photomedia/shravaniparv/shravaniparv.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
@@ -73,6 +79,12 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     ShatChandiComponent,
     MaharudraComponent,
     SundarKandComponent,
+    OneComponent,
+    TwoComponent,
+    ThreeComponent,
+    FourComponent,
+    MahashivratriComponent,
+    ShravaniparvComponent,
   ],
   imports: [
     CommonModule,

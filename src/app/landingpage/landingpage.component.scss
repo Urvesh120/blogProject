@@ -29,7 +29,7 @@ $light-blue : #C9C9FD;
 
 .common-hr{
   border-top: 3.5px solid rgb(51, 51, 79);
-  margin: 50px 38px;
+  margin: 50px 60px;
 }
 
 h1{
@@ -42,12 +42,14 @@ h1{
 }
 
 footer{
-  background-color: $light-blue;
-  background-image: url(../../assets/images/footer-background.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  color: rgb(51, 51, 79);
-  background-blend-mode: initial;
+  color: $light-blue;
+  // background-image: url(../../assets/images/footer-background.png);
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  // color: rgb(51, 51, 79);
+  background-color: rgb(51, 51, 79);
+  margin-top: 100px;
+  // background-blend-mode: initial;
 }
 
 .button-div{
@@ -64,12 +66,12 @@ footer{
     height: 50px;
     background-color: transparent;
     text-align: center;
-    border: 3px solid rgb(51, 51, 79);
+    border: 3px solid $light-blue;
     border-radius: 5px;
     padding: 7px 2px 0 2px;
 
     .social-media-icon{
-      color: rgb(51, 51, 79);
+      color: $light-blue;
       font-size: xx-large;
     }
   }
@@ -86,6 +88,10 @@ footer{
 
 .navbar-expand-lg .navbar-collapse {
   justify-content: center;
+}
+
+.nav-link{
+  padding: 0 0.25rem !important;
 }
 
 .nav-item{
@@ -125,9 +131,9 @@ footer{
 }
 
 .linkes{
-  border-left: 2px solid rgb(51, 51, 79);
+  border-left: 2px solid $light-blue;
   a{
-    color: rgb(51, 51, 79);
+    color: $light-blue;
     text-decoration: none;
   }
 }
@@ -142,7 +148,7 @@ footer{
   }
 
   .content-div{
-    border-bottom: 2px solid rgb(51, 51, 79);
+    border-bottom: 2px solid $light-blue;
   }
 }
 
@@ -178,7 +184,7 @@ footer{
 
 @media (min-width: 992px){
   .nav-item{
-    margin: 0 10px;
+    margin: 0 7px;
   }
   .buttons{
     justify-content: end !important;

@@ -30,6 +30,12 @@ import { AtiRudraComponent } from './media/photomedia/ati-rudra/ati-rudra.compon
 import { ShatChandiComponent } from './media/photomedia/shat-chandi/shat-chandi.component';
 import { MaharudraComponent } from './media/photomedia/maharudra/maharudra.component';
 import { SundarKandComponent } from './media/photomedia/sundar-kand/sundar-kand.component';
+import { OneComponent } from './media/videomedia/one/one.component';
+import { TwoComponent } from './media/videomedia/two/two.component';
+import { ThreeComponent } from './media/videomedia/three/three.component';
+import { FourComponent } from './media/videomedia/four/four.component';
+import { MahashivratriComponent } from './media/photomedia/mahashivratri/mahashivratri.component';
+import { ShravaniparvComponent } from './media/photomedia/shravaniparv/shravaniparv.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -57,6 +63,13 @@ const routes: Routes = [
     {path : 'shat-chandi', component : ShatChandiComponent},
     {path : 'maharudra', component : MaharudraComponent},
     {path : 'sundar-kand', component : SundarKandComponent},
+    {path : 'ati-rudra-shat-chandi-bhoomipoojan', component : OneComponent},
+    {path : 'ati-rudra-shat-chandi', component : TwoComponent},
+    {path : 'samuh-yagnopavit', component : ThreeComponent},
+    {path : 'homatmak-maharudra', component : FourComponent},
+    {path : 'sundar-kand', component : SundarKandComponent},
+    {path : 'mahashivratri-parva', component : MahashivratriComponent},
+    {path : 'shravni-parva', component : ShravaniparvComponent},
     {path : 'contact', component : ContactComponent},
     {path : 'donation', component : DonationComponent},
     {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},

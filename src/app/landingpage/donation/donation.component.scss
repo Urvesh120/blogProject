@@ -17,12 +17,16 @@ $light-blue : #C9C9FD;
 
 .background{
     background-color: black;
-    // min-height: 200px;
+    min-height: 400px;
     background-size: 100% 100%;
   
     .other{
       h2{
         font-size: 30px;
+      }
+
+      h2.meaning{
+        font-size: 25px;
       }
   
       .second-shlok{
@@ -68,13 +72,12 @@ label.radio-button-label{
   font-size: 17px;
 }
 
-
-.slider{
-    background-color: $dark-blue;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: white;
+.slider {
+	color: #33334f;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	background-color: rgba(201, 201, 253, 0.35);
 }
 
 .line-with-text {

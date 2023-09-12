@@ -1,6 +1,10 @@
 $dark-blue : rgb(51, 51, 79);
 $light-blue : #C9C9FD;
 
+.dark-blue-color{
+  color: $dark-blue;
+}
+
 .title{
   background-color: rgba($color: $dark-blue, $alpha: 0.4);
   padding: 7px;
@@ -25,17 +29,17 @@ $light-blue : #C9C9FD;
     background-color: $dark-blue;
     margin-top: 30px;
     min-height: 400px;
-  }  
+  }
 
   .image-container {
     width: 90%;
     margin-top: 20px;
   }
-  
+
   .image-container img {
     top: 0;
   }
-  
+
   .text-container {
     margin-top: 30px;
     width: 100%;
@@ -59,30 +63,30 @@ $light-blue : #C9C9FD;
     margin: 0 20px;
   }
 }
-  
+
 @media (min-width: 992px) {
   .container-fluid {
     background-color: $dark-blue;
-    margin-top: calc(20px + 3rem);
-    height: 430px;
+    margin-top: 50px;
+    height: 470px;
     margin-bottom: 125px !important;
 }
-  
+
   .image-container {
     position: relative;
     overflow: hidden;
     width: 50%;
-    margin-top: 3%;
+    margin-top: -2%;
   }
-  
+
   .image-container img {
     width: 100%;
     display: block;
     position: relative;
-    top: -50%;
-    right: 8%;
+    // top: -20%;
+    // right: 8%;
   }
-  
+
   .text-container {
     width: 50%;
     padding: 20px 38px 20px;
@@ -90,10 +94,10 @@ $light-blue : #C9C9FD;
     .ribbon-title{
       font-size: 25px;
     }
-    
+
     .ribbon-text{
       font-size: 20px;
       line-height: 25px;
     }
   }
-}  
+}

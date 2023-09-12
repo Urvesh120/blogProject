@@ -1,3 +1,8 @@
+@mixin defaultTabStyle{
+    border-radius: 5px;
+    color: #33334f;
+}
+
 table{
     width: 100%;
 }
@@ -21,7 +26,7 @@ td, th {
 }
 
 hr{
-	border-top: 3.5px solid #33334f;
+	border-top: 2px solid #808080;
 	margin: 1rem 0.5rem;
 }
 
@@ -47,7 +52,8 @@ hr{
 .match-making-category-div,
 .occupational-category-div,
 .table-div{
-	margin: 0 20px;
+	// margin: 0 20px;
+    padding: 0 20px;
 }
   
 input[type="radio"].designed-radio-button{
@@ -60,20 +66,24 @@ label{
 	cursor: pointer;
 	color: black;
 	padding: 5px 10px;
-	border-radius: 3px;
-	padding: 20px;
+	// border-radius: 3px;
+	padding: 5px;
 	font-size: 20px;
 	transition: all .1s ease-out;
 	text-align: center;
 	width: 100%;
 }
 
-label.match-making-label{
-	padding: 13px;
-}
+// label.match-making-label{
+// 	padding: 13px;
+// }
 
 input[type="radio"]:checked + label{
-	border: 3px solid #757474;
+    border: 2.5px solid #808080;
+}
+
+input[type="radio"]:not(:checked) + label{
+    border-bottom: 2.5px solid #808080;
 }
 
 
@@ -83,13 +93,13 @@ input[type="radio"]:checked + label{
 label.user-management,
 label.registered-users,
 label.unregistered-users{
-	border: 3px solid rgba($color: #C4C4E5, $alpha: 0.1);
-	background-color: rgba($color: #C4C4E5, $alpha: 0.7);
+    @include defaultTabStyle;
+    background-color: rgba($color: #a2a2d3, $alpha: 0.5);
 }
 input[type="radio"]:checked + label.user-management,
 input[type="radio"]:checked + label.registered-users,
 input[type="radio"]:checked + label.unregistered-users{
-	background-color: rgba($color: #C4C4E5, $alpha: 1.0);
+	background-color: rgba($color: #a2a2d3, $alpha: 1.0);
 }
 
 
@@ -98,8 +108,8 @@ input[type="radio"]:checked + label.unregistered-users{
 
 label.blood-group,
 label.blood-group-label{
-	border: 3px solid rgba($color: #FFAEAE, $alpha: 0.1);
-	background-color: rgba($color: #FFAEAE, $alpha: 0.6);
+    @include defaultTabStyle;
+    background-color: rgba($color: #FFAEAE, $alpha: 0.5);
 }
 input[type="radio"]:checked + label.blood-group,
 input[type="radio"]:checked + label.blood-group-label{
@@ -111,11 +121,11 @@ input[type="radio"]:checked + label.blood-group-label{
 
 
 label.match-making-genders{
-	border: 3px solid rgba($color: #C9C9FD, $alpha: 0.1);
-	background-color: rgba($color: #C9C9FD, $alpha: 0.4);
+	@include defaultTabStyle;
+    background-color: rgba($color: #a2a2d3, $alpha: 0.5);
 }
 input[type="radio"]:checked + label.match-making-genders{
-	background-color: rgba($color: #C9C9FD, $alpha: 1.0);
+	background-color: rgba($color: #a2a2d3, $alpha: 1.0);
 }
 
 
@@ -124,8 +134,8 @@ input[type="radio"]:checked + label.match-making-genders{
 
 label.match-making,
 label.match-making-label{
-	border: 3px solid rgba($color: #FF73E9, $alpha: 0.1);
-	background-color: rgba($color: #FF73E9, $alpha: 0.5);
+	@include defaultTabStyle;
+    background-color: rgba($color: #FF73E9, $alpha: 0.5);
 }
 input[type="radio"]:checked + label.match-making,
 input[type="radio"]:checked + label.match-making-label{
@@ -139,8 +149,8 @@ input[type="radio"]:checked + label.match-making-label{
 label.occupational,
 label.job,
 label.business{
-	border: 3px solid rgba($color: #C9C9FD, $alpha: 0.1);
-	background-color: rgba($color: #C9C9FD, $alpha: 0.4);
+	@include defaultTabStyle;
+    background-color: rgba($color: #C9C9FD, $alpha: 0.5);
 }
 input[type="radio"]:checked + label.occupational,
 input[type="radio"]:checked + label.job,

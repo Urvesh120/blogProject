@@ -9,56 +9,56 @@
     </button>
 
     <div class="collapse text-center navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav text-center">
+      <ul class="navbar-nav text-center align-items-center">
         <li class="nav-item">
-          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">મુખ પૃષ્ઠ</a>
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']">{{'home' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/gyati-sambandhit']">જ્ઞાતિ સંબંધિત</a>
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/gyati-sambandhit']">{{'gyatin_sambandhit' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/mandir-sambandhit']">મંદિર સંબંધિત</a>
+          <a class="nav-link"data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/mandir-sambandhit']">{{'mandir_sambandhit' | translate}}</a>
         </li>        
         <!-- <li class="nav-item" *ngIf="isLogedIn">
           <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/user-list']">User list</a>
         </li> -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ટ્રસ્ટ</a>
+          <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'trust' | translate}}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a>
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">{{'shree_nandikeshwar_mahadev_trust' | translate}}</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">{{'shree_nandikeshwar_charitable_trust' | translate}}</a>
             <!-- <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/trusts']">શ્રી નૉંદેરા બોર્ડિંગ ટ્રસ્ટ</a> -->
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">મંડળ</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'mandal' | translate}}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-pragati-mandal']">નૉંદેરા પ્રગતિ મંડળ</a>
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-mahila-mandal']">મહિલા મંડળ</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-pragati-mandal']">{{'nondera_pragati_mandal' | translate}}</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/shree-nondera-mahila-mandal']">{{'mahila_mandal' | translate}}</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ગેલેરી</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'gallery' | translate}}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/audio']">ઓડિયો ગેલેરી</a>
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/video']">વિડિઓ ગેલેરી</a>
-            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/photo']">ફોટો ગેલેરી</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/audio']">{{'audio_gallery' | translate}}</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/video']">{{'video_gallery' | translate}}</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/photo']">{{'photo_gallery' | translate}}</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nearest-places']">નજીકના આકર્ષણો</a>
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/nearest-places']">{{'najik_na_aakarshno' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/donation']">સાત્વિક દાન</a>
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/donation']">{{'daan' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']">સંપર્ક</a>
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']">{{'contact' | translate}}</a>
         </li>
         <!-- <li class="nav-item" *ngIf="isLogedIn">
           <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/user-profile']">પ્રોફાઈલ</a>
         </li> -->
         <li class="nav-item" *ngIf="isLogedIn">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/user-list']">જ્ઞાતિબંધુ માટે</a>
+          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/user-list']">{{'user_list' | translate}}</a>
         </li>
       </ul>
       <div class="buttons d-flex flex-column flex-lg-row flex-fill">
@@ -84,7 +84,7 @@
 </div>
 <!-- Content End -->
 
-<hr class="common-hr">
+<!-- <hr class="common-hr"> -->
 
 <!-- Footer Start -->
 <footer>
@@ -100,10 +100,10 @@
         <div class="row m-0 p-0">
             <div class="col-12 col-md-12 col-lg-6 m-0 p-0">
               <div class="mb-4 mb-sm-4 mb-md-0 mb-lg-0 mb-xl-5">
-                <h2 class="footer-titles font-weight-bold"><i class="fa fa-location-dot icon mr-3"></i>સરનામું</h2>
-                <p>શ્રી નંદિકેશ્વર મહાદેવ મંદિર</p>
-                <p>જીતનગર, રાજપીપળા - ૩૯૩૧૫૫,</p>
-                <p>ગુજરાત, ભારત.</p>
+                <h2 class="footer-titles font-weight-bold"><i class="fa fa-location-dot icon mr-3"></i>{{'address' | translate}}</h2>
+                <p>{{'address_line_1' | translate}}</p>
+                <p>{{'address_line_2' | translate}}</p>
+                <p>{{'address_line_3' | translate}}</p>
               </div>
             <!-- <div class="mb-4 mb-sm-4 mb-md-0 mb-lg-0 mb-xl-0">
               <h2 class="footer-titles font-weight-bold"><i class="fa fa-phone mr-3"></i>સંપર્ક</h2>
@@ -128,19 +128,19 @@
             </div>
             <div class="col-12 col-md-12 col-lg-6 m-0 p-0">
               <div class="mb-4 mb-sm-4 mb-md-0 mb-lg-0 mb-xl-4">
-                <h2 class="footer-titles font-weight-bold"><img src="../../assets/images/footer-aarti-thal-icon.png" width="40" alt=""> આરતી અને થાળ નો સમય</h2>
+                <h2 class="footer-titles font-weight-bold"><img src="../../assets/images/footer-aarti-thal-icon-light-blue.png" width="40" alt="">{{'aarti_thal' | translate}}</h2>
                   <table>
                     <tr style="vertical-align: top;">
-                      <td><p>આરતી</p></td>
+                      <td><p>{{'aarti' | translate}}</p></td>
                       <td>
-                        <p>&nbsp; &nbsp;: સવારે ૬:૦૦ કલાકે</p>
-                        <p>&nbsp; &nbsp;: સાંજે ૭:૦૦ કલાકે</p>
+                        <p>&nbsp; &nbsp;: {{'aarti_time_1' | translate}}</p>
+                        <p>&nbsp; &nbsp;: {{'aarti_time_2' | translate}}</p>
                       </td>
                     </tr>
                     <tr style="vertical-align: top;">
-                      <td><p>થાળ</p></td>
+                      <td><p>{{'thal' | translate}}</p></td>
                       <td>
-                        <p>&nbsp; &nbsp;: બપોરે ૧૨:૩૦ કલાકે</p>
+                        <p>&nbsp; &nbsp;: {{'thal_time' | translate}}</p>
                       </td>
                     </tr>
                   </table>
@@ -153,19 +153,19 @@
         <div class="row m-0 p-0">
           <div class="col-12 p-0">
             <div class="time mb-4 mb-sm-4 mb-md-0 mb-lg-0 mb-xl-0">
-              <h2 class="footer-titles font-weight-bold"><i class="fa-solid fa-hands-praying mr-3"></i>દર્શન નો સમય</h2>
+              <h2 class="footer-titles font-weight-bold"><i class="fa-solid fa-hands-praying mr-3"></i>{{'darshan' | translate}}</h2>
                 <table>
                   <tr style="vertical-align: top;">
-                    <td><p>મહાદેવજી</p></td>
+                    <td><p>{{'mahadevji' | translate}}</p></td>
                     <td>
-                      <p>&nbsp;: સવારે ૬:૦૦ કલાક થી રાત્રી ના ૯:૦૦ કલાક સુધી</p>
+                      <p>&nbsp;: {{'mahadevji_darshan_time' | translate}}</p>
                     </td>
                   </tr>
                   <tr style="vertical-align: top;">
-                    <td><p>માતાજી</p></td>
+                    <td><p>{{'mataji' | translate}}</p></td>
                     <td>
-                      <p>&nbsp;: સવારે ૬:૦૦ કલાક થી બપોર ના ૧:૦૦ કલાક સુધી</p>
-                      <p>&nbsp;: બપોરે ૨:૩૦ કલાક થી રાત્રી ના ૯:૦૦ કલાક સુધી</p>
+                      <p>&nbsp;: {{'mataji_darshan_time_1' | translate}}</p>
+                      <p>&nbsp;: {{'mataji_darshan_time_2' | translate}}</p>
                     </td>
                   </tr>
                 </table>
@@ -175,27 +175,27 @@
       </div>
       <div class="col-12 col-md-6 col-lg-5 m-0 p-0">
         <div class="linkes mb-4 mb-sm-4 mb-md-0 mb-lg-0 mb-xl-0">
-          <h2 class="footer-titles text-lg-center font-weight-bold"><i class="fa fa-paperclip mr-3"></i>સંબંધિત લિંક્સ</h2>
+          <h2 class="footer-titles text-lg-center font-weight-bold"><i class="fa fa-paperclip mr-3"></i>{{'links' | translate}}</h2>
           <div class="row">
             <div class="col-12 col-lg-6">
-              <a class="ml-lg-5 btn" [routerLink]="['/home']">મુખ પૃષ્ઠ</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/home']">જ્ઞાતિ સંબંધિત</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/home']">મંદિર સંબંધિત</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/home']">{{'home' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/gyati-sambandhit']">{{'gyatin_sambandhit' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/mandir-sambandhit']">{{'mandir_sambandhit' | translate}}</a><br>
               <!-- <a class="btn"><u>ટ્રસ્ટ</u></a><br> -->
-              <a class="ml-lg-5 btn" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">શ્રી નંદિકેશ્વર મહાદેવ ટ્રસ્ટ</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">શ્રી નંદિકેશ્વર ચેરીટેબલ ટ્રસ્ટ</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/shree-nandikeshwar-mahadev-trusts']">{{'shree_nandikeshwar_mahadev_trust' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/shree-nandikeshwar-charitable-trusts']">{{'shree_nandikeshwar_charitable_trust' | translate}}</a><br>
               <!-- <a class="btn"><u>મંડળ</u></a><br> -->
-              <a class="ml-lg-5 btn" [routerLink]="['/shree-nondera-pragati-mandal']">નૉંદેરા પ્રગતિ મંડળ</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/shree-nondera-mahila-mandal']">મહિલા મંડળ</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/shree-nondera-pragati-mandal']">{{'nondera_pragati_mandal' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/shree-nondera-mahila-mandal']">{{'mahila_mandal' | translate}}</a><br>
             </div>
             <div class="col-12 col-lg-6">
               <!-- <a class="btn"><u>ગેલેરી</u></a><br> -->
-              <a class="ml-lg-5 btn" [routerLink]="['/audio']">ઓડિયો ગેલેરી</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/video']">વિડિઓ ગેલેરી</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/photo']">ફોટો ગેલેરી</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/nearest-places']">નજીકના આકર્ષણો</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/donation']">સાત્વિક દાન</a><br>
-              <a class="ml-lg-5 btn" [routerLink]="['/contact']">સંપર્ક</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/audio']">{{'audio_gallery' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/video']">{{'video_gallery' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/photo']">{{'photo_gallery' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/nearest-places']">{{'najik_na_aakarshno' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/donation']">{{'daan' | translate}}</a><br>
+              <a class="ml-lg-5 btn text-left" [routerLink]="['/contact']">{{'contact' | translate}}</a><br>
             </div>
           </div>
         </div>
@@ -213,13 +213,13 @@
       <div>
         <ul class="social list-inline mt-1">
           <li class="list-inline-item">
-            <a class="social-media-icon" href="https://www.facebook.com/people/Shree-Nandikeshwar-Mahadev-Jitnagar/100094979943244/" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a>
+            <a class="social-media-icon" href="https://www.facebook.com/NandikeshwarMahadev" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a>
           </li>
           <li class="list-inline-item">
-            <a class="social-media-icon" href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a>
+            <a class="social-media-icon" href="https://www.instagram.com/jaynandikeshwar/" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a>
           </li>
           <li class="list-inline-item">
-            <a class="social-media-icon" href="https://www.youtube.com/channel/UC3Wch8bCwuzn3UA8Cu6S9EQ" target="_blank" title="youtube"><i class="fa fa-youtube-play"></i></a>
+            <a class="social-media-icon" href="https://www.youtube.com/@jaynandikeshwar" target="_blank" title="youtube"><i class="fa fa-youtube-play"></i></a>
           </li>
         </ul>
       </div>

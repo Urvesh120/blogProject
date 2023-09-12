@@ -55,11 +55,11 @@
     </div>
   </div>
 
-  <div *ngIf="isBloodGroup && isAdmin">
+  <div *ngIf="isBloodGroup">
     <div class="blood-group-manin-category-div d-flex flex-column flex-lg-row justify-content-around">
 
       <div class="blood-group-category-div w-100">
-        <input type="radio" class="designed-radio-button" name="blood-group-content" id="ab-p" value="ab-p" (change)="bloodGroupSelection($event)"/>
+        <input type="radio" class="designed-radio-button" name="blood-group-content" id="ab-p" value="ab-p" checked (change)="bloodGroupSelection($event)"/>
         <label for="ab-p" class="ab-p blood-group-label ">
           AB+
         </label>
@@ -121,7 +121,7 @@
     <div class="match-making-main-category-div d-flex flex-column flex-lg-row justify-content-around align-items-center">
 
       <div class="match-making-category-div w-100">
-        <input type="radio" class="designed-radio-button" name="match-making-content-gender" id="male" value="male" (change)="matchMakingGenderSelection($event)"/>
+        <input type="radio" class="designed-radio-button" name="match-making-content-gender" id="male" value="male" checked (change)="matchMakingGenderSelection($event)"/>
         <label for="male" class="male match-making-genders ">
           Male
         </label>
@@ -129,13 +129,13 @@
       
       <div class="match-making-category-div w-100">
         <input type="radio" class="designed-radio-button" name="match-making-content-gender" id="female" value="female" (change)="matchMakingGenderSelection($event)"/>
-        <label for="female" class="female match-making-genders ">
+        <label for="female" class="female match-making-genders">
           Female
         </label>
       </div>
 
       <div class="match-making-category-div w-100">
-        <input type="radio" class="designed-radio-button" name="match-making-content" id="one" value="one" (change)="matchMakingAgeSelection($event)"/>
+        <input type="radio" class="designed-radio-button" name="match-making-content" id="one" value="one" checked (change)="matchMakingAgeSelection($event)"/>
         <label for="one" class="one match-making-label ">
           18-25
         </label>
@@ -318,6 +318,9 @@
   </div>
   
   <div *ngIf="isMatchMaking">
+    <div class="alert alert-danger" role="alert">
+      Sample text
+    </div>
     <div class="table-div">
       <table class="table table-bordered table-striped">
         <thead>

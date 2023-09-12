@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class ForgotPasswordComponent implements OnInit {
   forgotFormGroup: any
   resetPasswordFormGroup: any;
-  forgotPassImg = 'assets/illustators/forgotpassword.svg';
+  forgotPassImg = 'assets/forget-password/forget-password.png';
   isVerified = true;
   submitted: any;
   token: any;
@@ -67,7 +67,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   submit() {
-    this.isVerified = false;
+    // this.isVerified = false;
     this.submitted = true;
     const data = {
       email: this.forgotFormGroup.controls.email.value
@@ -83,6 +83,16 @@ export class ForgotPasswordComponent implements OnInit {
           imageUrl: 'assets/illustators/SomethingWentWrong.svg',
           imageWidth: 400,
           imageHeight: 200,
+          imageAlt: 'Email not registered',
+        })
+      }
+      if(res.message == 'Reset password link sent to your email!'){
+        this.isVerified = true;
+        Swal.fire({
+          title: "Reset password link sent to your email!",
+          // imageUrl: 'assets/illustators/SomethingWentWrong.svg',
+          // imageWidth: 400,
+          // imageHeight: 200,
           imageAlt: 'Email not registered',
         })
       }

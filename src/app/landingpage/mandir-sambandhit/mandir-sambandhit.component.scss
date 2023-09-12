@@ -1,6 +1,10 @@
 $dark-blue : rgb(51, 51, 79);
 $light-blue : #C9C9FD;
 
+.dark-blue-color{
+  color: $dark-blue;
+}
+
 .details{
   margin: 0 60px;
   h3{
@@ -64,8 +68,8 @@ $light-blue : #C9C9FD;
 @media (min-width: 992px) {
   .container-fluid {
     background-color: $dark-blue;
-    margin-top: calc(20px + 3rem);
-    min-height: 430px;
+    margin-top: 50px;
+    min-height: 470px;
   }
   
   .image-container {

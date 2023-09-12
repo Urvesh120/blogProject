@@ -1,6 +1,17 @@
 $dark-blue : rgb(51, 51, 79);
 $light-blue : #C9C9FD;
 
+.dark-blue-color{
+  color: $dark-blue;
+}
+
+.image-tilte{
+  text-decoration: underline;
+  color: orangered;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
 hr{
   width: 95%;
   border: 2px solid $dark-blue;
@@ -9,7 +20,7 @@ hr{
 
 .background-image-div{
   background-color: $dark-blue;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .title-tag-div{
@@ -62,6 +73,11 @@ hr{
 
 .margin-left-12{
   margin-left: 12px;
+}
+
+p.text.text-justify{
+  font-size: medium;
+  line-height: 22px;
 }
 
 
@@ -132,12 +148,16 @@ hr{
 
 .see-more{
   a{
-    text-decoration: underline;
+    text-decoration: none;
   }
+  a:hover{
+    text-decoration: none;
+   }
 }
 
 .see-more.nandi{
   font-size: large;
+  text-decoration: none;
 }
 
 .slider{
@@ -171,8 +191,20 @@ hr{
 //   margin-top: calc(20px + 3rem);
 // }
 
+.see-more{
+  a{
+    color: white;
+    text-decoration: none;
+    background-color: $dark-blue;
+  }
+}
+
 
 @media screen and (min-width: 0px) and (max-width: 575.98px){
+
+  .main-shlok{
+    font-size: 20px;
+  }
 
   .image-container{
     border: 3px solid rgb(51, 51, 79);
@@ -199,6 +231,8 @@ hr{
 
     .nandi-image-div div{
       text-align: center;
+      display: flex;
+      justify-content: center;
       img{
         margin: 20px 0 10px 0;
         width: 60%;
@@ -251,7 +285,27 @@ hr{
   }
 }
 
+.ribbon-mobile-view{
+  display: block;
+}
+
+.ribbon-desktop-view{
+  display: none;
+}
+
+.see-more.nandi{
+  color: white;
+  border-bottom: 2px solid white;
+  margin: 14px 11px;
+  border-radius: 0;
+  padding: 0;
+}
+
 @media screen and (min-width: 576px) and (max-width: 767.98px){
+
+  .main-shlok{
+    font-size: 25px;
+  }
 
   .image-container{
     border: 4px solid rgb(51, 51, 79);
@@ -279,6 +333,8 @@ hr{
 
     .nandi-image-div div{
       text-align: center;
+      display: flex;
+      justify-content: center;
       img{
         margin-bottom: 30px;
         width: 60%;
@@ -313,6 +369,11 @@ hr{
 }
 
 @media screen and (min-width: 768px) and (max-width: 991.92px){
+
+  .main-shlok{
+    font-size: 25px;
+  }
+
   .background-image-div{
 
     .text-div{
@@ -322,10 +383,13 @@ hr{
     h1,p{
       color: white;
       text-align: justify;
+      padding: 0;
     }
 
     .nandi-image-div div{
       text-align: center;
+      display: flex;
+      justify-content: center;
       img{
         margin: 20px 0 10px 0;
         width: 60%;
@@ -342,9 +406,9 @@ hr{
 
   .nandikeshwar-mahadev-div, .navdurga-mata-div, .rang-avadhut-div{
     margin: 100px 25px;
-    div{
-      padding: 30px;
-    }
+    // div{
+    //   padding: 30px;
+    // }
   }
 
   .birthday{
@@ -355,6 +419,23 @@ hr{
 }
 
 @media screen and (min-width: 992px){
+
+  .ribbon-mobile-view{
+    display: none;
+  }
+  
+  .ribbon-desktop-view{
+    display: block;
+  }
+
+  .text-div{
+    width: 80%;
+    padding-right: 68px;
+  }
+
+  .image-tilte{
+    font-size: 35px;
+  }
 
   .slider{
     padding: 0 60px;
@@ -368,9 +449,14 @@ hr{
 
   .nandikeshwar-mahadev-div, .navdurga-mata-div, .rang-avadhut-div{
     margin: 100px 30px;
-    div{
-      padding: 30px;
+    div:not(.extra-content):not(.see-more){
+      padding: 10px 15px;
     }
+
+    .extra-content{
+      padding: 0 30px;
+    }
+
   }
 
   .birthday{
@@ -408,22 +494,21 @@ hr{
 
 @media (min-width: 991.98px) and (max-width: 1199.98px){
   .background-image-div{
-    height: 65vh;
+    min-height: 430px;
 
-    .text-div{
-      width: 50%;
-    }
+    // .text-div{
+    //   width: 50%;
+    // }
 
     div{
       h1,p{
         color: white;
         text-align: justify;
+        padding: 0 0 0 48px;
       }
   
       p{
         font-size: large;
-        letter-spacing: 1px;
-        line-height: 22px;
       }  
     }
 
@@ -436,28 +521,109 @@ hr{
 
 @media (min-width: 1200px){
   .background-image-div{
-    height: 65vh;
+    height: 470px;
 
     div{
       h1,p{
         color: white;
         text-align: justify;
+        padding: 0 0 0 48px;
       }
   
       p{
         font-size: large;
-        letter-spacing: 1px;
-        line-height: 22px;
       }  
     }
 
     img{
-      width: 125%;
+      width: 90%;
       float: right;
-    }
-
-    .see-more.nandi{
-      margin-right: 135px;
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// @media (min-width: 0px) and (max-width: 991.98px){
+//   .container-fluid {
+//     background-color: $dark-blue;
+//     margin-top: 30px;
+//     min-height: 400px;
+//   }  
+  
+//   .image-container {
+//     width: 100%;
+//     margin-top: 20px;
+//   }
+  
+//   .image-container img {
+//     top: 0;
+//     max-width: 60%;
+//   }
+  
+//   .text-container {
+//     margin-top: 30px;
+//     width: 100%;
+  
+//     .ribbon-title{
+//       font-size: 20px;
+//       font-weight: 600;
+//     }
+  
+//     .ribbon-text{
+//       font-size: 17px;
+//       line-height: 25px;
+//     }
+//   }
+// }
+
+
+// @media (min-width: 992px){
+//   .container-fluid {
+//     background-color: $dark-blue;
+//     margin-top: calc(20px + 3rem);
+//     min-height: 430px;
+//   }
+  
+//   .image-container {
+//     position: relative;
+//     overflow: hidden;
+//     width: 50%;
+//     margin-top: -5%;
+//   }
+  
+//   .image-container img {
+//     width: 53%;
+//     display: block;
+//     position: relative;
+//     top: 4%;
+//     right: -30%;
+//   }
+  
+//   .text-container {
+//     width: 50%;
+//     padding: 20px 38px 20px;
+
+//     .ribbon-title{
+//       font-size: 25px;
+//     }
+    
+//     .ribbon-text{
+//       font-size: 20px;
+//       line-height: 25px;
+//     }
+//   }
+
+//   .mandir-samnbandhit-ribbon-div{
+//     margin-bottom: 125px;
+//   }
+// }

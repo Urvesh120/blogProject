@@ -8,3 +8,22 @@ html, body { height: 100%; }
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+
+@font-face {
+    font-family: 'GujaratiInstalledFonts-Anek';
+    src: url('../src/assets/fonts/AnekGujarati-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+    font-family: 'GujaratiInstalledFonts-NotoSens';
+    src: url('../src/assets/fonts/NotoSansGujarati-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'GujaratiInstalledFonts-Nilkanth';
+    src: url('../src/assets/fonts/NILKANTH.TTF');
+}
+
+h1, h2, h3, h4, h5, h6, span, p, a, .btn, button, select, option{
+    font-family: 'GujaratiInstalledFonts-NotoSens' !important;
+}

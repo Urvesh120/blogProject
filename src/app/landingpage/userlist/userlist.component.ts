@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import * as _ from 'lodash';
 import { UtilService } from 'src/app/services/util.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-userlist',
@@ -22,6 +23,8 @@ export class UserlistComponent implements OnInit {
   userType : any;
   isRegistered : any;
   blankImage = 'assets/images/blank-profile.jpg';
+  maleBlankImage = 'assets/images/male-default-profile-pic.jpg';
+  femaleBlankImage = 'assets/images/female-default-profile-pic.jpg';
   closeButton = 'assets/icons/close.png';
   profilePic : any;
   address = "";
@@ -40,11 +43,11 @@ export class UserlistComponent implements OnInit {
   isRegisteredUsers = true;
 
   isBloodGroup = false;
-  selectedBloodGroup = '';
+  selectedBloodGroup = 'AB+';
 
   isMatchMaking = false;
   selectedAgeForMatchMaking = 0;
-  selectedGenderForMatchMaking = '';
+  selectedGenderForMatchMaking = 'male';
   minAge = 0;
   maxAge = 0;
 
@@ -52,12 +55,22 @@ export class UserlistComponent implements OnInit {
   selectedOccupation = 'job';
   occupationSearch: string = '';
 
-  constructor(private http : HttpService,  private loader : LoaderService, private util : UtilService, private sanitizer: DomSanitizer) { }
+  constructor(
+    private http : HttpService,
+    private loader : LoaderService,
+    private util : UtilService,
+    private sanitizer: DomSanitizer,
+    private viewportScroller: ViewportScroller
+    ) { }
 
   ngOnInit(): void {
     this.isAdmin = localStorage.getItem('isAdmin') == 'true' ? true : false;
     this.isMatchMaking = !this.isAdmin;
     this.getUserLIst();
+  }
+
+  ngAfterViewInit() {
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 
   getUserLIst(){
@@ -133,8 +146,7 @@ export class UserlistComponent implements OnInit {
 
   get filteredBloodGroup(): any[] {
     return this.registeredUserList.filter((person: any) =>
-      person.bloodGroup.toLowerCase().includes(this.selectedBloodGroup.toLowerCase()) &&
-      person.age <= 50
+      person.bloodGroup.toLowerCase().includes(this.selectedBloodGroup.toLowerCase())
     );
   }
 
@@ -150,23 +162,26 @@ export class UserlistComponent implements OnInit {
     if((this.minAge == 0 && this.maxAge == 0) || this.selectedGenderForMatchMaking == ''){
       if(this.selectedAgeForMatchMaking == 0 && this.selectedGenderForMatchMaking != ''){
         return this.registeredUserList.filter((person: any) =>
-          person.gender.toLowerCase() == this.selectedGenderForMatchMaking.toLowerCase()
+          person.gender.toLowerCase() == this.selectedGenderForMatchMaking.toLowerCase() &&
+          (person.maritalStatus.toLowerCase() != 'married'.toLocaleLowerCase())
         );
       }
       else if(!(this.minAge == 0 && this.maxAge == 0) && this.selectedGenderForMatchMaking == ''){
         return this.registeredUserList.filter((person: any) =>
-          person.age >= this.minAge && person.age <= this.maxAge
+          person.age >= this.minAge && person.age <= this.maxAge &&
+          (person.maritalStatus.toLowerCase() != 'married'.toLocaleLowerCase())
         );
       }
       else{
-        return this.registeredUserList;
+        return this.registeredUserList.filter((person: any) => (person.maritalStatus.toLowerCase() != 'married'.toLocaleLowerCase()));
       }
     }
 
     else{
       return this.registeredUserList.filter((person: any) =>
-        person.gender.toLowerCase().includes(this.selectedGenderForMatchMaking.toLowerCase()) &&
-        person.age >= this.minAge && person.age <= this.maxAge
+        person.gender.toLowerCase() == this.selectedGenderForMatchMaking.toLowerCase() &&
+        person.age >= this.minAge && person.age <= this.maxAge && 
+        (person.maritalStatus.toLowerCase() != 'married'.toLocaleLowerCase())
       );
     }
   }
@@ -359,7 +374,15 @@ export class UserlistComponent implements OnInit {
         this.isAdmin = localStorage.getItem('isAdmin') == "true" ? true : false;
         var base64 = this.profileData.picture.split(",");
         if(base64[1] == "" || base64[1] == null){
-          this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.blankImage);
+          if(this.profileData.gender.toLowerCase() == "male"){
+            this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.maleBlankImage);
+          }
+          else if(this.profileData.gender.toLowerCase() == "female"){
+            this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.femaleBlankImage);
+          }
+          else{
+            this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.blankImage);
+          }
         }
         else{
           this.profileData.picture = this.sanitizer.bypassSecurityTrustUrl(this.profileData.picture);

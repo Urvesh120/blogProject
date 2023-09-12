@@ -1,0 +1,138 @@
+$bs-gutter-x: 1.5rem;
+$bs-gutter-y: 0;
+$light-blue : #C9C9FD;
+$dark-blue : rgb(51, 51, 79);
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title-tag-div{
+  h1{
+    background-color: $light-blue;
+    color: $dark-blue;
+    padding: 15px 25px;
+    border-radius: 20px;
+  }
+}
+
+h6 {
+    font-size: 18px;
+    line-height: 1.7;
+    color: $dark-blue;
+    font-weight: 600;
+    text-align: center;
+}
+
+.background{
+    background-color: black;
+    min-height: 400px;
+    background-size: cover;
+}
+
+.video-div{
+  background-color: rgba($color: $dark-blue, $alpha: 0.3);
+  padding: 10px;
+  max-width: 400px;
+  margin: 20px 20px;
+  border-radius: 5px;
+}
+
+.sigma_broadcast-video{
+  margin: 0 50px;
+}
+
+.title-div{
+  background-color: $light-blue;
+  padding: 10px;
+  color: $dark-blue;
+  h2{
+    font-weight: bold;
+  }
+}
+
+.image-container{
+  background-color: $dark-blue;
+  padding: 7px 7px 50px 7px;
+}
+
+@media (min-width: 0px) and (max-width: 575.98px){
+  .background{
+    .upper-background{
+      .other{
+        h2{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  .image-container{
+    width: 300px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px){
+  .background{
+    .upper-background{
+      .other{
+        h2{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  .image-container{
+    width: 525px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px){
+  .background{
+    .upper-background{
+      .other{
+        h2{
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .image-container{
+    width: 350px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px){
+  .background{
+    .upper-background{
+      .other{
+        h2{
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .image-container{
+    width: 450px;
+  }
+}
+
+@media (min-width: 1200px){
+  .background{
+    .upper-background{
+      .other{
+        h2{
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .image-container{
+    width: 550px;
+  }
+}
