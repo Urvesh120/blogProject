@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 import { HttpService } from '../services/http.service';
@@ -31,12 +31,14 @@ export class LandingpageComponent implements OnInit {
   logedout = false;
   image : any;
   blankImage = 'assets/images/blank-profile.jpg';
+  isButtonVisible = false;
 
   constructor( private router : Router, 
     private http : HttpService,
     private sanitizer: DomSanitizer,
     private loader : LoaderService,
-    public translate: TranslateService) { 
+    public translate: TranslateService,
+    private renderer: Renderer2) { 
       translate.setDefaultLang('guj');
   }
 
@@ -100,5 +102,18 @@ export class LandingpageComponent implements OnInit {
       function() {
         window.location.reload();
       }, 500);
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (window.pageYOffset > 100) { // Adjust the threshold as needed
+      this.isButtonVisible = true;
+    } else {
+      this.isButtonVisible = false;
+    }
   }
 }

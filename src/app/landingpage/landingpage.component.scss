@@ -84,6 +84,15 @@ footer{
 
 .navbar-div{
   background-color: rgb(51, 51, 79);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1059;
+}
+
+.routeing-div{
+  margin-top: 77px;
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -202,4 +211,25 @@ footer{
   .language-dropdown{
     margin-right: 20px;
   }
+}
+
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: white;
+  border: 2px solid rgb(51, 51, 79);
+  color: rgb(51, 51, 79);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: rgba($color: rgb(51, 51, 79), $alpha: 1.0);
+  color: white;
+  border: 2px solid white;
 }

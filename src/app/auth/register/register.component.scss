@@ -19,6 +19,7 @@ $light-dark-blue : rgb(126, 126, 182);
 // overall css start
 .main-div{
   background-color: $dark-blue;
+  margin-top: 77px;
 }
 
 .svg-div{
@@ -195,7 +196,7 @@ span{
 @media (min-width: 0px) and (max-width: 575.98px) {
   .main-div{
     .svg-div, .form-div{
-      width: 100%;
+      width: calc(100% - 77px);
       overflow: auto;
     }
   }
@@ -216,7 +217,7 @@ span{
 @media (min-width: 576px) and (max-width: 767.98px) {
   .main-div{
     .svg-div, .form-div{
-      width: 100%;
+      width: calc(100% - 77px);
       overflow: auto;
     }
   }
@@ -237,7 +238,7 @@ span{
 @media (min-width: 768px) and (max-width: 991.98px) {
   .main-div{
     .svg-div, .form-div{
-      width: 100%;
+      width: calc(100% - 77px);
       overflow: auto;
     }
   }
@@ -253,7 +254,7 @@ span{
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .main-div{
     .svg-div, .form-div{
-      width: 100%;
+      width: calc(100% - 77px);
       overflow: auto;
     }
     .svg-div{
@@ -360,6 +361,11 @@ footer{
 
 .navbar-div{
   background-color: rgb(51, 51, 79);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 }
 
 .navbar-expand-lg .navbar-collapse {

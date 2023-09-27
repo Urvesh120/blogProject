@@ -44,17 +44,20 @@ h6 {
 }
 
 .title-div{
-  background-color: $light-blue;
+  // background-color: $light-blue;
   padding: 10px;
-  color: $dark-blue;
-  h2{
+  h6{
+    font-size: 23px;
+    color: white;
     font-weight: bold;
+    margin: 0;
   }
 }
 
 .image-container{
   background-color: $dark-blue;
-  padding: 7px 7px 50px 7px;
+  padding: 7px;
+  border-radius: 5px;
 }
 
 @media (min-width: 0px) and (max-width: 575.98px){

@@ -27,3 +27,54 @@ html, body { height: 100%; }
 h1, h2, h3, h4, h5, h6, span, p, a, .btn, button, select, option{
     font-family: 'GujaratiInstalledFonts-NotoSens' !important;
 }
+
+.swal2-popup{
+    padding: 35px !important;
+
+    .swal2-image{
+        margin: 0px;
+        width: 100% !important;
+    }
+
+    .swal2-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #808080;
+    }
+
+    .swal2-close:focus{
+        box-shadow: none;
+    }
+}
+
+
+@media (min-width: 0px) and (max-width: 575.98px){
+    .swal2-popup{
+        width: 85% !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px){
+    .swal2-popup{
+        width: 85% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px){
+    .swal2-popup{
+        width: 70% !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px){
+    .swal2-popup{
+        width: 50% !important;
+    }
+}
+
+@media (min-width: 1200px){
+    .swal2-popup{
+        width: 50% !important;
+    }
+}

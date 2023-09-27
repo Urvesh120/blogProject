@@ -1,5 +1,9 @@
+<button class="btn scroll-to-top" *ngIf="isButtonVisible" (click)="scrollToTop()">
+  <i class="fa fa-arrow-up"></i> <!-- You can use any icon library or custom icon -->
+</button>
+
 <!-- Navbar Start -->
-<div class="navbar-div">
+<div class="navbar-div sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <a class="navbar-brand" [routerLink]="['/home']">
       <img class="img-fluid" width="45" src="../../assets/images/site_logo.png" alt="">
