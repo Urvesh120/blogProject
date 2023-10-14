@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ViewportScroller } from '@angular/common';
 })
 export class NandikeshwarmahadevComponent implements OnInit {
 
-  imageLink = "https://cdn.shopify.com/s/files/1/0162/2116/articles/Most_Stylish_Glasses_For_Men_300x300.jpg?v=1596724226";
+  imageLink = "assets/trust-mandal/SHREE NANDIKESHWAR MAHADEV TRUST.png";
 
   constructor(private viewportScroller: ViewportScroller) { }
 
@@ -18,6 +19,17 @@ export class NandikeshwarmahadevComponent implements OnInit {
 
   ngAfterViewInit() {
     this.viewportScroller.scrollToPosition([0, 0]);
+  }
+
+  imagePreview(){
+    Swal.fire({
+      imageUrl: this.imageLink,
+      showCloseButton: true,
+      focusConfirm: false,
+      showCancelButton: false,
+      showConfirmButton: false,
+      allowOutsideClick: false
+    })
   }
 
 }

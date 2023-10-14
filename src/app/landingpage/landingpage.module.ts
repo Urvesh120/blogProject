@@ -12,11 +12,11 @@ import { PerfectScrollbarModule, PerfectScrollbarConfigInterface, PERFECT_SCROLL
 import { UserlistComponent } from './userlist/userlist.component';
 import { ProfileComponent } from './userlist/profile/profile.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { EditprofileComponent } from './userprofile/editprofile/editprofile.component';
 import { PaymentComponent } from './trusts/payment/payment.component';
 
 import { NandikeshwarmahadevComponent } from './trusts/nandikeshwarmahadev/nandikeshwarmahadev.component';
 import { MandalComponent } from './mandal/mandal.component';
+import { ShreeRangVatikaComponent } from './trusts/shree-rang-vatika/shree-rang-vatika.component';
 import { NonderapragatiComponent } from './mandal/nonderapragati/nonderapragati.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NearestplacesComponent } from './nearestplaces/nearestplaces.component';
@@ -43,6 +43,7 @@ import { FourComponent } from './media/videomedia/four/four.component';
 import { MahashivratriComponent } from './media/photomedia/mahashivratri/mahashivratri.component';
 import { ShravaniparvComponent } from './media/photomedia/shravaniparv/shravaniparv.component';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX : true
 };
@@ -60,7 +61,6 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     UserlistComponent,
     ProfileComponent,
     UserprofileComponent,
-    EditprofileComponent,
     PaymentComponent,
     NandikeshwarmahadevComponent,
     MandalComponent,
@@ -85,6 +85,7 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     FourComponent,
     MahashivratriComponent,
     ShravaniparvComponent,
+    ShreeRangVatikaComponent
   ],
   imports: [
     CommonModule,

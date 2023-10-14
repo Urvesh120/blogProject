@@ -25,7 +25,7 @@
   <div class="category-div">
     <input type="radio" class="designed-radio-button" name="table-content" id="occupational" value="occupational" (change)="changeRadioButton($event)"/>
     <label for="occupational" class="occupational">
-      Ocupational
+      Occupational
     </label>
   </div>      
 
@@ -222,6 +222,7 @@
             <th>First Name</th>
             <th>Middle Name</th>
             <th>Last Name</th>
+            <th>Gender</th>
             <th>Mobile Number</th>
             <th>View Profile</th>
           </tr>
@@ -231,6 +232,7 @@
             <td>{{ user.firstName}}</td>
             <td>{{ user.middleName }}</td>
             <td>{{ user.lastName }}</td>
+            <td>{{ user.gender }}</td>
             <td>{{ user.contact }}</td>
             <td class="viewProfileCell">
               <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
@@ -253,6 +255,7 @@
             <th>First Name</th>
             <th>Middle Name</th>
             <th>Last Name</th>
+            <th>Gender</th>
             <th>Mobile Number</th>
             <th>View Profile</th>
             <th>Action</th>
@@ -263,6 +266,7 @@
             <td>{{ user.firstName}}</td>
             <td>{{ user.middleName }}</td>
             <td>{{ user.lastName }}</td>
+            <td>{{ user.gender }}</td>
             <td>{{ user.contact }}</td>
             <td class="viewProfileCell">
               <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
@@ -318,9 +322,6 @@
   </div>
   
   <div *ngIf="isMatchMaking">
-    <div class="alert alert-danger" role="alert">
-      Sample text
-    </div>
     <div class="table-div">
       <table class="table table-bordered table-striped">
         <thead>
@@ -421,7 +422,7 @@
                 <tbody>
                   <tr>
                     <th>Name</th>
-                    <td>{{profileData.lastName}} {{profileData.firstName}} {{profileData.middleName}}</td>
+                    <td>{{profileData.firstName}} {{profileData.middleName}} {{profileData.lastName}}</td>
                   </tr>
                   <tr>
                     <th>Father's Name</th>
@@ -432,16 +433,32 @@
                     <td>{{profileData.mothersName}}</td>
                   </tr>
                   <tr>
+                    <th>Gotra</th>
+                    <td>{{profileData.gotra}}</td>
+                  </tr>
+                  <tr>
+                    <th>Gender</th>
+                    <td>{{profileData.gender}}</td>
+                  </tr>
+                  <tr>
                     <th>Date of Birth</th>
-                    <td>{{profileData.dateOfBirth}}</td>
+                    <td>{{dateOfBirth}}</td>
+                  </tr>
+                  <tr>
+                    <th>Age</th>
+                    <td>{{profileData.age}}</td>
                   </tr>
                   <tr>
                     <th>Contact number</th>
-                    <td>{{profileData.contact}}</td>
+                    <td>+{{profileData.countryCode}} {{profileData.contact}}</td>
                   </tr>
                   <tr>
                     <th>Email</th>
                     <td>{{profileData.email}}</td>
+                  </tr>
+                  <tr>
+                    <th>Marital Status</th>
+                    <td>{{profileData.maritalStatus}}</td>
                   </tr>
                   <tr *ngIf="isAdmin">
                     <th>Bloodgroup</th>
@@ -450,6 +467,26 @@
                   <tr>
                     <th>Address</th>
                     <td>{{address}}</td>
+                  </tr>
+                  <tr>
+                    <th>Qualification</th>
+                    <td>{{profileData.qualification}}</td>
+                  </tr>
+                  <tr>
+                    <th>Occupation</th>
+                    <td>{{profileData.occupationType}}</td>
+                  </tr>
+                  <tr>
+                    <th>Occupation Name</th>
+                    <td>{{profileData.occupationName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Occupation Description</th>
+                    <td>{{profileData.occupationDescription}}</td>
+                  </tr>
+                  <tr *ngIf="!!profileData.achievement">
+                    <th>Achievement</th>
+                    <td>{{profileData.achievement}}</td>
                   </tr>
                 </tbody>
               </table>

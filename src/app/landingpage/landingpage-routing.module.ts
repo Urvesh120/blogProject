@@ -36,6 +36,7 @@ import { ThreeComponent } from './media/videomedia/three/three.component';
 import { FourComponent } from './media/videomedia/four/four.component';
 import { MahashivratriComponent } from './media/photomedia/mahashivratri/mahashivratri.component';
 import { ShravaniparvComponent } from './media/photomedia/shravaniparv/shravaniparv.component';
+import { ShreeRangVatikaComponent } from './trusts/shree-rang-vatika/shree-rang-vatika.component';
 
 const routes: Routes = [
   {path : '', component : LandingpageComponent,
@@ -51,6 +52,7 @@ const routes: Routes = [
     {path : 'shree-nondera-mahila-mandal', component : MahilaComponent},
     {path : 'shree-nandikeshwar-mahadev-trusts', component : NandikeshwarmahadevComponent},
     {path : 'shree-nandikeshwar-charitable-trusts', component : NandikeshwarcharitableComponent},
+    {path : 'shree-rang-vatika-trusts', component : ShreeRangVatikaComponent},
     {path : 'audio', component : AudiomediaComponent},
     {path : 'video', component : VideomediaComponent},
     {path : 'photo', component : PhotomediaComponent},
@@ -72,7 +74,7 @@ const routes: Routes = [
     {path : 'shravni-parva', component : ShravaniparvComponent},
     {path : 'contact', component : ContactComponent},
     {path : 'donation', component : DonationComponent},
-    {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
+    // {path : 'user-profile', component : UserprofileComponent,canActivate:[AuthGuard]},
     {path : 'user-list', component : UserlistComponent,canActivate:[AuthGuard]},
     {path : 'profile-preview', component : ProfileComponent,canActivate:[AuthGuard]},
   ]}

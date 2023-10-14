@@ -19,7 +19,7 @@ $light-dark-blue : rgb(126, 126, 182);
 // overall css start
 .main-div{
   background-color: $dark-blue;
-  margin-top: 77px;
+  // margin-top: 77px;
 }
 
 .svg-div{
@@ -159,7 +159,9 @@ input:focus{
 // Input CSS End
 
 
-
+.nearest-places{
+  border-top: 2px solid rgb(51, 51, 79);
+}
 
 
 
@@ -195,8 +197,9 @@ span{
 
 @media (min-width: 0px) and (max-width: 575.98px) {
   .main-div{
+    margin-top: 77px;
     .svg-div, .form-div{
-      width: calc(100% - 77px);
+      width: 100%;
       overflow: auto;
     }
   }
@@ -216,8 +219,9 @@ span{
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .main-div{
+    margin-top: 77px;
     .svg-div, .form-div{
-      width: calc(100% - 77px);
+      width: 100%;
       overflow: auto;
     }
   }
@@ -237,8 +241,9 @@ span{
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .main-div{
+    margin-top: 77px;
     .svg-div, .form-div{
-      width: calc(100% - 77px);
+      width: 100%;
       overflow: auto;
     }
   }
@@ -254,7 +259,7 @@ span{
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .main-div{
     .svg-div, .form-div{
-      width: calc(100% - 77px);
+      width: 100%;
       overflow: auto;
     }
     .svg-div{

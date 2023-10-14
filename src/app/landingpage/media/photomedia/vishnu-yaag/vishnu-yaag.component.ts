@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
 export class VishnuYaagComponent implements OnInit {
 
   image = '';
-  photo_vishnu_yaag_one = 'assets/photo-galary/vishnu-yaag/1_O.jpg';
-  photo_vishnu_yaag_two = 'assets/photo-galary/vishnu-yaag/2_O.jpg';
-  photo_vishnu_yaag_three = 'assets/photo-galary/vishnu-yaag/3_O.jpg';
-  photo_vishnu_yaag_four = 'assets/photo-galary/vishnu-yaag/4_O.jpg';
-  photo_vishnu_yaag_five = 'assets/photo-galary/vishnu-yaag/5_O.jpg';
-  photo_vishnu_yaag_six = 'assets/photo-galary/vishnu-yaag/6_O.jpg';
+  photo_vishnu_yaag_one = 'assets/photo-galary/vishnu-yaag/vishu_yaag_1.png';
+  photo_vishnu_yaag_two = 'assets/photo-galary/vishnu-yaag/vishu_yaag_2.png';
+  photo_vishnu_yaag_three = 'assets/photo-galary/vishnu-yaag/vishu_yaag_3.png';
+  photo_vishnu_yaag_four = 'assets/photo-galary/vishnu-yaag/vishu_yaag_4.png';
+  photo_vishnu_yaag_five = 'assets/photo-galary/vishnu-yaag/vishu_yaag_5.png';
+  photo_vishnu_yaag_six = 'assets/photo-galary/vishnu-yaag/vishu_yaag_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 

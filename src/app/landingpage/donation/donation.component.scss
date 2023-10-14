@@ -14,11 +14,17 @@ $light-blue : #C9C9FD;
     }
 }
 
+.background{
+  background-color: black;
+  min-height: 400px;
+  background-size: cover;
+}
+
 
 .background{
-    background-color: black;
-    min-height: 400px;
-    background-size: 100% 100%;
+    // background-color: black;
+    // min-height: 400px;
+    // background-size: 100% 100%;
   
     .other{
       h2{
@@ -101,11 +107,24 @@ label.radio-button-label{
 
 @media (min-width: 0px) and (max-width: 991.98px) {
   .background{
-      .other{
-        h2{
-          font-size: 20px;
-        }
+    padding-top: 25px;
+    .other{
+      padding: 25px;
+      .shlok{
+        font-size: 22px;
       }
+      .shlok-meaning{
+        max-width: 630px;
+        font-size: 20px;
+      }
+
+      .shlok-reference{
+        font-size: 15px;
+      }
+      h4{
+        line-height: 30px;
+      }
+    }
   }
 
   .combine-form-div{
@@ -127,6 +146,7 @@ label.radio-button-label{
 
       .qr-code-div{
         text-align: center;
+        padding: 20px;
       }
 
       .form-div{
@@ -141,6 +161,26 @@ label.radio-button-label{
 }
 
 @media (min-width: 992px) {
+
+  .background{
+    padding-top: 25px;
+    .other{
+      .shlok{
+        font-size: 25px;
+      }
+      .shlok-meaning{
+        max-width: 630px;
+        font-size: 22px;
+      }
+
+      .shlok-reference{
+        font-size: 17px;
+      }
+      h4{
+        line-height: 30px;
+      }
+    }
+  }
     .slider{
         padding: 0 60px;
     }
@@ -155,7 +195,7 @@ label.radio-button-label{
           padding: 10px 0;
           background-color: $dark-blue;
           text-align: center;
-          margin: 0 0 20px 0;
+          margin: 0;
           h1{
             color: white;
           }
@@ -163,6 +203,7 @@ label.radio-button-label{
 
         .qr-code-div{
           text-align: center;
+          padding: 20px;
         }
 
         .form-div{

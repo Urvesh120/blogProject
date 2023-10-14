@@ -10,11 +10,12 @@ import Swal from 'sweetalert2';
 export class ShatChandiComponent implements OnInit {
 
   image = '';
-  photo_shat_chandi_one = 'assets/photo-galary/shat-chnadi/1_O.jpg';
-  photo_shat_chandi_two = 'assets/photo-galary/shat-chnadi/2_O.jpg';
-  photo_shat_chandi_three = 'assets/photo-galary/shat-chnadi/3_O.jpg';
-  photo_shat_chandi_four = 'assets/photo-galary/shat-chnadi/4_O.jpg';
-  photo_shat_chandi_five = 'assets/photo-galary/shat-chnadi/5_O.jpg';
+  photo_shat_chandi_one = 'assets/photo-galary/shat-chnadi/shat_chandi_1.png';
+  photo_shat_chandi_two = 'assets/photo-galary/shat-chnadi/shat_chandi_2.png';
+  photo_shat_chandi_three = 'assets/photo-galary/shat-chnadi/shat_chandi_3.png';
+  photo_shat_chandi_four = 'assets/photo-galary/shat-chnadi/shat_chandi_4.png';
+  photo_shat_chandi_five = 'assets/photo-galary/shat-chnadi/shat_chandi_5.png';
+  photo_shat_chandi_six = 'assets/photo-galary/shat-chnadi/shat_chandi_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 
@@ -41,6 +42,9 @@ export class ShatChandiComponent implements OnInit {
         break;
       case 'five':
         this.image = this.photo_shat_chandi_five;
+        break;
+      case 'six':
+        this.image = this.photo_shat_chandi_six;
         break;
     }
     this.sweetAlertPreview();

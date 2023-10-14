@@ -2,11 +2,10 @@ import { Component, ElementRef, OnInit, Sanitizer, ViewChild } from '@angular/co
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import {MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { LoaderService } from 'src/app/services/loader.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { DatePipe } from '@angular/common';
 import * as intelInput from 'intl-tel-input';
 import 'intl-tel-input/build/js/utils';
 @Component({
@@ -32,8 +31,19 @@ export class RegisterComponent<D> implements OnInit {
 
   imageBase64: string = "";
   imageType : string = "";
+
+  isOccupationSelected : boolean = true;
+  firstPlaceHolder = "કંપની નું નામ";
+  secondPlaceHolder = "હોદ્દો";
   isJob : boolean = true;
-  isOccupationSelected : boolean = false;
+  isBusiness : boolean = false;
+  isStudent : boolean = false;
+  isUnemployed : boolean = false;
+  isHousewife : boolean = false;
+  isOther : boolean = false;
+  hideFields = false;
+
+
   blankImage = 'assets/images/blank-profile.jpg';
   RegistrationFormGroup: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
@@ -61,41 +71,18 @@ export class RegisterComponent<D> implements OnInit {
   ]
   occupationList : any = [
     'Job',
-    'Business'
-  ]
-  countryList : any = [
-    {
-      countryCode : "CA",
-      dialCode : "+1",
-      countryName : "Canada",
-      currencyCode : "CAD"
-    },
-    {
-      countryCode : "IN",
-      dialCode : "+91",
-      countryName : "India",
-      currencyCode : "INR"
-    },
-    {
-      countryCode : "GB",
-      dialCode : "+44",
-      countryName : "United Kingdom",
-      currencyCode : "GBP"
-    },
-    {
-      countryCode : "US",
-      dialCode : "+1",
-      countryName : "United States",
-      currencyCode : "USD"
-    }   
+    'Business',
+    'Student', 
+    'Unemployed', 
+    'Housewife', 
+    'Others'
   ]
 
   constructor(private fb: FormBuilder, 
     public router: Router, 
     private http : HttpService, 
     private sanitizer: DomSanitizer, 
-    private loader: LoaderService,
-    private datePipe: DatePipe
+    private loader: LoaderService
   ) { }
 
   ngOnInit(): void {
@@ -117,10 +104,7 @@ export class RegisterComponent<D> implements OnInit {
       mfirstname: ['', [Validators.required]],
       mmiddlename: ['', [Validators.required]],
       mlastname: ['', [Validators.required]],
-      // dialcode : ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      // country : ['', [Validators.required]],
-      // email: ['', [Validators.required, Validators.email]],
       email: ['', [Validators.email]],
       password: ['', [Validators.required]],
       confirmpassword: [{ value: null, disabled: true }, [Validators.required]],
@@ -132,10 +116,9 @@ export class RegisterComponent<D> implements OnInit {
       educational: ['', [Validators.required]],
       achivement: [''],
       addressLine1: ['', [Validators.required]],
-      addressLineLandmark: [''],
       addressLineCity: ['', [Validators.required]],
       addressLinePincode: ['', [Validators.required]],
-      jobBusinessType: ['', [Validators.required]],
+      jobBusinessType: ['Job', [Validators.required]],
       jobBusinessName: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
@@ -156,23 +139,6 @@ export class RegisterComponent<D> implements OnInit {
     }
   }
 
-  updateFileName(event: any) {
-    const fileInput = event.target;
-    this.fileName = fileInput.files[0].name;
-    let isValidImage = this.checkImageValidation(fileInput.files[0].type);
-    if(!isValidImage){
-      return;
-    }
-    if (event.target.files && event.target.files[0]) {      
-      this.cardImageType = event.target.files[0].type;
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]); 
-      reader.onload = (event: any) => {
-        this.cardImageBase64 = event.target.result;
-      }
-    }
-  }
-
   checkImageValidation(fileType: any){
     if(fileType == 'image/png' || fileType == 'image/jpeg' || fileType == 'image/jpg'){
       return true;
@@ -180,15 +146,137 @@ export class RegisterComponent<D> implements OnInit {
     return false;
   }
 
-  abc(event : any){
-    if(event.target.value == this.occupationList[0]){
+  onChangeOccupation(event : any){
+    if(!!event.target.value){
       this.isOccupationSelected = true;
-      this.isJob = true;
+      if(event.target.value == this.occupationList[0]){
+        this.isJob = true;
+        this.isBusiness = false;
+        this.isStudent = false;
+        this.isUnemployed = false;
+        this.isHousewife = false;
+        this.isOther = false;
+
+        this.firstPlaceHolder = "કંપની નું નામ";
+        this.secondPlaceHolder = "હોદ્દો";
+
+        this.hideFields = false;
+        this.setRequired(true);
+        this.setEnable(true);
+      }
+      else if(event.target.value == this.occupationList[1]){
+        this.isJob = false;
+        this.isBusiness = true;
+        this.isStudent = false;
+        this.isUnemployed = false;
+        this.isHousewife = false;
+        this.isOther = false;
+
+        this.firstPlaceHolder = "વ્યવસાયનું નામ";
+        this.secondPlaceHolder = "વ્યવસાય વિશે";
+
+        this.hideFields = false;
+        this.setRequired(true);
+        this.setEnable(true);
+      }
+      else if(event.target.value == this.occupationList[2]){
+        this.isJob = false;
+        this.isBusiness = false;
+        this.isStudent = true;
+        this.isUnemployed = false;
+        this.isHousewife = false;
+        this.isOther = false;
+
+        this.firstPlaceHolder = "શૈક્ષણિક લાયકાત";
+        this.secondPlaceHolder = "શૈક્ષણિક સારાંશ";
+
+        this.hideFields = false;
+        this.setRequired(true);
+        this.setEnable(true);
+      }
+      else if(event.target.value == this.occupationList[3]){
+        this.isJob = false;
+        this.isBusiness = false;
+        this.isStudent = false;
+        this.isUnemployed = true;
+        this.isHousewife = false;
+        this.isOther = false;
+
+        this.firstPlaceHolder = "";
+        this.secondPlaceHolder = "";
+
+        this.hideFields = true;
+        this.setRequired(false);
+        this.setEnable(false);
+      }
+      else if(event.target.value == this.occupationList[4]){
+        this.isJob = false;
+        this.isBusiness = false;
+        this.isStudent = false;
+        this.isUnemployed = false;
+        this.isHousewife = true;
+        this.isOther = false;
+
+        this.firstPlaceHolder = "";
+        this.secondPlaceHolder = ""; 
+        
+        this.hideFields = true;
+        this.setRequired(false);
+        this.setEnable(false);
+      }
+      else if(event.target.value == this.occupationList[5]){
+        this.isJob = false;
+        this.isBusiness = false;
+        this.isStudent = false;
+        this.isUnemployed = false;
+        this.isHousewife = false;
+        this.isOther = true;
+
+        this.firstPlaceHolder = "";
+        this.secondPlaceHolder = "";
+
+        this.hideFields = false;
+        this.setRequired(false);
+        this.setEnable(true);
+      }
+      else{
+        this.isJob = true;
+        this.isBusiness = false;
+        this.isStudent = false;
+        this.isUnemployed = false;
+        this.isHousewife = false;
+        this.isOther = false;
+
+        this.firstPlaceHolder = "કંપની નું નામ";
+        this.secondPlaceHolder = "હોદ્દો";
+
+        this.hideFields = false;
+        this.setRequired(true);
+        this.setEnable(true);
+      }
     }
-    if(event.target.value == this.occupationList[1]){
-      this.isOccupationSelected = true;
-      this.isJob = false;
+  }
+
+  setRequired(flag: any){
+    if(flag == true){
+      this.RegistrationFormGroup.get('jobBusinessName').setValidators([Validators.required]);
+      this.RegistrationFormGroup.get('description').setValidators([Validators.required]);
     }
+    else{
+      this.RegistrationFormGroup.get('jobBusinessName').clearValidators();
+      this.RegistrationFormGroup.get('description').clearValidators();
+    }
+  }
+
+  setEnable(flag: any){
+      if(flag == true){
+        this.RegistrationFormGroup.get('jobBusinessName').enable();
+        this.RegistrationFormGroup.get('description').enable();
+      }
+      else{
+        this.RegistrationFormGroup.get('jobBusinessName').disable();
+        this.RegistrationFormGroup.get('description').disable();
+      }
   }
 
   onPasswordValidation(){
@@ -247,14 +335,6 @@ export class RegisterComponent<D> implements OnInit {
   get contact() {
     return this.RegistrationFormGroup.get('contact');
   }
-  
-  // get country() {
-  //   return this.RegistrationFormGroup.get('country');
-  // }
-
-  // get dialcode(){
-  //   return this.RegistrationFormGroup.get('dialcode');
-  // }
 
   get email() {
     return this.RegistrationFormGroup.get('email');
@@ -335,12 +415,6 @@ export class RegisterComponent<D> implements OnInit {
 
     this.isSubmited = true;
     if(this.RegistrationFormGroup.invalid || !isValid){
-      // if(this.RegistrationFormGroup.invalid){
-      //   this.RegistrationFormGroup.controls.forEach((element: any) => {
-      //     if(element.status == 'INVALID')
-      //     console.log(element);
-      //   });
-      // }
       return;
     }
     
@@ -357,8 +431,6 @@ export class RegisterComponent<D> implements OnInit {
     let data = {
       "picture": this.imageBase64,
       "pictureType": this.imageType,
-      "visitingCard": this.cardImageBase64,
-      "visitingCardImageType": this.cardImageType,
       "firstName" : this.RegistrationFormGroup.value.firstname,
       "middleName" : this.RegistrationFormGroup.value.middlename,
       "lastName" : this.RegistrationFormGroup.value.lastname,
@@ -368,7 +440,6 @@ export class RegisterComponent<D> implements OnInit {
       "email": this.RegistrationFormGroup.value.email,
       "password": this.RegistrationFormGroup.value.password,
       "address": this.RegistrationFormGroup.value.addressLine1,
-      "landmark": this.RegistrationFormGroup.value.addressLineLandmark,
       "city": this.RegistrationFormGroup.value.addressLineCity,
       "pinCode": this.RegistrationFormGroup.value.addressLinePincode,
       "countryCode" : dialCode,
@@ -380,9 +451,9 @@ export class RegisterComponent<D> implements OnInit {
       "gender": this.RegistrationFormGroup.value.gender,
       "gotra": this.RegistrationFormGroup.value.gotra,
       "maritalStatus": this.RegistrationFormGroup.value.maritalstatus,
-      "occupationType": this.RegistrationFormGroup.value.jobBusinessType,
-      "occupationName": this.RegistrationFormGroup.value.jobBusinessName,
-      "occupationDescription": this.RegistrationFormGroup.value.description,
+      "occupationType": !!this.RegistrationFormGroup.value.jobBusinessType ? this.RegistrationFormGroup.value.jobBusinessType : "",
+      "occupationName": !!this.RegistrationFormGroup.value.jobBusinessName ? this.RegistrationFormGroup.value.jobBusinessName : "",
+      "occupationDescription": !!this.RegistrationFormGroup.value.description ? this.RegistrationFormGroup.value.description : "",
     }
 
     

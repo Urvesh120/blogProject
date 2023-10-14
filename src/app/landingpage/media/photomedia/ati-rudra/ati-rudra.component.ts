@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
 export class AtiRudraComponent implements OnInit, AfterViewInit {
 
   image = '';
-  photo_ati_rudra_one = 'assets/photo-galary/ati-rudra/1_O.jpg';
-  photo_ati_rudra_two = 'assets/photo-galary/ati-rudra/2_O.jpg';
-  photo_ati_rudra_three = 'assets/photo-galary/ati-rudra/3_O.jpg';
-  photo_ati_rudra_four = 'assets/photo-galary/ati-rudra/4_O.jpg';
-  photo_ati_rudra_five = 'assets/photo-galary/ati-rudra/5_O.jpg';
-  photo_ati_rudra_six = 'assets/photo-galary/ati-rudra/6_O.jpg';
+  photo_ati_rudra_one = 'assets/photo-galary/ati-rudra/ati_rudra_1.png';
+  photo_ati_rudra_two = 'assets/photo-galary/ati-rudra/ati_rudra_2.png';
+  photo_ati_rudra_three = 'assets/photo-galary/ati-rudra/ati_rudra_3.png';
+  photo_ati_rudra_four = 'assets/photo-galary/ati-rudra/ati_rudra_4.png';
+  photo_ati_rudra_five = 'assets/photo-galary/ati-rudra/ati_rudra_5.png';
+  photo_ati_rudra_six = 'assets/photo-galary/ati-rudra/ati_rudra_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 

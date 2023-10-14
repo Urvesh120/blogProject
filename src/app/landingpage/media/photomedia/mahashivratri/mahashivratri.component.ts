@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
 export class MahashivratriComponent implements OnInit {
 
   image = '';
-  photo_mahashivratri_one = 'assets/photo-galary/mahashivratri/1_O.jpg';
-  photo_mahashivratri_two = 'assets/photo-galary/mahashivratri/2_O.jpg';
-  photo_mahashivratri_three = 'assets/photo-galary/mahashivratri/3_O.jpg';
-  photo_mahashivratri_four = 'assets/photo-galary/mahashivratri/4_O.jpg';
-  photo_mahashivratri_five = 'assets/photo-galary/mahashivratri/5_O.jpg';
-  photo_mahashivratri_six = 'assets/photo-galary/mahashivratri/6_O.jpg';
+  photo_mahashivratri_one = 'assets/photo-galary/mahashivratri/mahashivratri_parv_1.png';
+  photo_mahashivratri_two = 'assets/photo-galary/mahashivratri/mahashivratri_parv_2.png';
+  photo_mahashivratri_three = 'assets/photo-galary/mahashivratri/mahashivratri_parv_3.png';
+  photo_mahashivratri_four = 'assets/photo-galary/mahashivratri/mahashivratri_parv_4.png';
+  photo_mahashivratri_five = 'assets/photo-galary/mahashivratri/mahashivratri_parv_5.png';
+  photo_mahashivratri_six = 'assets/photo-galary/mahashivratri/mahashivratri_parv_6.png';
 
 
   constructor(private viewportScroller: ViewportScroller) { }

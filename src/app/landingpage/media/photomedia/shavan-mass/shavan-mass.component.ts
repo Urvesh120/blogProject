@@ -10,12 +10,13 @@ import Swal from 'sweetalert2';
 export class ShavanMassComponent implements OnInit {
 
   image = '';
-  photo_shavan_mass_one = 'assets/photo-galary/shravan-maash/1_O.jpg';
-  photo_shavan_mass_two = 'assets/photo-galary/shravan-maash/2_O.jpg';
-  photo_shavan_mass_three = 'assets/photo-galary/shravan-maash/3_O.jpg';
-  photo_shavan_mass_four = 'assets/photo-galary/shravan-maash/4_O.jpg';
-  photo_shavan_mass_five = 'assets/photo-galary/shravan-maash/5_O.jpg';
-  photo_shavan_mass_six = 'assets/photo-galary/shravan-maash/6_O.jpg';
+  photo_shavan_mass_one = 'assets/photo-galary/shravan-maash/shravan_maash_1.png';
+  photo_shavan_mass_two = 'assets/photo-galary/shravan-maash/shravan_maash_2.png';
+  photo_shavan_mass_three = 'assets/photo-galary/shravan-maash/shravan_maash_3.png';
+  photo_shavan_mass_four = 'assets/photo-galary/shravan-maash/shravan_maash_4.png';
+  photo_shavan_mass_five = 'assets/photo-galary/shravan-maash/shravan_maash_5.png';
+  photo_shavan_mass_six = 'assets/photo-galary/shravan-maash/shravan_maash_6.png';
+  photo_shavan_mass_seven = 'assets/photo-galary/shravan-maash/shravan_maash_7.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 
@@ -45,6 +46,9 @@ export class ShavanMassComponent implements OnInit {
         break;
       case 'six':
         this.image = this.photo_shavan_mass_six;
+        break;
+      case 'seven':
+        this.image = this.photo_shavan_mass_seven;
         break;
     }
     this.sweetAlertPreview();

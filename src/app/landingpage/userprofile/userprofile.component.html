@@ -27,425 +27,120 @@
     </div>
 
     <form [formGroup]="RegistrationFormGroup">
-      <div class="other-data-div">
-        <!-- <div *ngIf="!disabled"> -->
-        <div>
-          <label for="firstname">નામ</label>
-          <input type="text" class="form-control" id="firstname" formControlName="firstname">
-          <p *ngIf="firstname && firstname.invalid && firstname.touched">Please enter your first name.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>નામ</mat-label>
-            <input type="text" formControlName="firstname" matInput />
-            <mat-error
-              *ngIf="firstname && firstname.invalid && firstname.touched"
-              >Please enter your first name.</mat-error
-            >
-          </mat-form-field> -->
+      <!-- NAME -->
+      <div>
+        <input type="text" class="form-control" formControlName="firstname" placeholder="નામ">
+        <span *ngIf="firstname && firstname.invalid && firstname.touched || ( isSubmited && firstname.invalid )">કૃપા કરીને તમારું નામ દાખલ કરો.</span>
 
-          <label for="middlename">પિતાનું નામ</label>
-          <input type="text" class="form-control" id="middlename" formControlName="middlename"> 
-          <p *ngIf="middlename && middlename.invalid && middlename.touched">Please enter your middle name.</p>         
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>પિતાનું નામ</mat-label>
-            <input type="text" formControlName="middlename" matInput />
-            <mat-error
-              *ngIf="middlename && middlename.invalid && middlename.touched"
-              >Please enter your middle name.</mat-error
-            >
-          </mat-form-field> -->
+        <input type="text" formControlName="middlename" class="form-control" placeholder="તમારા પતિ/પિતા નું નામ">
+        <span *ngIf="middlename && middlename.invalid && middlename.touched || ( isSubmited && middlename.invalid )">કૃપા કરીને તમારા પતિ/પિતા નું નામ દાખલ કરો.</span>
 
-          <label for="lastname">અટક</label>
-          <input type="text" class="form-control" id="lastname" formControlName="lastname"> 
-          <p *ngIf="lastname && lastname.invalid && lastname.touched">Please enter your last name.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>અટક</mat-label>
-            <input type="text" formControlName="lastname" matInput />
-            <mat-error *ngIf="lastname && lastname.invalid && lastname.touched"
-              >Please enter your last name.</mat-error
-            >
-          </mat-form-field> -->
-        </div>
-
-        <!-- Father's Name -->
-        <div>
-          <label for="ffirstname">પિતાનું પૂરું નામ</label>
-          <input type="text" class="form-control" id="ffirstname" formControlName="ffirstname"> 
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>પિતાનું પૂરું નામ</mat-label>
-            <input type="text" formControlName="ffirstname" matInput />
-            <mat-error
-              *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched"
-              >Please enter your father's first name.</mat-error
-            >
-          </mat-form-field> -->
-        </div>
-
-        <!-- Mother's Name -->
-        <div>
-          <label for="mothername">માતાનું પૂરું નામ</label>
-          <input type="text" class="form-control" id="mothername" formControlName="mothername"> 
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> માતાનું પૂરું નામ</mat-label>
-            <input type="text" formControlName="mothername" matInput />
-            <mat-error
-              *ngIf="mothername && mothername.invalid && mothername.touched"
-              >Please enter your mother's name.</mat-error
-            >
-          </mat-form-field> -->
-        </div>
-
-        <!-- Contact Information -->
-        <div>
-          <label for="dialcode">Dial code</label>
-          <select class="form-control" placeholder="Password" formControlName="dialcode" id="dialcode">
-            <option value="{{ item.dialCode }}" *ngFor="let item of countryList">{{ item.dialCode }} {{ item.countryCode }}</option>
-          </select>
-          <p *ngIf="dialcode && dialcode.invalid && dialcode.touched">Please select your dial code.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>Dial code</mat-label>
-            <mat-select formControlName="dialcode" [disabled]="disabled">
-              <mat-option
-                value="{{ item.dialCode }}"
-                *ngFor="let item of countryList"
-                >{{ item.dialCode }} {{ item.countryCode }}</mat-option
-              >
-            </mat-select>
-          </mat-form-field> -->
-
-          <label for="contact">ફોન નંબર</label>
-          <input type="tel" type="tel" minlength="10" maxlength="10" class="form-control" id="contact" formControlName="contact"> 
-          <p *ngIf="contact && contact.invalid && contact.touched">Please enter your phone number.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> ફોન નંબર</mat-label>
-            <input
-              type="tel"
-              minlength="10"
-              maxlength="10"
-              formControlName="contact"
-              matInput
-            />
-            <mat-error *ngIf="contact && contact.invalid && contact.touched"
-              >કૃપા કરીને તમારા પિતાની અટક દાખલ કરો.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="email">ઇમેઇલ</label>
-          <input type="email" class="form-control" id="email" formControlName="email"> 
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> ઇમેઇલ</mat-label>
-            <input
-              type="email"
-              formControlName="email"
-              matInput
-              [disabled]="disabled"
-            />
-            <mat-error *ngIf="email && email.invalid && email.touched">Please enter your father's last name.</mat-error>
-          </mat-form-field> -->
-        </div>
-
-        <!-- Other information -->
-        <div>
-          <label for="dateofbirth">જન્મ તારીખ</label>
-          <input type="date" class="form-control" id="dateofbirth" formControlName="dateofbirth"> 
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> જન્મ તારીખ</mat-label>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              formControlName="dateofbirth"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error
-              *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched"
-              >Please select your date of birth.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="bloodgroup">બ્લડગ્રુપ</label>
-          <select class="form-control" placeholder="Password" formControlName="bloodgroup" id="bloodgroup">
-            <option value="{{ item }}" *ngFor="let item of bloodGrouptList">{{ item }}</option>
-          </select>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>બ્લડગ્રુપ <span *ngIf="!disabled">પસંદ કરો</span></mat-label>
-            <mat-select formControlName="bloodgroup">
-              <mat-option
-                value="{{ item }}"
-                *ngFor="let item of bloodGrouptList"
-                >{{ item }}</mat-option
-              >
-            </mat-select>
-            <mat-error
-              *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched"
-              >Please select your blood group.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="gender">લિંગ</label>
-          <select class="form-control" placeholder="Password" formControlName="gender" id="gender">
-            <option value="{{ item }}" *ngFor="let item of genderList">{{ item }}</option>
-          </select>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> લિંગ <span *ngIf="!disabled">પસંદ કરો</span></mat-label>
-            <mat-select formControlName="gender">
-              <mat-option value="{{ item }}" *ngFor="let item of genderList">{{
-                item
-              }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="gender && gender.invalid && gender.touched"
-              >Please select your gender.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="maritalstatus">વૈવાહિક સ્થિતિ</label>
-          <select class="form-control" placeholder="Password" formControlName="maritalstatus" id="maritalstatus">
-            <option value="{{ item }}" *ngFor="let item of maritalStatus">{{ item }}</option>
-          </select>
-          <p *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched">Please select your marital status.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>વૈવાહિક સ્થિતિ <span *ngIf="!disabled">પસંદ કરો</span></mat-label>
-            <mat-select formControlName="maritalstatus">
-              <mat-option
-                value="{{ item }}"
-                *ngFor="let item of maritalStatus"
-                >{{ item }}</mat-option
-              >
-            </mat-select>
-            <mat-error
-              *ngIf="
-                maritalstatus && maritalstatus.invalid && maritalstatus.touched
-              "
-              >Please select your marital status.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="gotra">ગોત્ર</label>
-          <input type="text" class="form-control" id="gotra" formControlName="gotra"> 
-          <p *ngIf="gotra && gotra.invalid && gotra.touched">Please enter your gotra.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>ગોત્ર</mat-label>
-            <input type="text" formControlName="gotra" matInput />
-            <mat-error *ngIf="gotra && gotra.invalid && gotra.touched"
-              >Please enter your gotra.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="educational">શૈક્ષણિક લાયકાત</label>
-          <input type="text" class="form-control" id="educational" formControlName="educational"> 
-          <p *ngIf="educational && educational.invalid && educational.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> શૈક્ષણિક લાયકાત</mat-label>
-            <input type="text" formControlName="educational" matInput />
-            <mat-error
-              *ngIf="educational && educational.invalid && educational.touched"
-              >કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="achivement">સિદ્ધિઓ</label>
-          <input type="text" class="form-control" id="achivement" formControlName="achivement">
-          <!-- <p *ngIf="flastname && flastname.invalid && flastname.touched">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</p> -->
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> સિદ્ધિઓ</mat-label>
-            <input type="text" formControlName="achivement" matInput />
-            <mat-error *ngIf="flastname && flastname.invalid && flastname.touched">Please enter your father's last name.</mat-error>
-          </mat-form-field> -->
-        </div>
-
-        <!-- Address -->
-        <div>
-          <label for="addressLine1">એડ્રેસ લાઇન 1</label>
-          <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1"> 
-          <p *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> એડ્રેસ લાઇન 1</mat-label>
-            <input type="text" formControlName="addressLine1" matInput />
-            <mat-error
-              *ngIf="
-                addressLine1 && addressLine1.invalid && addressLine1.touched
-              "
-              >Address is required!</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="addressLineLandmark">Nearest landmark</label>
-          <input type="text" class="form-control" id="addressLineLandmark" formControlName="addressLineLandmark"> 
-          <!-- <p *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched">Address is required!</p> -->
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>Nearest landmark</mat-label>
-            <input type="text" formControlName="addressLineLandmark" matInput />
-          </mat-form-field> -->
-
-          <label for="addressLineCity">શહેર</label>
-          <input type="text" class="form-control" id="addressLineCity" formControlName="addressLineCity">
-          <p *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched">Please enter your city.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>શહેર</mat-label>
-            <input type="text" formControlName="addressLineCity" matInput />
-            <mat-error
-              *ngIf="
-                addressLineCity &&
-                addressLineCity.invalid &&
-                addressLineCity.touched
-              "
-              >Please enter your city.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="addressLinePincode">પીન કોડ</label>
-          <input type="text" pattern="[0-9]+" minlength="6" maxlength="6" class="form-control" id="addressLinePincode" formControlName="addressLinePincode">
-          <p *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched">કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> પીન કોડ</mat-label>
-            <input
-              type="text"
-              pattern="[0-9]+"
-              minlength="6"
-              maxlength="6"
-              formControlName="addressLinePincode"
-              matInput
-            />
-            <mat-error
-              *ngIf="
-                addressLinePincode &&
-                addressLinePincode.invalid &&
-                addressLinePincode.touched
-              "
-              >કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</mat-error
-            >
-          </mat-form-field> -->
-
-          <label for="country">દેશ</label>
-          <select class="form-control" placeholder="Password" formControlName="country" id="country">
-            <option value="{{ item.countryName }}" *ngFor="let item of countryList">{{ item.countryName }}</option>
-          </select>
-          <p *ngIf="country && country.invalid && country.touched">Please select your country.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label>દેશ <span *ngIf="!disabled">પસંદ કરો</span></mat-label>
-            <mat-select formControlName="country">
-              <mat-option
-                value="{{ item.countryName }}"
-                *ngFor="let item of countryList"
-                >{{ item.countryName }}</mat-option
-              >
-            </mat-select>
-            <mat-error *ngIf="country && country.invalid && country.touched"
-              >Please select your country.</mat-error
-            >
-          </mat-form-field> -->
-        </div>
-
-        <!-- Occupation -->
-        <div>
-          <label for="jobBusinessType">વ્યવસાય</label>
-          <select class="form-control" placeholder="Password" (change)="abc($event)" formControlName="jobBusinessType" id="jobBusinessType">
-            <option value="{{ item }}" *ngFor="let item of occupationList">{{ item }}</option>
-          </select>
-          <p *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched">Please select your job or occupation.</p>
-          <!-- <mat-form-field appearance="outline">
-            <mat-label> વ્યવસાય <span *ngIf="!disabled">પસંદ કરો</span></mat-label>
-            <mat-select
-              formControlName="jobBusinessType"
-              (selectionChange)="abc($event.value)"
-            >
-              <mat-option
-                value="{{ item }}"
-                *ngFor="let item of occupationList"
-                >{{ item }}</mat-option
-              >
-            </mat-select>
-            <mat-error
-              *ngIf="
-                jobBusinessType &&
-                jobBusinessType.invalid &&
-                jobBusinessType.touched
-              "
-              >Please select your job or occupation.</mat-error
-            >
-          </mat-form-field> -->
-
-          <div *ngIf="isJob">
-            <label for="jobBusinessName">કંપની નું નામ</label>
-            <input type="text" class="form-control" id="jobBusinessName" formControlName="jobBusinessName">
-            <p *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</p>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>કંપની નું નામ</mat-label>
-              <input type="text" formControlName="jobBusinessName" matInput />
-              <mat-error
-                *ngIf="
-                  jobBusinessName &&
-                  jobBusinessName.invalid &&
-                  jobBusinessName.touched
-                "
-                >Please enter name.</mat-error
-              >
-            </mat-form-field> -->
-
-            <label for="description">હોદ્દો</label>
-            <input type="text" class="form-control" id="description" formControlName="description">
-            <p *ngIf="description && description.invalid && description.touched">Please enter some description.</p>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label> હોદ્દો</mat-label>
-              <input type="text" formControlName="description" matInput />
-              <mat-error
-                *ngIf="
-                  description && description.invalid && description.touched
-                "
-                >Please enter some description.</mat-error
-              >
-            </mat-form-field> -->
-          </div>
-
-          <div *ngIf="!isJob">
-            <label for="jobBusinessName">વ્યવસાયનું નામ</label>
-            <input type="text" class="form-control" id="jobBusinessName" formControlName="jobBusinessName">
-            <p *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched">Please enter name.</p>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>વ્યવસાયનું નામ</mat-label>
-              <input type="text" formControlName="jobBusinessName" matInput />
-              <mat-error
-                *ngIf="
-                  jobBusinessName &&
-                  jobBusinessName.invalid &&
-                  jobBusinessName.touched
-                "
-                >Please enter name.</mat-error
-              >
-            </mat-form-field> -->
-
-            <label for="description">વ્યવસાય વિશે</label>
-            <input type="text" class="form-control" id="description" formControlName="description">
-            <p *ngIf="description && description.invalid && description.touched">Please enter some description.</p>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label> વ્યવસાય વિશે</mat-label>
-              <input type="text" formControlName="description" matInput />
-              <mat-error
-                *ngIf="
-                  description && description.invalid && description.touched
-                "
-                >Please enter some description.</mat-error
-              >
-            </mat-form-field> -->
-          </div>
-        </div>
-
-        <!-- Register Button -->
-        <div class="action-btn-div" *ngIf="!disabled">
-          <div class="action-btn accept-btn">
-              <button mat-button class="menu-button" (click)="edit()">
-                  <mat-icon>done</mat-icon>
-              </button>
-          </div>
-          <div class="action-btn reject-btn">
-              <button mat-button class="menu-button" (click)="close()">
-                  <mat-icon>close</mat-icon>
-              </button>
-          </div>
+        <input type="text" class="form-control" formControlName="lastname" placeholder="તમારી અટક">
+        <span *ngIf="lastname && lastname.invalid && lastname.touched || ( isSubmited && lastname.invalid )">કૃપા કરીને તમારી અટક દાખલ કરો.</span>
       </div>
+
+      <!-- Father's Name -->
+      <div>
+        <input type="text" class="form-control" formControlName="ffirstname" placeholder="તમારા પિતા/પતિનું નામ">
+        <span *ngIf="ffirstname && ffirstname.invalid && ffirstname.touched || ( isSubmited && ffirstname.invalid )">કૃપા કરીને તમારા પિતાનું નામ દાખલ કરો..</span>
+
+        <input type="text" class="form-control" formControlName="fmiddlename" placeholder="તમારા પિતા/પતિના પિતાનું નામ">
+        <span *ngIf="fmiddlename && fmiddlename.invalid && fmiddlename.touched || ( isSubmited && fmiddlename.invalid )">કૃપા કરીને તમારા પિતાના પિતાનું નામ દાખલ કરો.</span>
+
+        <input type="text" class="form-control" formControlName="flastname" placeholder="તમારા પિતા/પતિની અટક">
+        <span *ngIf="flastname && flastname.invalid && flastname.touched || ( isSubmited && flastname.invalid )">કૃપા કરીને તમારા પિતાની અટક દાખલ કરો.</span>
       </div>
+
+      <!-- Mother's Name -->
+      <div>
+        <input type="text" class="form-control" formControlName="mfirstname" placeholder="તમારા માતા/સાસુનું નામ">
+        <span *ngIf="mfirstname && mfirstname.invalid && mfirstname.touched || ( isSubmited && mfirstname.invalid )">કૃપા કરીને તમારી માતાનું નામ દાખલ કરો.</span>
+
+        <input type="text" class="form-control" formControlName="mmiddlename" placeholder="તમારા માતા/સાસુના પતિ/પિતા નું નામ">
+        <span *ngIf="mmiddlename && mmiddlename.invalid && mmiddlename.touched || ( isSubmited && mmiddlename.invalid )">કૃપા કરીને તમારી માતાના પતિ/પિતા નું નામ દાખલ કરો.</span>
+
+        <input type="text" class="form-control" formControlName="mlastname" placeholder="તમારા માતા/સાસુની અટક">
+        <span *ngIf="mlastname && mlastname.invalid && mlastname.touched || ( isSubmited && mlastname.invalid )">કૃપા કરીને તમારી માતાની અટક દાખલ કરો.</span>
+      </div>
+
+      <!-- Contact Information -->
+      <div>
+        <!-- <div class="row">
+          <div class="col-12">
+            <input type="tel" #phoneInput id="phone" class="form-control" formControlName="contact" placeholder="ફોન નંબર">
+            <span *ngIf="(contact && contact.invalid && contact.touched) || (!iti.isValidNumber() && contact.touched) || ( isSubmited && contact.invalid )">કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો.</span>
+          </div>
+        </div> -->
+
+
+
+
+        <input type="email" class="form-control" formControlName="email" placeholder="ઇમેઇલ">
+      </div>
+
+      <!-- Other information -->
+      <div>
+        <input type="date" class="form-control" formControlName="dateofbirth" placeholder="જન્મ તારીખ">
+        <span *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched || ( isSubmited && dateofbirth.invalid )">કૃપા કરીને તમારી જન્મ તારીખ પસંદ કરો.</span>
+
+        <select class="form-control" formControlName="bloodgroup">
+          <option value="" disabled selected>તમારું બ્લડ ગ્રુપ</option>
+          <option value="{{ item }}" *ngFor="let item of bloodGrouptList">{{ item }}</option>
+        </select>
+        <span *ngIf="bloodgroup && bloodgroup.invalid && bloodgroup.touched || ( isSubmited && bloodgroup.invalid )">કૃપા કરીને તમારું બ્લડ ગ્રુપ પસંદ કરો.</span>
+
+        <select class="form-control" formControlName="gender">
+          <option value="" disabled selected>તમારું લિંગ</option>
+          <option value="{{ item }}" *ngFor="let item of genderList">{{ item }}</option>
+        </select>
+        <span *ngIf="gender && gender.invalid && gender.touched || ( isSubmited && gender.invalid )">કૃપા કરીને તમારું લિંગ પસંદ કરો.</span>
+
+        <select class="form-control" formControlName="maritalstatus">
+          <option value="" disabled selected>તમારી વૈવાહિક સ્થિતિ</option>
+          <option value="{{ item }}" *ngFor="let item of maritalStatus">{{ item }}</option>
+        </select>
+        <span *ngIf="maritalstatus && maritalstatus.invalid && maritalstatus.touched || ( isSubmited && maritalstatus.invalid )">કૃપા કરીને તમારી વૈવાહિક સ્થિતિ પસંદ કરો.</span>
+
+        <input type="text" class="form-control" formControlName="gotra" placeholder="ગોત્ર">
+        <span *ngIf="gotra && gotra.invalid && gotra.touched || ( isSubmited && gotra.invalid )">કૃપા કરીને તમારું ગોત્ર દાખલ કરો.</span>
+
+        <input type="text" class="form-control" formControlName="educational" placeholder="શૈક્ષણિક લાયકાત">
+        <span *ngIf="educational && educational.invalid && educational.touched || ( isSubmited && educational.invalid )">કૃપા કરીને તમારી શૈક્ષણિક લાયકાત દાખલ કરો.</span>
+
+        <input type="text" class="form-control" formControlName="achivement" placeholder="સિદ્ધિઓ">
+      </div>
+
+      <!-- Address -->
+      <div>
+
+        <input type="text" class="form-control" formControlName="addressLine1" placeholder="એડ્રેસ">
+        <span *ngIf="addressLine1 && addressLine1.invalid && addressLine1.touched || ( isSubmited && addressLine1.invalid )">સરનામું જરૂરી છે!</span>
+
+        <input type="text" class="form-control" formControlName="addressLineCity" placeholder="શહેર">
+        <span *ngIf="addressLineCity && addressLineCity.invalid && addressLineCity.touched || ( isSubmited && addressLineCity.invalid )">કૃપા કરીને તમારું શહેર દાખલ કરો.</span>
+
+        <input type="text" pattern="[0-9]+" class="form-control" formControlName="addressLinePincode" placeholder="પીન કોડ">
+        <span *ngIf="addressLinePincode && addressLinePincode.invalid && addressLinePincode.touched || ( isSubmited && addressLinePincode.invalid )">કૃપા કરીને માન્ય પિનકોડ દાખલ કરો.</span>
+
+      </div>
+
+      <!-- Occupation -->
+      <div>
+        <select (change)="onChangeOccupation($event)" class="form-control" formControlName="jobBusinessType">
+          <option value="" disabled selected>નોકરી / વ્યવસાય / વિદ્યાર્થી / બેરોજગાર / ગૃહિણી / અન્ય</option>
+          <option value="{{ item }}" *ngFor="let item of occupationList">{{ item }}</option>
+        </select>
+        <span *ngIf="jobBusinessType && jobBusinessType.invalid && jobBusinessType.touched || ( isSubmited && jobBusinessType.invalid )">કૃપા કરીને તમારી નોકરી અથવા વ્યવસાય પસંદ કરો.</span>
+
+        <div *ngIf="!hideFields">
+          <input type="text" class="form-control" formControlName="jobBusinessName" [placeholder]="firstPlaceHolder">
+          <span *ngIf="jobBusinessName && jobBusinessName.invalid && jobBusinessName.touched || ( isSubmited && jobBusinessName.invalid )">કૃપા કરીને નામ દાખલ કરો.</span>
+
+          <input type="text" class="form-control" formControlName="description" [placeholder]="secondPlaceHolder">
+          <span *ngIf="description && description.invalid && description.touched || ( isSubmited && description.invalid )">કૃપા કરીને થોડું વર્ણન દાખલ કરો.</span>
+        </div>
+      </div>        
     </form>
+
   </div>
 </div>

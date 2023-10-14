@@ -206,9 +206,16 @@ h2{
     padding: 3px;
 }
 
-.profile-table td, .profile-table th {
-    text-align: left !important;
-    vertical-align: middle !important;
+.profile-table{
+    overflow: auto;
+    td, th {
+        text-align: left !important;
+        vertical-align: middle !important;
+    }
+}
+
+.modal{
+    z-index: 1100 !important;
 }
 
 .display-content{

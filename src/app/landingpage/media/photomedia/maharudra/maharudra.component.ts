@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
 export class MaharudraComponent implements OnInit {
 
   image = '';
-  photo_maharudra_one = 'assets/photo-galary/Maharudra/1_O.jpg';
-  photo_maharudra_two = 'assets/photo-galary/Maharudra/2_O.jpg';
-  photo_maharudra_three = 'assets/photo-galary/Maharudra/3_O.jpg';
-  photo_maharudra_four = 'assets/photo-galary/Maharudra/4_O.jpg';
-  photo_maharudra_five = 'assets/photo-galary/Maharudra/5_O.jpg';
-  photo_maharudra_six = 'assets/photo-galary/Maharudra/6_O.jpg';
+  photo_maharudra_one = 'assets/photo-galary/Maharudra/maharudra_1.png';
+  photo_maharudra_two = 'assets/photo-galary/Maharudra/maharudra_2.png';
+  photo_maharudra_three = 'assets/photo-galary/Maharudra/maharudra_3.png';
+  photo_maharudra_four = 'assets/photo-galary/Maharudra/maharudra_4.png';
+  photo_maharudra_five = 'assets/photo-galary/Maharudra/maharudra_5.png';
+  photo_maharudra_six = 'assets/photo-galary/Maharudra/maharudra_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 

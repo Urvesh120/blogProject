@@ -28,6 +28,7 @@ export class UserlistComponent implements OnInit {
   closeButton = 'assets/icons/close.png';
   profilePic : any;
   address = "";
+  dateOfBirth = "";
 
   viewProfile = 'assets/icons/view_profile.svg';
   approve = 'assets/icons/check.png';
@@ -48,8 +49,8 @@ export class UserlistComponent implements OnInit {
   isMatchMaking = false;
   selectedAgeForMatchMaking = 0;
   selectedGenderForMatchMaking = 'male';
-  minAge = 0;
-  maxAge = 0;
+  minAge = 18;
+  maxAge = 25;
 
   isOccupational = false;
   selectedOccupation = 'job';
@@ -128,7 +129,8 @@ export class UserlistComponent implements OnInit {
       person.firstName.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
       person.middleName.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
       person.lastName.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
-      person.contact.toLowerCase().includes(this.registeredUserSearch.toLowerCase())
+      person.contact.toLowerCase().includes(this.registeredUserSearch.toLowerCase()) ||
+      person.gender.toLowerCase() == this.registeredUserSearch.toLowerCase()
     );
   }
   
@@ -140,7 +142,8 @@ export class UserlistComponent implements OnInit {
       person.firstName.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
       person.middleName.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
       person.lastName.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
-      person.contact.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase())
+      person.contact.toLowerCase().includes(this.unregisteredUserSearch.toLowerCase()) ||
+      person.gender.toLowerCase() == this.unregisteredUserSearch.toLowerCase()
     );
   }
 
@@ -370,6 +373,7 @@ export class UserlistComponent implements OnInit {
     this.display = false;
     this.http.getUserProfileById(id).subscribe((x : any) => {
       if(x.status == 1){
+        this.address = '';
         this.profileData = x.payload;
         this.isAdmin = localStorage.getItem('isAdmin') == "true" ? true : false;
         var base64 = this.profileData.picture.split(",");
@@ -393,20 +397,22 @@ export class UserlistComponent implements OnInit {
         }
 
         if(!!this.profileData.address){
-          this.address = this.profileData.address + ","
+          this.address = this.address + this.profileData.address + ","
         }
 
         if(!!this.profileData.landmark){
-          this.address = this.profileData.landmark + ","
+          this.address = this.address + this.profileData.landmark + ","
         }
 
         if(!!this.profileData.city){
-          this.address = this.profileData.city + "-"
+          this.address = this.address + this.profileData.city + "-"
         }
 
         if(!!this.profileData.address){
-          this.address = this.profileData.address + "."
+          this.address = this.address + this.profileData.address + "."
         }
+
+        this.dateOfBirth = this.convertDateFormat(this.profileData.dateOfBirth);
         this.display = true;
       }
       else{
@@ -421,4 +427,17 @@ export class UserlistComponent implements OnInit {
       this.loader.hide();
     });
   }
+
+  convertDateFormat(inputDate: string): string {
+    const parts = inputDate.split('-');
+    if (parts.length === 3) {
+      const year = parts[0];
+      const month = parts[1];
+      const day = parts[2];
+      return `${day}-${month}-${year}`;
+    }
+    else{
+      return inputDate;
+    }
+  }  
 }

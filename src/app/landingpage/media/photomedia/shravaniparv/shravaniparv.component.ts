@@ -10,10 +10,12 @@ import Swal from 'sweetalert2';
 export class ShravaniparvComponent implements OnInit {
 
   image = '';
-  photo_shravaniparv_one = 'assets/photo-galary/shravniparv/1_O.jpg';
-  photo_shravaniparv_two = 'assets/photo-galary/shravniparv/2_O.jpg';
-  photo_shravaniparv_three = 'assets/photo-galary/shravniparv/3_O.jpg';
-  photo_shravaniparv_four = 'assets/photo-galary/shravniparv/4_O.jpg';
+  photo_shravaniparv_one = 'assets/photo-galary/shravniparv/shravni_parva_1.png';
+  photo_shravaniparv_two = 'assets/photo-galary/shravniparv/shravni_parva_2.png';
+  photo_shravaniparv_three = 'assets/photo-galary/shravniparv/shravni_parva_3.png';
+  photo_shravaniparv_four = 'assets/photo-galary/shravniparv/shravni_parva_4.png';
+  photo_shravaniparv_five = 'assets/photo-galary/shravniparv/shravni_parva_5.png';
+  photo_shravaniparv_six = 'assets/photo-galary/shravniparv/shravni_parva_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 
@@ -37,6 +39,12 @@ export class ShravaniparvComponent implements OnInit {
         break;
       case 'four':
         this.image = this.photo_shravaniparv_four;
+        break;
+      case 'five':
+        this.image = this.photo_shravaniparv_five;
+        break;
+      case 'six':
+        this.image = this.photo_shravaniparv_six;
         break;
     }
     this.sweetAlertPreview();

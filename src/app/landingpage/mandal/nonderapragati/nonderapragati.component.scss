@@ -79,6 +79,18 @@ $light-blue : #C9C9FD;
   .table td{
     border-top: 0 !important;
     font-size: 17px;
+
+    &.f{
+      width: 45%;
+    }
+    
+    &.s{
+      width: 25%;
+    }
+    
+    &.t{
+      width: 30%;
+    }
   }
 }
 

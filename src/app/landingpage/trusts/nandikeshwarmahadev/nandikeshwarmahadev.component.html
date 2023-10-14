@@ -76,69 +76,37 @@
 </div>
 
 <div class="title rounded">
-  <h2><b>સાત્વિક દાન:</b></h2>
+  <h2><b>{{'daan' | translate}}:</b></h2>
 </div>
 
 <div class="details">
 
   <div class="qr-main-div d-flex flex-column flex-lg-row justify-content-around justify-content-lg-around align-items-center">
     <div class="qr-div text-center">
-      <img src="../../../../assets/images/QR-code--image.png" alt="">
+      <img (click)="imagePreview()" class="img-fluid magnifier-icon" width="250" src="../../../../assets/trust-mandal/SHREE NANDIKESHWAR MAHADEV TRUST.png" alt="">
     </div>
     <div class="form-div w-100">
       <div class="row">
-        <div class="col-12 col-lg-6">
-          <input type="text" class="form-control" placeholder="નામ">
-          <input type="text" class="form-control" placeholder="PAN No. (પી એ એન નં)">
-          <input type="text" class="form-control" placeholder="ઈમેલ">
-          <input type="text" class="form-control" placeholder="ફોન નંબર">
-          <input type="number" class="form-control" placeholder="Total amount">
-        </div>
-        <div class="col-12 col-lg-6 d-flex flex-column align-items-between ustify-content-between">
-          <div>
-            <div class="check-box-div">
-              <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault1"checked>
-              <label class="form-check-label radio-button-label" for="flexRadioDefault1">
-                જીર્ણોદ્ધાર નિમિત્તે
-              </label>
-            </div>
-            <div class="check-box-div">
-              <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault2">
-              <label class="form-check-label radio-button-label" for="flexRadioDefault2">
-                અખંડ દિવા નિમિત્તે
-              </label>
-            </div>
-            <div class="check-box-div">
-              <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault1">
-              <label class="form-check-label radio-button-label" for="flexRadioDefault1">
-                શિવરાત્રી પારણા નિમિત્તે
-              </label>
-            </div>
-            <div class="check-box-div">
-              <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault2">
-              <label class="form-check-label radio-button-label" for="flexRadioDefault2">
-                પૂજા નિમિત્તે
-              </label>
-            </div>
-            <div class="check-box-div">
-              <input class="form-check-input" type="radio" name="nandikeshwarMahadevTrustRadioButton" id="flexRadioDefault1">
-              <label class="form-check-label radio-button-label" for="flexRadioDefault1">
-                અન્ય
-              </label>
-            </div>
-          </div>
-          <div class="submit-button-div text-center mt-auto">
-            <button class="btn btn-success w-50">દાન કરો</button>
-          </div>
-        </div>
+        <div class="col-12 col-md-6"><h2 class="p-0 m-0"><b>{{'account_name' | translate}}</b></h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 mb-3 mb-md-0">{{'account_name_nandikeshwar_mahadev' | translate}}</h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 m-0"><b>{{'account_no' | translate}}</b></h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 mb-3 mb-md-0">{{'account_no_nandikeshwar_mahadev' | translate}}</h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 m-0"><b>{{'bank_name' | translate}}</b></h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 mb-3 mb-md-0">{{'bank_name_content' | translate}}</h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 m-0"><b>{{'branch_name' | translate}}</b></h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 mb-3 mb-md-0">{{'branch_name_content' | translate}}</h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 m-0"><b>{{'ifsc_code' | translate}}</b></h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 mb-3 mb-md-0">BARB0DBALKA</h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 m-0"><b>{{'acount_pan' | translate}}</b></h2></div>
+        <div class="col-12 col-md-6"><h2 class="p-0 mb-3 mb-md-0">AAATS8772P</h2></div>
       </div>
     </div>
   </div>
   
 </div>
 
-<div class="title rounded">
-  <h2><b>દાતાઓ:</b></h2>
+<!-- <div class="title rounded">
+  <h2><b>{{'doners' | translate}}:</b></h2>
 </div>
 
 <div class="container-fluid donators w-100">
@@ -241,7 +209,7 @@
     </div>
 
   </div>
-</div>
+</div> -->
 
 <div class="title rounded">
   <h2><b>{{'trustees' | translate}}:</b></h2>

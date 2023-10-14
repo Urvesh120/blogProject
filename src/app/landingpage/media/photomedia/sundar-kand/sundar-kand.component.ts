@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
 export class SundarKandComponent implements OnInit {
 
   image = '';
-  photo_sundar_kand_one = 'assets/photo-galary/SundarKand/1_O.jpg';
-  photo_sundar_kand_two = 'assets/photo-galary/SundarKand/2_O.jpg';
-  photo_sundar_kand_three = 'assets/photo-galary/SundarKand/3_O.jpg';
-  photo_sundar_kand_four = 'assets/photo-galary/SundarKand/4_O.jpg';
-  photo_sundar_kand_five = 'assets/photo-galary/SundarKand/5_O.jpg';
-  photo_sundar_kand_six = 'assets/photo-galary/SundarKand/6_O.jpg';
+  photo_sundar_kand_one = 'assets/photo-galary/SundarKand/sundar_kand_1.png';
+  photo_sundar_kand_two = 'assets/photo-galary/SundarKand/sundar_kand_2.png';
+  photo_sundar_kand_three = 'assets/photo-galary/SundarKand/sundar_kand_3.png';
+  photo_sundar_kand_four = 'assets/photo-galary/SundarKand/sundar_kand_4.png';
+  photo_sundar_kand_five = 'assets/photo-galary/SundarKand/sundar_kand_5.png';
+  photo_sundar_kand_six = 'assets/photo-galary/SundarKand/sundar_kand_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 

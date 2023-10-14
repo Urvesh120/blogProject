@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
 export class ShardotsavComponent implements OnInit {
 
   image = '';
-  photo_shardotsav_one = 'assets/photo-galary/shardotshav/1_O.jpg';
-  photo_shardotsav_two = 'assets/photo-galary/shardotshav/2_O.jpg';
-  photo_shardotsav_three = 'assets/photo-galary/shardotshav/3_O.jpg';
-  photo_shardotsav_four = 'assets/photo-galary/shardotshav/4_O.jpg';
-  photo_shardotsav_five = 'assets/photo-galary/shardotshav/5_O.jpg';
-  photo_shardotsav_six = 'assets/photo-galary/shardotshav/6_O.jpg';
+  photo_shardotsav_one = 'assets/photo-galary/shardotshav/shardotshv_1.png';
+  photo_shardotsav_two = 'assets/photo-galary/shardotshav/shardotshv_2.png';
+  photo_shardotsav_three = 'assets/photo-galary/shardotshav/shardotshv_3.png';
+  photo_shardotsav_four = 'assets/photo-galary/shardotshav/shardotshv_4.png';
+  photo_shardotsav_five = 'assets/photo-galary/shardotshav/shardotshv_5.png';
+  photo_shardotsav_six = 'assets/photo-galary/shardotshav/shardotshv_6.png';
 
   constructor(private viewportScroller: ViewportScroller) { }
 
