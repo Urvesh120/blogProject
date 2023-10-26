@@ -56,6 +56,9 @@ export class UserlistComponent implements OnInit {
   selectedOccupation = 'job';
   occupationSearch: string = '';
 
+  fathersName= "";
+  motherName= "";
+
   constructor(
     private http : HttpService,
     private loader : LoaderService,
@@ -400,16 +403,22 @@ export class UserlistComponent implements OnInit {
           this.address = this.address + this.profileData.address + ","
         }
 
-        if(!!this.profileData.landmark){
-          this.address = this.address + this.profileData.landmark + ","
-        }
-
         if(!!this.profileData.city){
           this.address = this.address + this.profileData.city + "-"
         }
+        
+        if(!!this.profileData.pinCode){
+          this.address = this.address + this.profileData.pinCode
+        }
 
-        if(!!this.profileData.address){
-          this.address = this.address + this.profileData.address + "."
+        if(!!this.profileData.fathersName){
+          let split = this.profileData.fathersName.split(' ');
+          this.fathersName = split[1] + " " + split[2] + " " + split[0];
+        }
+        
+        if(!!this.profileData.mothersName){
+          let split = this.profileData.mothersName.split(' ');
+          this.motherName = split[1] + " " + split[2] + " " + split[0];
         }
 
         this.dateOfBirth = this.convertDateFormat(this.profileData.dateOfBirth);

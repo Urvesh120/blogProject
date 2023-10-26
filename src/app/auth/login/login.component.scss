@@ -72,8 +72,17 @@ h4.shlok{
 }
 
 @media (min-width: 0px) and (max-width: 578.98px){
-  .form-div{
+  .login-page{
+    margin-top: 77px;
+    padding-top: 50px;
+  }
+
+  .image-div, .form-div{
     width: 100%;
+  }
+
+  .image-div{
+    padding: 0 20px;
   }
 
   h1{
@@ -96,6 +105,11 @@ h4.shlok{
 }
 
 @media (min-width: 576px) and (max-width: 767.98px){
+  .login-page{
+    margin-top: 77px;
+    padding-top: 50px;
+  }
+
   .form-div{
     width: 100%;
   }
@@ -112,6 +126,11 @@ h4.shlok{
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){
+  .login-page{
+    margin-top: 77px;
+    padding-top: 50px;
+  }
+
   .form-div{
     width: 100%;
   }
@@ -128,6 +147,11 @@ h4.shlok{
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px){
+  .login-page{
+    margin-top: 75px;
+    padding-top: 50px;
+  }
+
   .form-div{
     width: 50%;
   }

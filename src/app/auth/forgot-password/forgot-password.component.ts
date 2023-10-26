@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class ForgotPasswordComponent implements OnInit {
   forgotFormGroup: any
   resetPasswordFormGroup: any;
-  forgotPassImg = 'assets/forget-password/forget-password.png';
+  forgotPassImg = 'assets/forget-password/forget-password.svg';
   isVerified = true;
   submitted: any;
   token: any;

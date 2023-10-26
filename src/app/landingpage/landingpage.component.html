@@ -62,12 +62,12 @@
       </ul>
       <div class="buttons d-flex flex-column flex-lg-row flex-fill">
         <div class="language-dropdown">
-          <select (change)="changeLanguage($event)" class="form-control bootstrap-select" aria-label="Default select example">
+          <select (change)="changeLanguage($event)" class="form-control bootstrap-select text-center" aria-label="Default select example">
             <option class="option-class" value="guj" selected>ગુજરાતી</option>
             <option class="option-class" value="eng">English</option>
           </select>
         </div>
-        <div class="text-left">
+        <div class="text-center">
           <button *ngIf="!isLogedIn" [routerLink]="['/auth/login']"class="btn loginButton">Log In</button>
           <button *ngIf="isLogedIn" (click)="logout()" [routerLink]="['/home']" class="btn logoutButton">Log Out</button>
         </div>

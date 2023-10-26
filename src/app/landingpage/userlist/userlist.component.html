@@ -233,7 +233,7 @@
             <td>{{ user.middleName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.gender }}</td>
-            <td>{{ user.contact }}</td>
+            <td>+{{ user.countryCode }} {{ user.contact }}</td>
             <td class="viewProfileCell">
               <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
@@ -267,7 +267,7 @@
             <td>{{ user.middleName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.gender }}</td>
-            <td>{{ user.contact }}</td>
+            <td>+{{ user.countryCode }} {{ user.contact }}</td>
             <td class="viewProfileCell">
               <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
@@ -311,7 +311,7 @@
             <td>{{ user.middleName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.age }}</td>
-            <td>{{ user.contact }}</td>
+            <td>+{{ user.countryCode }} {{ user.contact }}</td>
           </tr>
           <tr *ngIf="filteredBloodGroup.length <= 0">
             <td colspan="5">No data found</td>
@@ -342,7 +342,7 @@
             <td>{{ user.lastName }}</td>
             <td>{{ user.age }}</td>
             <td>{{ user.maritalStatus }}</td>
-            <td>{{ user.contact }}</td>
+            <td>+{{ user.countryCode }} {{ user.contact }}</td>
             <td class="viewProfileCell">
               <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
@@ -378,7 +378,7 @@
             <td>{{ user.lastName }}</td>
             <td>{{ user.occupationName }}</td>
             <td>{{ user.occupationDescription }}</td>
-            <td>{{ user.contact }}</td>
+            <td>+{{ user.countryCode }} {{ user.contact }}</td>
             <td class="viewProfileCell">
               <button class="btn" data-toggle="modal" data-target="#exampleModal" (click)="getProfileData(user.id)">
                 <img [src]="viewProfile" alt="view profile">
@@ -426,11 +426,11 @@
                   </tr>
                   <tr>
                     <th>Father's Name</th>
-                    <td>{{profileData.fathersName}}</td>
+                    <td>{{fathersName}}</td>
                   </tr>
                   <tr>
                     <th>Mother's Name</th>
-                    <td>{{profileData.mothersName}}</td>
+                    <td>{{motherName}}</td>
                   </tr>
                   <tr>
                     <th>Gotra</th>
